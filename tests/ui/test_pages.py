@@ -126,3 +126,19 @@ def test_perseverance_example_and_nearest_points():
     assert "Traverse points" in labels and "Driven distance" in labels
     assert any("Perseverance passed" in s.value or "from the traverse" in w.value
                for s in at.success for w in (at.warning or [s]))
+
+
+def test_globe_planet_to_crater():
+    at = _run("map", "en")
+    _assert_clean(at, "map/globe")
+    r = [x for x in at.radio if x.key == "globe_radio"]
+    assert r, "globe site list missing"
+    r[0].set_value("jezero").run()
+    _assert_clean(at, "globe/jezero")
+    md = " ".join(m.value for m in at.markdown)
+    assert "From the planet to the crater" in md
+    assert any("Zoomed to" in s.value for s in at.success)
+    r = [x for x in at.radio if x.key == "globe_radio"][0]
+    r.set_value("curiosity").run()
+    _assert_clean(at, "globe/curiosity")
+    assert any("outside the loaded DEM" in i.value for i in at.info)

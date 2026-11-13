@@ -52,7 +52,7 @@ Chẩn đoán hệ thống
 Phân tích nhiệm vụ tích hợp
 @descriptions
 Tạo và chọn nhiệm vụ, xem trạng thái đã tính của kế hoạch đang hoạt động.
-Bản đồ 2D tương tác với bản đồ nền NASA Mars Trek và các lớp khoa học, cùng chế độ xem địa hình 3D từ độ cao thực.
+Quả cầu Sao Hỏa 3D xoay được với ảnh thật của NASA và các nơi hạ cánh (nhấn Jezero → địa hình 3D cục bộ), bản đồ 2D tương tác với bản đồ nền NASA Mars Trek và các lớp khoa học, cùng địa hình 3D từ độ cao thực.
 Các đại lượng từ DEM: độ dốc, hướng dốc, độ cong, độ gồ ghề, chênh cao, độ biến thiên và độ phức tạp, kèm mặt cắt và kiểm tra chất lượng.
 Tải, kiểm tra và xác thực DEM Jezero (USGS CTX 20 m) hoặc GeoTIFF của bạn.
 Bốn chiến lược tuyến đường tính bằng A*, Weighted A* hoặc Dijkstra trên đồ thị địa hình 16 lân cận.
@@ -1156,3 +1156,25 @@ Xuất GIS (GeoPackage, CRS Sao Hỏa)
 Cài geopandas và shapely để xuất GIS (requirements-optional.txt).
 {n} lớp ({l}) trong {crs} — mặt cầu Sao Hỏa 2015, tâm hành tinh, kinh độ đông; mở trong QGIS/ArcGIS như dữ liệu Sao Hỏa. GeoJSON không lưu được CRS ngoài Trái Đất: tọa độ trong đó vẫn là kinh/vĩ độ Sao Hỏa.
 Thiếu gói cần thiết
+@globe
+Quả cầu Sao Hỏa
+Quả cầu Sao Hỏa xoay được với ảnh thật của NASA (khảm màu Viking). Kéo để xoay, cuộn để phóng to. Nhấn Jezero (hoặc chọn bên phải) để đi từ hành tinh đến miệng hố: địa hình 3D cục bộ của vùng phân tích sẽ mở bên dưới.
+Dùng kết cấu Mars Trek sắc nét hơn nếu đã tải
+Ảnh khảm NASA/USGS đi kèm (2048×1024, ≈10 km/px) luôn có sẵn khi không có mạng. Kết cấu Mars Trek (4096×2048) có thể tải một lần khi có mạng; sau đó được lưu lại.
+Lưới 30°
+Tải kết cấu Mars Trek sắc nét hơn
+Đang tải ô ảnh NASA Mars Trek…
+Đã tải và lưu kết cấu Mars Trek — quả cầu giờ dùng nó.
+Hiện không truy cập được Mars Trek; vẫn dùng ảnh khảm NASA đi kèm
+Nhấn vào một điểm đánh dấu trên quả cầu
+hoặc chọn một địa điểm
+Quay về toàn hành tinh
+Điểm cam = miệng hố, xanh = nơi hạ cánh; khung vàng = vùng phân tích DEM. Kích thước điểm chỉ để hiển thị; vị trí là chính xác (vĩ độ tâm hành tinh, kinh độ đông).
+Từ hành tinh đến miệng hố: {s}
+{s} nằm ngoài DEM đã nạp: địa hình 3D cục bộ chỉ có cho Jezero (mô-đun 04 có thể nạp DEM khác).
+Đã phóng to tới {s}: địa hình 3D cục bộ từ DEM của vùng phân tích, kèm các tuyến.
+Miệng hố Jezero
+Nơi hạ cánh của Perseverance
+Nơi hạ cánh của Curiosity (Gale)
+Không tìm thấy tệp
+Trong khung vàng: địa hình bóng đổ của DEM đã nạp (vùng phân tích) — chi tiết ở quy mô miệng hố.

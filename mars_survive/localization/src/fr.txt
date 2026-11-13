@@ -52,7 +52,7 @@ Diagnostic du système
 Analyse intégrée de mission
 @descriptions
 Créez et sélectionnez des missions et consultez l’état calculé du plan actif.
-Carte 2D interactive avec les fonds NASA Mars Trek et des couches scientifiques, plus une vue 3D du terrain issue d’altitudes réelles.
+Globe 3D de Mars orientable avec de vraies images NASA et les sites d’atterrissage (cliquez sur Jezero → relief 3D local), carte 2D interactive avec fonds NASA Mars Trek et couches scientifiques, et relief 3D issu d’altitudes réelles.
 Dérivés du MNT : pente, exposition, courbure, rugosité, relief, variabilité et complexité, avec profils et contrôle qualité.
 Chargez, inspectez et validez le MNT de Jezero (USGS CTX 20 m) ou votre propre GeoTIFF.
 Quatre stratégies d’itinéraire calculées par A*, Weighted A* ou Dijkstra sur un graphe de terrain à 16 voisins.
@@ -1156,3 +1156,25 @@ Export SIG (GeoPackage, CRS martien)
 Installez geopandas et shapely pour l’export SIG (requirements-optional.txt).
 {n} couches ({l}) en {crs} — sphère de Mars 2015, planétocentrique, longitude est ; s’ouvre dans QGIS/ArcGIS comme données martiennes. Le GeoJSON ne peut pas stocker un CRS non terrestre : ses coordonnées sont les mêmes lon/lat martiennes.
 Un paquet requis est manquant
+@globe
+Globe de Mars
+Globe de Mars orientable avec de vraies images NASA (mosaïque couleur Viking). Faites glisser pour tourner, molette pour zoomer. Cliquez sur Jezero (ou choisissez-le à droite) pour passer de la planète au cratère : le relief 3D local de la zone d’analyse s’ouvre en dessous.
+Utiliser la texture Mars Trek plus nette si elle a été téléchargée
+La mosaïque NASA/USGS intégrée (2048×1024, ≈10 km/px) est toujours disponible hors ligne. La texture Mars Trek (4096×2048) peut être téléchargée une fois en ligne ; elle est ensuite conservée.
+Grille 30°
+Télécharger la texture Mars Trek plus nette
+Téléchargement des tuiles NASA Mars Trek…
+Texture Mars Trek téléchargée et conservée — le globe l’utilise désormais.
+Mars Trek est inaccessible pour l’instant ; la mosaïque NASA intégrée reste utilisée
+Cliquez sur un repère du globe
+ou choisissez un lieu
+Retour à la planète entière
+Repère orange = cratère, bleu = site d’atterrissage ; cadre jaune = zone d’analyse du MNT. La taille des repères est indicative ; les positions sont exactes (latitude planétocentrique, longitude est).
+De la planète au cratère : {s}
+{s} est hors du MNT chargé : le relief 3D local n’existe que pour Jezero (le module 04 peut charger un autre MNT).
+Zoom sur {s} : relief 3D local du MNT de la zone d’analyse, avec les itinéraires.
+Cratère Jezero
+Site d’atterrissage de Perseverance
+Site d’atterrissage de Curiosity (Gale)
+Fichier introuvable
+Dans le cadre jaune : relief ombré du MNT chargé (zone d’analyse) — le détail à l’échelle du cratère.

@@ -4,6 +4,8 @@
 |---|---|---|---|---|
 | Mars 2020 Science Investigation **CTX DEM mosaic**, Jezero, 20 m/px (`M20_JezeroCrater_CTXDEM_20m.tif` + XML label) | Real | USGS Astrogeology / NASA JPL | elevation → all terrain, hazards, routes | `scripts/download_data.py` or module 04 · catalog: https://astrogeology.usgs.gov/search/map/mars_2020_science_investigation_ctx_dem_mosaic |
 | THEMIS IR Day mosaic 100 m (optional) | Real | USGS / ASU / NASA | thermal layer on the map | URL in `config.THEMIS_DAY_URL` |
+| **Mars Viking colour mosaic, global 925 m** — bundled 2048×1024 copy (`assets/mars/`) | Real (public domain) | USGS Astrogeology / NASA (Viking Orbiter); copy taken from ESA's `planetary-coverage` package (PyPI) | 3-D globe texture, always available offline (module 02) | https://planetarymaps.usgs.gov/mosaic/Mars_Viking_ClrMosaic_global_925m.tif |
+| Viking MDIM 2.1 colour mosaic — Mars Trek tiles stitched to 4096×2048 for the globe | Real | NASA JPL Mars Trek | sharper globe texture, downloaded once when online and cached in `data/cache/` | Trek WMTS level 3 |
 | Viking MDIM 2.1 colour, MOLA shaded relief (WMTS tiles) | Real | NASA JPL **Mars Trek** | basemaps (module 02) | https://trek.nasa.gov/mars/ — loaded live by the browser |
 | Octavia E. Butler landing site 18.4447° N, 77.4508° E | Real (published) | NASA/JPL | default start point | — |
 | Curiosity RAD surface dose 0.64 mSv/day | Real (published) | Hassler et al. 2014, Science 343 | dose model | doi:10.1126/science.1244797 |

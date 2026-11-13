@@ -2,7 +2,7 @@
 
 Each module = user inputs → computation → displayed result + export. Data-class badges (Real / Synthetic / Simulated / User Supplied) are shown in every module header. Method / sources / limitations are also shown at the bottom of each page.
 
-New in 1.1.0: supervised traversability model (07, used by 05), NASA DONKI space weather (13 → 20), Perseverance traverse and raw images (18, layer in 02 and 05), deck.gl 3-D view (02), GIS GeoPackage in the Mars CRS (23).
+New in 1.2.0: 3-D Mars globe with NASA imagery and planet → crater navigation (02). New in 1.1.0: supervised traversability model (07, used by 05), NASA DONKI space weather (13 → 20), Perseverance traverse and raw images (18, layer in 02 and 05), deck.gl 3-D view (02), GIS GeoPackage in the Mars CRS (23).
 
 
 ## Mission
@@ -20,7 +20,7 @@ New in 1.1.0: supervised traversability model (07, used by 05), NASA DONKI space
 
 | # | Module | What the user does → what is computed | Limitation |
 |---|---|---|---|
-| 2 | 🗺️ Mars 2D/3D Map | Interactive 2D map with NASA Mars Trek base maps and scientific layers, plus a 3D terrain view from real elevations. | Base maps are low-resolution global mosaics; the browser's scale tools assume Earth and are not used. |
+| 2 | 🗺️ Mars 2D/3D Map | Rotatable 3D Mars globe with real NASA imagery and landing sites (click Jezero → local 3D terrain), interactive 2D map with NASA Mars Trek base maps and scientific layers, and 3D terrain from real elevations. | Base maps are low-resolution global mosaics; the browser's scale tools assume Earth and are not used. |
 | 3 | ⛰️ Terrain Intelligence | DEM derivatives: slope, aspect, curvature, roughness, relief, variability and complexity, with profiles and quality checks. | A 50 m grid cannot show boulders or small scarps; real local slopes are steeper. |
 | 4 | 🗂️ DEM Data Management | Load, inspect and validate the Jezero DEM (USGS CTX 20 m) or your own GeoTIFF. | Only the analysis window is resampled; vertical accuracy depends on the source DEM. |
 | 5 | 🧭 Route Planning | Four route strategies computed with A*, Weighted A* or Dijkstra on a 16-neighbour terrain graph. | Routes are optimal only for the chosen cost model and grid; they are not certified traverse plans. |

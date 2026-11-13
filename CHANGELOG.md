@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 — 2026-11-14
+* **3-D Mars globe (module 02, first tab):** rotatable/zoomable sphere with real NASA imagery — USGS/NASA Viking colour
+  mosaic bundled (public domain, works offline, checked against known albedo features); optional sharper NASA Mars
+  Trek Viking MDIM 2.1 texture stitched from WMTS tiles and cached; 30° graticule; Jezero crater, Perseverance and
+  Curiosity landing sites (numbered); DEM analysis window. Click Jezero/Perseverance (or choose in the list) → zoom to
+  the crater with DEM hillshade + local 3-D terrain with routes below ("planet → crater"). Curiosity: explained that no
+  local DEM is loaded.
+* 21 new interface strings in 18 languages; module 02 description updated.
+* Tests: 9 unit tests (texture georeference, sites, Trek stitching with injected tiles, failure keeps the bundled
+  texture, deck layers) + 1 UI test (Jezero → 3-D, Curiosity → explanation).
+
 ## 1.1.0 — 2026-11-13
 * **Supervised ML (module 07):** traversability classifier — logistic regression, gradient boosting, PyTorch MLP;
   neighbourhood-only features, spatial block split, validation-based selection, test metrics (P/R/F1/ROC-AUC/

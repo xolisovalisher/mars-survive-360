@@ -29,6 +29,13 @@ results are not certified astronaut-safety guidance and must not be used for rea
 * Without NAIF kernels the analytic Mars24 algorithm is used (Ls accuracy ~0.01°).
 * The AI route assistant explains only computed numbers; free-form questions need `ANTHROPIC_API_KEY` (optional).
 
+* **Globe (module 02):** the bundled NASA texture has ≈10 km/px — individual craters smaller than ~30 km are not
+  visible on the globe; crater-scale detail comes from the DEM hillshade inside the yellow frame. The sharper Mars Trek
+  texture (≈5 km/px) could not be downloaded from the build machine; the stitching code was tested with injected
+  tiles, and the Trek EPSG:4326 tiling (2^(z+1) × 2^z tiles) is assumed from the 2-D map, which uses the same service.
+  deck.gl draws the globe with Earth's radius: angles (lat/lon) are exact, marker sizes are visual only. Site names
+  are shown as numbers on the globe (deck.gl's text layer does not render in its globe view) and in full beside it.
+
 ## Software
 * Translations (17 languages besides English) were produced with AI assistance and should be reviewed by native speakers.
 * PDF reports: Chinese/Japanese/Korean need a system CJK font (Windows: Microsoft YaHei / Yu Gothic / Malgun;

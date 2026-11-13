@@ -1,20 +1,20 @@
-# Test report — v1.1.0
+# Test report — v1.2.0
 
 Generated from `docs/test_results.json`, which `scripts/run_tests.py` writes from pytest's JUnit XML. A failed or
 errored test is never counted as passed. To re-run on your machine: `python scripts/run_tests.py`.
 
-* Run: 2026-11-13 16:23 UTC · mode **full** · duration 69.7 s · Python 3.13.18 on Linux
+* Run: 2026-11-13 22:08 UTC · mode **full** · duration 154.0 s · Python 3.13.18 on Linux
 * Libraries: streamlit 1.67.0, numpy 2.5.3, pandas 3.0.5, scikit-learn 1.9.1, torch 2.15.0, shapely 2.2.0, geopandas 1.2.0, astropy 8.0.2, pydeck 0.9.3, fastapi 0.162.5
-* **Total: 174 tests — 174 passed, 0 failed, 0 errors, 0 skipped**
+* **Total: 184 tests — 184 passed, 0 failed, 0 errors, 0 skipped**
 
 | Suite | Tests | Passed | Failed | Errors | Skipped |
 |---|---|---|---|---|---|
-| unit | 79 | 79 | 0 | 0 | 0 |
+| unit | 88 | 88 | 0 | 0 | 0 |
 | integration | 13 | 13 | 0 | 0 | 0 |
 | functional | 1 | 1 | 0 | 0 | 0 |
 | regression | 8 | 8 | 0 | 0 | 0 |
 | performance | 8 | 8 | 0 | 0 | 0 |
-| ui | 65 | 65 | 0 | 0 | 0 |
+| ui | 66 | 66 | 0 | 0 | 0 |
 
 ## What the suites cover
 
@@ -47,6 +47,13 @@ errored test is never counted as passed. To re-run on your machine: `python scri
   - traverse parsing (longitudes 0–360, invalid GeoJSON);
   - raw-image URL safety;
   - the space-weather flag feeds the risk matrix.
+- **3-D Mars globe** (`test_globe.py`):
+  - the bundled NASA/USGS Viking texture is present and georeferenced (Syrtis Major and Acidalia dark, Hellas
+    and Tharsis bright, and the 180° shift is checked);
+  - landing-site coordinates are correct, and Jezero and Perseverance lie inside the DEM;
+  - Mars Trek stitching works with injected tiles, and the Trek copy is preferred once cached;
+  - a network failure caches nothing and the bundled texture stays in use;
+  - deck layers are built, including the zoom-to-crater DEM overlay.
 - **Geo libraries** (`test_geo_libs.py`):
   - GeoPackage read back in the IAU 49900 Mars CRS, with the route length checked;
   - Shapely point-to-polyline distance;
@@ -71,7 +78,9 @@ review the change first and then run `python -m tests.regression.golden`.
 - **ML training by button** (metrics shown, model saved);
 - the ML weight slider in routing;
 - the **DONKI example** gives the flag *High*, and the risk page then renders;
-- the **Perseverance example** shows traverse metrics and the nearest point.
+- the **Perseverance example** shows traverse metrics and the nearest point;
+- the **globe:** choosing Jezero opens "From the planet to the crater" with the zoom message, and choosing
+  Curiosity shows the no-DEM explanation.
 
 ## Performance (this build machine: 2 vCPU, Linux; SYNTHETIC DEM 300×330 at 50 m)
 | Measurement | Time / size |
@@ -111,9 +120,23 @@ PROJECT_BRIEF part B3 before quoting them.
   - the CSV report omitted tables;
   - the translations stated a wrong "deck.gl from the internet".
 
+- **v1.2.0, globe** (Chrome with SwiftShader WebGL), in Uzbek and Chinese:
+  - the globe renders with the NASA texture and the 30° grid;
+  - clicking the Jezero marker zooms to the crater with the DEM hillshade inside the yellow frame, and the local 3D
+    terrain opens below;
+  - 0 exceptions.
+- **Found and fixed in v1.2.0:**
+  - deck.gl read the data URL as an expression (now passed as a quoted literal);
+  - the text labels did not render in the globe view (replaced by numbered labels on a separate overlay, with the
+    names listed beside the globe);
+  - the globe was too small;
+  - the DEM frame at crater zoom was too small.
+
 ## Not tested here (environment limits)
-- **Real NASA/USGS downloads** (DEM, DONKI, traverse, raw images): the build sandbox cannot reach those
-  servers. The code paths are tested with local files and format examples.
+- **Real NASA/USGS downloads** (DEM, DONKI, traverse, raw images, Mars Trek globe tiles): the build sandbox cannot
+  reach those servers. The code paths are tested with local files, format examples and injected tiles. The bundled
+  NASA globe texture was obtained from PyPI (ESA's planetary-coverage package) and verified against known Mars
+  features.
 - **SPICE with real NAIF kernels:** not tested. The Mars24 and astropy paths are tested.
 - **YOLO training:** `ultralytics` is not installed.
 - **Windows `.bat` scripts:** the build machine runs Linux. The Linux equivalents were executed.

@@ -69,18 +69,21 @@ Interfeysdagi har bir natija belgi bilan ko‘rsatiladi: **Haqiqiy**, **Sintetik
 
    Uning ehtimollik xaritasi to‘g‘ridan-to‘g‘ri marshrut narxiga kiradi. Model va uning zaif tomonlari model
    kartasida yozilgan.
-3. **Haqiqiy roverdan ishonchli dalil.** Marshrutlar Perseverance ning haqiqiy yo‘li bilan solishtiriladi,
+3. **Sayyoradan kraterga.** Haqiqiy NASA tasviri (Viking rangli mozaikasi, ilovaga joylangan, shuning uchun har
+   doim ochiladi) bilan aylantiriladigan 3D Mars globusi Jezero, Perseverance va Curiosity ni ko‘rsatadi; bir bosish
+   kraterga yaqinlashtiradi va marshrutlar bilan mahalliy 3D relyefni ochadi.
+4. **Haqiqiy roverdan ishonchli dalil.** Marshrutlar Perseverance ning haqiqiy yo‘li bilan solishtiriladi,
    eng yaqin solning xom tasvirlari esa ekipajga joy qanday ko‘rinishini ko‘rsatadi.
-4. **«Chiqish / chiqmaslik» qarorida kosmik ob-havo.** DONKI hodisalari, jumladan Marsga yetib kelishi prognoz
+5. **«Chiqish / chiqmaslik» qarorida kosmik ob-havo.** DONKI hodisalari, jumladan Marsga yetib kelishi prognoz
    qilingan CME, xavf matritsasidagi radiatsiya xavfini oshiradi.
-5. **Halollik — asosiy tamoyil.** Ma’lumot sinflari hamma joyda ko‘rsatiladi. Haqiqiy ma’lumot yuklanmaguncha
+6. **Halollik — asosiy tamoyil.** Ma’lumot sinflari hamma joyda ko‘rsatiladi. Haqiqiy ma’lumot yuklanmaguncha
    **SYNTHETIC DEM** belgisi turadi, va hech bir sintetik raqam Mars o‘lchovi sifatida ko‘rsatilmaydi.
-6. **Jamoa uchun qulay.**
+7. **Jamoa uchun qulay.**
    - 27 ta ishlaydigan modul, REST API va 18 ta interfeys tili, jumladan o‘ngdan chapga yoziladigan arab tili.
    - PDF, HTML, CSV, JSON va Excel hisobotlari.
    - Mars koordinata tizimi IAU_2015:49900 dagi GIS GeoPackage.
    - Windows va Linux uchun bir bosishda ishga tushirish skriptlari.
-   - 174 ta avtomatik test, barchasi o‘tadi.
+   - 184 ta avtomatik test, barchasi o‘tadi.
 
 ### 4. Mahsulot kelajakdagi Mars tadqiqotchilariga qanday yordam beradi?
 - **Chiqishdan oldin (yashash modulida):**

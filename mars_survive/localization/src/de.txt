@@ -52,7 +52,7 @@ Systemdiagnose
 Integrierte Missionsanalyse
 @descriptions
 Missionen anlegen und auswählen und den berechneten Zustand des aktiven Plans sehen.
-Interaktive 2D-Karte mit NASA-Mars-Trek-Basiskarten und wissenschaftlichen Ebenen sowie 3D-Geländeansicht aus echten Höhen.
+Drehbarer 3D-Marsglobus mit echten NASA-Bildern und Landeplätzen (Jezero anklicken → lokales 3D-Gelände), interaktive 2D-Karte mit NASA-Mars-Trek-Grundkarten und wissenschaftlichen Ebenen sowie 3D-Gelände aus echten Höhen.
 DGM-Ableitungen: Hangneigung, Exposition, Krümmung, Rauheit, Relief, Variabilität und Komplexität, mit Profilen und Qualitätsprüfung.
 Jezero-DGM (USGS CTX 20 m) oder eigenes GeoTIFF laden, prüfen und validieren.
 Vier Routenstrategien mit A*, Weighted A* oder Dijkstra auf einem Geländegraphen mit 16 Nachbarn.
@@ -1156,3 +1156,25 @@ GIS-Export (GeoPackage, Mars-CRS)
 Für den GIS-Export geopandas und shapely installieren (requirements-optional.txt).
 {n} Ebenen ({l}) in {crs} — Mars-2015-Kugel, planetozentrisch, östliche Länge; öffnet sich in QGIS/ArcGIS als Marsdaten. GeoJSON kann kein nicht-irdisches CRS speichern: die Koordinaten sind dieselben Mars-Längen/Breiten.
 Ein benötigtes Paket fehlt
+@globe
+Marsglobus
+Drehbarer Marsglobus mit echten NASA-Bildern (Viking-Farbmosaik). Ziehen zum Drehen, Mausrad zum Zoomen. Auf Jezero klicken (oder rechts wählen), um vom Planeten zum Krater zu wechseln: darunter öffnet sich das lokale 3D-Gelände des Analysefensters.
+Schärfere Mars-Trek-Textur verwenden, falls heruntergeladen
+Das mitgelieferte NASA/USGS-Mosaik (2048×1024, ≈10 km/px) ist immer offline verfügbar. Die Mars-Trek-Textur (4096×2048) kann einmal online geladen werden und wird dann gespeichert.
+Gitter 30°
+Schärfere Mars-Trek-Textur laden
+NASA-Mars-Trek-Kacheln werden geladen…
+Mars-Trek-Textur geladen und gespeichert — der Globus verwendet sie jetzt.
+Mars Trek ist gerade nicht erreichbar; das mitgelieferte NASA-Mosaik bleibt in Gebrauch
+Auf eine Markierung am Globus klicken
+oder einen Ort wählen
+Zurück zum ganzen Planeten
+Orange Markierung = Krater, blau = Landeplatz; gelber Rahmen = DEM-Analysefenster. Markergrößen sind nur optisch; Positionen sind exakt (planetozentrische Breite, östliche Länge).
+Vom Planeten zum Krater: {s}
+{s} liegt außerhalb des geladenen DEM: lokales 3D-Gelände gibt es nur für Jezero (Modul 04 kann ein anderes DEM laden).
+Gezoomt auf {s}: lokales 3D-Gelände aus dem DEM des Analysefensters, mit den Routen.
+Krater Jezero
+Landeplatz von Perseverance
+Landeplatz von Curiosity (Gale)
+Datei nicht gefunden
+Im gelben Rahmen: Schummerung des geladenen DEM (Analysefenster) — Details im Kratermaßstab.

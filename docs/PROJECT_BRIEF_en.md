@@ -68,18 +68,21 @@ Every result in the interface carries a badge: **Real**, **Synthetic**, **Simula
 
    Its probability map feeds directly into the route cost. The model and its weaknesses are documented in a
    model card.
-3. **Ground truth from a real rover.** Routes are compared with Perseverance's real path, and the raw images of
+3. **From the planet to the crater.** A rotatable 3-D Mars globe with real NASA imagery (Viking colour mosaic,
+   bundled so it always opens) shows Jezero, Perseverance and Curiosity; one click zooms to the crater and opens the
+   local 3-D terrain with the planned routes.
+4. **Ground truth from a real rover.** Routes are compared with Perseverance's real path, and the raw images of
    the nearest sol show the crew what the terrain looks like.
-4. **Space weather in the go/no-go decision.** DONKI events, including CME arrivals forecast for Mars, raise
+5. **Space weather in the go/no-go decision.** DONKI events, including CME arrivals forecast for Mars, raise
    the radiation risk in the risk matrix.
-5. **Honesty by design.** Data classes are shown everywhere. A **SYNTHETIC DEM** badge appears until real data
+6. **Honesty by design.** Data classes are shown everywhere. A **SYNTHETIC DEM** badge appears until real data
    are loaded, and no synthetic number is presented as a Mars measurement.
-6. **Practical for a team.**
+7. **Practical for a team.**
    - 27 working modules, a REST API and 18 interface languages, with Arabic right-to-left.
    - Reports in PDF, HTML, CSV, JSON and Excel.
    - A GIS GeoPackage in the Mars coordinate system IAU_2015:49900.
    - Windows and Linux one-click scripts.
-   - 174 automated tests, all passing.
+   - 184 automated tests, all passing.
 
 ### 4. How will it help future Mars explorers?
 - **Before the EVA (in the habitat):**

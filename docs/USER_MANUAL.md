@@ -42,6 +42,11 @@
 * **18 Science Targets → Perseverance** — load the traverse (online / saved GeoJSON / synthetic example) → cyan
   dashed layer on maps 02, 05, 18; share of your route near the traverse; nearest traverse point and sol for every
   route point and target; *What the astronaut will see*: raw images of that sol (online feed or saved JSON).
+* **02 Map → Mars globe** (first tab) — rotatable Mars with real NASA imagery (Viking colour mosaic, bundled, works
+  offline); 1 = Jezero crater, 2 = Perseverance landing site, 3 = Curiosity landing site; yellow frame = DEM analysis
+  window. Click Jezero or Perseverance (or pick it in the list) → the globe zooms to the crater with the DEM hillshade,
+  and the local 3-D terrain with routes opens below. *Parameters → Download sharper Mars Trek texture* (online, once)
+  replaces the texture with a 4096×2048 Mars Trek mosaic; the bundled one remains the fallback.
 * **02 Map → 3D (deck.gl)** — rotatable point-cloud terrain with routes and the traverse, true Mars scale.
 * **23 Reports → GIS export** — GeoPackage / GeoJSON with routes, targets, hazards and traverse in IAU_2015:49900.
 * **12 SPICE** — Mars time, season and Sun position (Mars24; SPICE when kernels are present).

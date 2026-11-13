@@ -52,7 +52,7 @@ mod.diagnostics = System Diagnostics
 mod.integration = Integrated Mission Intelligence
 @descriptions
 desc.dashboard = Create and select missions and see the computed status of the active plan.
-desc.map = Interactive 2D map with NASA Mars Trek base maps and scientific layers, plus a 3D terrain view from real elevations.
+desc.map = Rotatable 3D Mars globe with real NASA imagery and landing sites (click Jezero → local 3D terrain), interactive 2D map with NASA Mars Trek base maps and scientific layers, and 3D terrain from real elevations.
 desc.terrain = DEM derivatives: slope, aspect, curvature, roughness, relief, variability and complexity, with profiles and quality checks.
 desc.dem = Load, inspect and validate the Jezero DEM (USGS CTX 20 m) or your own GeoTIFF.
 desc.route = Four route strategies computed with A*, Weighted A* or Dijkstra on a 16-neighbour terrain graph.
@@ -1156,3 +1156,25 @@ rep.gis = GIS export (GeoPackage, Mars CRS)
 rep.gis_missing = Install geopandas and shapely for GIS export (requirements-optional.txt).
 rep.gis_note = {n} layers ({l}) in {crs} — Mars 2015 sphere, planetocentric, east longitude; opens in QGIS/ArcGIS as Mars data. GeoJSON cannot store a non-Earth CRS: its coordinates are the same Mars lon/lat.
 err.missing_pkg = A required package is missing
+@globe
+map.tab_globe = Mars globe
+globe.intro = Rotatable Mars globe with real NASA imagery (Viking colour mosaic). Drag to rotate, scroll to zoom. Click Jezero (or choose it on the right) to go from the planet to the crater: the local 3-D terrain of the analysis window opens below.
+globe.prefer_trek = Use the sharper Mars Trek texture if it was downloaded
+globe.prefer_trek_help = The bundled NASA/USGS mosaic (2048×1024, ≈10 km/px) is always available offline. A Mars Trek texture (4096×2048) can be downloaded once when the computer is online; it is then cached.
+globe.grid = Grid 30°
+globe.fetch_trek = Download sharper Mars Trek texture
+globe.fetching = Downloading NASA Mars Trek tiles…
+globe.trek_ok = Mars Trek texture downloaded and cached — the globe now uses it.
+globe.trek_failed = Mars Trek is not reachable now; the bundled NASA mosaic stays in use
+globe.click_hint = Click a marker on the globe
+globe.or_choose = or choose a place
+globe.back = Back to the whole planet
+globe.note = Orange marker = crater, blue = landing site; yellow frame = DEM analysis window. Marker sizes are visual only; positions are exact (planetocentric latitude, east longitude).
+globe.to_crater = From the planet to the crater: {s}
+globe.no_dem = {s} is outside the loaded DEM: local 3-D terrain is available only for Jezero (module 04 can load another DEM).
+globe.zoomed = Zoomed to {s}: local 3-D terrain from the DEM of the analysis window, with the routes.
+globe.site.jezero = Jezero crater
+globe.site.perseverance = Perseverance landing site
+globe.site.curiosity = Curiosity landing site (Gale)
+err.missing_file = File not found
+globe.dem_overlay = Over the yellow frame: hillshade of the loaded DEM (analysis window) — the crater-scale detail.

@@ -17,7 +17,11 @@ def render(ctx):
     tr, ss = ctx.tr, st.session_state
     ui.header("map", tr, [ctx.g.data_class, "Real"])
     routes = state.ensure_routes(ctx)
-    t2d, t3d, tdk = st.tabs(["🗺️ " + tr("map.tab2d"), "🏔️ " + tr("map.tab3d"), "🛰️ " + tr("map.tab_deck")])
+    tgl, t2d, t3d, tdk = st.tabs(["🌍 " + tr("map.tab_globe"), "🗺️ " + tr("map.tab2d"), "🏔️ " + tr("map.tab3d"),
+                                  "🛰️ " + tr("map.tab_deck")])
+    with tgl:
+        from frontend.components import globe_tab
+        globe_tab.render(ctx, routes, ui_surface)
     with t2d:
         with ui.params(tr):
             c1, c2, c3 = st.columns([2, 2, 2])

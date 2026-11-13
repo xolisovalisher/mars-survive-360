@@ -52,7 +52,7 @@ Tizim diagnostikasi
 Integratsiyalashgan missiya tahlili
 @descriptions
 Missiyalarni yarating va tanlang, faol rejaning hisoblangan holatini ko‘ring.
-NASA Mars Trek asosiy xaritalari va ilmiy qatlamlar bilan interaktiv 2D xarita hamda haqiqiy balandliklardan 3D relyef.
+Haqiqiy NASA tasvirlari va qo‘nish joylari bilan aylantiriladigan 3D Mars globusi (Jezero ni bosing → mahalliy 3D relyef), NASA Mars Trek asos xaritalari va ilmiy qatlamlar bilan interaktiv 2D xarita hamda haqiqiy balandliklardan 3D relyef.
 DEM hosilalari: qiyalik, ekspozitsiya, egrilik, notekislik, relyef, o‘zgaruvchanlik va murakkablik, profil va sifat tekshiruvi bilan.
 Jezero DEM (USGS CTX 20 m) yoki o‘z GeoTIFF faylingizni yuklang, tekshiring va baholang.
 16 qo‘shnili relyef grafida A*, Weighted A* yoki Dijkstra bilan hisoblangan to‘rtta marshrut strategiyasi.
@@ -1156,3 +1156,25 @@ GIS eksport (GeoPackage, Mars CRS)
 GIS eksport uchun geopandas va shapely ni o‘rnating (requirements-optional.txt).
 {n} ta qatlam ({l}), {crs} da — Mars 2015 sferasi, planetotsentrik, sharqiy uzunlik; QGIS/ArcGIS da Mars ma’lumoti sifatida ochiladi. GeoJSON Yerdan boshqa CRS ni saqlay olmaydi: undagi koordinatalar xuddi shu Mars uzunlik/kenglik.
 Kerakli paket o‘rnatilmagan
+@globe
+Mars globusi
+Haqiqiy NASA tasviri (Viking rangli mozaikasi) bilan aylantiriladigan Mars globusi. Aylantirish uchun suring, kattalashtirish uchun g‘ildirakni aylantiring. Sayyoradan kraterga o‘tish uchun Jezero ni bosing (yoki o‘ngdan tanlang): pastda tahlil hududining mahalliy 3D relyefi ochiladi.
+Agar yuklab olingan bo‘lsa, aniqroq Mars Trek tasviridan foydalanish
+Ichki NASA/USGS mozaikasi (2048×1024, ≈10 km/piksel) har doim oflayn mavjud. Mars Trek tasvirini (4096×2048) kompyuter internetga ulanganda bir marta yuklab olish mumkin; keyin u saqlanadi.
+30° to‘r
+Aniqroq Mars Trek tasvirini yuklab olish
+NASA Mars Trek plitkalari yuklanmoqda…
+Mars Trek tasviri yuklab olindi va saqlandi — globus endi undan foydalanadi.
+Mars Trek hozir ochilmayapti; ichki NASA mozaikasi ishlatilishda davom etadi
+Globusdagi belgini bosing
+yoki joyni tanlang
+Butun sayyoraga qaytish
+To‘q sariq belgi — krater, ko‘k — qo‘nish joyi; sariq ramka — DEM tahlil hududi. Belgilar o‘lchami faqat ko‘rinish uchun; joylashuvi aniq (planetotsentrik kenglik, sharqiy uzunlik).
+Sayyoradan kraterga: {s}
+{s} yuklangan DEM dan tashqarida: mahalliy 3D relyef faqat Jezero uchun mavjud (04-modulda boshqa DEM yuklash mumkin).
+{s} ga yaqinlashildi: tahlil hududi DEM idan mahalliy 3D relyef, marshrutlar bilan.
+Jezero krateri
+Perseverance qo‘nish joyi
+Curiosity qo‘nish joyi (Gale)
+Fayl topilmadi
+Sariq ramka ichida: yuklangan DEM ning soyali relyefi (tahlil hududi) — krater miqyosidagi tafsilot.

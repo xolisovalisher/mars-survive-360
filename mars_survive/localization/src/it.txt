@@ -52,7 +52,7 @@ Diagnostica di sistema
 Analisi integrata della missione
 @descriptions
 Crea e seleziona missioni e visualizza lo stato calcolato del piano attivo.
-Mappa 2D interattiva con basi NASA Mars Trek e livelli scientifici, più una vista 3D del terreno da quote reali.
+Globo 3D di Marte ruotabile con immagini reali NASA e siti di atterraggio (clic su Jezero → rilievo 3D locale), mappa 2D interattiva con mappe di base NASA Mars Trek e livelli scientifici, e rilievo 3D da quote reali.
 Derivati del DEM: pendenza, esposizione, curvatura, rugosità, rilievo, variabilità e complessità, con profili e controlli di qualità.
 Carica, ispeziona e convalida il DEM di Jezero (USGS CTX 20 m) o un tuo GeoTIFF.
 Quattro strategie di percorso calcolate con A*, Weighted A* o Dijkstra su un grafo del terreno a 16 vicini.
@@ -1156,3 +1156,25 @@ Esportazione GIS (GeoPackage, CRS di Marte)
 Installare geopandas e shapely per l’esportazione GIS (requirements-optional.txt).
 {n} livelli ({l}) in {crs} — sfera di Marte 2015, planetocentrica, longitudine est; si apre in QGIS/ArcGIS come dati di Marte. Il GeoJSON non può memorizzare un CRS non terrestre: le coordinate sono le stesse lon/lat di Marte.
 Manca un pacchetto necessario
+@globe
+Globo di Marte
+Globo di Marte ruotabile con immagini reali NASA (mosaico a colori Viking). Trascinare per ruotare, rotellina per lo zoom. Fare clic su Jezero (o sceglierlo a destra) per passare dal pianeta al cratere: sotto si apre il rilievo 3D locale della finestra di analisi.
+Usare la texture Mars Trek più nitida se scaricata
+Il mosaico NASA/USGS incluso (2048×1024, ≈10 km/px) è sempre disponibile offline. La texture Mars Trek (4096×2048) può essere scaricata una volta online; poi resta salvata.
+Griglia 30°
+Scarica texture Mars Trek più nitida
+Download dei tasselli NASA Mars Trek…
+Texture Mars Trek scaricata e salvata — il globo ora la usa.
+Mars Trek non è raggiungibile ora; resta in uso il mosaico NASA incluso
+Fare clic su un segnaposto del globo
+oppure scegliere un luogo
+Torna all’intero pianeta
+Segnaposto arancione = cratere, blu = sito di atterraggio; cornice gialla = finestra di analisi del DEM. Le dimensioni dei segnaposto sono solo visive; le posizioni sono esatte (latitudine planetocentrica, longitudine est).
+Dal pianeta al cratere: {s}
+{s} è fuori dal DEM caricato: il rilievo 3D locale esiste solo per Jezero (il modulo 04 può caricare un altro DEM).
+Zoom su {s}: rilievo 3D locale dal DEM della finestra di analisi, con i percorsi.
+Cratere Jezero
+Sito di atterraggio di Perseverance
+Sito di atterraggio di Curiosity (Gale)
+File non trovato
+Nella cornice gialla: rilievo ombreggiato del DEM caricato (finestra di analisi) — dettaglio alla scala del cratere.

@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 APP_NAME = "MARS SURVIVE 360"
 APP_FULL_NAME = "Interplanetary Survival Guide — Martian Mission Planning & Intelligence Platform"
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 
 
 def _load_dotenv(path: Path) -> None:

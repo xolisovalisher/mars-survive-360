@@ -53,7 +53,8 @@ git push -u origin main
 1. Switch language to **O‘zbekcha** (top-right).
 2. **05 Route Planning** → click the map to set start/goal (or keep the defaults) → *Compute routes* → four routes
    (shortest, lowest slope, lowest hazard, balanced) with distance, slope, hazard, energy.
-3. **02 Mars 2D/3D Map** → 2D layers (NASA Trek basemaps, hillshade, slope, hazards; THEMIS thermal when loaded) and the **3D terrain** tab.
+3. **02 Mars 2D/3D Map** → **Mars globe** (real NASA imagery, works offline): click Jezero → the globe zooms to the
+   crater and the local 3D terrain opens; then 2D layers (NASA Trek basemaps, hillshade, slope, hazards; THEMIS thermal when loaded) and the **3D terrain** tab.
 4. **15 Oxygen** / **16 Energy** / **17 Timeline** → budgets, depletion forecast, turn-back point.
 5. **07 AI → Traversability model** → *Train and evaluate* → metrics on unseen blocks; back in **05** set the
    *ML weight* and recompute.

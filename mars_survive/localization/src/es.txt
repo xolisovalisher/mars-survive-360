@@ -52,7 +52,7 @@ Diagnóstico del sistema
 Inteligencia integrada de misión
 @descriptions
 Cree y seleccione misiones y vea el estado calculado del plan activo.
-Mapa 2D interactivo con mapas base de NASA Mars Trek y capas científicas, más una vista 3D del terreno con elevaciones reales.
+Globo 3D de Marte giratorio con imágenes reales de la NASA y lugares de aterrizaje (pulse Jezero → relieve 3D local), mapa 2D interactivo con mapas base de NASA Mars Trek y capas científicas, y relieve 3D a partir de elevaciones reales.
 Derivados del DEM: pendiente, orientación, curvatura, rugosidad, relieve, variabilidad y complejidad, con perfiles y control de calidad.
 Cargue, inspeccione y valide el DEM de Jezero (USGS CTX 20 m) o su propio GeoTIFF.
 Cuatro estrategias de ruta calculadas con A*, Weighted A* o Dijkstra sobre un grafo de terreno de 16 vecinos.
@@ -1156,3 +1156,25 @@ Exportación SIG (GeoPackage, CRS de Marte)
 Instale geopandas y shapely para la exportación SIG (requirements-optional.txt).
 {n} capas ({l}) en {crs} — esfera de Marte 2015, planetocéntrica, longitud este; se abre en QGIS/ArcGIS como datos de Marte. GeoJSON no puede guardar un CRS no terrestre: sus coordenadas son las mismas lon/lat de Marte.
 Falta un paquete necesario
+@globe
+Globo de Marte
+Globo de Marte giratorio con imágenes reales de la NASA (mosaico en color Viking). Arrastre para girar, rueda para acercar. Pulse Jezero (o elíjalo a la derecha) para pasar del planeta al cráter: abajo se abre el relieve 3D local de la ventana de análisis.
+Usar la textura más nítida de Mars Trek si se descargó
+El mosaico NASA/USGS incluido (2048×1024, ≈10 km/px) está siempre disponible sin conexión. La textura de Mars Trek (4096×2048) puede descargarse una vez con conexión; luego queda guardada.
+Cuadrícula 30°
+Descargar textura más nítida de Mars Trek
+Descargando teselas de NASA Mars Trek…
+Textura de Mars Trek descargada y guardada — el globo ya la usa.
+Mars Trek no está accesible ahora; se sigue usando el mosaico NASA incluido
+Pulse un marcador en el globo
+o elija un lugar
+Volver al planeta completo
+Marcador naranja = cráter, azul = lugar de aterrizaje; marco amarillo = ventana de análisis del DEM. El tamaño de los marcadores es solo visual; las posiciones son exactas (latitud planetocéntrica, longitud este).
+Del planeta al cráter: {s}
+{s} está fuera del DEM cargado: el relieve 3D local solo existe para Jezero (el módulo 04 puede cargar otro DEM).
+Acercado a {s}: relieve 3D local del DEM de la ventana de análisis, con las rutas.
+Cráter Jezero
+Lugar de aterrizaje de Perseverance
+Lugar de aterrizaje de Curiosity (Gale)
+Archivo no encontrado
+Dentro del marco amarillo: relieve sombreado del DEM cargado (ventana de análisis) — detalle a escala de cráter.

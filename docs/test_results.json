@@ -1,17 +1,17 @@
 {
-  "when": "2026-11-13 16:23 UTC",
+  "when": "2026-11-13 22:08 UTC",
   "mode": "full",
-  "duration_s": 69.7,
+  "duration_s": 154.0,
   "exit_code": 0,
-  "tests": 174,
-  "passed": 174,
+  "tests": 184,
+  "passed": 184,
   "failed": 0,
   "errors": 0,
   "skipped": 0,
   "by_suite": {
     "unit": {
-      "tests": 79,
-      "passed": 79,
+      "tests": 88,
+      "passed": 88,
       "failed": 0,
       "errors": 0,
       "skipped": 0
@@ -45,8 +45,8 @@
       "skipped": 0
     },
     "ui": {
-      "tests": 65,
-      "passed": 65,
+      "tests": 66,
+      "passed": 66,
       "failed": 0,
       "errors": 0,
       "skipped": 0
