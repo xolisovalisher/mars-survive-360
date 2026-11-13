@@ -1,0 +1,1158 @@
+@app
+Cẩm nang sinh tồn liên hành tinh — Nền tảng lập kế hoạch và phân tích nhiệm vụ sao Hỏa
+Hố va chạm Jezero
+Nhiệm vụ
+Khu vực
+Dữ liệu
+Hệ thống
+Ngôn ngữ
+Điều khiển nhiệm vụ
+Hệ thống
+trực tuyến
+Nguồn dữ liệu
+Cập nhật
+Tính toán
+lỗi
+Cảnh báo
+Đang dùng DEM TỔNG HỢP
+@groups
+Nhiệm vụ
+Không gian địa lý
+AI & dẫn đường
+Liên lạc & không gian
+Phi hành đoàn & tài nguyên
+Dữ liệu & hệ thống
+@modules
+Bảng điều khiển nhiệm vụ
+Bản đồ sao Hỏa 2D/3D
+Phân tích địa hình
+Quản lý dữ liệu DEM
+Lập kế hoạch tuyến đường
+Phát hiện nguy hiểm
+AI / Thị giác máy tính
+Dẫn đường tự động
+Phân tích dẫn đường
+Hệ thống liên lạc
+Chuyển tiếp & mạng
+SPICE & hình học quỹ đạo
+Môi trường MEDA
+Đo xa bộ đồ
+Quản lý oxy
+Quản lý năng lượng
+Lịch trình nhiệm vụ
+Mục tiêu khoa học
+Mô phỏng nhiệm vụ
+Đánh giá rủi ro
+Nhập dữ liệu
+Chất lượng & nguồn gốc dữ liệu
+Báo cáo nhiệm vụ
+Hệ thống đa ngôn ngữ
+Cài đặt
+Chẩn đoán hệ thống
+Phân tích nhiệm vụ tích hợp
+@descriptions
+Tạo và chọn nhiệm vụ, xem trạng thái đã tính của kế hoạch đang hoạt động.
+Bản đồ 2D tương tác với bản đồ nền NASA Mars Trek và các lớp khoa học, cùng chế độ xem địa hình 3D từ độ cao thực.
+Các đại lượng từ DEM: độ dốc, hướng dốc, độ cong, độ gồ ghề, chênh cao, độ biến thiên và độ phức tạp, kèm mặt cắt và kiểm tra chất lượng.
+Tải, kiểm tra và xác thực DEM Jezero (USGS CTX 20 m) hoặc GeoTIFF của bạn.
+Bốn chiến lược tuyến đường tính bằng A*, Weighted A* hoặc Dijkstra trên đồ thị địa hình 16 lân cận.
+Phát hiện theo quy tắc địa hình dốc, gồ ghề, nhiều đá, mép hố, gián đoạn và chưa biết.
+Mô hình khả năng đi qua địa hình có giám sát (huấn luyện và kiểm tra tại đây), thị giác máy tính trên ảnh bề mặt, đơn vị địa hình không giám sát và trợ lý giải thích.
+Định vị không GPS: đo hành trình bánh xe, con quay, đo hành trình thị giác và mốc, hợp nhất bằng EKF.
+So sánh độ chính xác và độ bất định của các cấu hình dẫn đường bằng Monte Carlo.
+Ngân sách đường truyền vô tuyến và tầm nhìn thẳng theo địa hình giữa phi hành đoàn và căn cứ.
+Cửa sổ liên lạc với tàu quỹ đạo và luồng dữ liệu lưu-và-chuyển.
+Giờ sao Hỏa, mùa và vị trí Mặt Trời (Mars24), dùng NASA SPICE khi có kernel.
+Nhập và phân tích dữ liệu thời tiết kiểu MEDA: thống kê, bất thường và mức môi trường cho EVA.
+Mô phỏng vật lý vật tư tiêu hao của bộ đồ với cảnh báo và phát hiện bất thường.
+Ngân sách oxy của EVA, dự báo cạn kiệt và dự trữ tối thiểu để quay về.
+Năng lượng kéo của xe tự hành, cân bằng công suất và trạng thái pin cho từng tuyến.
+Các giai đoạn nhiệm vụ, biểu đồ Gantt và tài nguyên theo thời gian.
+Danh mục mục tiêu khoa học gắn với tuyến đường.
+Phát lại từng bước kế hoạch trong kịch bản bình thường và khẩn cấp.
+Ma trận khả năng × tác động tính từ kết quả của nền tảng.
+Tải lên và xác thực an toàn GeoTIFF, XML/PDS4, CSV, JSON/GeoJSON và hình ảnh.
+Nguồn gốc, phân loại và chất lượng của từng bộ dữ liệu đang dùng.
+Báo cáo nhiệm vụ dạng PDF, HTML, CSV, JSON và Excel.
+Dịch vụ dịch thuật trung tâm với 18 ngôn ngữ, ngôn ngữ dự phòng và hỗ trợ viết từ phải sang trái.
+Ngôn ngữ, giao diện, đơn vị, bản đồ và đường dẫn.
+Thư viện, mô-đun, dữ liệu, tài nguyên, kiểm thử và nhật ký.
+Chạy mọi mô-đun cho một cặp điểm đầu/điểm đích và giải thích tuyến được khuyến nghị.
+@limitations
+Chỉ số chỉ tốt bằng mô hình phía sau; dữ liệu tổng hợp hoặc mô phỏng đều được ghi nhãn.
+Bản đồ nền là khảm toàn cầu độ phân giải thấp; công cụ tỷ lệ của trình duyệt giả định Trái Đất nên không được dùng.
+Lưới 50 m không thể hiện tảng đá hay vách nhỏ; độ dốc cục bộ thực tế lớn hơn.
+Chỉ cửa sổ phân tích được lấy mẫu lại; độ chính xác theo phương đứng phụ thuộc DEM gốc.
+Tuyến đường chỉ tối ưu với mô hình chi phí và lưới đã chọn; không phải kế hoạch di chuyển được chứng nhận.
+Ngưỡng là giả định lập kế hoạch; đá nhỏ hơn một ô không thấy được bằng phương pháp này.
+Bộ phát hiện heuristic không phải mô hình đã huấn luyện; YOLO chỉ cho kết quả với trọng số huấn luyện thật.
+Dữ liệu cảm biến là mô phỏng; trượt bánh thực tế và ảnh hưởng địa hình có thể lớn hơn.
+Thống kê Monte Carlo mô tả mô hình mô phỏng, không phải xe tự hành thật.
+Giá trị đường truyền chỉ mang tính minh họa; đa đường, giản đồ ăng-ten và bão bụi được đơn giản hóa.
+Quỹ đạo là đường tròn hai vật thể tổng hợp, không phải lịch thiên văn của NASA.
+Không có kernel thì dùng thuật toán giải tích Mars24 (độ chính xác ~0,01° với Ls).
+Bộ dữ liệu mẫu là tổng hợp; dải EVA là giả định lập kế hoạch.
+Mô hình bộ đồ chung; không kết nối với bộ đồ thật nào của NASA.
+Sinh lý Trái Đất được quy đổi sang sao Hỏa; chi phí trao đổi chất thực tế trong bộ đồ dao động lớn.
+Thông số xe tự hành mang tính minh họa; tải nhiệt và tải ban đêm được đơn giản hóa.
+Thời gian theo mô hình; chưa tính các ràng buộc vận hành.
+Tọa độ gần đúng cần được kiểm tra trên NASA Mars Trek.
+Sự kiện và quy tắc quyết định là ví dụ đơn giản hóa của quy tắc bay.
+Điểm số phụ thuộc ngưỡng và giả định đã ghi; không phải chứng nhận an toàn.
+Xác thực kiểm tra định dạng và cấu trúc, không kiểm tra tính đúng khoa học.
+Nhãn phân loại chỉ chính xác như thông tin được cung cấp khi nhập.
+Báo cáo lặp lại kết quả mô hình và giới hạn của chúng; không phải văn bản phê duyệt nhiệm vụ.
+Bản dịch được chuẩn bị với sự hỗ trợ của AI và cần người bản ngữ rà soát.
+Một số thay đổi có hiệu lực sau lần tính tiếp theo.
+Các kiểm tra chỉ áp dụng cho máy tính này.
+Khuyến nghị là hỗ trợ quyết định cho bản mẫu, không phải hướng dẫn an toàn thực sự cho phi hành gia.
+@ui
+Đang tính…
+Tham số
+Phương pháp, nguồn và giới hạn
+Phương pháp
+Nguồn
+Giới hạn
+Chi tiết
+có
+không
+Kích hoạt
+Thêm mục tiêu
+Thêm làm điểm dừng trung gian
+Dùng tuyến được khuyến nghị
+Xóa điểm đánh dấu và điểm dừng
+Xóa điểm dừng
+Tính tuyến đường
+Lưu nhiệm vụ
+Xóa
+Tải DEM từ USGS
+Tạo báo cáo
+Kiểm tra
+Làm mới sổ đăng ký
+Quay lại DEM tổng hợp
+Chạy so sánh
+Chạy phân tích tích hợp
+Chạy kiểm thử
+Lưu kernel
+Lưu cài đặt
+Chia bộ dữ liệu
+Huấn luyện K-Means
+Huấn luyện YOLO
+Cập nhật trạng thái
+Dùng DEM này
+Xác thực và nhập
+@errors
+Lỗi
+Mô-đun này gặp lỗi, các mô-đun khác vẫn hoạt động
+Tọa độ không hợp lệ
+Tên không được để trống
+GeoJSON không hợp lệ
+Không đọc được hình ảnh
+Dữ liệu nhập không hợp lệ
+Không mở được raster
+Không thể phân tích XML an toàn
+DEM không bao phủ khu vực đã chọn
+Sự cố mạng hoặc DNS
+Máy chủ trả về lỗi
+Tải xuống chưa hoàn tất
+Tổng kiểm tra không khớp
+Chưa cài spiceypy
+Thiếu kernel SPICE
+Không tìm thấy cột MEDA đã biết
+Không đọc được CSV
+Tên tệp không hợp lệ
+Loại tệp không được phép
+Tệp rỗng
+Tệp quá lớn
+Nội dung tệp không khớp với phần mở rộng
+@labels
+Căn cứ
+Pin (Wh)
+Kích thước ô
+Loại dữ liệu
+Mô tả
+Khoảng cách 2D
+Khoảng cách 3D
+Thời lượng / ngân sách (h)
+Làm việc tại mỗi điểm dừng (phút)
+Độ cao
+Tổng độ lên
+Điểm đích
+Lưới
+Vĩ độ (tâm hành tinh)
+Vĩ độ (đồ họa hành tinh)
+Phạm vi vĩ độ
+Kinh độ (đông)
+Phạm vi kinh độ
+Tổng độ xuống
+Dự phòng
+Tên nhiệm vụ
+Thời gian nhiệm vụ (h)
+NoData
+Ô NoData
+Mẫu NoData
+Dung tích O₂ (L)
+Chất lượng
+Phạm vi
+Khu vực
+Dự trữ (%)
+Kịch bản
+Chọn nhiệm vụ
+Độ dốc
+Giới hạn độ dốc (°)
+Bước nhảy đáng ngờ
+Điểm đầu
+Trạng thái
+Điểm dừng
+Dữ liệu hợp lệ
+@dashboard
+Bắt đầu nhanh
+1. Kiểm tra nhãn dữ liệu phía trên: **Tổng hợp** nghĩa là địa hình minh họa. Tải DEM thật ở **04 Quản lý dữ liệu DEM**.\n2. Ở **05 Lập kế hoạch tuyến đường**, nhấp vào bản đồ để đặt điểm đầu, điểm đích và điểm dừng, rồi tính bốn tuyến.\n3. Xem nguy hiểm, oxy/năng lượng, dẫn đường và liên lạc ở các mô-đun 06–16.\n4. Chạy **27 Phân tích nhiệm vụ tích hợp** để có khuyến nghị kèm điểm số.\n5. Xuất kết quả ở **23 Báo cáo nhiệm vụ**.
+Trạng thái
+Nhiệm vụ mới
+Nhiệm vụ
+EVA từ bãi đáp tới mặt trước phía tây của châu thổ.
+Cảnh báo
+Không có cảnh báo nào.
+Mục tiêu khoa học
+Đã lưu nhiệm vụ (#{id}).
+Chưa có nhiệm vụ nào được lưu.
+DEM TỔNG HỢP: địa hình minh họa, không phải độ cao thật của sao Hỏa. Hãy tải DEM Jezero của USGS ở mô-đun 04.
+Tuyến đang dùng
+từ mô-đun 05
+Khoảng cách
+Thời lượng
+trên ngân sách {b} h
+Dự trữ O₂
+Dự trữ pin
+Năng lượng
+trao đổi chất
+điện
+Độ chính xác dẫn đường
+EKF, cảm biến mô phỏng
+Liên lạc
+Nguy hiểm / mục tiêu
+đối tượng nguy hiểm / mục tiêu khoa học
+Đang dùng DEM tổng hợp — kết quả chỉ để minh họa.
+Không tìm thấy tuyến — hãy dời các điểm hoặc nới giới hạn độ dốc.
+Thời lượng kế hoạch {h} h vượt ngân sách có thể dùng.
+Cuối kế hoạch chỉ còn {p} % O₂.
+Đường truyền không khép kín (dự phòng {m} dB).
+Kế hoạch vượt quá điểm quay đầu an toàn cuối cùng.
+Tuyến được khuyến nghị: {s} (điểm {score}, càng thấp càng tốt).
+Tốt thứ hai: {s2}, kém hơn {d}.
+{km} km, {h} h, nguy hiểm trung bình {haz}, độ dốc tối đa {sl}°.
+Có thể quay về từ mọi điểm; dự phòng hủy nhỏ nhất {m} h.
+Kế hoạch vượt ngân sách an toàn (dự phòng {m} h): hãy rút ngắn hoặc bỏ một điểm dừng.
+Rủi ro tổng thể: {lv}; yếu tố chính: {f}.
+@map
+Bản đồ 2D
+Địa hình 3D
+Lớp hiển thị
+Nhấp bản đồ để đặt
+Tìm tọa độ
+Đã tìm thấy: {lat}, {lon}
+Điểm nằm ngoài vùng DEM
+Kết quả tìm kiếm
+Nhập các điểm GeoJSON làm điểm dừng
+Đã nhập {n} điểm làm điểm dừng
+Phóng đại theo phương đứng
+Độ phân giải 3D (ô)
+Tô màu theo
+Bề mặt 3D được dựng từ độ cao DEM (km) trên lưới cục bộ đông/bắc.
+@terrain
+Lớp
+Mặt cắt giữa
+điểm đầu và điểm đích
+các điểm tùy chọn
+Thống kê
+Biểu đồ tần suất
+Mặt cắt độ cao
+Chất lượng DEM và hệ tọa độ
+HTĐ: {crs}; ô {res} m; vĩ độ tâm hành tinh, kinh độ dương về phía đông.
+@dem
+DEM đang dùng: {src}
+Siêu dữ liệu DEM hiện tại
+Tải xuống
+Tệp cục bộ
+Tải lên
+Nhãn XML / PDS4
+Nguồn ưu tiên: USGS Astrogeology, Mars 2020 Science Investigation CTX DEM Mosaic (20 m/pixel, toàn bộ hố Jezero, ~87 MB). Tải xuống có thể tiếp tục, kiểm tra trạng thái HTTP, kích thước và tổng kiểm tra.
+Danh mục chính thức
+Đã tải {mb} MB.
+Đã xử lý DEM: {v} % ô hợp lệ.
+Không có internet? Hãy tải tệp bằng trình duyệt và dùng thẻ Tệp cục bộ.
+Đường dẫn GeoTIFF
+HTĐ là hệ tọa độ sao Hỏa.
+HTĐ không được nhận dạng là sao Hỏa — hãy kiểm tra trước khi dùng.
+DEM GeoTIFF
+Nhãn XML / PDS4
+Phần tử gốc: {t}; PDS4: {p}
+Chưa tải nhãn.
+@route
+Thuật toán
+Trọng số độ dốc
+Trọng số nguy hiểm
+Trọng số năng lượng
+Điểm đầu {s} → điểm đích {g}; điểm dừng: {n}
+Chiến lược đang dùng
+Không tìm thấy tuyến cho chiến lược nào.
+Mặt cắt
+Độ dốc dọc tuyến: {s}
+không có đường đi được
+điểm đầu hoặc điểm đích bị chặn
+@hazards
+Chênh cao tối thiểu cho mép hố (m)
+Kích thước đối tượng tối thiểu (ô)
+Đối tượng nguy hiểm
+an toàn
+thận trọng
+cao
+không thể đi
+chưa biết
+Đối tượng theo loại
+Mức nguy hiểm trên tuyến đang dùng
+Chỉ số nguy hiểm trung bình {m}, tối đa {x}
+Đối tượng nguy hiểm
+@ai
+Phát hiện
+Đơn vị địa hình (K-Means)
+Bộ dữ liệu & huấn luyện YOLO
+Trợ lý tuyến đường
+Hình ảnh
+Bộ máy
+YOLO không khả dụng (gói: {pkg}, trọng số: {w})
+Ngưỡng tin cậy
+Ảnh bề mặt (PNG/JPG)
+Nhãn chuẩn (YOLO .txt, tùy chọn)
+Cảnh thử mới
+Hãy tải ảnh lên để chạy phát hiện.
+KHÔNG PHẢI MÔ HÌNH ĐÃ HUẤN LUYỆN
+{n} phát hiện
+Diện tích ảnh có đá/hố
+Chỉ số đánh giá
+Chỉ số được tính theo nhãn chuẩn đã cho (cảnh tổng hợp: đã biết đối tượng).
+Không có nhãn chuẩn — không thể tính chỉ số.
+Số đơn vị (k)
+Đặc trưng
+Điểm silhouette
+Các cụm không giám sát của địa hình tương tự; không phải đơn vị địa chất.
+Chuẩn bị bộ dữ liệu YOLO (ảnh + nhãn .txt), chia thành train/val/test và huấn luyện mô hình. Cần gói ultralytics; đặt trọng số đã huấn luyện (.pt) vào models/yolo để bật YOLO.
+Thư mục ảnh
+Thư mục nhãn
+Không tìm thấy thư mục: {d}
+Số epoch
+Hãy chia bộ dữ liệu trước.
+Chưa cài ultralytics; huấn luyện và suy luận YOLO bị tắt.
+Tuyến {s}: {km} km, khoảng {h} h.
+Độ dốc trung bình {ms}°, tối đa {xs}°; lên {g} m, xuống {l} m.
+Chỉ số nguy hiểm trung bình {m}, tối đa {x}.
+Oxy: {o} L trên {c} L.
+Năng lượng: {e} Wh trên pin {c} Wh.
+{n} đoạn dốc (> 70 % giới hạn); đoạn đầu ở km {km}.
+Phần giải thích chỉ dùng các con số đã tính ở trên.
+Đặt câu hỏi về tuyến này
+Đặt ANTHROPIC_API_KEY trong .env để bật trả lời tự do.
+@navigation
+MÔ PHỎNG TỔNG HỢP: dữ liệu cảm biến được tạo ra; sao Hỏa không có GPS.
+Nhiễu đo hành trình
+Trượt bánh
+Độ trôi con quay (°/h)
+Đo hành trình thị giác
+Khoảng cách mốc (m)
+Tầm nhìn mốc (m)
+Nhiễu khoảng cách σ (m)
+Hạt giống ngẫu nhiên
+Sai số cuối (EKF)
+Sai số cuối (đo hành trình)
+Độ bất định cuối (1σ)
+Lần cập nhật theo mốc
+Độ trôi đo hành trình
+Đường đi thật
+Dẫn đường suy đoán
+Mốc
+Elip 2σ (×10)
+Sai số vị trí
+Các elip bất định được phóng to ×10 để dễ nhìn.
+Số lần chạy Monte Carlo
+Cấu hình chính xác nhất: {c}
+Sai số tăng dọc tuyến
+Độ bất định vị trí
+Độ bất định hướng
+Bước
+Độ bất định EKF
+@communication
+Ngân sách đường truyền
+Tầm nhìn thẳng theo địa hình
+Thiết lập sẵn
+Tần số (MHz)
+Công suất phát (W)
+Độ lợi ăng-ten phát (dBi)
+Độ lợi ăng-ten thu (dBi)
+Khoảng cách (km)
+Nhiệt độ tạp âm hệ thống (K)
+Tốc độ dữ liệu (bit/s)
+Eb/N0 yêu cầu (dB)
+Suy hao phát (dB)
+Suy hao khí quyển (dB)
+Suy hao khác (dB)
+Suy hao triển khai (dB)
+Công suất thu
+Dự phòng đường truyền theo khoảng cách
+Độ cao ăng-ten phi hành đoàn (m)
+Độ cao ăng-ten căn cứ (m)
+Kiểm tra mỗi N điểm tuyến
+Chân trời vô tuyến
+mặt cầu nhẵn
+Phần tuyến có tầm nhìn thẳng
+Điểm bị che
+Khoảng cách tối đa tới căn cứ
+bị che
+nhìn thấy
+Tầm nhìn tới căn cứ dọc tuyến
+Địa hình + độ cong
+Tia vô tuyến
+Mặt cắt tầm nhìn (điểm tệ nhất)
+@relay
+Quỹ đạo MÔ PHỎNG: quỹ đạo tròn hai vật thể, không phải lịch thiên văn NASA.
+Khoảng thời gian (h)
+Dữ liệu tạo ra (kbit/s)
+Bộ đệm (MB)
+Mô phỏng mất kết nối
+Mất kết nối (h)
+Hãy thêm ít nhất một tàu quỹ đạo hợp lệ.
+Góc ngẩng (°)
+Góc ngẩng của tàu quỹ đạo trên điểm
+Lượt bay qua
+Khả dụng
+Khoảng trống dài nhất
+Hàng đợi tối đa
+Dữ liệu bị mất
+Hàng đợi
+Đã chuyển
+Lưu và chuyển tiếp
+Mạng chuyển tiếp
+Phi hành đoàn / xe
+Căn cứ
+Trái Đất (DSN)
+@spice
+Kernel SPICE
+Đã cài spiceypy: {v}
+Tải kernel lên
+Thiếu kernel: dùng thuật toán giải tích Mars24.
+Ngày (UTC)
+Giờ (UTC)
+Độ cao Mặt Trời tối thiểu cho EVA (°)
+Độ cao Mặt Trời
+Phương vị Mặt Trời
+SPICE: độ cao {e}°, phương vị {a}°, Ls {l}° (chênh với Mars24: {d}°)
+Giá trị tính bằng thuật toán Mars24 (Allison & McEwen 2000).
+Số giờ sau 00:00 UTC
+Độ cao Mặt Trời trong một sol
+Cửa sổ ban ngày với Mặt Trời ≥ {e}°
+@meda
+Nguồn dữ liệu
+Cửa sổ trượt (mẫu)
+Ngưỡng bất thường (z)
+CSV MEDA
+Tải lên CSV có cột MEDA, ví dụ:
+Mẫu TỔNG HỢP: độ lớn điển hình, không phải dữ liệu đo.
+Ánh xạ cột
+Biến
+Mẫu
+Bất thường
+Mức môi trường
+Thời gian
+Thống kê
+Kiểm tra môi trường EVA
+@suit
+MÔ PHỎNG bộ đồ EVA chung — không kết nối với bộ đồ thật của NASA.
+Kịch bản xe: phi hành gia được mô hình ở mức hoạt động nhẹ.
+Thể tích bình O₂ (L)
+Áp suất bình (kPa)
+Pin bộ đồ (Wh)
+Nước làm mát (kg)
+Đưa lỗi vào
+Rò rỉ O₂
+Hỏng quạt
+Mất liên lạc
+Suy giảm pin (%)
+Trạng thái an toàn
+Bình O₂ lúc cuối
+Pin lúc cuối
+Cảnh báo
+Bất thường
+Kênh đo xa
+Không có cảnh báo ngưỡng.
+Điểm bất thường (Isolation Forest)
+@oxygen
+Dung tích từ
+Dung tích
+Khối lượng cơ thể (kg)
+Khối lượng bộ đồ (kg)
+Tải mang theo (kg)
+Hệ số gắng sức của bộ đồ
+Tốc độ đi bộ trên nền phẳng (m/s)
+Kịch bản xe: mô hình phương tiện không tiêu thụ oxy.
+Có thể dùng
+Mức dùng dự kiến
+Còn lại
+Mức tiêu thụ trung bình
+Thời gian chịu đựng
+Dự trữ quay về tối thiểu
+O₂ để quay về từ điểm xa nhất
+Dự báo cạn kiệt oxy
+Cần để quay về từ đây
+Có thể dùng = dung tích trừ {r} % dự trữ khẩn cấp. Vạch vàng = điểm dừng khoa học.
+@energy
+Khối lượng xe (kg)
+Tốc độ (m/s)
+Lực cản lăn
+Hiệu suất truyền động
+Công suất chờ (W)
+Công suất thiết bị (W)
+Công suất động cơ tối đa (W)
+Sạc RTG/mặt trời (W)
+Hệ số cản do gồ ghề
+Năng lượng
+Sạc
+Tiêu thụ ròng
+Pin lúc cuối
+giữ được dự trữ
+dưới mức dự trữ
+Công suất trung bình
+Thời gian lái
+Mức sạc pin
+dự trữ
+Pin dọc tuyến: {s}
+Công suất
+Độ dốc
+Công suất dọc tuyến
+Năng lượng của bốn tuyến
+@timeline
+Bắt đầu EVA (UTC)
+Chuẩn bị (phút)
+Nghỉ mỗi (h)
+Thời gian nghỉ (phút)
+Tổng thời gian
+Giai đoạn
+Lượt chuyển tiếp
+Điểm quay đầu an toàn cuối
+không đạt tới
+Các giai đoạn nhiệm vụ
+Dự phòng hủy
+Liều (µSv)
+Tài nguyên theo thời gian
+@science
+Thêm mục tiêu
+Tên
+Loại
+Ưu tiên
+Đã thêm mục tiêu.
+Nhấp vào bản đồ để điền tọa độ.
+Mục tiêu
+Đã thêm làm điểm dừng; tuyến sẽ được tính lại.
+Nhiệm vụ quan sát: {n}
+@simulation
+Kịch bản
+Thời điểm sự kiện (tỉ lệ kế hoạch)
+Bước thời gian (s)
+Chạy tất cả kịch bản
+Hệ số rò rỉ O₂
+Hệ số công suất
+Mất liên lạc (phút)
+Quy tắc mất liên lạc (phút)
+Kết quả: {o} · rủi ro: {r} · thời lượng {h} h
+Thời lượng
+kế hoạch
+O₂ đã dùng
+Năng lượng đã dùng
+2σ dẫn đường tối đa
+Tiến độ
+Dòng thời gian mô phỏng
+Không có sự kiện: kế hoạch diễn ra như dự kiến.
+Tất cả kịch bản
+@risk
+Chưa tính: {m}. Hãy mở các mô-đun đó để đánh giá đầy đủ.
+Rủi ro tổng thể
+Điểm cao nhất
+Yếu tố chính
+Khả năng
+Tác động
+Ma trận rủi ro
+Cách tính từng khả năng
+@ingest
+Cho phép: {e}; tối đa {m} MB mỗi tệp.
+Tệp
+Tải tệp lên để xác thực và đăng ký.
+siêu dữ liệu
+@provenance
+Loại dữ liệu
+Bộ dữ liệu theo loại
+**Thật** — dữ liệu chính thức của NASA/USGS. **Tổng hợp** — dữ liệu minh họa được tạo. **Mô phỏng** — kết quả mô hình. **Người dùng** — do người dùng tải lên.
+@reports
+Báo cáo nhiệm vụ
+DEM
+Mục
+Định dạng
+Báo cáo đã sẵn sàng: {s} mục, {n} tệp.
+Xem trước
+Hỗ trợ quyết định cho bản mẫu: mô hình đơn giản hóa, không phải hướng dẫn an toàn thực sự cho phi hành gia.
+@i18n
+Ngôn ngữ
+Khóa văn bản
+Độ phủ thấp nhất
+Độ phủ bản dịch
+So sánh một văn bản ở mọi ngôn ngữ
+Khóa
+Kiểm tra ngôn ngữ dự phòng
+Cách thêm ngôn ngữ
+1. Sao chép mars_survive/localization/src/en.txt thành <code>.txt và dịch các giá trị.\n2. Thêm mã vào LANGUAGES trong i18n.py.\n3. Chạy python scripts/build_locales.py và các kiểm thử.
+Bản dịch được chuẩn bị với sự hỗ trợ của AI; nên để người bản ngữ rà soát.
+@settings
+Giao diện
+Đơn vị khoảng cách
+Đơn vị nhiệt độ
+Bản đồ nền
+Mức thu phóng bản đồ
+Đường dẫn
+Tệp DEM
+Thư mục mô hình AI
+Thư mục kernel SPICE
+Thư mục dữ liệu
+Mặc định nhiệm vụ
+Đã lưu cài đặt.
+Không tìm thấy đường dẫn: {p}
+Cài đặt hiện tại
+Khoảng cách ví dụ
+Nhiệt độ ví dụ
+@diagnostics
+Mô-đun
+Đĩa trống
+Bộ nhớ trống
+Bộ nhớ ứng dụng
+Thư viện
+Dữ liệu
+Kiểm thử
+Nhật ký
+Đạt
+Không đạt
+Bỏ qua
+Thời điểm chạy
+Kiểm thử chạy quá lâu.
+@integration
+**Chuỗi:** địa hình → nguy hiểm → 4 tuyến → năng lượng & O₂ → dẫn đường → liên lạc → rủi ro → mô phỏng → báo cáo.
+Bước thành công
+Được khuyến nghị
+Mô phỏng
+Giải thích
+Phân tích điểm số (càng thấp càng tốt)
+Điểm
+Các bước quy trình
+Tuyến được khuyến nghị hiện đang được dùng.
+@values
+THẬT
+TỔNG HỢP
+MÔ PHỎNG
+NGƯỜI DÙNG
+Ngắn nhất
+Ít dốc nhất
+Ít nguy hiểm nhất
+Cân bằng
+A*
+Weighted A*
+Dijkstra
+EVA của phi hành gia
+Xe tự hành
+Điểm đánh dấu
+Điểm đầu
+Điểm đích
+Điểm dừng
+Căn cứ
+Bóng địa hình
+Độ cao
+Độ dốc
+Hướng dốc
+Độ cong
+Độ gồ ghề
+Chỉ số gồ ghề (TRI)
+Chênh cao cục bộ
+Độ biến thiên
+Độ phức tạp
+Nguy hiểm
+Nhiệt (THEMIS)
+NoData
+Chỉ số vị trí (TPI)
+không có
+sườn dốc
+bề mặt gồ ghề
+địa hình nhiều đá
+mép hố
+gián đoạn
+địa hình chưa chắc chắn
+thấp
+trung bình
+cao
+nghiêm trọng
+chưa biết
+tốt
+sát ngưỡng
+không khép kín
+cảnh báo
+nghiêm trọng
+Tọa độ đã công bố
+Gần đúng (cần kiểm tra)
+Mục do người dùng nhập
+bãi đáp
+châu thổ
+đơn vị đá magma
+đồng bằng
+hố va chạm
+đá
+vết lộ đá
+điểm lấy mẫu
+khác
+đã lên kế hoạch
+đã quan sát
+đã lấy mẫu
+đã bỏ qua
+đang lập kế hoạch
+đang hoạt động
+hoàn thành
+đã hủy
+Địa hình
+Năng lượng / thời gian
+Oxy
+Liên lạc
+Dẫn đường
+Môi trường
+Thiết bị
+Bức xạ
+Chọn tuyến ít nguy hiểm nhất, giữ biên độ dốc, trinh sát trước.
+Dự trữ lớn hơn, quãng đường ngắn hơn, điểm dừng sạc.
+Dừng ngắn hơn, mục tiêu gần hơn, giữ dự trữ ≥ 25 %.
+Làm việc trong cửa sổ chuyển tiếp, mang đèn hiệu chuyển tiếp, quy tắc mất liên lạc.
+Điểm kiểm tra bằng mốc và đo hành trình thị giác mỗi 500 m.
+Tránh gió mạnh buổi chiều và các đợt bụi.
+Kiểm tra trước EVA, phụ tùng dự phòng, cảnh báo đo xa.
+Theo dõi thời tiết không gian; hủy khi có cảnh báo hạt mặt trời.
+hoàn thành
+hủy an toàn và quay về
+thất bại
+chưa hoàn tất
+Vận hành bình thường
+Thiếu năng lượng
+Thiếu oxy
+Mất liên lạc
+Nguy hiểm địa hình
+Trôi dẫn đường
+Quay về khẩn cấp
+dừng để định vị lại
+đi vòng tránh nguy hiểm
+mất liên lạc
+quay về khẩn cấp
+hủy: oxy
+hủy: ngân sách thời gian
+hủy: năng lượng
+hủy: liên lạc
+cạn vật tư tiêu hao
+Bắt đầu
+Di chuyển
+Quan sát
+Liên lạc
+Nghỉ
+Quay về
+Khẩn cấp
+Đá
+Hố va chạm
+Cát
+sườn dốc
+nền gồ ghề, nhiều khối
+gờ và mép
+vùng trũng
+đồng bằng phẳng
+địa hình hỗn hợp
+Nhiệt độ không khí
+Nhiệt độ mặt đất
+Áp suất
+Tốc độ gió
+Hướng gió
+Độ mờ do bụi
+Chỉ số UV
+Mẫu tổng hợp
+Tải CSV lên
+Áp suất bình O₂
+Pin
+Áp suất riêng phần CO₂
+Nhiệt độ bộ đồ
+Độ ẩm
+Áp suất bộ đồ
+Lưu lượng O₂
+Nước làm mát
+Liên lạc
+bình thường
+thận trọng
+hủy EVA
+Phi hành đoàn → tàu quỹ đạo (UHF)
+Phi hành đoàn → căn cứ (UHF cục bộ)
+Trực tiếp về Trái Đất (băng X)
+Đường truyền khép kín có dự phòng; tốc độ tối đa với dự phòng 3 dB ≈ {r} kbit/s.
+Đường truyền khép kín với ít dự phòng; tốc độ tối đa ≈ {r} kbit/s.
+Đường truyền không khép kín; hãy giảm tốc độ hoặc khoảng cách (tối đa ≈ {r} kbit/s).
+Kế hoạch oxy nằm trong ngân sách có thể dùng.
+Dự phòng thấp: oxy còn lại gần với mức dự trữ quay về.
+Kế hoạch dùng nhiều oxy hơn lượng hiện có.
+lít
+bình (p, V)
+EKF + VO + mốc
+EKF + mốc
+EKF + VO
+Chỉ đo hành trình
+Thời gian
+Năng lượng
+Nguy hiểm
+Độ dốc
+Liên lạc
+Dẫn đường
+Tuyến đường
+Mặt cắt độ cao
+Nguy hiểm
+Tài nguyên
+Dẫn đường
+Liên lạc
+Mục tiêu khoa học
+Rủi ro
+Khuyến nghị
+Nguồn gốc dữ liệu
+Giới hạn
+mùa xuân
+mùa hè
+mùa thu
+mùa đông
+Tối
+Sáng
+tốt
+dùng được
+kém
+Cảnh thử tổng hợp
+Tải ảnh lên
+TGMT heuristic (chưa huấn luyện)
+YOLO (trọng số đã huấn luyện)
+dẫn đường (08)
+MEDA (13)
+bộ đồ (14)
+chụp ảnh bối cảnh
+chụp ảnh cận cảnh
+mài mòn và phân tích tiếp cận
+lõi mẫu
+phổ khoáng vật
+kiểm tra thiết bị
+hiệu chuẩn thiết bị
+mẫu đất
+đo đạc
+@columns
+ID
+Tên
+Kịch bản
+Thời lượng (h)
+Trạng thái
+Cập nhật
+Nguồn gốc
+Ưu tiên
+Lớp
+Đơn vị
+Trung bình
+Độ lệch chuẩn
+Nhỏ nhất
+Trung vị
+P90
+Lớn nhất
+Chỉ số
+Tìm thấy
+Khoảng cách 2D (km)
+Khoảng cách 3D (km)
+Độ dốc TB (°)
+Độ dốc tối đa (°)
+Nguy hiểm TB
+Năng lượng (kWh)
+Số nút đã mở
+Thời gian tính (s)
+Loại
+Mức
+Vĩ độ
+Kinh độ
+Diện tích (km²)
+Phương pháp
+Nguồn
+Độ tin cậy
+Tàu quỹ đạo
+Chu kỳ (phút)
+Lượt bay qua
+Khả dụng (%)
+Dung lượng (MB)
+Bắt đầu (h)
+Kết thúc (h)
+Thời lượng (phút)
+Góc ngẩng tối đa (°)
+Khoảng cách nhỏ nhất (km)
+Bắt đầu (UTC)
+Kết thúc (UTC)
+LTST bắt đầu
+LTST kết thúc
+Tham số
+Thời điểm đầu (h)
+Giá trị
+Ngưỡng
+Chiến lược
+Năng lượng (Wh)
+Ròng (Wh)
+Lái (h)
+Công suất TB (W)
+Giữ dự trữ
+Giai đoạn
+Nhãn
+Bắt đầu
+Kết thúc
+Loại
+Khoảng cách tới tuyến (m)
+Thời gian (h)
+Sự kiện
+Chi tiết
+Kết quả
+Rủi ro
+Sự kiện
+Yếu tố
+Khả năng
+Tác động
+Điểm
+Biện pháp giảm thiểu
+Tệp
+Định dạng
+Kích thước (KB)
+HTĐ
+Đơn vị
+Hợp lệ
+Lỗi
+SHA-256
+Loại
+Nhà cung cấp
+URL
+Thu thập
+Xử lý
+Độ phân giải
+Chất lượng
+Lịch sử
+Giới hạn
+Mã
+Ngôn ngữ
+Tên tiếng Anh
+RTL
+Khóa
+Độ phủ (%)
+Thư viện
+Phiên bản
+OK
+Tùy chọn
+Lỗi
+Đường dẫn
+Tồn tại
+Ghi được
+O₂ (L)
+Độ dốc tối đa / giới hạn
+Không có tầm nhìn
+Cấu hình
+RMSE TB (m)
+RMSE p95 (m)
+Sai số cuối (m)
+σ cuối (m)
+RMSE hướng (°)
+Lệch tối đa (m)
+Tính nhất quán (2σ)
+Biến
+Dải EVA
+Ngoài dải (%)
+Cơ sở
+Mô-đun
+Thời gian tải (ms)
+@riskdetail
+độ dốc tối đa / giới hạn; nguy hiểm trung bình
+dự trữ năng lượng cuối nhiệm vụ
+dự trữ pin
+dự trữ ngân sách thời gian EVA
+dự trữ O₂ cuối nhiệm vụ
+độ sẵn sàng chuyển tiếp; gián đoạn dài nhất
+sai số vị trí 1σ cuối cùng
+mức môi trường MEDA
+cảnh báo đo xa bộ đồ
+liều EVA (mô hình)
+L từ tỷ lệ độ dốc (≤0.3, 0.5, 0.7, 0.9) và chỉ số nguy hiểm (≤0.1, 0.2, 0.35, 0.5); giá trị lớn hơn
+dự trữ ≤0 → 5, ≤10% → 4, ≤25% → 3, ≤40% → 2, ngược lại 1
+cùng các khoảng như năng lượng
+độ sẵn sàng (≤5% … 40%) và gián đoạn dài nhất (≤1, 2, 4, 8 giờ); giá trị lớn hơn
+≤5 m → 1 … >60 m → 5
+tỷ lệ mẫu ngoài dải EVA
+0 cảnh báo → 1, mỗi cảnh báo +1
+các khoảng liều; chưa mô hình hóa sự kiện hạt mặt trời
+DEM TỔNG HỢP (địa hình demo theo thủ tục, không phải dữ liệu Sao Hỏa)
+@confirm
+Xác nhận xóa (không thể hoàn tác)
+@orbit
+Tên
+Độ cao (km)
+Độ nghiêng (°)
+RAAN (°)
+Pha (°)
+Tốc độ dữ liệu (bit/s)
+Góc ngẩng tối thiểu (°)
+@live
+JSON không hợp lệ
+ML: P(không đi qua được)
+Thời tiết MEDA
+Danh mục mục tiêu
+Điểm Brier
+Đến vết đường (m)
+Thời gian huấn luyện (s)
+Cường độ
+Đến Sao Hỏa (UTC)
+Liên quan Sao Hỏa
+Mô hình
+PR-AUC
+Độ chính xác (precision)
+Độ phủ (recall)
+ROC-AUC
+Sol
+F1 (kiểm tra)
+Thời gian (UTC)
+F1 (thẩm định)
+Độ dốc lân cận, trung bình
+Độ dốc lân cận, tối đa
+Độ dốc trung bình 7×7
+Độ lệch độ dốc 7×7
+Độ nhám lân cận, trung bình
+Độ nhám lân cận, tối đa
+Độ nhám trung bình 7×7
+Độ gồ ghề (TRI)
+Chênh cao cục bộ
+|Độ cong|
+Chỉ số vị trí (TPI)
+Biến thiên độ dốc
+Độ phân tán độ cao 5×5
+Mô hình khả năng đi qua (có giám sát)
+Bộ phân loại có giám sát dự đoán, cho mỗi ô DEM, xác suất ô đó KHÔNG đi bộ qua được. Nó chỉ thấy vùng lân cận của ô (không bao giờ thấy độ dốc hay độ nhám của chính ô đó) và được kiểm tra trên các khối bản đồ chưa từng thấy khi huấn luyện. Nhãn được tạo bởi các quy tắc rõ ràng trên DEM (giám sát yếu), không phải do con người gán.
+Nhãn: giới hạn độ dốc (°)
+Nhãn: giới hạn độ nhám (m)
+Số khối không gian mỗi cạnh
+Số epoch của mạng nơ-ron
+Mô hình: hồi quy logistic (cơ sở), gradient boosting, mạng nơ-ron ({nn}).
+Huấn luyện và đánh giá
+Đang huấn luyện…
+Đã huấn luyện: {m}, F1 trên các khối kiểm tra = {f}
+Chưa có mô hình — nhấn “Huấn luyện và đánh giá”.
+nhãn
+Huấn luyện trên DEM TỔNG HỢP: địa hình thủ tục mượt làm bài toán dễ, nên các điểm số này không áp dụng cho địa hình thật của Sao Hỏa. Hãy huấn luyện lại sau khi nạp DEM Jezero thật (mô-đun 04).
+Mô hình được chọn
+Tỷ lệ ô không đi qua được trong các khối kiểm tra: {p} (bộ phân loại ngẫu nhiên có PR-AUC ≈ giá trị này)
+So sánh mô hình (chọn trên thẩm định, báo cáo trên kiểm tra)
+Chia dữ liệu: {s}. Số dòng — huấn luyện {tr_}, thẩm định {va}, kiểm tra {te}.
+đi qua được
+không đi qua được
+dự đoán
+thực tế
+Ma trận nhầm lẫn (khối kiểm tra)
+Độ quan trọng hoán vị (mức giảm PR-AUC)
+mất mát huấn luyện
+mất mát thẩm định
+Đường cong học của mạng nơ-ron
+Bản đồ xác suất dự đoán
+P(không đi qua được) trung bình
+Ô được xếp là không đi qua được
+Mức khớp với quy tắc gán nhãn
+Xanh = có thể đi qua, đỏ = có thể không. Được dùng trong lập kế hoạch tuyến khi trọng số ML > 0 (mô-đun 05).
+Trọng số ML trong nguy hiểm tuyến
+0 = chỉ nguy hiểm theo quy tắc; 1 = chỉ xác suất của mô hình; ở giữa = trộn có trọng số.
+Huấn luyện mô hình khả năng đi qua ở mô-đun 07 để dùng trong lập tuyến.
+Thời tiết không gian (DONKI)
+NASA DONKI ghi nhận bùng nổ Mặt Trời (FLR), sự kiện hạt năng lượng Mặt Trời (SEP), phóng khối lượng vành nhật hoa (CME, kèm dự báo đến WSA-ENLIL có thể gồm Sao Hỏa) và bão địa từ (GST, chỉ Trái Đất). Từ các sự kiện trước EVA, mô-đun đưa ra cờ bức xạ cho phi hành đoàn; cờ này được chuyển tới mô-đun 20.
+Nguồn dữ liệu
+NASA DONKI (trực tuyến)
+JSON DONKI đã lưu
+Ví dụ (tổng hợp)
+Từ
+Đến
+Khoảng trước EVA (ngày)
+Ngày EVA (UTC)
+Giờ EVA (UTC)
+Loại sự kiện
+Bùng nổ Mặt Trời
+Hạt năng lượng
+Phóng khối lượng vành nhật hoa
+Bão địa từ (Trái Đất)
+Khóa đang dùng: {k}. Đặt khóa miễn phí từ api.nasa.gov vào .env với tên NASA_API_KEY (DEMO_KEY bị giới hạn).
+Lấy từ NASA DONKI
+Không lấy được dữ liệu NASA DONKI (không hiển thị như thể đã tải)
+Tệp JSON DONKI
+Phản hồi của một endpoint (danh sách JSON) hoặc đối tượng {"FLR": [...], "SEP": [...], "CME": [...], "GST": [...]}.
+Loại sự kiện trong tệp này
+Ví dụ tổng hợp theo định dạng DONKI — không phải dữ liệu NASA. Dùng để xem mô-đun hoạt động khi không có mạng.
+Lấy dữ liệu DONKI hoặc tải tệp để đánh giá thời tiết không gian.
+đã lấy
+Cờ bức xạ EVA
+sự kiện trong cửa sổ {d} ngày trước EVA
+Dự báo {n} CME đến Sao Hỏa trong ±1 ngày quanh EVA (WSA-ENLIL)
+{n} sự kiện hạt năng lượng Mặt Trời trong cửa sổ
+{n} bùng nổ cấp X trong cửa sổ (chưa rõ hướng tới Sao Hỏa)
+{n} CME nhanh ≥ 1000 km/s trong cửa sổ (chưa rõ hướng tới Sao Hỏa)
+Không có sự kiện đáng kể trong cửa sổ
+Đây là quy tắc kinh nghiệm để lập kế hoạch, không phải dự báo liều: DONKI quan sát Mặt Trời từ phía Trái Đất, nên sự kiện có thể không tới Sao Hỏa hoặc tới mà không được quan sát. Chỉ các tác động ENLIL nêu tên Sao Hỏa mới được coi là hướng tới Sao Hỏa.
+Sự kiện thời tiết không gian (★ = liên quan Sao Hỏa)
+Dự báo đến Sao Hỏa
+Không có sự kiện trong khoảng đã chọn.
+Perseverance: vết đường và ảnh
+Đường đi thực tế của xe tự hành Perseverance (NASA) là dữ liệu thực địa: những nơi nó đi qua là đi được với xe 1 tấn, và ảnh thô của nó cho thấy phi hành đoàn sẽ thấy gì ở đó. Mô-đun tìm điểm vết đường gần nhất với mỗi điểm tuyến và mục tiêu khoa học, rồi hiển thị ảnh thô của sol đó.
+Nguồn vết đường
+NASA/JPL MMGIS (trực tuyến)
+GeoJSON đã lưu
+Ví dụ (tổng hợp)
+Khoảng “gần vết đường” (m)
+Tải vết đường từ NASA
+Không tải được từ NASA
+GeoJSON vết đường (M20_traverse.json)
+JSON nguồn ảnh thô của sol này
+Ví dụ tổng hợp về định dạng vết đường gần nơi hạ cánh — không phải đường đi thật của Perseverance.
+Tải vết đường để so sánh tuyến với đường đi của xe.
+Điểm vết đường
+Sol
+Quãng đường đã đi
+Trong DEM đang dùng
+Vết đường nằm ngoài cửa sổ DEM đang dùng.
+Phần tuyến trong {m} m quanh vết đường
+Khoảng cách gần nhất của tuyến
+Tỷ lệ tuyến đang dùng (mỗi đỉnh thứ 3) đi gần địa hình mà Perseverance thực sự đã đi qua.
+Vết đường Perseverance
+Phi hành gia sẽ thấy gì
+Điểm tuyến hoặc mục tiêu
+Camera
+Tệp vết đường không có số sol.
+Gần “{p}”: Perseverance đi qua cách {d} m vào sol {s}. Ảnh của sol đó cho thấy địa hình này.
+“{p}” cách vết đường {d} km (điểm gần nhất: sol {s}); ảnh cho thấy vùng lân cận, không phải đúng nơi này.
+Tải ảnh
+Nhấn “Tải ảnh” (nguồn ảnh thô NASA của sol {s}) hoặc tải JSON đã lưu.
+Ảnh thô, sol {s}
+Không có ảnh từ các camera đã chọn.
+Mở kích thước đầy đủ
+Bản ghi này không có tệp ảnh (ví dụ tổng hợp)
+Ảnh thô chưa hiệu chỉnh và chưa xử lý. Nguồn: NASA/JPL-Caltech (và ASU cho Mastcam-Z).
+Navcam
+Mastcam-Z
+Hazcam
+SuperCam RMI
+SHERLOC / WATSON
+SkyCam
+@extra
+3D (deck.gl)
+Cảnh PyDeck/deck. gl theo mét cục bộ trên mặt cầu Sao Hỏa (không dùng phép chiếu bản đồ Trái Đất): mẫu DEM dạng đám mây điểm, các tuyến và vết đường Perseverance dạng đường 3D. Kéo để xoay (chuột phải / Ctrl).
+Chưa cài PyDeck (pip install pydeck).
+Xuất GIS (GeoPackage, CRS Sao Hỏa)
+Cài geopandas và shapely để xuất GIS (requirements-optional.txt).
+{n} lớp ({l}) trong {crs} — mặt cầu Sao Hỏa 2015, tâm hành tinh, kinh độ đông; mở trong QGIS/ArcGIS như dữ liệu Sao Hỏa. GeoJSON không lưu được CRS ngoài Trái Đất: tọa độ trong đó vẫn là kinh/vĩ độ Sao Hỏa.
+Thiếu gói cần thiết

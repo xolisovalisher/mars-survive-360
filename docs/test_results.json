@@ -1,0 +1,57 @@
+{
+  "when": "2026-11-13 16:19 UTC",
+  "mode": "full",
+  "duration_s": 69.0,
+  "exit_code": 0,
+  "tests": 174,
+  "passed": 174,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "by_suite": {
+    "unit": {
+      "tests": 79,
+      "passed": 79,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "functional": {
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "regression": {
+      "tests": 8,
+      "passed": 8,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "performance": {
+      "tests": 8,
+      "passed": 8,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "ui": {
+      "tests": 65,
+      "passed": 65,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "failures": [],
+  "python": "3.13.18"
+}

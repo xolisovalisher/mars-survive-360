@@ -1,0 +1,1158 @@
+@app
+Interplanetarer Überlebensleitfaden — Plattform für Planung und Analyse von Marsmissionen
+Jezero-Krater
+Mission
+Region
+Daten
+System
+Sprache
+Missionskontrolle
+System
+online
+Datenquelle
+Aktualisiert
+Berechnung
+Fehler
+Warnungen
+SYNTHETISCHES DGM aktiv
+@groups
+Mission
+Geodaten
+KI & Navigation
+Kommunikation & Raumfahrt
+Crew & Ressourcen
+Daten & System
+@modules
+Missions-Dashboard
+Marskarte 2D/3D
+Geländeanalyse
+DGM-Datenverwaltung
+Routenplanung
+Gefahrenerkennung
+KI / Computer Vision
+Autonome Navigation
+Navigationsanalyse
+Kommunikationssystem
+Relais & Netzwerk
+SPICE & Bahngeometrie
+MEDA-Umgebung
+Anzugtelemetrie
+Sauerstoffmanagement
+Energiemanagement
+Missionszeitplan
+Wissenschaftliche Ziele
+Missionssimulation
+Risikobewertung
+Datenimport
+Datenqualität & Herkunft
+Missionsberichte
+Mehrsprachiges System
+Einstellungen
+Systemdiagnose
+Integrierte Missionsanalyse
+@descriptions
+Missionen anlegen und auswählen und den berechneten Zustand des aktiven Plans sehen.
+Interaktive 2D-Karte mit NASA-Mars-Trek-Basiskarten und wissenschaftlichen Ebenen sowie 3D-Geländeansicht aus echten Höhen.
+DGM-Ableitungen: Hangneigung, Exposition, Krümmung, Rauheit, Relief, Variabilität und Komplexität, mit Profilen und Qualitätsprüfung.
+Jezero-DGM (USGS CTX 20 m) oder eigenes GeoTIFF laden, prüfen und validieren.
+Vier Routenstrategien mit A*, Weighted A* oder Dijkstra auf einem Geländegraphen mit 16 Nachbarn.
+Regelbasierte Erkennung von steilem, rauem, felsigem Gelände, Kraterrändern, Unstetigkeiten und unbekanntem Gelände.
+Überwachtes Geländebegehbarkeitsmodell (hier trainiert und getestet), Computer Vision auf Oberflächenbildern, unüberwachte Geländeeinheiten und Erklärungsassistent.
+Lokalisierung ohne GPS: Radodometrie, Gyroskop, visuelle Odometrie und Landmarken, fusioniert durch einen EKF.
+Genauigkeit und Unsicherheit von Navigationskonfigurationen im Monte-Carlo-Vergleich.
+Funkstreckenbudget und Sichtlinie über das Gelände zwischen Crew und Basis.
+Kontaktfenster mit Orbitern und Speichern-und-Weiterleiten-Datenfluss.
+Marszeit, Jahreszeit und Sonnenstand (Mars24), mit NASA SPICE, wenn Kernel vorhanden sind.
+MEDA-artige Wetterdaten importieren und analysieren: Statistik, Anomalien und EVA-Umweltstufe.
+Physikalische Simulation der Anzug-Verbrauchsgüter mit Alarmen und Anomalieerkennung.
+Sauerstoffbudget des EVA, Verbrauchsprognose und minimale Rückkehrreserve.
+Traktionsenergie des Rovers, Leistungsbilanz und Batteriezustand für jede Route.
+Missionsphasen, Gantt-Diagramm und Ressourcen über die Zeit.
+Katalog wissenschaftlicher Ziele, mit der Route verknüpft.
+Schrittweise Wiedergabe des Plans in Normal- und Notfallszenarien.
+Wahrscheinlichkeit × Auswirkung-Matrix aus den Ergebnissen der Plattform.
+Sicherer Upload und Prüfung von GeoTIFF, XML/PDS4, CSV, JSON/GeoJSON und Bildern.
+Herkunft, Klasse und Qualität jedes verwendeten Datensatzes.
+Missionsbericht als PDF, HTML, CSV, JSON und Excel.
+Zentraler Übersetzungsdienst mit 18 Sprachen, Fallback und Rechts-nach-links-Schrift.
+Sprache, Design, Einheiten, Karte und Pfade.
+Bibliotheken, Module, Daten, Ressourcen, Tests und Protokolle.
+Führt alle Module für ein Start/Ziel-Paar aus und erklärt die empfohlene Route.
+@limitations
+Kennzahlen sind nur so gut wie die Modelle dahinter; synthetische oder simulierte Eingaben sind gekennzeichnet.
+Basiskarten sind globale Mosaike niedriger Auflösung; Maßstabswerkzeuge des Browsers setzen die Erde voraus und werden nicht verwendet.
+Ein 50-m-Raster zeigt keine Blöcke oder kleinen Stufen; reale lokale Hangneigungen sind steiler.
+Nur das Analysefenster wird neu abgetastet; die Höhengenauigkeit hängt vom Quell-DGM ab.
+Routen sind nur für das gewählte Kostenmodell und Raster optimal; sie sind keine zertifizierten Traversenpläne.
+Schwellen sind Planungsannahmen; Steine kleiner als eine Zelle sind für diese Methode unsichtbar.
+Der heuristische Detektor ist kein trainiertes Modell; YOLO-Ergebnisse gibt es nur mit echten trainierten Gewichten.
+Sensordaten sind simuliert; echter Radschlupf und Geländeeinflüsse können größer sein.
+Monte-Carlo-Statistiken beschreiben das Simulationsmodell, nicht einen echten Rover.
+Funkwerte sind beispielhaft; Mehrwegeausbreitung, Antennendiagramme und Staubstürme sind vereinfacht.
+Bahnen sind synthetische Zweikörper-Kreisbahnen, keine NASA-Ephemeriden.
+Ohne Kernel wird der analytische Mars24-Algorithmus verwendet (Genauigkeit ~0,01° in Ls).
+Der Beispieldatensatz ist synthetisch; EVA-Bereiche sind Planungsannahmen.
+Generisches Anzugmodell; nicht mit einem echten NASA-Anzug verbunden.
+Irdische Physiologie auf den Mars skaliert; reale Stoffwechselkosten im Anzug schwanken stark.
+Roverparameter sind beispielhaft; thermische und nächtliche Lasten sind vereinfacht.
+Zeiten folgen dem Modell; betriebliche Einschränkungen sind nicht enthalten.
+Ungefähre Koordinaten müssen in NASA Mars Trek geprüft werden.
+Ereignisse und Entscheidungsregeln sind vereinfachte Beispiele für Flugregeln.
+Punktzahlen hängen von dokumentierten Schwellen und Annahmen ab; sie sind keine Sicherheitszertifizierung.
+Die Prüfung umfasst Format und Struktur, nicht die wissenschaftliche Richtigkeit.
+Klassenangaben sind nur so genau wie die Angaben beim Import.
+Berichte geben Modellergebnisse und ihre Grenzen wieder; sie sind keine Missionsfreigabe.
+Die Übersetzungen wurden mit KI-Unterstützung erstellt und sollten von Muttersprachlern geprüft werden.
+Manche Änderungen wirken erst nach der nächsten Berechnung.
+Die Prüfungen betreffen nur diesen Computer.
+Die Empfehlung ist Entscheidungshilfe für einen Prototyp, keine echte Sicherheitsvorgabe für Astronauten.
+@ui
+Berechne…
+Parameter
+Methode, Quellen und Grenzen
+Methode
+Quellen
+Grenzen
+Details
+ja
+nein
+Aktivieren
+Ziel hinzufügen
+Als Wegpunkt hinzufügen
+Empfohlene Route verwenden
+Markierungen und Stopps löschen
+Stopps löschen
+Routen berechnen
+Mission speichern
+Löschen
+DGM von USGS herunterladen
+Bericht erzeugen
+Prüfen
+Register aktualisieren
+Zurück zum synthetischen DGM
+Vergleich starten
+Integrierte Analyse starten
+Tests ausführen
+Kernel speichern
+Einstellungen speichern
+Datensatz aufteilen
+K-Means trainieren
+YOLO trainieren
+Status aktualisieren
+Dieses DGM verwenden
+Prüfen und importieren
+@errors
+Fehler
+Dieses Modul ist fehlgeschlagen, die anderen arbeiten weiter
+Ungültige Koordinate
+Der Name darf nicht leer sein
+Ungültiges GeoJSON
+Bild kann nicht gelesen werden
+Ungültige Eingabe
+Raster kann nicht geöffnet werden
+XML kann nicht sicher gelesen werden
+Das DGM deckt die gewählte Region nicht ab
+Netzwerk- oder DNS-Problem
+Server antwortete mit einem Fehler
+Download unvollständig
+Prüfsumme stimmt nicht
+spiceypy ist nicht installiert
+SPICE-Kernel fehlen
+Keine bekannten MEDA-Spalten gefunden
+CSV kann nicht gelesen werden
+Ungültiger Dateiname
+Dateityp nicht erlaubt
+Datei ist leer
+Datei zu groß
+Dateiinhalt passt nicht zur Endung
+@labels
+Basis
+Batterie (Wh)
+Zellgröße
+Datenklasse
+Beschreibung
+2D-Distanz
+3D-Distanz
+Dauer / Budget (h)
+Arbeit an jedem Stopp (min)
+Höhe
+Gesamtaufstieg
+Ziel
+Raster
+Breite (planetozentrisch)
+Breite (planetografisch)
+Breitenbereich
+Länge (Ost)
+Längenbereich
+Gesamtabstieg
+Reserve
+Missionsname
+Missionszeit (h)
+NoData
+NoData-Zellen
+NoData-Proben
+O₂-Kapazität (L)
+Qualität
+Bereich
+Region
+Reserve (%)
+Szenario
+Mission wählen
+Hangneigung
+Neigungsgrenze (°)
+Verdächtige Sprünge
+Start
+Status
+Stopp
+Gültige Daten
+@dashboard
+Schnellstart
+1. Prüfen Sie das Datenkennzeichen oben: **Synthetisch** bedeutet Demo-Gelände. Laden Sie das echte DGM in **04 DGM-Datenverwaltung**.\n2. Klicken Sie in **05 Routenplanung** auf die Karte, um Start, Ziel und Stopps zu setzen, und berechnen Sie die vier Routen.\n3. Prüfen Sie Gefahren, Sauerstoff/Energie, Navigation und Kommunikation in den Modulen 06–16.\n4. Starten Sie **27 Integrierte Missionsanalyse** für eine bewertete Empfehlung.\n5. Exportieren Sie das Ergebnis in **23 Missionsberichte**.
+Status
+Neue Mission
+Missionen
+EVA vom Landeplatz zur westlichen Deltafront.
+Warnungen
+Keine aktiven Warnungen.
+Wissenschaftliche Ziele
+Mission gespeichert (#{id}).
+Noch keine gespeicherten Missionen.
+SYNTHETISCHES DGM: Demo-Gelände, keine echten Marshöhen. Laden Sie das USGS-Jezero-DGM in Modul 04.
+Aktive Route
+aus Modul 05
+Distanz
+Dauer
+von {b} h Budget
+O₂-Reserve
+Batteriereserve
+Energie
+metabolisch
+elektrisch
+Navigationsgenauigkeit
+EKF, simulierte Sensoren
+Kommunikation
+Gefahren / Ziele
+Gefahrenobjekte / wissenschaftliche Ziele
+Synthetisches DGM aktiv — Ergebnisse sind eine Demonstration.
+Keine Route gefunden — Punkte verschieben oder Neigungsgrenze lockern.
+Plandauer {h} h überschreitet das nutzbare Budget.
+Am Planende bleiben nur {p} % O₂.
+Funkstrecke schließt nicht (Reserve {m} dB).
+Der Plan überschreitet den letzten sicheren Umkehrpunkt.
+Empfohlene Route: {s} (Punktzahl {score}, niedriger ist besser).
+Nächstbeste: {s2}, schlechter um {d}.
+{km} km, {h} h, mittlere Gefahr {haz}, max. Neigung {sl}°.
+Rückkehr ist von jedem Punkt möglich; kleinste Abbruchreserve {m} h.
+Der Plan überschreitet das sichere Budget (Reserve {m} h): kürzen oder einen Stopp entfernen.
+Gesamtrisiko: {lv}; Hauptfaktor: {f}.
+@map
+2D-Karte
+3D-Gelände
+Sichtbare Ebenen
+Kartenklick setzt
+Koordinate suchen
+Gefunden: {lat}, {lon}
+Punkt liegt außerhalb des DGM-Bereichs
+Suchergebnis
+GeoJSON-Punkte als Stopps importieren
+{n} Punkte als Stopps importiert
+Vertikale Überhöhung
+3D-Auflösung (Zellen)
+Färben nach
+Die 3D-Oberfläche entsteht aus DGM-Höhen (km) auf einem lokalen Ost/Nord-Raster.
+@terrain
+Ebene
+Profil zwischen
+Start und Ziel
+eigenen Punkten
+Statistik
+Histogramm
+Höhenprofil
+DGM-Qualität und Koordinatensystem
+KBS: {crs}; Zellgröße {res} m; Breite planetozentrisch, Länge ostpositiv.
+@dem
+Aktives DGM: {src}
+Metadaten des aktuellen DGM
+Herunterladen
+Lokale Datei
+Hochladen
+XML/PDS4-Label
+Primärquelle: USGS Astrogeology, Mars 2020 Science Investigation CTX DEM Mosaic (20 m/Pixel, gesamter Jezero-Krater, ~87 MB). Fortsetzbarer Download mit Prüfung von HTTP-Status, Größe und Prüfsumme.
+Offizieller Katalog
+{mb} MB heruntergeladen.
+DGM verarbeitet: {v} % gültige Zellen.
+Kein Internet? Datei im Browser herunterladen und den Reiter „Lokale Datei“ nutzen.
+Pfad zum GeoTIFF
+Das KBS ist ein Mars-Koordinatensystem.
+Das KBS wird nicht als Mars erkannt — vor der Nutzung prüfen.
+GeoTIFF-DGM
+XML/PDS4-Label
+Wurzelelement: {t}; PDS4: {p}
+Kein Label geladen.
+@route
+Algorithmus
+Gewicht Neigung
+Gewicht Gefahr
+Gewicht Energie
+Start {s} → Ziel {g}; Stopps: {n}
+Aktive Strategie
+Für keine Strategie wurde eine Route gefunden.
+Profile
+Neigung entlang der Route: {s}
+kein befahrbarer Weg
+Start oder Ziel blockiert
+@hazards
+Mindestrelief für Kraterränder (m)
+Minimale Objektgröße (Zellen)
+Gefahrenobjekte
+sicher
+Vorsicht
+hoch
+unpassierbar
+unbekannt
+Objekte nach Typ
+Gefahrenstufen auf der aktiven Route
+Mittlerer Gefahrenindex {m}, Maximum {x}
+Gefahrenobjekte
+@ai
+Erkennung
+Geländeeinheiten (K-Means)
+YOLO-Datensatz & Training
+Routenassistent
+Bild
+Verfahren
+YOLO nicht verfügbar (Paket: {pkg}, Gewichte: {w})
+Konfidenzschwelle
+Oberflächenbild (PNG/JPG)
+Referenzlabels (YOLO .txt, optional)
+Neue Testszene
+Bild hochladen, um die Erkennung zu starten.
+KEIN TRAINIERTES MODELL
+{n} Erkennungen
+Bildanteil mit Steinen/Kratern
+Bewertungsmetriken
+Metriken werden gegen die gegebenen Referenzlabels berechnet (synthetische Szene: bekannte Objekte).
+Keine Referenz — Metriken können nicht berechnet werden.
+Anzahl der Einheiten (k)
+Merkmale
+Silhouettenwert
+Unüberwachte Cluster ähnlichen Geländes; keine geologischen Einheiten.
+YOLO-Datensatz vorbereiten (Bilder + .txt-Labels), in train/val/test aufteilen und ein Modell trainieren. Training benötigt das Paket ultralytics; trainierte Gewichte (.pt) in models/yolo ablegen, um YOLO zu aktivieren.
+Bildordner
+Labelordner
+Ordner nicht gefunden: {d}
+Epochen
+Zuerst den Datensatz aufteilen.
+ultralytics ist nicht installiert; YOLO-Training und -Inferenz sind deaktiviert.
+Route {s}: {km} km, etwa {h} h.
+Mittlere Neigung {ms}°, maximal {xs}°; Aufstieg {g} m, Abstieg {l} m.
+Mittlerer Gefahrenindex {m}, Maximum {x}.
+Sauerstoff: {o} L von {c} L.
+Energie: {e} Wh von {c} Wh Batterie.
+{n} steile Abschnitte (> 70 % der Grenze); der erste bei {km} km.
+Erklärungen verwenden nur die oben berechneten Zahlen.
+Eine Frage zu dieser Route stellen
+ANTHROPIC_API_KEY in .env setzen, um freie Antworten zu aktivieren.
+@navigation
+SYNTHETISCHE SIMULATION: Sensordaten sind erzeugt; der Mars hat kein GPS.
+Odometrierauschen
+Radschlupf
+Gyro-Drift (°/h)
+Visuelle Odometrie
+Landmarkenabstand (m)
+Landmarkenreichweite (m)
+Entfernungsrauschen σ (m)
+Zufallsstartwert
+Endfehler (EKF)
+Endfehler (Odometrie)
+Endunsicherheit (1σ)
+Landmarken-Updates
+Odometriedrift
+Wahrer Weg
+Koppelnavigation
+Landmarken
+2σ-Ellipse (×10)
+Positionsfehler
+Unsicherheitsellipsen sind zur Sichtbarkeit ×10 vergrößert.
+Monte-Carlo-Läufe
+Genaueste Konfiguration: {c}
+Fehlerwachstum entlang der Route
+Positionsunsicherheit
+Kursunsicherheit
+Schritt
+EKF-Unsicherheit
+@communication
+Streckenbudget
+Sichtlinie über Gelände
+Voreinstellung
+Frequenz (MHz)
+Sendeleistung (W)
+Sendeantennengewinn (dBi)
+Empfangsantennengewinn (dBi)
+Entfernung (km)
+Systemrauschtemperatur (K)
+Datenrate (bit/s)
+Benötigtes Eb/N0 (dB)
+Sendeverluste (dB)
+Atmosphärischer Verlust (dB)
+Sonstige Verluste (dB)
+Implementierungsverlust (dB)
+Empfangsleistung
+Streckenreserve über Entfernung
+Antennenhöhe Crew (m)
+Antennenhöhe Basis (m)
+Jeden N-ten Routenpunkt prüfen
+Funkhorizont
+glatte Kugel
+Routenanteil mit Sichtlinie
+Verdeckte Punkte
+Max. Entfernung zur Basis
+verdeckt
+sichtbar
+Sichtlinie zur Basis entlang der Route
+Gelände + Krümmung
+Funkstrahl
+Sichtlinienprofil (schlechtester Punkt)
+@relay
+SIMULIERTE Bahnen: Zweikörper-Kreisbahnen, keine NASA-Ephemeriden.
+Zeitraum (h)
+Erzeugte Daten (kbit/s)
+Puffer (MB)
+Ausfall simulieren
+Ausfall (h)
+Mindestens einen gültigen Orbiter hinzufügen.
+Elevation (°)
+Elevation des Orbiters über dem Standort
+Überflüge
+Verfügbarkeit
+Längste Lücke
+Max. Warteschlange
+Verlorene Daten
+Warteschlange
+Zugestellt
+Speichern und weiterleiten
+Relaisnetz
+Crew / Rover
+Basis
+Erde (DSN)
+@spice
+SPICE-Kernel
+spiceypy installiert: {v}
+Kernel hochladen
+Kernel fehlen: der analytische Mars24-Algorithmus wird verwendet.
+Datum (UTC)
+Uhrzeit (UTC)
+Mindest-Sonnenhöhe für EVA (°)
+Sonnenhöhe
+Sonnenazimut
+SPICE: Höhe {e}°, Azimut {a}°, Ls {l}° (Differenz zu Mars24: {d}°)
+Werte mit dem Mars24-Algorithmus berechnet (Allison & McEwen 2000).
+Stunden nach 00:00 UTC
+Sonnenhöhe über einen Sol
+Tageslichtfenster mit Sonne ≥ {e}°
+@meda
+Datenquelle
+Gleitendes Fenster (Werte)
+Anomalieschwelle (z)
+MEDA-CSV
+CSV mit MEDA-Spalten hochladen, zum Beispiel:
+SYNTHETISCHES Beispiel: typische Größenordnungen, keine Messdaten.
+Spaltenzuordnung
+Variablen
+Werte
+Anomalien
+Umweltstufe
+Zeit
+Statistik
+EVA-Umweltprüfung
+@suit
+SIMULATION eines generischen EVA-Anzugs — nicht mit einem echten NASA-Anzug verbunden.
+Rover-Szenario: der Astronaut wird mit leichter Aktivität modelliert.
+O₂-Tankvolumen (L)
+Tankdruck (kPa)
+Anzugbatterie (Wh)
+Kühlwasser (kg)
+Fehler einspeisen
+O₂-Leck
+Lüfterausfall
+Kommunikationsverlust
+Batteriealterung (%)
+Sicherheitsstatus
+O₂-Tank am Ende
+Batterie am Ende
+Alarme
+Anomalien
+Telemetriekanäle
+Keine Schwellenalarme.
+Anomaliewert (Isolation Forest)
+@oxygen
+Kapazität aus
+Kapazität
+Körpermasse (kg)
+Anzugmasse (kg)
+Nutzlast (kg)
+Anzug-Anstrengungsfaktor
+Gehgeschwindigkeit in der Ebene (m/s)
+Rover-Szenario: das Fahrzeugmodell verbraucht keinen Sauerstoff.
+Nutzbar
+Geplanter Verbrauch
+Verbleibend
+Mittlere Rate
+Ausdauer
+Minimale Rückkehrreserve
+O₂ für die Rückkehr vom entferntesten Punkt
+Prognose des Sauerstoffverbrauchs
+Für die Rückkehr von hier nötig
+Nutzbar = Kapazität minus {r} % Notreserve. Gelbe Linien = wissenschaftliche Stopps.
+@energy
+Rovermasse (kg)
+Geschwindigkeit (m/s)
+Rollwiderstand
+Antriebswirkungsgrad
+Leerlaufleistung (W)
+Instrumentenleistung (W)
+Max. Motorleistung (W)
+RTG-/Solarnachladung (W)
+Rauheits-Widerstandsfaktor
+Energie
+Nachladung
+Nettoverbrauch
+Batterie am Ende
+Reserve gehalten
+unter der Reserve
+Mittlere Leistung
+Fahrzeit
+Batterieladung
+Reserve
+Batterie entlang der Route: {s}
+Leistung
+Steigung
+Leistung entlang der Route
+Energie der vier Routen
+@timeline
+EVA-Beginn (UTC)
+Vorbereitung (min)
+Pause alle (h)
+Pausenlänge (min)
+Gesamtzeit
+Phasen
+Relaisüberflüge
+Letzte sichere Umkehr
+nicht erreicht
+Missionsphasen
+Abbruchreserve
+Dosis (µSv)
+Ressourcen über die Zeit
+@science
+Ziel hinzufügen
+Name
+Typ
+Priorität
+Ziel hinzugefügt.
+Auf die Karte klicken, um die Koordinaten zu füllen.
+Ziel
+Als Stopp hinzugefügt; Routen werden neu berechnet.
+Beobachtungsaufgaben: {n}
+@simulation
+Szenario
+Ereignis bei (Anteil des Plans)
+Zeitschritt (s)
+Alle Szenarien ausführen
+O₂-Leckfaktor
+Leistungsfaktor
+Kommunikationsausfall (min)
+Regel bei Funkverlust (min)
+Ergebnis: {o} · Risiko: {r} · Dauer {h} h
+Dauer
+Plan
+Verbrauchter O₂
+Verbrauchte Energie
+Max. Navigations-2σ
+Fortschritt
+Simulationsverlauf
+Keine Ereignisse: der Plan lief wie erwartet.
+Alle Szenarien
+@risk
+Noch nicht berechnet: {m}. Diese Module öffnen für eine vollständige Bewertung.
+Gesamtrisiko
+Höchste Punktzahl
+Hauptfaktor
+Wahrscheinlichkeit
+Auswirkung
+Risikomatrix
+Wie jede Wahrscheinlichkeit berechnet wurde
+@ingest
+Erlaubt: {e}; bis {m} MB pro Datei.
+Dateien
+Dateien hochladen, um sie zu prüfen und zu registrieren.
+Metadaten
+@provenance
+Datenklassen
+Datensätze nach Klasse
+**Real** — offizielle NASA/USGS-Daten. **Synthetisch** — erzeugte Demodaten. **Simuliert** — Modellausgabe. **Nutzer** — vom Nutzer hochgeladen.
+@reports
+Missionsbericht
+DGM
+Abschnitte
+Formate
+Bericht fertig: {s} Abschnitte, {n} Dateien.
+Vorschau
+Entscheidungshilfe für einen Prototyp: vereinfachte Modelle, keine echte Sicherheitsvorgabe für Astronauten.
+@i18n
+Sprachen
+Textschlüssel
+Geringste Abdeckung
+Übersetzungsabdeckung
+Einen Text in allen Sprachen vergleichen
+Schlüssel
+Fallback-Test
+Eine Sprache hinzufügen
+1. mars_survive/localization/src/en.txt nach <code>.txt kopieren und die Werte übersetzen.\n2. Den Code zu LANGUAGES in i18n.py hinzufügen.\n3. python scripts/build_locales.py und die Tests ausführen.
+Übersetzungen mit KI-Unterstützung erstellt; Prüfung durch Muttersprachler empfohlen.
+@settings
+Design
+Entfernungseinheit
+Temperatureinheit
+Basiskarte
+Kartenzoom
+Pfade
+DGM-Datei
+KI-Modellordner
+SPICE-Kernelordner
+Datenordner
+Missionsvorgaben
+Einstellungen gespeichert.
+Pfad nicht gefunden: {p}
+Aktuelle Einstellungen
+Beispielentfernung
+Beispieltemperatur
+@diagnostics
+Module
+Freier Speicherplatz
+Freier Arbeitsspeicher
+App-Speicher
+Bibliotheken
+Daten
+Tests
+Protokolle
+Bestanden
+Fehlgeschlagen
+Übersprungen
+Ausgeführt am
+Tests dauerten zu lange.
+@integration
+**Kette:** Gelände → Gefahren → 4 Routen → Energie & O₂ → Navigation → Kommunikation → Risiko → Simulation → Bericht.
+Erfolgreiche Schritte
+Empfohlen
+Simulation
+Erklärung
+Aufschlüsselung der Punktzahl (niedriger ist besser)
+Punktzahl
+Pipeline-Schritte
+Die empfohlene Route ist jetzt aktiv.
+@values
+REAL
+SYNTHETISCH
+SIMULIERT
+NUTZERDATEN
+Kürzeste
+Geringste Neigung
+Geringste Gefahr
+Ausgewogen
+A*
+Weighted A*
+Dijkstra
+Astronauten-EVA
+Rover
+Markierung
+Start
+Ziel
+Stopp
+Basis
+Schummerung
+Höhe
+Hangneigung
+Exposition
+Krümmung
+Rauheit
+Rauheitsindex (TRI)
+Lokales Relief
+Variabilität
+Komplexität
+Gefahren
+Thermal (THEMIS)
+NoData
+Positionsindex (TPI)
+keine
+steiler Hang
+raue Oberfläche
+felsiges Gelände
+Kraterrand
+Unstetigkeit
+unsicheres Gelände
+niedrig
+mittel
+hoch
+kritisch
+unbekannt
+gut
+knapp
+schließt nicht
+Warnung
+kritisch
+Veröffentlichte Koordinaten
+Ungefähr (prüfen)
+Nutzereinträge
+Landeplatz
+Delta
+magmatische Einheit
+Ebene
+Krater
+Gestein
+Aufschluss
+Probenstelle
+sonstiges
+geplant
+beobachtet
+beprobt
+übersprungen
+in Planung
+aktiv
+abgeschlossen
+abgebrochen
+Gelände
+Energie / Zeit
+Sauerstoff
+Kommunikation
+Navigation
+Umwelt
+Ausrüstung
+Strahlung
+Route mit geringster Gefahr wählen, Neigungsreserve halten, zuerst erkunden.
+Größere Reserve, kürzere Strecke, Ladestopps.
+Kürzere Stopps, nähere Ziele, ≥ 25 % Reserve halten.
+In Relaisfenstern arbeiten, Relaisbake mitnehmen, Regel bei Funkverlust.
+Kontrollpunkte mit Landmarken und visueller Odometrie alle 500 m.
+Windspitzen am Nachmittag und Staubereignisse meiden.
+Prüfungen vor dem EVA, Ersatzteile, Telemetriealarme.
+Weltraumwetter prüfen; bei Warnung vor Sonnenteilchen abbrechen.
+abgeschlossen
+sicherer Abbruch und Rückkehr
+gescheitert
+unvollständig
+Normalbetrieb
+Energiemangel
+Sauerstoffmangel
+Kommunikationsverlust
+Geländegefahr
+Navigationsdrift
+Notrückkehr
+Stopp zur Neulokalisierung
+Gefahrenumgehung
+Kommunikation verloren
+Notrückkehr
+Abbruch: Sauerstoff
+Abbruch: Zeitbudget
+Abbruch: Energie
+Abbruch: Kommunikation
+Verbrauchsgut erschöpft
+Start
+Fahrt
+Beobachtung
+Kommunikation
+Pause
+Rückkehr
+Notfall
+Steine
+Krater
+Sand
+steile Hänge
+raues, blockiges Gelände
+Rücken und Ränder
+Senken
+glatte Ebenen
+gemischtes Gelände
+Lufttemperatur
+Bodentemperatur
+Druck
+Windgeschwindigkeit
+Windrichtung
+Staubopazität
+UV-Index
+Synthetisches Beispiel
+CSV hochladen
+O₂-Tankdruck
+Batterie
+CO₂-Partialdruck
+Anzugtemperatur
+Luftfeuchte
+Anzugdruck
+O₂-Fluss
+Kühlwasser
+Kommunikation
+nominal
+Vorsicht
+EVA abbrechen
+Crew → Orbiter (UHF)
+Crew → Basis (lokales UHF)
+Direkt zur Erde (X-Band)
+Strecke schließt mit Reserve; max. Rate bei 3 dB Reserve ≈ {r} kbit/s.
+Strecke schließt mit wenig Reserve; max. Rate ≈ {r} kbit/s.
+Strecke schließt nicht; Rate oder Entfernung verringern (max. ≈ {r} kbit/s).
+Der Sauerstoffplan liegt im nutzbaren Budget.
+Geringe Reserve: verbleibender Sauerstoff nahe der Rückkehrreserve.
+Der Plan verbraucht mehr Sauerstoff als verfügbar.
+Liter
+Tank (p, V)
+EKF + VO + Landmarken
+EKF + Landmarken
+EKF + VO
+Nur Odometrie
+Zeit
+Energie
+Gefahr
+Neigung
+Kommunikation
+Navigation
+Route
+Höhenprofil
+Gefahren
+Ressourcen
+Navigation
+Kommunikation
+Wissenschaftliche Ziele
+Risiko
+Empfehlungen
+Datenherkunft
+Grenzen
+Frühling
+Sommer
+Herbst
+Winter
+Dunkel
+Hell
+gut
+brauchbar
+schlecht
+Synthetische Testszene
+Bild hochladen
+Heuristische CV (nicht trainiert)
+YOLO (trainierte Gewichte)
+Navigation (08)
+MEDA (13)
+Anzug (14)
+Kontextaufnahmen
+Nahaufnahmen
+Abrasion und Nahbereichsanalyse
+Probenkern
+Mineralogische Spektren
+Geräteinspektion
+Instrumentenkalibrierung
+Bodenprobe
+Messungen
+@columns
+ID
+Name
+Szenario
+Dauer (h)
+Status
+Aktualisiert
+Herkunft
+Priorität
+Ebene
+Einheit
+Mittel
+Std.
+Min
+Median
+P90
+Max
+Kennzahl
+Gefunden
+2D-Distanz (km)
+3D-Distanz (km)
+Mittlere Neigung (°)
+Max. Neigung (°)
+Mittlere Gefahr
+Energie (kWh)
+Expandierte Knoten
+Rechenzeit (s)
+Typ
+Stufe
+Breite
+Länge
+Fläche (km²)
+Methode
+Quelle
+Konfidenz
+Orbiter
+Periode (min)
+Überflüge
+Verfügbarkeit (%)
+Volumen (MB)
+Beginn (h)
+Ende (h)
+Dauer (min)
+Max. Elevation (°)
+Min. Entfernung (km)
+Beginn (UTC)
+Ende (UTC)
+LTST Beginn
+LTST Ende
+Parameter
+Erster Zeitpunkt (h)
+Wert
+Schwelle
+Strategie
+Energie (Wh)
+Netto (Wh)
+Fahrt (h)
+Mittl. Leistung (W)
+Reserve gehalten
+Phase
+Bezeichnung
+Beginn
+Ende
+Typ
+Abstand zur Route (m)
+Zeit (h)
+Ereignis
+Detail
+Ergebnis
+Risiko
+Ereignisse
+Faktor
+Wahrscheinlichkeit
+Auswirkung
+Punktzahl
+Gegenmaßnahme
+Datei
+Format
+Größe (KB)
+KBS
+Einheiten
+Gültig
+Fehler
+SHA-256
+Klasse
+Anbieter
+URL
+Erfasst
+Verarbeitet
+Auflösung
+Qualität
+Verlauf
+Grenzen
+Code
+Sprache
+Englischer Name
+RTL
+Schlüssel
+Abdeckung (%)
+Bibliothek
+Version
+OK
+Optional
+Fehler
+Pfad
+Vorhanden
+Beschreibbar
+O₂ (L)
+Max. Neigung / Grenze
+Ohne Sichtlinie
+Konfiguration
+RMSE Mittel (m)
+RMSE p95 (m)
+Endfehler (m)
+End-σ (m)
+Kurs-RMSE (°)
+Max. Abweichung (m)
+Konsistenz (2σ)
+Variable
+EVA-Bereich
+Außerhalb (%)
+Grundlage
+Modul
+Ladezeit (ms)
+@riskdetail
+max. Hangneigung / Grenze; mittlere Gefahr
+Energiereserve am Missionsende
+Batteriereserve
+Reserve des EVA-Zeitbudgets
+O₂-Reserve am Missionsende
+Relais-Verfügbarkeit; längste Lücke
+finaler 1σ-Positionsfehler
+MEDA-Umgebungsstufe
+Anzug-Telemetriewarnungen
+EVA-Dosis (Modell)
+L aus Neigungsverhältnis (≤0.3, 0.5, 0.7, 0.9) und Gefahrenindex (≤0.1, 0.2, 0.35, 0.5); der größere Wert
+Reserve ≤0 → 5, ≤10% → 4, ≤25% → 3, ≤40% → 2, sonst 1
+gleiche Bänder wie Energie
+Verfügbarkeit (≤5% … 40%) und längste Lücke (≤1, 2, 4, 8 h); der größere Wert
+≤5 m → 1 … >60 m → 5
+Anteil der Messwerte außerhalb der EVA-Bänder
+0 Warnungen → 1, jede Warnung +1
+Dosisbänder; solare Teilchenereignisse nicht modelliert
+SYNTHETISCHES DEM (prozedurales Demo-Gelände, keine Marsdaten)
+@confirm
+Löschen bestätigen (nicht umkehrbar)
+@orbit
+Name
+Höhe (km)
+Inklination (°)
+RAAN (°)
+Phase (°)
+Datenrate (bit/s)
+Min. Elevation (°)
+@live
+Ungültiges JSON
+ML: P(nicht begehbar)
+MEDA-Wetter
+Zielkatalog
+Brier-Score
+Zur Fahrtroute (m)
+Trainingszeit (s)
+Stärke
+Ankunft am Mars (UTC)
+Mars-relevant
+Modell
+PR-AUC
+Präzision
+Trefferquote (Recall)
+ROC-AUC
+Sol
+F1 (Test)
+Zeit (UTC)
+F1 (Validierung)
+Nachbarneigung, Mittel
+Nachbarneigung, Max.
+Neigungsmittel 7×7
+Neigungsstreuung 7×7
+Nachbarrauheit, Mittel
+Nachbarrauheit, Max.
+Rauheitsmittel 7×7
+Zerklüftung (TRI)
+Lokales Relief
+|Krümmung|
+Positionsindex (TPI)
+Neigungsvariabilität
+Höhenstreuung 5×5
+Begehbarkeitsmodell (überwacht)
+Ein überwachter Klassifikator sagt für jede DEM-Zelle die Wahrscheinlichkeit voraus, dass sie zu Fuß NICHT begehbar ist. Er sieht nur die Umgebung der Zelle (nie ihre eigene Neigung oder Rauheit) und wird auf Kartenblöcken getestet, die er beim Training nie gesehen hat. Die Labels stammen aus expliziten DEM-Regeln (schwache Überwachung), nicht aus menschlicher Annotation.
+Label: Neigungsgrenze (°)
+Label: Rauheitsgrenze (m)
+Räumliche Blöcke pro Seite
+Epochen des neuronalen Netzes
+Modelle: logistische Regression (Basis), Gradient Boosting, neuronales Netz ({nn}).
+Trainieren und bewerten
+Training…
+Modell trainiert: {m}, F1 auf den Testblöcken = {f}
+Noch kein trainiertes Modell — „Trainieren und bewerten“ drücken.
+Labels
+Auf dem SYNTHETISCHEN DEM trainiert: das glatte prozedurale Gelände macht die Aufgabe leicht, diese Werte übertragen sich nicht auf echtes Marsgelände. Nach dem Laden des echten Jezero-DEM neu trainieren (Modul 04).
+Gewähltes Modell
+Anteil nicht begehbarer Zellen in den Testblöcken: {p} (ein Zufallsklassifikator hat PR-AUC ≈ diesen Wert)
+Modellvergleich (Auswahl auf Validierung, Bericht auf Test)
+Aufteilung: {s}. Zeilen — Training {tr_}, Validierung {va}, Test {te}.
+begehbar
+nicht begehbar
+vorhergesagt
+tatsächlich
+Konfusionsmatrix (Testblöcke)
+Permutationswichtigkeit (Abfall des PR-AUC)
+Trainingsverlust
+Validierungsverlust
+Lernkurve des neuronalen Netzes
+Karte der vorhergesagten Wahrscheinlichkeit
+Mittlere P(nicht begehbar)
+Als nicht begehbar eingestufte Zellen
+Übereinstimmung mit den Label-Regeln
+Grün = wahrscheinlich begehbar, rot = wahrscheinlich nicht. Wird in der Routenplanung genutzt, wenn das ML-Gewicht > 0 ist (Modul 05).
+ML-Gewicht in der Routengefahr
+0 = nur regelbasierte Gefahr; 1 = nur Modellwahrscheinlichkeit; dazwischen = gewichtete Mischung.
+Begehbarkeitsmodell in Modul 07 trainieren, um es in der Routenplanung zu nutzen.
+Weltraumwetter (DONKI)
+NASA DONKI verzeichnet Sonneneruptionen (FLR), solare energiereiche Teilchenereignisse (SEP), koronale Massenauswürfe (CME, mit WSA-ENLIL-Ankunftsprognosen, die den Mars einschließen können) und geomagnetische Stürme (GST, nur Erde). Aus den Ereignissen vor dem Außeneinsatz leitet das Modul ein Strahlungssignal für die Crew ab; es fließt in Modul 20 ein.
+Datenquelle
+NASA DONKI (online)
+Gespeichertes DONKI-JSON
+Beispiel (synthetisch)
+Von
+Bis
+Zeitraum vor dem Außeneinsatz (Tage)
+Datum des Außeneinsatzes (UTC)
+Uhrzeit des Außeneinsatzes (UTC)
+Ereignistypen
+Sonneneruptionen
+Energiereiche Teilchen
+Koronale Massenauswürfe
+Geomagnetische Stürme (Erde)
+Verwendeter Schlüssel: {k}. Den kostenlosen Schlüssel von api.nasa.gov als NASA_API_KEY in .env eintragen (DEMO_KEY ist begrenzt).
+Von NASA DONKI abrufen
+Keine Daten von NASA DONKI erhalten (nichts wird als geladen angezeigt)
+DONKI-JSON-Datei
+Antwort eines Endpunkts (JSON-Liste) oder ein Objekt {"FLR": [...], "SEP": [...], "CME": [...], "GST": [...]}.
+Ereignistyp in dieser Datei
+Synthetisches Beispiel im DONKI-Format — keine NASA-Daten. Zeigt die Funktion des Moduls offline.
+DONKI-Daten abrufen oder eine Datei laden, um das Weltraumwetter zu bewerten.
+abgerufen
+Strahlungssignal des Außeneinsatzes
+Ereignisse im {d}-Tage-Fenster vor dem Außeneinsatz
+{n} CME-Ankunft(en) am Mars innerhalb ±1 Tag des Außeneinsatzes prognostiziert (WSA-ENLIL)
+{n} solare(s) Teilchenereignis(se) im Fenster
+{n} Eruption(en) der Klasse X im Fenster (Richtung zum Mars unbekannt)
+{n} schnelle(r) CME ≥ 1000 km/s im Fenster (Richtung zum Mars unbekannt)
+Keine bedeutenden Ereignisse im Fenster
+Planungsheuristik, keine Dosisprognose: DONKI beobachtet die Sonne von der Erdseite, Ereignisse können den Mars verfehlen oder ihn unbeobachtet erreichen. Nur ENLIL-Einschläge, die den Mars nennen, gelten als auf den Mars gerichtet.
+Weltraumwetter-Ereignisse (★ = Mars-relevant)
+Prognostizierte Ankunft am Mars
+Keine Ereignisse im gewählten Zeitraum.
+Perseverance: Fahrtroute und Bilder
+Der tatsächlich gefahrene Weg des NASA-Rovers Perseverance ist Bodenwahrheit: Die überquerten Orte sind für einen 1-Tonnen-Rover befahrbar, und seine Rohbilder zeigen, was die Crew dort sehen wird. Das Modul findet zu jedem Routenpunkt und Wissenschaftsziel den nächsten Punkt der Fahrtroute und zeigt die Rohbilder dieses Sols.
+Quelle der Fahrtroute
+NASA/JPL MMGIS (online)
+Gespeichertes GeoJSON
+Beispiel (synthetisch)
+Abstand „nahe der Fahrtroute“ (m)
+Fahrtroute von der NASA laden
+Laden von der NASA nicht möglich
+GeoJSON der Fahrtroute (M20_traverse.json)
+JSON des Rohbild-Feeds für diesen Sol
+Synthetisches Beispiel des Routenformats nahe dem Landeplatz — nicht der echte Weg von Perseverance.
+Fahrtroute laden, um Routen mit dem Weg des Rovers zu vergleichen.
+Routenpunkte
+Sols
+Gefahrene Strecke
+Innerhalb des aktiven DEM
+Die Fahrtroute liegt außerhalb des aktiven DEM-Fensters.
+Route innerhalb {m} m der Fahrtroute
+Größte Annäherung der Route
+Anteil der aktiven Route (jeder 3. Punkt), der nahe am tatsächlich von Perseverance befahrenen Gelände verläuft.
+Fahrtroute von Perseverance
+Was der Astronaut sehen wird
+Routenpunkt oder Ziel
+Kameras
+Die Routendatei enthält keine Sol-Nummern.
+Bei „{p}“: Perseverance fuhr am Sol {s} in {d} m Entfernung vorbei. Seine Bilder dieses Sols zeigen dieses Gelände.
+„{p}“ ist {d} km von der Fahrtroute entfernt (nächster Punkt: Sol {s}); die Bilder zeigen die Umgebung, nicht genau diesen Ort.
+Bilder laden
+„Bilder laden“ drücken (NASA-Rohbild-Feed für Sol {s}) oder ein gespeichertes JSON laden.
+Rohbilder, Sol {s}
+Keine Bilder der gewählten Kameras.
+In voller Größe öffnen
+Kein Bild in diesem Eintrag (synthetisches Beispiel)
+Rohbilder sind unkalibriert und unbearbeitet. Quelle: NASA/JPL-Caltech (bei Mastcam-Z auch ASU).
+Navcam
+Mastcam-Z
+Hazcam
+SuperCam RMI
+SHERLOC / WATSON
+SkyCam
+@extra
+3D (deck.gl)
+PyDeck/deck. gl-Szene in lokalen Metern auf der Marskugel (ohne irdische Kartenprojektion): DEM-Punkte als Punktwolke, Routen und Perseverance-Fahrtroute als 3D-Pfade. Zum Drehen ziehen (rechte Taste / Strg).
+PyDeck ist nicht installiert (pip install pydeck).
+GIS-Export (GeoPackage, Mars-CRS)
+Für den GIS-Export geopandas und shapely installieren (requirements-optional.txt).
+{n} Ebenen ({l}) in {crs} — Mars-2015-Kugel, planetozentrisch, östliche Länge; öffnet sich in QGIS/ArcGIS als Marsdaten. GeoJSON kann kein nicht-irdisches CRS speichern: die Koordinaten sind dieselben Mars-Längen/Breiten.
+Ein benötigtes Paket fehlt

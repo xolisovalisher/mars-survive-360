@@ -1,0 +1,134 @@
+{
+ "_note": "SYNTHETIC format example, no image files",
+ "images": [
+  {
+   "imageid": "SYNTH_000",
+   "sol": 14,
+   "camera": {
+    "instrument": "NAVCAM_LEFT",
+    "filter_name": "E"
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:00:00Z",
+   "extended": {
+    "localtime": "13:00:00",
+    "mastAz": 30,
+    "mastEl": -10
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_001",
+   "sol": 14,
+   "camera": {
+    "instrument": "MCZ_RIGHT",
+    "filter_name": "F0"
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:05:00Z",
+   "extended": {
+    "localtime": "13:04:00",
+    "mastAz": 70,
+    "mastEl": -7
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_002",
+   "sol": 14,
+   "camera": {
+    "instrument": "FRONT_HAZCAM_LEFT_A",
+    "filter_name": "E"
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:10:00Z",
+   "extended": {
+    "localtime": "13:08:00",
+    "mastAz": 110,
+    "mastEl": -4
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_003",
+   "sol": 14,
+   "camera": {
+    "instrument": "SUPERCAM_RMI",
+    "filter_name": ""
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:15:00Z",
+   "extended": {
+    "localtime": "13:12:00",
+    "mastAz": 150,
+    "mastEl": -1
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_004",
+   "sol": 14,
+   "camera": {
+    "instrument": "NAVCAM_LEFT",
+    "filter_name": "E"
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:20:00Z",
+   "extended": {
+    "localtime": "13:16:00",
+    "mastAz": 190,
+    "mastEl": 2
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_005",
+   "sol": 14,
+   "camera": {
+    "instrument": "MCZ_RIGHT",
+    "filter_name": "F0"
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:25:00Z",
+   "extended": {
+    "localtime": "13:20:00",
+    "mastAz": 230,
+    "mastEl": 5
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_006",
+   "sol": 14,
+   "camera": {
+    "instrument": "FRONT_HAZCAM_LEFT_A",
+    "filter_name": "E"
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:30:00Z",
+   "extended": {
+    "localtime": "13:24:00",
+    "mastAz": 270,
+    "mastEl": 8
+   },
+   "credit": "SYNTHETIC example (no image)"
+  },
+  {
+   "imageid": "SYNTH_007",
+   "sol": 14,
+   "camera": {
+    "instrument": "SUPERCAM_RMI",
+    "filter_name": ""
+   },
+   "image_files": {},
+   "date_taken_utc": "2021-03-04T12:35:00Z",
+   "extended": {
+    "localtime": "13:28:00",
+    "mastAz": 310,
+    "mastEl": 11
+   },
+   "credit": "SYNTHETIC example (no image)"
+  }
+ ],
+ "total_images": 8
+}

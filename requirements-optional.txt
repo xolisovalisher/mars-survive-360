@@ -1,0 +1,8 @@
+# Optional features (the app runs without them and says what is missing)
+torch>=2.2           # PyTorch neural network in the traversability model (module 07); CPU build is enough:
+                     #   pip install torch --index-url https://download.pytorch.org/whl/cpu
+                     #   without torch the neural network falls back to scikit-learn's MLP
+geopandas>=0.14      # GeoPackage / GeoJSON export in the Mars CRS IAU_2015:49900 (module 23)
+spiceypy>=6.0        # NASA SPICE geometry (module 12) when kernels are present
+ultralytics>=8.2     # YOLO training/inference (module 07) — large download (PyTorch)
+anthropic>=0.40      # free-form questions in the AI route assistant (needs ANTHROPIC_API_KEY)

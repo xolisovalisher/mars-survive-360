@@ -1,0 +1,92 @@
+{
+ "_note": "SYNTHETIC example in NASA DONKI JSON format for offline demos and tests. Not NASA data.",
+ "FLR": [
+  {
+   "flrID": "SYNTH-2026-11-03T10:12:00-FLR-001",
+   "beginTime": "2026-11-03T09:58Z",
+   "peakTime": "2026-11-03T10:12Z",
+   "endTime": "2026-11-03T10:40Z",
+   "classType": "M2.4",
+   "sourceLocation": "N12E35",
+   "activeRegionNum": 14301
+  },
+  {
+   "flrID": "SYNTH-2026-11-07T21:30:00-FLR-001",
+   "beginTime": "2026-11-07T21:05Z",
+   "peakTime": "2026-11-07T21:30Z",
+   "endTime": "2026-11-07T22:10Z",
+   "classType": "X1.3",
+   "sourceLocation": "S08W20",
+   "activeRegionNum": 14305
+  }
+ ],
+ "SEP": [
+  {
+   "sepID": "SYNTH-2026-11-08T02:00:00-SEP-001",
+   "eventTime": "2026-11-08T02:00Z",
+   "instruments": [
+    {
+     "displayName": "SOHO: COSTEP 15.8-39.8 MeV"
+    },
+    {
+     "displayName": "MAVEN: SEP"
+    }
+   ]
+  }
+ ],
+ "CME": [
+  {
+   "activityID": "SYNTH-2026-11-07T22:00:00-CME-001",
+   "startTime": "2026-11-07T22:00Z",
+   "sourceLocation": "S08W20",
+   "cmeAnalyses": [
+    {
+     "speed": 1350,
+     "type": "O",
+     "isMostAccurate": true,
+     "enlilList": [
+      {
+       "impactList": [
+        {
+         "location": "Mars",
+         "arrivalTime": "2026-11-10T06:00Z",
+         "isGlancingBlow": false
+        },
+        {
+         "location": "STEREO A",
+         "arrivalTime": "2026-11-09T18:00Z",
+         "isGlancingBlow": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "activityID": "SYNTH-2026-11-02T04:00:00-CME-001",
+   "startTime": "2026-11-02T04:00Z",
+   "sourceLocation": "N20E60",
+   "cmeAnalyses": [
+    {
+     "speed": 540,
+     "type": "S",
+     "isMostAccurate": true,
+     "enlilList": null
+    }
+   ]
+  }
+ ],
+ "GST": [
+  {
+   "gstID": "SYNTH-2026-11-09T12:00:00-GST-001",
+   "startTime": "2026-11-09T12:00Z",
+   "allKpIndex": [
+    {
+     "observedTime": "2026-11-09T12:00Z",
+     "kpIndex": 6.33
+    }
+   ]
+  }
+ ]
+}

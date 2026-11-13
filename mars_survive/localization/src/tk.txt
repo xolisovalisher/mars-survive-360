@@ -1,0 +1,1158 @@
+@app
+Planetalar arasy diri galmak gollanmasy — Mars missiýalaryny meýilleşdirmek we seljermek platformasy
+Ýezero krateri
+Missiýa
+Sebit
+Maglumat
+Ulgam
+Dil
+Missiýa dolandyryşy
+Ulgam
+işleýär
+Maglumat çeşmesi
+Täzelendi
+Hasaplama
+ýalňyşlyk
+Duýduryşlar
+SINTETIK DEM ulanylýar
+@groups
+Missiýa
+Geoginişlik
+EA we nawigasiýa
+Aragatnaşyk we kosmos
+Ekipaž we serişdeler
+Maglumat we ulgam
+@modules
+Missiýa paneli
+Marsyň 2D/3D kartasy
+Relýef seljermesi
+DEM maglumatlaryny dolandyrmak
+Ugur meýilleşdirmek
+Howplary anyklamak
+EA / Kompýuter görüşi
+Awtonom nawigasiýa
+Nawigasiýa seljermesi
+Aragatnaşyk ulgamy
+Releý we tor
+SPICE we orbital geometriýa
+MEDA gurşawy
+Skafandr telemetriýasy
+Kislorody dolandyrmak
+Energiýany dolandyrmak
+Missiýanyň tertibi
+Ylmy obýektler
+Missiýa simulýasiýasy
+Töwekgelçiligi bahalandyrmak
+Maglumat importy
+Maglumat hili we gelip çykyşy
+Missiýa hasabatlary
+Köp dilli ulgam
+Sazlamalar
+Ulgam diagnostikasy
+Toplumlaýyn missiýa seljermesi
+@descriptions
+Missiýalary dörediň we saýlaň, işjeň meýilnamanyň hasaplanan ýagdaýyny görüň.
+NASA Mars Trek esasy kartalary we ylmy gatlaklary bilen interaktiw 2D karta hem-de hakyky beýikliklerden 3D relýef.
+DEM önümleri: eňňit, ekspozisiýa, egrilik, büdür-südürlik, relýef, üýtgeýjilik we çylşyrymlylyk; profiller we hil barlagy bilen.
+Ýezero DEM-ini (USGS CTX 20 m) ýa-da öz GeoTIFF faýlyňyzy ýükläň, barlaň we bahalandyryň.
+16 goňşuly relýef grafynda A*, Weighted A* ýa-da Deýkstra bilen hasaplanan dört ugur strategiýasy.
+Dik, büdür-südür, daşly, krater gyrasy, kesiklikli we näbelli ýerleri düzgünler boýunça anyklamak.
+Mugallymly relýefiň geçip bolmaklyk modeli (şu ýerde okadylýar we barlanýar), ýüzüň suratlarynda kompýuter görüşi, gözegçiliksiz relýef birlikleri we düşündiriji kömekçi.
+GPS-siz ýerleşişi anyklamak: tigir odometriýasy, giroskop, wizual odometriýa we nyşanlar EKF bilen birleşdirilýär.
+Nawigasiýa konfigurasiýalarynyň takyklygy we näbellilikleri Monte-Karlo usuly bilen deňeşdirilýär.
+Radioaragatnaşyk býujeti we ekipaž bilen bazanyň arasynda relýef boýunça görünýän çyzyk.
+Orbital enjamlar bilen aragatnaşyk penjireleri we «sakla-da-iber» maglumat akymy.
+Mars wagty, möwsüm we Günüň ýagdaýy (Mars24), ýadro faýllary bar bolsa NASA SPICE bilen.
+MEDA görnüşli howa maglumatlaryny import etmek we seljermek: statistika, anomaliýalar, EVA gurşaw derejesi.
+Skafandr serişdeleriniň fiziki simulýasiýasy, duýduryşlar we anomaliýalary anyklamak bilen.
+EVA kislorod býujeti, gutaryş çaklamasy we gaýdyp gelmek üçin iň az ätiýaçlyk.
+Her ugur boýunça roweriň çekiş energiýasy, kuwwat balansy we batareýanyň ýagdaýy.
+Missiýanyň tapgyrlary, Gant diagrammasy we wagt boýunça serişdeler.
+Ugur bilen baglanyşykly ylmy obýektler katalogy.
+Meýilnamany adaty we adatdan daşary ssenariýalarda ädimme-ädim gaýtalamak.
+Platformanyň netijelerinden hasaplanan ähtimallyk × täsir matrisasy.
+GeoTIFF, XML/PDS4, CSV, JSON/GeoJSON we suratlary howpsuz ýüklemek we barlamak.
+Ulanylýan her maglumat toplumynyň gelip çykyşy, synpy we hili.
+PDF, HTML, CSV, JSON we Excel görnüşindäki missiýa hasabaty.
+18 dilli merkezi terjime hyzmaty, ätiýaçlyk dil we sagdan çepe ýazuw goldawy.
+Dil, tema, ölçeg birlikleri, karta we ýollar.
+Kitaphanalar, modullar, maglumatlar, serişdeler, synaglar we ýazgylar.
+Bir başlangyç/maksat jübüti üçin ähli modullary işledip, maslahat berlen ugry düşündirýär.
+@limitations
+Görkezijiler olaryň esasyndaky modeller derejesinde ygtybarly; sintetik ýa-da modellenen maglumatlar bellendi.
+Esasy kartalar pes takyklykdaky global mozaikalar; brauzeriň masştab gurallary Ýer üçin niýetlenendigi sebäpli ulanylmaýar.
+50 m tor uly daşlary we kiçi jarlary görkezmeýär; hakyky ýerli eňňitler has dik.
+Diňe seljeriş penjiresi täzeden saýlanýar; dik takyklyk çeşme DEM-e bagly.
+Ugurlar diňe saýlanan baha modeli we tor üçin iň gowusy; olar tassyklanan hereket meýilnamasy däl.
+Çäkler meýilleşdiriş çaklamalary; öýjükden kiçi daşlar bu usulda görünmeýär.
+Ewristik detektor öwredilen model däl; YOLO netijeleri diňe hakyky öwredilen agramlar bilen bar.
+Datçik maglumatlary modellenen; hakyky typmak we relýefiň täsiri has uly bolup biler.
+Monte-Karlo statistikasy hakyky roweri däl-de, simulýasiýa modelini suratlandyrýar.
+Aragatnaşyk bahalary nusga; köp ýolly ýaýraýyş, antenna diagrammasy we tozan tupany ýönekeýleşdirilen.
+Orbitalar sintetik iki jisimli tegelekler, NASA efemeridleri däl.
+Ýadrosyz analitik Mars24 algoritmi ulanylýar (Ls takyklygy ~0,01°).
+Mysal maglumatlary sintetik; EVA çäkleri meýilleşdiriş çaklamalary.
+Umumy skafandr modeli; hakyky NASA skafandryna birikdirilmedik.
+Ýer fiziologiýasy Marsa masştablanan; skafandrdaky hakyky metabolik çykdajy gaty üýtgeýär.
+Rower parametrleri nusga; ýylylyk we gijeki ýükler ýönekeýleşdirilen.
+Wagtlar modele laýyk; ulanyş çäklendirmeleri goşulmadyk.
+Takmynan koordinatlary NASA Mars Trek-de barlamaly.
+Wakalar we karar düzgünleri ýönekeýleşdirilen uçuş düzgünleriniň mysallary.
+Ballar resminamalaşdyrylan çäklere we çaklamalara bagly; bu howpsuzlyk sertifikaty däl.
+Barlag ylmy dogrulygy däl-de, formaty we gurluşy barlaýar.
+Synp bellikleri import wagtynda berlen maglumat derejesinde takyk.
+Hasabatlar model netijelerini we çäklendirmelerini gaýtalaýar; olar missiýany tassyklaýan resminama däl.
+Terjimeler EA kömegi bilen taýýarlandy, olary ene dilinde gürleýänler barlamaly.
+Käbir üýtgeşmeler indiki hasaplamadan soň güýje girýär.
+Barlaglar diňe şu kompýuteri öz içine alýar.
+Maslahat prototip üçin karar goldawy, hakyky astronawt howpsuzlygy boýunça görkezme däl.
+@ui
+Hasaplanýar…
+Parametrler
+Usul, çeşmeler we çäklendirmeler
+Usul
+Çeşmeler
+Çäklendirmeler
+Jikme-jiklikler
+hawa
+ýok
+Işjeňleşdirmek
+Obýekt goşmak
+Aralyk nokat hökmünde goşmak
+Maslahat berlen ugry ulanmak
+Bellikleri we duralgalary arassalamak
+Duralgalary arassalamak
+Ugurlary hasaplamak
+Missiýany ýatda saklamak
+Pozmak
+DEM-i USGS-den ýüklemek
+Hasabat döretmek
+Barlamak
+Sanawy täzelemek
+Sintetik DEM-e gaýtmak
+Deňeşdirmäni başlamak
+Toplumlaýyn seljermäni başlamak
+Synaglary işletmek
+Ýadrolary ýatda saklamak
+Sazlamalary ýatda saklamak
+Maglumat toplumyny bölmek
+K-Means-i öwretmek
+YOLO-ny öwretmek
+Ýagdaýy täzelemek
+Bu DEM-i ulanmak
+Barlamak we import etmek
+@errors
+Ýalňyşlyk
+Bu modul işlemedi, beýleki modullar işlemegini dowam edýär
+Nädogry koordinat
+At boş bolmaly däl
+Nädogry GeoJSON
+Suraty okap bolmady
+Nädogry giriziş
+Rastry açyp bolmady
+XML-i howpsuz seljerip bolmady
+DEM saýlanan sebiti öz içine almaýar
+Tor ýa-da DNS meselesi
+Serwer ýalňyşlyk bilen jogap berdi
+Ýükleme tamamlanmady
+Barlag jemi gabat gelmeýär
+spiceypy gurulmadyk
+SPICE ýadrolary ýok
+Belli MEDA sütünleri tapylmady
+CSV-ni okap bolmady
+Nädogry faýl ady
+Bu faýl görnüşine rugsat ýok
+Faýl boş
+Faýl gaty uly
+Faýlyň mazmuny giňeltmesine gabat gelmeýär
+@labels
+Baza
+Batareýa (Wt·sag)
+Öýjük ölçegi
+Maglumat synpy
+Düşündiriş
+2D aralyk
+3D aralyk
+Dowamlylyk / býujet (sag)
+Her duralgadaky iş (min)
+Beýiklik
+Umumy galyş
+Maksat
+Tor
+Giňlik (planetosentrik)
+Giňlik (planetografik)
+Giňlik aralygy
+Uzaklyk (gündogar)
+Uzaklyk aralygy
+Umumy düşüş
+Ätiýaçlyk
+Missiýanyň ady
+Missiýa wagty (sag)
+NoData
+NoData öýjükleri
+NoData nokatlary
+O₂ möçberi (L)
+Hil
+Aralyk
+Sebit
+Ätiýaçlyk (%)
+Ssenariý
+Missiýany saýlaň
+Eňňit
+Eňňit çägi (°)
+Şübheli böküşler
+Başlangyç
+Ýagdaý
+Duralga
+Dogry maglumat
+@dashboard
+Çalt başlangyç
+1. Ýokardaky maglumat belgisini barlaň: **Sintetik** — görkeziş relýefi. Hakyky DEM-i **04 DEM maglumatlaryny dolandyrmak** bölüminde ýükläň.\n2. **05 Ugur meýilleşdirmek** bölüminde kartany basyp başlangyç, maksat we duralgalary belläň, soňra dört ugry hasaplaň.\n3. 06–16 modullarda howplary, kislorod/energiýany, nawigasiýany we aragatnaşygy gözden geçiriň.\n4. Bahalandyrylan maslahat üçin **27 Toplumlaýyn missiýa seljermesini** işlediň.\n5. Netijäni **23 Missiýa hasabatlary** bölüminde eksport ediň.
+Ýagdaý
+Täze missiýa
+Missiýalar
+Gonuş ýerinden günbatar delta frontuna çenli EVA.
+Duýduryşlar
+Işjeň duýduryş ýok.
+Ylmy obýektler
+Missiýa ýatda saklandy (#{id}).
+Entek ýatda saklanan missiýa ýok.
+SINTETIK DEM: görkeziş relýefi, Marsyň hakyky beýikligi däl. USGS Ýezero DEM-ini 04-nji modulda ýükläň.
+Işjeň ugur
+05-nji moduldan
+Aralyk
+Dowamlylyk
+{b} sagatlyk býujetden
+O₂ ätiýaçlygy
+Batareýa ätiýaçlygy
+Energiýa
+metabolik
+elektrik
+Nawigasiýa takyklygy
+EKF, modellenen datçikler
+Aragatnaşyk
+Howplar / obýektler
+howply obýektler / ylmy obýektler
+Sintetik DEM ulanylýar — netijeler görkeziş üçin.
+Ugur tapylmady — nokatlary süýşüriň ýa-da eňňit çägini ýumşadyň.
+Meýilnamanyň dowamlylygy {h} sag ulanyp bolýan býujetden geçýär.
+Meýilnamanyň ahyrynda diňe {p} % O₂ galýar.
+Aragatnaşyk ýapylmaýar (ätiýaçlyk {m} dB).
+Meýilnama soňky howpsuz gaýdyş nokadyndan geçýär.
+Maslahat berlen ugur: {s} (bal {score}, az bolsa — gowy).
+Indiki iň gowusy: {s2}, {d} erbeträk.
+{km} km, {h} sag, orta howp {haz}, iň uly eňňit {sl}°.
+Her nokatdan gaýdyp bolýar; iň kiçi gaýdyş ätiýaçlygy {m} sag.
+Meýilnama howpsuz býujetden geçýär (ätiýaçlyk {m} sag): ony gysgaldyň ýa-da duralgany aýyryň.
+Umumy töwekgelçilik: {lv}; esasy faktor: {f}.
+@map
+2D karta
+3D relýef
+Görünýän gatlaklar
+Kartany basmak şuny belleýär
+Koordinat gözlemek
+Tapyldy: {lat}, {lon}
+Nokat DEM meýdanyndan daşarda
+Gözleg netijesi
+GeoJSON nokatlaryny duralga hökmünde import etmek
+{n} nokat duralga hökmünde import edildi
+Dik ulaltma
+3D takyklyk (öýjük)
+Reňk boýunça
+3D ýüz DEM beýikliklerinden (km) ýerli gündogar/demirgazyk torunda guruldy.
+@terrain
+Gatlak
+Profil aralygy
+başlangyç we maksat
+saýlanan nokatlar
+Statistika
+Gistogramma
+Beýiklik profili
+DEM hili we koordinat ulgamy
+KU: {crs}; öýjük {res} m; giňlik planetosentrik, uzaklyk gündogara položitel.
+@dem
+Işjeň DEM: {src}
+Häzirki DEM metamaglumatlary
+Göçürip almak
+Ýerli faýl
+Ýüklemek
+XML / PDS4 belligi
+Esasy çeşme: USGS Astrogeology, Mars 2020 Science Investigation CTX DEM Mosaic (20 m/piksel, tutuş Ýezero krateri, ~87 MB). HTTP ýagdaýy, ölçegi we barlag jemi barlanýan, dowam etdirip bolýan göçürip alyş.
+Resmi katalog
+{mb} MB göçürildi.
+DEM işlenildi: {v} % dogry öýjük.
+Internet ýokmy? Faýly brauzerde göçürip alyň we «Ýerli faýl» bölümini ulanyň.
+GeoTIFF ýoly
+KU — Mars koordinat ulgamy.
+KU Mars ulgamy hökmünde tanalmady — ulanmazdan öň barlaň.
+GeoTIFF DEM
+XML / PDS4 belligi
+Kök element: {t}; PDS4: {p}
+Bellik ýüklenmedi.
+@route
+Algoritm
+Eňňit agramy
+Howp agramy
+Energiýa agramy
+Başlangyç {s} → maksat {g}; duralgalar: {n}
+Işjeň strategiýa
+Hiç bir strategiýa üçin ugur tapylmady.
+Profiller
+Ugur boýunça eňňit: {s}
+geçip bolýan ýol ýok
+başlangyç ýa-da maksat ýapyk
+@hazards
+Krater gyrasy üçin iň az relýef (m)
+Obýektiň iň kiçi ölçegi (öýjük)
+Howply obýektler
+howpsuz
+seresap
+ýokary
+geçip bolmaýar
+näbelli
+Görnüşler boýunça obýektler
+Işjeň ugurdaky howp derejeleri
+Orta howp indeksi {m}, iň köp {x}
+Howply obýektler
+@ai
+Anyklamak
+Relýef birlikleri (K-Means)
+YOLO maglumat toplumy we öwretmek
+Ugur kömekçisi
+Surat
+Mehanizm
+YOLO elýeterli däl (paket: {pkg}, agramlar: {w})
+Ynam çägi
+Ýüz suraty (PNG/JPG)
+Etalon bellikler (YOLO .txt, hökmany däl)
+Täze synag sahnasy
+Anyklamak üçin surat ýükläň.
+ÖWREDILEN MODEL DÄL
+{n} tapyndy
+Daşlar/kraterler eýelän surat meýdany
+Bahalandyrma görkezijileri
+Görkezijiler berlen etalona görä hasaplanýar (sintetik sahna: obýektler belli).
+Etalon ýok — görkezijileri hasaplap bolmaýar.
+Birlikleriň sany (k)
+Alamatlar
+Siluet baly
+Meňzeş relýefiň gözegçiliksiz klasterleri; olar geologik birlikler däl.
+YOLO maglumat toplumyny (suratlar + .txt bellikler) taýýarlaň, train/val/test böleklere bölüň we modeli öwrediň. Öwretmek üçin ultralytics paketi gerek; YOLO-ny işletmek üçin öwredilen agramlary (.pt) models/yolo bukjasyna goýuň.
+Suratlar bukjasy
+Bellikler bukjasy
+Bukja tapylmady: {d}
+Epohalar
+Ilki maglumat toplumyny bölüň.
+ultralytics gurulmadyk; YOLO öwretmek we netije çykarmak öçürilen.
+{s} ugry: {km} km, takmynan {h} sag.
+Orta eňňit {ms}°, iň uly {xs}°; galyş {g} m, düşüş {l} m.
+Orta howp indeksi {m}, iň köp {x}.
+Kislorod: {c} L-den {o} L.
+Energiýa: {c} Wt·sag batareýadan {e} Wt·sag.
+{n} dik bölek (çägiň > 70 %); birinjisi {km} km-de.
+Düşündirişler diňe ýokarda hasaplanan sanlary ulanýar.
+Bu ugur barada sorag beriň
+Erkin jogaplar üçin .env faýlynda ANTHROPIC_API_KEY belläň.
+@navigation
+SINTETIK SIMULÝASIÝA: datçik maglumatlary döredildi; Marsda GPS ýok.
+Odometriýa şowhuny
+Tigir typmasy
+Giroskop süýşmesi (°/sag)
+Wizual odometriýa
+Nyşanlaryň aralygy (m)
+Nyşan uzaklygy (m)
+Aralyk şowhuny σ (m)
+Tötänleýin dän
+Soňky ýalňyşlyk (EKF)
+Soňky ýalňyşlyk (odometriýa)
+Soňky näbellilik (1σ)
+Nyşan täzelenmeleri
+Odometriýa dreýfi
+Hakyky ýol
+Hasap boýunça nawigasiýa
+Nyşanlar
+2σ ellips (×10)
+Ýerleşiş ýalňyşlygy
+Näbellilik ellipsleri görnükli bolar ýaly ×10 ulaldyldy.
+Monte-Karlo synanyşyklary
+Iň takyk konfigurasiýa: {c}
+Ugur boýunça ýalňyşlygyň artmagy
+Ýerleşiş näbelliligi
+Ugur näbelliligi
+Ädim
+EKF näbelliligi
+@communication
+Aragatnaşyk býujeti
+Relýef boýunça görünýän çyzyk
+Taýýar sazlama
+Ýygylyk (MGs)
+Geçiriş kuwwaty (Wt)
+Geçiriji antenna güýçlendirişi (dBi)
+Kabul ediji antenna güýçlendirişi (dBi)
+Aralyk (km)
+Ulgamyň şowhun temperaturasy (K)
+Maglumat tizligi (bit/s)
+Talap edilýän Eb/N0 (dB)
+Geçirişdäki ýitgiler (dB)
+Atmosfera ýitgisi (dB)
+Beýleki ýitgiler (dB)
+Durmuşa geçiriş ýitgisi (dB)
+Kabul edilen kuwwat
+Aralyga görä aragatnaşyk ätiýaçlygy
+Ekipaž antennasynyň beýikligi (m)
+Baza antennasynyň beýikligi (m)
+Her N ugur nokadyny barlamak
+Radiogorizont
+tekiz sfera
+Görünýän çyzykly ugur paýy
+Ýapyk nokatlar
+Baza çenli iň uly aralyk
+ýapyk
+görünýär
+Ugur boýunça baza görünýän çyzyk
+Relýef + egrilik
+Radioşöhle
+Görünýän çyzygyň profili (iň erbet nokat)
+@relay
+MODELLENEN orbitalar: iki jisimli tegelek orbitalar, NASA efemeridleri däl.
+Döwür (sag)
+Döredilýän maglumat (kbit/s)
+Bufer (MB)
+Kesilmäni modellemek
+Kesilme (sag)
+Iň bolmanda bir dogry orbital enjam goşuň.
+Beýiklik burçy (°)
+Enjamyň ýeriň üstündäki beýiklik burçy
+Geçişler
+Elýeterlilik
+Iň uzyn kesilme
+Iň uly nobat
+Ýitirilen maglumat
+Nobat
+Gowşuryldy
+Sakla-da-iber
+Releý tory
+Ekipaž / rower
+Baza
+Ýer (DSN)
+@spice
+SPICE ýadrolary
+spiceypy gurlan: {v}
+Ýadrolary ýüklemek
+Ýadrolar ýok: analitik Mars24 algoritmi ulanylýar.
+Sene (UTC)
+Wagt (UTC)
+EVA üçin Günüň iň az beýikligi (°)
+Günüň beýikligi
+Günüň azimuty
+SPICE: beýiklik {e}°, azimut {a}°, Ls {l}° (Mars24 bilen tapawut: {d}°)
+Bahalar Mars24 algoritmi bilen hasaplandy (Allison & McEwen 2000).
+00:00 UTC-den soňky sagatlar
+Bir sol dowamynda Günüň beýikligi
+Gün ≥ {e}° bolan ýagtylyk penjireleri
+@meda
+Maglumat çeşmesi
+Süýşýän penjire (nokatlar)
+Anomaliýa çägi (z)
+MEDA CSV
+MEDA sütünleri bolan CSV ýükläň, mysal üçin:
+SINTETIK nusga: adaty ululyklar, ölçenen maglumat däl.
+Sütünleri gabatlaşdyrmak
+Üýtgeýänler
+Nusgalar
+Anomaliýalar
+Gurşaw derejesi
+Wagt
+Statistika
+EVA gurşaw barlagy
+@suit
+Umumy EVA skafandrynyň SIMULÝASIÝASY — hakyky NASA skafandryna birikdirilmedik.
+Rower ssenariýasy: astronawt ýeňil işjeňlikde modellenýär.
+O₂ ballonynyň göwrümi (L)
+Ballon basyşy (kPa)
+Skafandr batareýasy (Wt·sag)
+Sowadyjy suw (kg)
+Näsazlyklary goşmak
+O₂ syzmasy
+Şemalladyjynyň näsazlygy
+Aragatnaşygyň ýitmegi
+Batareýanyň könelmegi (%)
+Howpsuzlyk ýagdaýy
+Ahyrynda O₂ ballony
+Ahyrynda batareýa
+Duýduryşlar
+Anomaliýalar
+Telemetriýa kanallary
+Çäk duýduryşlary ýok.
+Anomaliýa baly (Isolation Forest)
+@oxygen
+Möçber çeşmesi
+Möçber
+Beden massasy (kg)
+Skafandr massasy (kg)
+Ýük (kg)
+Skafandryň agyrlyk koeffisiýenti
+Tekiz ýerde ýöreýiş tizligi (m/s)
+Rower ssenariýasy: ulag modeli kislorod sarp etmeýär.
+Ulanyp bolýan
+Meýilleşdirilen sarp
+Galyndy
+Orta sarp
+Çydamlylyk
+Gaýdyp gelmek üçin iň az ätiýaçlyk
+Iň uzak nokatdan gaýtmak üçin O₂
+Kislorodyň gutaryş çaklamasy
+Şu ýerden gaýtmak üçin gerek
+Ulanyp bolýan = möçber minus {r} % adatdan daşary ätiýaçlyk. Sary çyzyklar — ylmy duralgalar.
+@energy
+Rower massasy (kg)
+Tizlik (m/s)
+Togalanmaga garşylyk
+Hereketlendirijiniň PTK
+Boş durmak kuwwaty (Wt)
+Enjamlaryň kuwwaty (Wt)
+Motoryň iň uly kuwwaty (Wt)
+RITEG/gün zarýady (Wt)
+Büdür-südürlik garşylyk koeffisiýenti
+Energiýa
+Zarýad
+Arassa sarp
+Ahyrynda batareýa
+ätiýaçlyk saklandy
+ätiýaçlykdan pes
+Orta kuwwat
+Ýöreýiş wagty
+Batareýa zarýady
+ätiýaçlyk
+Ugur boýunça batareýa: {s}
+Kuwwat
+Eňňit
+Ugur boýunça kuwwat
+Dört ugruň energiýasy
+@timeline
+EVA başlangyjy (UTC)
+Taýýarlyk (min)
+Dynç alyş her (sag)
+Dynç alşyň dowamlylygy (min)
+Umumy wagt
+Tapgyrlar
+Releý geçişleri
+Soňky howpsuz gaýdyş
+ýetilmeýär
+Missiýanyň tapgyrlary
+Gaýdyş ätiýaçlygy
+Doza (mkZw)
+Wagt boýunça serişdeler
+@science
+Obýekt goşmak
+Ady
+Görnüşi
+Ileri tutma
+Obýekt goşuldy.
+Koordinatlary doldurmak üçin kartany basyň.
+Obýekt
+Duralga hökmünde goşuldy; ugurlar täzeden hasaplanar.
+Gözegçilik ýumuşlary: {n}
+@simulation
+Ssenariý
+Wakanyň wagty (meýilnamanyň paýy)
+Wagt ädimi (s)
+Ähli ssenariýalary işletmek
+O₂ syzma koeffisiýenti
+Kuwwat koeffisiýenti
+Aragatnaşyk kesilmesi (min)
+Aragatnaşyk ýitende düzgün (min)
+Netije: {o} · töwekgelçilik: {r} · dowamlylyk {h} sag
+Dowamlylyk
+meýilnama
+Sarp edilen O₂
+Sarp edilen energiýa
+Nawigasiýanyň iň uly 2σ
+Ýerine ýetiriliş
+Simulýasiýanyň wagt çyzygy
+Waka ýok: meýilnama garaşylyşy ýaly ýerine ýetirildi.
+Ähli ssenariýalar
+@risk
+Entek hasaplanmady: {m}. Doly baha üçin şu modullary açyň.
+Umumy töwekgelçilik
+Iň ýokary bal
+Esasy faktor
+Ähtimallyk
+Täsir
+Töwekgelçilik matrisasy
+Her ähtimallyk nähili hasaplandy
+@ingest
+Rugsat berlen: {e}; her faýl {m} MB çenli.
+Faýllar
+Barlamak we hasaba almak üçin faýllary ýükläň.
+metamaglumatlar
+@provenance
+Maglumat synplary
+Synplar boýunça maglumat toplumlary
+**Hakyky** — NASA/USGS resmi maglumatlary. **Sintetik** — döredilen görkeziş maglumaty. **Modellenen** — model netijesi. **Ulanyjy** — ulanyjy ýükledi.
+@reports
+Missiýa hasabaty
+DEM
+Bölümler
+Formatlar
+Hasabat taýýar: {s} bölüm, {n} faýl.
+Öňünden görmek
+Prototip üçin karar goldawy: ýönekeýleşdirilen modeller, hakyky astronawt howpsuzlygy boýunça görkezme däl.
+@i18n
+Diller
+Tekst açarlary
+Iň pes gurşaw
+Terjime gurşawy
+Bir teksti ähli dillerde deňeşdirmek
+Açar
+Ätiýaçlyk dil synagy
+Dili nädip goşmaly
+1. mars_survive/localization/src/en.txt faýlyny <code>.txt ady bilen göçüriň we bahalary terjime ediň.\n2. Kody i18n.py içindäki LANGUAGES sanawyna goşuň.\n3. python scripts/build_locales.py we synaglary işlediň.
+Terjimeler EA kömegi bilen taýýarlandy; ene dilinde gürleýänleriň barlamagy maslahat berilýär.
+@settings
+Tema
+Aralyk birligi
+Temperatura birligi
+Esasy karta
+Kartanyň masştaby
+Ýollar
+DEM faýly
+EA model bukjasy
+SPICE ýadro bukjasy
+Maglumat bukjasy
+Missiýanyň deslapky bahalary
+Sazlamalar ýatda saklandy.
+Ýol tapylmady: {p}
+Häzirki sazlamalar
+Aralyk mysaly
+Temperatura mysaly
+@diagnostics
+Modullar
+Boş disk
+Boş ýat
+Programmanyň ýady
+Kitaphanalar
+Maglumat
+Synaglar
+Ýazgylar
+Geçdi
+Geçmedi
+Geçirildi
+Işledilen wagty
+Synaglar gaty uzak dowam etdi.
+@integration
+**Zynjyr:** relýef → howplar → 4 ugur → energiýa we O₂ → nawigasiýa → aragatnaşyk → töwekgelçilik → simulýasiýa → hasabat.
+Üstünlikli ädimler
+Maslahat berlen
+Simulýasiýa
+Düşündiriş
+Balyň düzümi (az bolsa — gowy)
+Bal
+Konweýer ädimleri
+Maslahat berlen ugur indi işjeň.
+@values
+HAKYKY
+SINTETIK
+MODELLENEN
+ULANYJY
+Iň gysga
+Iň az eňňit
+Iň az howp
+Deňagramly
+A*
+Weighted A*
+Deýkstra
+Astronawt EVA
+Rower
+Bellik
+Başlangyç
+Maksat
+Duralga
+Baza
+Kölegeli relýef
+Beýiklik
+Eňňit
+Ekspozisiýa
+Egrilik
+Büdür-südürlik
+Büdürlik indeksi (TRI)
+Ýerli relýef
+Üýtgeýjilik
+Çylşyrymlylyk
+Howplar
+Ýylylyk (THEMIS)
+NoData
+Ýagdaý indeksi (TPI)
+ýok
+dik eňňit
+büdür-südür ýüz
+daşly ýer
+krater gyrasy
+kesiklik
+näbelli ýer
+pes
+orta
+ýokary
+kritiki
+näbelli
+gowy
+çäkde
+ýapylmaýar
+duýduryş
+kritiki
+Çap edilen koordinatlar
+Takmynan (barlaň)
+Ulanyjy girizenler
+gonuş ýeri
+delta
+magmatik birlik
+düzlük
+krater
+daş
+dag jynsynyň çykyşy
+nusga alnan ýer
+başga
+meýilleşdirildi
+gözegçilik edildi
+nusga alyndy
+geçirildi
+meýilleşdirilýär
+işjeň
+tamamlandy
+togtadyldy
+Relýef
+Energiýa / wagt
+Kislorod
+Aragatnaşyk
+Nawigasiýa
+Gurşaw
+Enjamlar
+Radiasiýa
+Iň az howply ugry saýlaň, eňňit ätiýaçlygyny saklaň, ilki barlag geçiriň.
+Has uly ätiýaçlyk, has gysga ýol, zarýad duralgalary.
+Has gysga duralgalar, has ýakyn obýektler, ≥ 25 % ätiýaçlyk.
+Releý penjirelerinde işläň, releý maýagyny alyň, aragatnaşyk ýitende düzgün.
+Her 500 m-de nyşan we wizual odometriýa barlag nokatlary.
+Günortandan soňky şemal iň ýokarylaryndan we tozan wakalaryndan gaça duruň.
+EVA-dan öňki barlaglar, ätiýaçlyk şaýlar, telemetriýa duýduryşlary.
+Kosmos howasyny barlaň; gün bölejikleri duýduryşynda togtadyň.
+tamamlandy
+howpsuz togtatmak we gaýtmak
+şowsuz
+tamamlanmadyk
+Adaty iş
+Energiýa ýetmezçiligi
+Kislorod ýetmezçiligi
+Aragatnaşygyň ýitmegi
+Relýef howpy
+Nawigasiýa dreýfi
+Adatdan daşary gaýdyş
+täzeden ýerleşdiriş duralgasy
+howpy aýlanyp geçmek
+aragatnaşyk ýitdi
+adatdan daşary gaýdyş
+togtatmak: kislorod
+togtatmak: wagt býujeti
+togtatmak: energiýa
+togtatmak: aragatnaşyk
+serişde gutardy
+Başlangyç
+Hereket
+Gözegçilik
+Aragatnaşyk
+Dynç alyş
+Gaýdyş
+Adatdan daşary
+Daşlar
+Kraterler
+Çäge
+dik eňňitler
+büdür-südür, bölekli ýer
+gerişler we gyralar
+çukurlar
+tekiz düzlükler
+garyşyk relýef
+Howanyň temperaturasy
+Topragyň temperaturasy
+Basyş
+Şemalyň tizligi
+Şemalyň ugry
+Tozanyň dumanlylygy
+UM indeksi
+Sintetik nusga
+CSV ýüklemek
+O₂ ballonynyň basyşy
+Batareýa
+CO₂ parsial basyşy
+Skafandryň temperaturasy
+Çyglylyk
+Skafandryň basyşy
+O₂ akymy
+Sowadyjy suw
+Aragatnaşyk
+adaty
+seresap
+EVA-ny togtatmak
+Ekipaž → orbital enjam (UHF)
+Ekipaž → baza (ýerli UHF)
+Göni Ýere (X diapazony)
+Aragatnaşyk ätiýaçlyk bilen ýapylýar; 3 dB ätiýaçlyk bilen iň ýokary tizlik ≈ {r} kbit/s.
+Aragatnaşyk az ätiýaçlyk bilen ýapylýar; iň ýokary tizlik ≈ {r} kbit/s.
+Aragatnaşyk ýapylmaýar; tizligi ýa-da aralygy azaldyň (iň köp ≈ {r} kbit/s).
+Kislorod meýilnamasy ulanyp bolýan býujetiň çäginde.
+Ätiýaçlyk az: galan kislorod gaýdyş ätiýaçlygyna ýakyn.
+Meýilnama bar bolanyndan köp kislorod sarp edýär.
+litr
+ballon (p, V)
+EKF + WO + nyşanlar
+EKF + nyşanlar
+EKF + WO
+Diňe odometriýa
+Wagt
+Energiýa
+Howp
+Eňňit
+Aragatnaşyk
+Nawigasiýa
+Ugur
+Beýiklik profili
+Howplar
+Serişdeler
+Nawigasiýa
+Aragatnaşyk
+Ylmy obýektler
+Töwekgelçilik
+Maslahatlar
+Maglumatyň gelip çykyşy
+Çäklendirmeler
+ýaz
+tomus
+güýz
+gyş
+Garaňky
+Ýagty
+gowy
+ulanyp bolýar
+pes
+Sintetik synag sahnasy
+Surat ýüklemek
+Ewristik KG (öwredilmedik)
+YOLO (öwredilen agramlar)
+nawigasiýa (08)
+MEDA (13)
+skafandr (14)
+umumy surata düşürmek
+ýakyndan surata düşürmek
+abraziýa we ýakyn seljerme
+nusga kerni
+mineralogik spektrler
+enjamlary gözden geçirmek
+enjamy kalibrlemek
+toprak nusgasy
+ölçegler
+@columns
+ID
+Ady
+Ssenariý
+Dowamlylyk (sag)
+Ýagdaý
+Täzelendi
+Gelip çykyşy
+Ileri tutma
+Gatlak
+Birlik
+Orta
+St. gyşarma
+Iň az
+Mediana
+P90
+Iň köp
+Görkeziji
+Tapyldy
+2D aralyk (km)
+3D aralyk (km)
+Orta eňňit (°)
+Iň uly eňňit (°)
+Orta howp
+Energiýa (kWt·sag)
+Açylan düwünler
+Hasaplama wagty (s)
+Görnüşi
+Derejesi
+Giňlik
+Uzaklyk
+Meýdan (km²)
+Usul
+Çeşme
+Ynam
+Enjam
+Döwür (min)
+Geçişler
+Elýeterlilik (%)
+Göwrüm (MB)
+Başlangyç (sag)
+Ahyry (sag)
+Dowamlylyk (min)
+Iň uly beýiklik burçy (°)
+Iň az aralyk (km)
+Başlangyç (UTC)
+Ahyry (UTC)
+LTST başlangyjy
+LTST ahyry
+Parametr
+Ilkinji wagt (sag)
+Baha
+Çäk
+Strategiýa
+Energiýa (Wt·sag)
+Arassa (Wt·sag)
+Ýöreýiş (sag)
+Orta kuwwat (Wt)
+Ätiýaçlyk saklandy
+Tapgyr
+Bellik
+Başlangyç
+Ahyry
+Görnüşi
+Ugra çenli aralyk (m)
+Wagt (sag)
+Waka
+Jikme-jiklik
+Netije
+Töwekgelçilik
+Wakalar
+Faktor
+Ähtimallyk
+Täsir
+Bal
+Azaltmak çäreleri
+Faýl
+Format
+Ölçegi (KB)
+KU
+Birlikler
+Dogry
+Ýalňyşlyklar
+SHA-256
+Synp
+Üpjün ediji
+URL
+Alyndy
+Işlenildi
+Takyklyk
+Hil
+Taryh
+Çäklendirmeler
+Kod
+Dil
+Iňlisçe ady
+RTL
+Açarlar
+Gurşaw (%)
+Kitaphana
+Wersiýa
+OK
+Hökmany däl
+Ýalňyşlyk
+Ýol
+Bar
+Ýazyp bolýar
+O₂ (L)
+Iň uly eňňit / çäk
+Görünýän çyzyksyz
+Konfigurasiýa
+Orta RMSE (m)
+RMSE p95 (m)
+Soňky ýalňyşlyk (m)
+Soňky σ (m)
+Ugur RMSE (°)
+Iň uly gyşarma (m)
+Laýyklyk (2σ)
+Üýtgeýän
+EVA çägi
+Çäkden daşarda (%)
+Esas
+Modul
+Ýükleme wagty (ms)
+@riskdetail
+iň uly eňňit / çäk; ortaça howp
+missiýanyň ahyryndaky energiýa ätiýaçlygy
+batareýa ätiýaçlygy
+EVA wagt býujetiniň ätiýaçlygy
+missiýanyň ahyryndaky O₂ ätiýaçlygy
+retranslýator elýeterliligi; iň uzyn arakesme
+soňky 1σ ýerleşiş ýalňyşlygy
+MEDA gurşaw derejesi
+skafandr telemetriýa duýduryşlary
+EVA dozasy (model)
+L eňňit gatnaşygyndan (≤0.3, 0.5, 0.7, 0.9) we howp indeksinden (≤0.1, 0.2, 0.35, 0.5); ikisiniň ulusy
+ätiýaçlyk ≤0 → 5, ≤10% → 4, ≤25% → 3, ≤40% → 2, bolmasa 1
+energiýa bilen deň aralyklar
+elýeterlilik (≤5% … 40%) we iň uzyn arakesme (≤1, 2, 4, 8 sag); ikisiniň ulusy
+≤5 m → 1 … >60 m → 5
+EVA aralygyndan daşardaky nusgalaryň paýy
+0 duýduryş → 1, her biri +1
+doza aralyklary; gün bölejik wakalary modellenmedi
+SINTETIK DEM (prosedur demo relýef, Mars maglumaty däl)
+@confirm
+Pozmagy tassyklaýaryn (yzyna gaýtarylmaýar)
+@orbit
+Ady
+Beýiklik (km)
+Ýapgytlyk (°)
+RAAN (°)
+Faza (°)
+Maglumat tizligi (bit/s)
+Iň az galyş burçy (°)
+@live
+Nädogry JSON
+ML: P(geçip bolmaýar)
+MEDA howasy
+Maksatlar katalogy
+Braýer görkezijisi
+Yza çenli (m)
+Okatmak wagty (s)
+Ululygy
+Marsa gelmegi (UTC)
+Marsa degişli
+Model
+PR-AUC
+Takyklyk (precision)
+Dolulyk (recall)
+ROC-AUC
+Sol
+F1 (synag)
+Wagt (UTC)
+F1 (barlag)
+Goňşy eňňit, ortaça
+Goňşy eňňit, iň uly
+Ortaça eňňit 7×7
+Eňňidiň gyşarmasy 7×7
+Goňşy büdür-südürlik, ortaça
+Goňşy büdür-südürlik, iň uly
+Ortaça büdür-südürlik 7×7
+Kesişiklik (TRI)
+Ýerli relýef
+|Egrilik|
+Ýagdaý indeksi (TPI)
+Eňňidiň üýtgeýjiligi
+Beýikligiň ýaýrawy 5×5
+Geçip bolmaklyk modeli (mugallymly)
+Mugallymly okadylan klassifikator DEM-iň her öýjügi üçin onuň pyýada GEÇIP BOLMAÝANDYGYNYŇ ähtimallygyny çaklaýar. Ol diňe öýjügiň töweregini görýär (öýjügiň öz eňňidini ýa-da büdür-südürligini hiç haçan görmeýär) we okadylanda görmedik karta bloklarynda barlanýar. Belgiler adamlar tarapyndan däl-de, DEM boýunça anyk düzgünlerden alnan (gowşak gözegçilik).
+Belgi: eňňit çägi (°)
+Belgi: büdür-südürlik çägi (m)
+Her tarapdaky giňişlik bloklary
+Neýron toruň döwürleri
+Modeller: logistik regressiýa (esasy), gradiýent bustingi, neýron tory ({nn}).
+Okatmak we bahalandyrmak
+Okadylýar…
+Model okadyldy: {m}, synag bloklarynda F1 = {f}
+Entek okadylan model ýok — «Okatmak we bahalandyrmak» düwmesine basyň.
+belgiler
+SINTETIK DEM-de okadyldy: onuň tekiz prosedur relýefi meseläni ýeňilleşdirýär, şonuň üçin bu görkezijiler Marsyň hakyky relýefine geçmeýär. Hakyky Ýezero DEM-ini ýükläniňizden soň gaýtadan okadyň (04-nji modul).
+Saýlanan model
+Synag bloklarynda geçip bolmaýan öýjükleriň paýy: {p} (tötänleýin klassifikatoryň PR-AUC bahasy ≈ şu baha)
+Modelleri deňeşdirmek (barlagda saýlanýar, synagda görkezilýär)
+Bölüniş: {s}. Setirler — okatmak {tr_}, barlag {va}, synag {te}.
+geçip bolýar
+geçip bolmaýar
+çaklama
+hakyky
+Garyşyklyk matrisasy (synag bloklary)
+Çalşyrma ähmiýeti (PR-AUC-yň peselmegi)
+okatmak ýitgisi
+barlag ýitgisi
+Neýron toruň öwreniş egri çyzygy
+Çaklanan ähtimallyk kartasy
+Ortaça P(geçip bolmaýar)
+Geçip bolmaýar diýlip toparlanan öýjükler
+Belgi düzgünleri bilen gabat gelmek
+Ýaşyl — geçip bolýan bolmagy ähtimal, gyzyl — bolmazlygy ähtimal. ML agramy > 0 bolanda ugry meýilleşdirmekde ulanylýar (05-nji modul).
+Ugur howpunda ML agramy
+0 — diňe düzgüne esaslanan howp; 1 — diňe modeliň ähtimallygy; aralygy — agramly garyndy.
+Ugurda ulanmak üçin geçip bolmaklyk modelini 07-nji modulda okadyň.
+Kosmos howasy (DONKI)
+NASA DONKI gün ýalpyldylaryny (FLR), Günüň energetik bölejik wakalaryny (SEP), täç massasynyň zyňylmalaryny (CME, Marsy hem öz içine alyp bilýän WSA-ENLIL geliş çaklamalary bilen) we geomagnit tupanlaryny (GST, diňe Ýer) sanawa alýar. EVA-dan öňki wakalardan modul ekipaž üçin radiasiýa alamatyny çykarýar; ol 20-nji modula berilýär.
+Maglumat çeşmesi
+NASA DONKI (onlaýn)
+Saklanan DONKI JSON
+Nusga (sintetik)
+Başlap
+Çenli
+EVA-dan öňki döwür (gün)
+EVA senesi (UTC)
+EVA wagty (UTC)
+Waka görnüşleri
+Gün ýalpyldylary
+Energetik bölejikler
+Täç massasynyň zyňylmalary
+Geomagnit tupanlary (Ýer)
+Ulanylýan açar: {k}. api.nasa.gov-dan alan mugt açaryňyzy .env faýlyna NASA_API_KEY hökmünde ýazyň (DEMO_KEY çäkli).
+NASA DONKI-den almak
+NASA DONKI maglumaty alynmady (ýüklenmedik zat ýüklenen ýaly görkezilmeýär)
+DONKI JSON faýly
+Bir ahyrky nokadyň jogaby (JSON sanaw) ýa-da {"FLR": [...], "SEP": [...], "CME": [...], "GST": [...]} obýekti.
+Bu faýldaky waka görnüşi
+DONKI formatyndaky sintetik nusga — NASA maglumaty däl. Modulyň torsuz işleýşini görmek üçin.
+Kosmos howasyna baha bermek üçin DONKI maglumatyny alyň ýa-da faýl ýükläň.
+alyndy
+EVA radiasiýa alamaty
+EVA-dan öňki {d} günlük penjirede wakalar
+EVA-dan ±1 günüň içinde Marsa {n} CME gelmegi çaklanylýar (WSA-ENLIL)
+Penjirede {n} Günüň energetik bölejik wakasy
+Penjirede {n} X synply ýalpyldy (Marsa ugry belli däl)
+Penjirede {n} çalt CME ≥ 1000 km/s (Marsa ugry belli däl)
+Penjirede möhüm waka ýok
+Bu doza çaklamasy däl, meýilleşdiriş ewristikasy: DONKI Güni Ýer tarapdan synlaýar, şonuň üçin wakalar Marsa ýetmezligi ýa-da synlanmazdan ýetmegi mümkin. Diňe Marsy atlandyrýan ENLIL täsirleri Marsa gönükdirilen hasaplanýar.
+Kosmos howasynyň wakalary (★ — Marsa degişli)
+Marsa geliş çaklamasy
+Saýlanan döwürde waka ýok.
+Perseverance: yz we suratlar
+NASA-nyň Perseverance marsohodynyň hakykatda geçen ýoly — ygtybarly subutnama: onuň geçen ýerleri 1 tonnalyk marsohod üçin geçip bolýandygy belli, işlenmedik suratlary bolsa ekipažyň ol ýerde näme görjegini görkezýär. Modul her ugur nokady we ylmy maksat üçin yzyň iň ýakyn nokadyny tapýar we şol soluň işlenmedik suratlaryny görkezýär.
+Yz çeşmesi
+NASA/JPL MMGIS (onlaýn)
+Saklanan GeoJSON
+Nusga (sintetik)
+«Yza ýakyn» aralygy (m)
+Yzy NASA-dan ýüklemek
+NASA-dan ýükläp bolmady
+Yz GeoJSON (M20_traverse.json)
+Şu sol üçin işlenmedik suratlar lentasy JSON
+Gonuş ýeriniň golaýyndaky yz formatynyň sintetik nusgasy — Perseverance-yň hakyky ýoly däl.
+Ugurlary marsohodyň ýoly bilen deňeşdirmek üçin yzy ýükläň.
+Yz nokatlary
+Sollar
+Geçilen aralyk
+Işjeň DEM-iň içinde
+Yz işjeň DEM penjiresiniň daşynda ýatyr.
+Ugruň yzdan {m} m içindäki bölegi
+Ugruň yza iň ýakyn aralygy
+Işjeň ugruň (her 3-nji nokat) Perseverance-yň hakykatda geçen ýerine ýakyn geçýän paýy.
+Perseverance yzy
+Astronawt näme görer
+Ugur nokady ýa-da maksat
+Kameralar
+Yz faýlynda sol belgileri ýok.
+«{p}» golaýynda: Perseverance {s}-nji solda {d} m aralykdan geçdi. Şol soluň suratlary şu relýefi görkezýär.
+«{p}» yzdan {d} km uzakda (iň ýakyn nokat: {s}-nji sol); suratlar takyk şu ýeri däl, töweregini görkezýär.
+Suratlary ýüklemek
+«Suratlary ýüklemek» düwmesine basyň ({s}-nji sol üçin NASA işlenmedik suratlar lentasy) ýa-da saklanan JSON ýükläň.
+Işlenmedik suratlar, {s}-nji sol
+Saýlanan kameralardan surat ýok.
+Doly ölçegde açmak
+Bu ýazgyda surat faýly ýok (sintetik nusga)
+Işlenmedik suratlar kalibrlenmedik we işlenmedik. Awtory: NASA/JPL-Caltech (Mastcam-Z üçin ASU hem).
+Navcam
+Mastcam-Z
+Hazcam
+SuperCam RMI
+SHERLOC / WATSON
+SkyCam
+@extra
+3D (deck.gl)
+Mars sferasynda ýerli metrlerde PyDeck/deck. gl sahnasy (Ýer kartografik proýeksiýasyz): DEM nokatlary bulut görnüşinde, ugurlar we Perseverance yzy 3D çyzyklar. Aýlamak üçin süýräň (sag düwme / Ctrl).
+PyDeck gurnalmadyk (pip install pydeck).
+GMU eksporty (GeoPackage, Mars CRS)
+GMU eksporty üçin geopandas we shapely gurnaň (requirements-optional.txt).
+{crs} ulgamynda {n} gatlak ({l}) — Mars 2015 sferasy, planetosentrik, gündogar uzynlyk; QGIS/ArcGIS-de Mars maglumaty hökmünde açylýar. GeoJSON Ýerden başga CRS-i saklap bilmeýär: ondaky koordinatalar şol bir Mars uzynlygy/giňligi.
+Zerur paket gurnalmadyk

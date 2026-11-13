@@ -1,0 +1,1158 @@
+@app
+Guía de supervivencia interplanetaria — Plataforma de planificación e inteligencia de misiones marcianas
+Cráter Jezero
+Misión
+Región
+Datos
+Sistema
+Idioma
+Control de misión
+Sistema
+en línea
+Fuente de datos
+Actualizado
+Cálculo
+error
+Avisos
+Se usa un DEM SINTÉTICO
+@groups
+Misión
+Geoespacial
+IA y navegación
+Comunicaciones y espacio
+Tripulación y recursos
+Datos y sistema
+@modules
+Panel de misión
+Mapa de Marte 2D/3D
+Inteligencia del terreno
+Gestión de datos DEM
+Planificación de rutas
+Detección de peligros
+IA / Visión artificial
+Navegación autónoma
+Inteligencia de navegación
+Sistema de comunicaciones
+Retransmisión y red
+SPICE y geometría orbital
+Entorno MEDA
+Telemetría del traje
+Gestión de oxígeno
+Gestión de energía
+Cronograma de misión
+Objetivos científicos
+Simulación de misión
+Evaluación de riesgos
+Ingesta de datos
+Calidad y procedencia de datos
+Informes de misión
+Sistema multilingüe
+Ajustes
+Diagnóstico del sistema
+Inteligencia integrada de misión
+@descriptions
+Cree y seleccione misiones y vea el estado calculado del plan activo.
+Mapa 2D interactivo con mapas base de NASA Mars Trek y capas científicas, más una vista 3D del terreno con elevaciones reales.
+Derivados del DEM: pendiente, orientación, curvatura, rugosidad, relieve, variabilidad y complejidad, con perfiles y control de calidad.
+Cargue, inspeccione y valide el DEM de Jezero (USGS CTX 20 m) o su propio GeoTIFF.
+Cuatro estrategias de ruta calculadas con A*, Weighted A* o Dijkstra sobre un grafo de terreno de 16 vecinos.
+Detección por reglas de terreno empinado, rugoso, rocoso, bordes de cráter, discontinuidades y zonas desconocidas.
+Modelo supervisado de transitabilidad del terreno (entrenado y evaluado aquí), visión por computador en imágenes de superficie, unidades de terreno no supervisadas y asistente explicativo.
+Localización sin GPS: odometría de ruedas, giroscopio, odometría visual y puntos de referencia fusionados con un EKF.
+Precisión e incertidumbre de configuraciones de navegación comparadas por Monte Carlo.
+Balance de enlace de radio y línea de visión sobre el terreno entre la tripulación y la base.
+Ventanas de contacto con orbitadores y flujo de datos de almacenar y reenviar.
+Hora marciana, estación y posición del Sol (Mars24), con NASA SPICE si hay kernels.
+Importe y analice datos meteorológicos tipo MEDA: estadísticas, anomalías y nivel ambiental para EVA.
+Simulación física de los consumibles del traje con alertas y detección de anomalías.
+Presupuesto de oxígeno de la EVA, previsión de agotamiento y reserva mínima de regreso.
+Energía de tracción del rover, balance de potencia y estado de la batería en cada ruta.
+Fases de la misión, diagrama de Gantt y recursos en el tiempo.
+Catálogo de objetivos científicos vinculado a la ruta.
+Reproducción paso a paso del plan en escenarios normales y de emergencia.
+Matriz probabilidad × impacto calculada con los resultados de la plataforma.
+Carga y validación seguras de GeoTIFF, XML/PDS4, CSV, JSON/GeoJSON e imágenes.
+Origen, clase y calidad de cada conjunto de datos en uso.
+Informe de misión en PDF, HTML, CSV, JSON y Excel.
+Servicio central de traducción con 18 idiomas, idioma de respaldo y escritura de derecha a izquierda.
+Idioma, tema, unidades, mapa y rutas de archivos.
+Bibliotecas, módulos, datos, recursos, pruebas y registros.
+Ejecuta todos los módulos para un par inicio/destino y explica la ruta recomendada.
+@limitations
+Los indicadores son tan buenos como sus modelos; los datos sintéticos o simulados están marcados.
+Los mapas base son mosaicos globales de baja resolución; las herramientas de escala del navegador suponen la Tierra y no se usan.
+Una malla de 50 m no muestra rocas grandes ni pequeños escarpes; las pendientes locales reales son mayores.
+Solo se remuestrea la ventana de análisis; la precisión vertical depende del DEM de origen.
+Las rutas son óptimas solo para el modelo de coste y la malla elegidos; no son planes de travesía certificados.
+Los umbrales son supuestos de planificación; las rocas menores que una celda son invisibles para este método.
+El detector heurístico no es un modelo entrenado; YOLO solo da resultados con pesos entrenados reales.
+Los datos de sensores son simulados; el deslizamiento real y los efectos del terreno pueden ser mayores.
+Las estadísticas de Monte Carlo describen el modelo de simulación, no un rover real.
+Los valores de enlace son ilustrativos; multitrayecto, diagramas de antena y tormentas de polvo están simplificados.
+Las órbitas son círculos sintéticos de dos cuerpos, no efemérides de la NASA.
+Sin kernels se usa el algoritmo analítico Mars24 (precisión ~0,01° en Ls).
+El conjunto de ejemplo es sintético; los rangos de EVA son supuestos de planificación.
+Modelo genérico de traje; no está conectado a ningún traje real de la NASA.
+Fisiología terrestre escalada a Marte; el coste metabólico real con traje varía mucho.
+Los parámetros del rover son ilustrativos; las cargas térmicas y nocturnas están simplificadas.
+Los tiempos siguen el modelo; no se incluyen restricciones operativas.
+Las coordenadas aproximadas deben verificarse en NASA Mars Trek.
+Los eventos y reglas de decisión son ejemplos simplificados de reglas de vuelo.
+Las puntuaciones dependen de umbrales y supuestos documentados; no son una certificación de seguridad.
+La validación comprueba formato y estructura, no la corrección científica.
+Las etiquetas de clase son tan precisas como la información dada al importar.
+Los informes repiten resultados del modelo y sus limitaciones; no son documentos de aprobación de misión.
+Las traducciones se prepararon con ayuda de IA y deben revisarlas hablantes nativos.
+Algunos cambios surten efecto tras el siguiente cálculo.
+Las comprobaciones cubren solo este ordenador.
+La recomendación es apoyo a la decisión para un prototipo, no una guía real de seguridad para astronautas.
+@ui
+Calculando…
+Parámetros
+Método, fuentes y limitaciones
+Método
+Fuentes
+Limitaciones
+Detalles
+sí
+no
+Activar
+Añadir objetivo
+Añadir como punto de paso
+Usar la ruta recomendada
+Borrar marcadores y paradas
+Borrar paradas
+Calcular rutas
+Guardar misión
+Eliminar
+Descargar DEM de USGS
+Generar informe
+Inspeccionar
+Actualizar registro
+Volver al DEM sintético
+Ejecutar comparación
+Ejecutar análisis integrado
+Ejecutar pruebas
+Guardar kernels
+Guardar ajustes
+Dividir conjunto de datos
+Entrenar K-Means
+Entrenar YOLO
+Actualizar estado
+Usar este DEM
+Validar e importar
+@errors
+Error
+Este módulo falló; los demás siguen funcionando
+Coordenada no válida
+El nombre no puede estar vacío
+GeoJSON no válido
+No se puede leer la imagen
+Entrada no válida
+No se puede abrir el ráster
+No se puede analizar el XML de forma segura
+El DEM no cubre la región seleccionada
+Problema de red o DNS
+El servidor respondió con un error
+Descarga incompleta
+La suma de verificación no coincide
+spiceypy no está instalado
+Faltan kernels SPICE
+No se encontraron columnas MEDA conocidas
+No se puede leer el CSV
+Nombre de archivo no válido
+Tipo de archivo no permitido
+El archivo está vacío
+Archivo demasiado grande
+El contenido no coincide con la extensión
+@labels
+Base
+Batería (Wh)
+Tamaño de celda
+Clase de datos
+Descripción
+Distancia 2D
+Distancia 3D
+Duración / presupuesto (h)
+Trabajo en cada parada (min)
+Elevación
+Ascenso total
+Destino
+Malla
+Latitud (planetocéntrica)
+Latitud (planetográfica)
+Rango de latitud
+Longitud (este)
+Rango de longitud
+Descenso total
+Margen
+Nombre de la misión
+Tiempo de misión (h)
+NoData
+Celdas NoData
+Muestras NoData
+Capacidad de O₂ (L)
+Calidad
+Rango
+Región
+Reserva (%)
+Escenario
+Seleccionar misión
+Pendiente
+Límite de pendiente (°)
+Saltos sospechosos
+Inicio
+Estado
+Parada
+Datos válidos
+@dashboard
+Inicio rápido
+1. Revise la etiqueta de datos arriba: **Sintético** significa terreno de demostración. Cargue el DEM real en **04 Gestión de datos DEM**.\n2. En **05 Planificación de rutas** haga clic en el mapa para fijar inicio, destino y paradas, y calcule las cuatro rutas.\n3. Revise peligros, oxígeno/energía, navegación y comunicaciones en los módulos 06–16.\n4. Ejecute **27 Inteligencia integrada de misión** para obtener una recomendación puntuada.\n5. Exporte el resultado en **23 Informes de misión**.
+Estado
+Nueva misión
+Misiones
+EVA desde el lugar de aterrizaje hasta el frente occidental del delta.
+Avisos
+No hay avisos activos.
+Objetivos científicos
+Misión guardada (#{id}).
+Aún no hay misiones guardadas.
+DEM SINTÉTICO: terreno de demostración, no elevación real de Marte. Cargue el DEM de Jezero de USGS en el módulo 04.
+Ruta activa
+del módulo 05
+Distancia
+Duración
+de un presupuesto de {b} h
+Reserva de O₂
+Reserva de batería
+Energía
+metabólica
+eléctrica
+Precisión de navegación
+EKF, sensores simulados
+Comunicaciones
+Peligros / objetivos
+objetos peligrosos / objetivos científicos
+DEM sintético en uso: los resultados son una demostración.
+No se encontró ruta: mueva los puntos o relaje el límite de pendiente.
+La duración del plan ({h} h) supera el presupuesto utilizable.
+Solo queda {p} % de O₂ al final del plan.
+El enlace no cierra (margen {m} dB).
+El plan supera el último punto seguro de regreso.
+Ruta recomendada: {s} (puntuación {score}; menor es mejor).
+Siguiente mejor: {s2}, peor en {d}.
+{km} km, {h} h, peligro medio {haz}, pendiente máx. {sl}°.
+El regreso es posible desde cualquier punto; margen mínimo de aborto {m} h.
+El plan supera el presupuesto seguro (margen {m} h): acórtelo o quite una parada.
+Riesgo global: {lv}; factor principal: {f}.
+@map
+Mapa 2D
+Terreno 3D
+Capas visibles
+El clic en el mapa fija
+Buscar coordenada
+Encontrado: {lat}, {lon}
+El punto está fuera del área del DEM
+Resultado de búsqueda
+Importar puntos GeoJSON como paradas
+{n} puntos importados como paradas
+Exageración vertical
+Resolución 3D (celdas)
+Colorear por
+La superficie 3D se construye con elevaciones del DEM (km) en una malla local este/norte.
+@terrain
+Capa
+Perfil entre
+inicio y destino
+puntos personalizados
+Estadísticas
+Histograma
+Perfil de elevación
+Calidad del DEM y sistema de coordenadas
+SRC: {crs}; celda {res} m; latitud planetocéntrica, longitud positiva al este.
+@dem
+DEM activo: {src}
+Metadatos del DEM actual
+Descargar
+Archivo local
+Subir
+Etiqueta XML / PDS4
+Fuente prioritaria: USGS Astrogeology, Mars 2020 Science Investigation CTX DEM Mosaic (20 m/píxel, todo el cráter Jezero, ~87 MB). Descarga reanudable con control de estado HTTP, tamaño y suma de verificación.
+Catálogo oficial
+Descargados {mb} MB.
+DEM procesado: {v} % de celdas válidas.
+¿Sin internet? Descargue el archivo con el navegador y use la pestaña Archivo local.
+Ruta al GeoTIFF
+El SRC es un sistema de coordenadas de Marte.
+El SRC no se reconoce como de Marte; verifíquelo antes de usarlo.
+DEM GeoTIFF
+Etiqueta XML / PDS4
+Elemento raíz: {t}; PDS4: {p}
+No hay etiqueta cargada.
+@route
+Algoritmo
+Peso de pendiente
+Peso de peligro
+Peso de energía
+Inicio {s} → destino {g}; paradas: {n}
+Estrategia activa
+No se encontró ruta para ninguna estrategia.
+Perfiles
+Pendiente a lo largo de la ruta: {s}
+no hay camino transitable
+inicio o destino bloqueado
+@hazards
+Relieve mínimo para bordes de cráter (m)
+Tamaño mínimo del objeto (celdas)
+Objetos peligrosos
+seguro
+precaución
+alto
+intransitable
+desconocido
+Objetos por tipo
+Niveles de peligro en la ruta activa
+Índice de peligro medio {m}, máximo {x}
+Objetos peligrosos
+@ai
+Detección
+Unidades de terreno (K-Means)
+Conjunto de datos y entrenamiento YOLO
+Asistente de ruta
+Imagen
+Motor
+YOLO no disponible (paquete: {pkg}, pesos: {w})
+Umbral de confianza
+Imagen de superficie (PNG/JPG)
+Etiquetas de referencia (YOLO .txt, opcional)
+Nueva escena de prueba
+Suba una imagen para ejecutar la detección.
+NO ES UN MODELO ENTRENADO
+{n} detecciones
+Área de imagen cubierta por rocas/cráteres
+Métricas de evaluación
+Las métricas se calculan frente a la referencia dada (escena sintética: objetos conocidos).
+Sin referencia: no se pueden calcular métricas.
+Número de unidades (k)
+Características
+Coeficiente de silueta
+Agrupaciones no supervisadas de terreno similar; no son unidades geológicas.
+Prepare un conjunto YOLO (imágenes + etiquetas .txt), divídalo en train/val/test y entrene un modelo. Requiere el paquete ultralytics; coloque los pesos entrenados (.pt) en models/yolo para activar YOLO.
+Carpeta de imágenes
+Carpeta de etiquetas
+Carpeta no encontrada: {d}
+Épocas
+Primero divida el conjunto de datos.
+ultralytics no está instalado; el entrenamiento y la inferencia de YOLO están desactivados.
+Ruta {s}: {km} km, unas {h} h.
+Pendiente media {ms}°, máxima {xs}°; ascenso {g} m, descenso {l} m.
+Índice de peligro medio {m}, máximo {x}.
+Oxígeno: {o} L de {c} L.
+Energía: {e} Wh de una batería de {c} Wh.
+{n} tramos empinados (> 70 % del límite); el primero en el km {km}.
+Las explicaciones usan solo los números calculados arriba.
+Haga una pregunta sobre esta ruta
+Defina ANTHROPIC_API_KEY en .env para activar respuestas libres.
+@navigation
+SIMULACIÓN SINTÉTICA: los datos de sensores son generados; Marte no tiene GPS.
+Ruido de odometría
+Deslizamiento de ruedas
+Sesgo del giroscopio (°/h)
+Odometría visual
+Separación de referencias (m)
+Alcance de referencias (m)
+Ruido de distancia σ (m)
+Semilla aleatoria
+Error final (EKF)
+Error final (odometría)
+Incertidumbre final (1σ)
+Actualizaciones por referencias
+Deriva de odometría
+Trayectoria real
+Navegación a estima
+Referencias
+Elipse 2σ (×10)
+Error de posición
+Las elipses de incertidumbre se amplían ×10 para verlas mejor.
+Ejecuciones Monte Carlo
+Configuración más precisa: {c}
+Crecimiento del error a lo largo de la ruta
+Incertidumbre de posición
+Incertidumbre de rumbo
+Paso
+Incertidumbre del EKF
+@communication
+Balance de enlace
+Línea de visión sobre el terreno
+Preajuste
+Frecuencia (MHz)
+Potencia de transmisión (W)
+Ganancia de antena transmisora (dBi)
+Ganancia de antena receptora (dBi)
+Distancia (km)
+Temperatura de ruido del sistema (K)
+Tasa de datos (bit/s)
+Eb/N0 requerido (dB)
+Pérdidas de transmisión (dB)
+Pérdida atmosférica (dB)
+Otras pérdidas (dB)
+Pérdida de implementación (dB)
+Potencia recibida
+Margen del enlace frente a distancia
+Altura de antena de la tripulación (m)
+Altura de antena de la base (m)
+Comprobar cada N puntos de la ruta
+Horizonte de radio
+esfera lisa
+Ruta con línea de visión
+Puntos bloqueados
+Distancia máx. a la base
+bloqueado
+visible
+Línea de visión a la base a lo largo de la ruta
+Terreno + curvatura
+Rayo de radio
+Perfil de línea de visión (peor punto)
+@relay
+Órbitas SIMULADAS: órbitas circulares de dos cuerpos, no efemérides de la NASA.
+Periodo (h)
+Datos generados (kbit/s)
+Búfer (MB)
+Simular interrupción
+Interrupción (h)
+Añada al menos un orbitador válido.
+Elevación (°)
+Elevación del orbitador sobre el lugar
+Pasos
+Disponibilidad
+Mayor hueco
+Cola máxima
+Datos perdidos
+Cola
+Entregado
+Almacenar y reenviar
+Red de retransmisión
+Tripulación / rover
+Base
+Tierra (DSN)
+@spice
+Kernels SPICE
+spiceypy instalado: {v}
+Subir kernels
+Faltan kernels: se usa el algoritmo analítico Mars24.
+Fecha (UTC)
+Hora (UTC)
+Elevación solar mínima para EVA (°)
+Elevación del Sol
+Acimut del Sol
+SPICE: elevación {e}°, acimut {a}°, Ls {l}° (diferencia con Mars24: {d}°)
+Valores calculados con el algoritmo Mars24 (Allison & McEwen 2000).
+Horas después de las 00:00 UTC
+Elevación del Sol durante un sol
+Ventanas de luz con Sol ≥ {e}°
+@meda
+Fuente de datos
+Ventana móvil (muestras)
+Umbral de anomalía (z)
+CSV de MEDA
+Suba un CSV con columnas MEDA, por ejemplo:
+Muestra SINTÉTICA: magnitudes típicas, no datos medidos.
+Asignación de columnas
+Variables
+Muestras
+Anomalías
+Nivel ambiental
+Tiempo
+Estadísticas
+Control ambiental para EVA
+@suit
+SIMULACIÓN de un traje EVA genérico — no conectado a un traje real de la NASA.
+Escenario rover: el astronauta se modela con actividad ligera.
+Volumen del tanque de O₂ (L)
+Presión del tanque (kPa)
+Batería del traje (Wh)
+Agua de refrigeración (kg)
+Inyectar fallos
+Fuga de O₂
+Fallo del ventilador
+Pérdida de comunicación
+Degradación de batería (%)
+Estado de seguridad
+Tanque de O₂ al final
+Batería al final
+Alertas
+Anomalías
+Canales de telemetría
+Sin alertas de umbral.
+Puntuación de anomalía (Isolation Forest)
+@oxygen
+Capacidad a partir de
+Capacidad
+Masa corporal (kg)
+Masa del traje (kg)
+Carga (kg)
+Factor de esfuerzo del traje
+Velocidad al caminar en llano (m/s)
+Escenario rover: el modelo del vehículo no consume oxígeno.
+Utilizable
+Uso planificado
+Restante
+Consumo medio
+Autonomía
+Reserva mínima de regreso
+O₂ para volver desde el punto más lejano
+Previsión de agotamiento de oxígeno
+Necesario para volver desde aquí
+Utilizable = capacidad menos {r} % de reserva de emergencia. Líneas amarillas = paradas científicas.
+@energy
+Masa del rover (kg)
+Velocidad (m/s)
+Resistencia a la rodadura
+Eficiencia de tracción
+Potencia en reposo (W)
+Potencia de instrumentos (W)
+Potencia máx. del motor (W)
+Recarga RTG/solar (W)
+Factor de resistencia por rugosidad
+Energía
+Recarga
+Uso neto
+Batería al final
+reserva mantenida
+bajo la reserva
+Potencia media
+Tiempo de marcha
+Carga de batería
+reserva
+Batería a lo largo de la ruta: {s}
+Potencia
+Pendiente
+Potencia a lo largo de la ruta
+Energía de las cuatro rutas
+@timeline
+Inicio de la EVA (UTC)
+Preparación (min)
+Descanso cada (h)
+Duración del descanso (min)
+Tiempo total
+Fases
+Pasos de retransmisión
+Último regreso seguro
+no se alcanza
+Fases de la misión
+Margen de aborto
+Dosis (µSv)
+Recursos en el tiempo
+@science
+Añadir objetivo
+Nombre
+Tipo
+Prioridad
+Objetivo añadido.
+Haga clic en el mapa para rellenar las coordenadas.
+Objetivo
+Añadido como parada; las rutas se recalcularán.
+Tareas de observación: {n}
+@simulation
+Escenario
+Evento en (fracción del plan)
+Paso de tiempo (s)
+Ejecutar todos los escenarios
+Factor de fuga de O₂
+Factor de potencia
+Corte de comunicación (min)
+Regla de pérdida de comunicación (min)
+Resultado: {o} · riesgo: {r} · duración {h} h
+Duración
+plan
+O₂ usado
+Energía usada
+2σ máx. de navegación
+Progreso
+Línea de tiempo de la simulación
+Sin eventos: el plan se ejecutó como se esperaba.
+Todos los escenarios
+@risk
+Aún no calculado: {m}. Abra esos módulos para una evaluación completa.
+Riesgo global
+Puntuación más alta
+Factor principal
+Probabilidad
+Impacto
+Matriz de riesgos
+Cómo se calculó cada probabilidad
+@ingest
+Permitido: {e}; hasta {m} MB por archivo.
+Archivos
+Suba archivos para validarlos y registrarlos.
+metadatos
+@provenance
+Clases de datos
+Conjuntos de datos por clase
+**Real**: datos oficiales de NASA/USGS. **Sintético**: datos de demostración generados. **Simulado**: salida de un modelo. **Del usuario**: subido por el usuario.
+@reports
+Informe de misión
+DEM
+Secciones
+Formatos
+Informe listo: {s} secciones, {n} archivos.
+Vista previa
+Apoyo a decisiones para un prototipo: modelos simplificados, no una guía real de seguridad para astronautas.
+@i18n
+Idiomas
+Claves de texto
+Cobertura más baja
+Cobertura de traducción
+Comparar un texto en todos los idiomas
+Clave
+Prueba de respaldo
+Cómo añadir un idioma
+1. Copie mars_survive/localization/src/en.txt a <code>.txt y traduzca los valores.\n2. Añada el código a LANGUAGES en i18n.py.\n3. Ejecute python scripts/build_locales.py y las pruebas.
+Las traducciones se prepararon con ayuda de IA; se recomienda la revisión de hablantes nativos.
+@settings
+Tema
+Unidad de distancia
+Unidad de temperatura
+Mapa base
+Zoom del mapa
+Rutas
+Archivo DEM
+Carpeta de modelos de IA
+Carpeta de kernels SPICE
+Carpeta de datos
+Valores predeterminados de misión
+Ajustes guardados.
+Ruta no encontrada: {p}
+Ajustes actuales
+Distancia de ejemplo
+Temperatura de ejemplo
+@diagnostics
+Módulos
+Disco libre
+Memoria libre
+Memoria de la app
+Bibliotecas
+Datos
+Pruebas
+Registros
+Superadas
+Fallidas
+Omitidas
+Ejecutado
+Las pruebas tardaron demasiado.
+@integration
+**Cadena:** terreno → peligros → 4 rutas → energía y O₂ → navegación → comunicaciones → riesgo → simulación → informe.
+Pasos correctos
+Recomendada
+Simulación
+Explicación
+Desglose de la puntuación (menor es mejor)
+Puntuación
+Pasos del proceso
+La ruta recomendada está ahora activa.
+@values
+REAL
+SINTÉTICO
+SIMULADO
+DEL USUARIO
+Más corta
+Menor pendiente
+Menor peligro
+Equilibrada
+A*
+Weighted A*
+Dijkstra
+EVA de astronauta
+Rover
+Marcador
+Inicio
+Destino
+Parada
+Base
+Sombreado
+Elevación
+Pendiente
+Orientación
+Curvatura
+Rugosidad
+Índice de rugosidad (TRI)
+Relieve local
+Variabilidad
+Complejidad
+Peligros
+Térmico (THEMIS)
+NoData
+Índice de posición (TPI)
+ninguno
+pendiente pronunciada
+superficie rugosa
+terreno rocoso
+borde de cráter
+discontinuidad
+terreno incierto
+bajo
+medio
+alto
+crítico
+desconocido
+bueno
+justo
+no cierra
+aviso
+crítico
+Coordenadas publicadas
+Aproximadas (verificar)
+Entradas del usuario
+lugar de aterrizaje
+delta
+unidad ígnea
+llanura
+cráter
+roca
+afloramiento
+lugar de muestreo
+otro
+planificado
+observado
+muestreado
+omitido
+planificación
+activa
+completada
+abortada
+Terreno
+Energía / tiempo
+Oxígeno
+Comunicaciones
+Navegación
+Entorno
+Equipo
+Radiación
+Elija la ruta de menor peligro, mantenga margen de pendiente, explore primero.
+Mayor reserva, travesía más corta, paradas de recarga.
+Paradas más cortas, objetivos más cercanos, reserva ≥ 25 %.
+Trabaje dentro de las ventanas de retransmisión, lleve una baliza y una regla de pérdida de comunicación.
+Puntos de control con referencias y odometría visual cada 500 m.
+Evite los picos de viento de la tarde y los eventos de polvo.
+Comprobaciones previas a la EVA, repuestos, alertas de telemetría.
+Consulte el clima espacial; aborte ante aviso de partículas solares.
+completado
+aborto seguro y regreso
+fallido
+incompleto
+Operación normal
+Escasez de energía
+Escasez de oxígeno
+Pérdida de comunicación
+Peligro del terreno
+Deriva de navegación
+Regreso de emergencia
+parada de relocalización
+desvío por peligro
+comunicación perdida
+regreso de emergencia
+aborto: oxígeno
+aborto: presupuesto de tiempo
+aborto: energía
+aborto: comunicación
+consumible agotado
+Inicio
+Desplazamiento
+Observación
+Comunicación
+Descanso
+Regreso
+Emergencia
+Rocas
+Cráteres
+Arena
+pendientes pronunciadas
+suelo rugoso y con bloques
+crestas y bordes
+depresiones
+llanuras lisas
+terreno mixto
+Temperatura del aire
+Temperatura del suelo
+Presión
+Velocidad del viento
+Dirección del viento
+Opacidad del polvo
+Índice UV
+Muestra sintética
+Subir CSV
+Presión del tanque de O₂
+Batería
+Presión parcial de CO₂
+Temperatura del traje
+Humedad
+Presión del traje
+Flujo de O₂
+Agua de refrigeración
+Comunicación
+nominal
+precaución
+abortar EVA
+Tripulación → orbitador (UHF)
+Tripulación → base (UHF local)
+Directo a la Tierra (banda X)
+El enlace cierra con margen; tasa máx. con 3 dB de margen ≈ {r} kbit/s.
+El enlace cierra con poco margen; tasa máx. ≈ {r} kbit/s.
+El enlace no cierra; reduzca tasa o distancia (máx. ≈ {r} kbit/s).
+El plan de oxígeno está dentro del presupuesto utilizable.
+Margen bajo: el oxígeno restante se acerca a la reserva de regreso.
+El plan usa más oxígeno del disponible.
+litros
+tanque (p, V)
+EKF + OV + referencias
+EKF + referencias
+EKF + OV
+Solo odometría
+Tiempo
+Energía
+Peligro
+Pendiente
+Comunicación
+Navegación
+Ruta
+Perfil de elevación
+Peligros
+Recursos
+Navegación
+Comunicaciones
+Objetivos científicos
+Riesgo
+Recomendaciones
+Procedencia de datos
+Limitaciones
+primavera
+verano
+otoño
+invierno
+Oscuro
+Claro
+buena
+utilizable
+mala
+Escena de prueba sintética
+Subir imagen
+VA heurística (no entrenada)
+YOLO (pesos entrenados)
+navegación (08)
+MEDA (13)
+traje (14)
+imágenes de contexto
+imágenes de detalle
+abrasión y ciencia de proximidad
+núcleo de muestra
+espectros mineralógicos
+inspección de equipos
+calibración de instrumentos
+muestra de suelo
+mediciones
+@columns
+ID
+Nombre
+Escenario
+Duración (h)
+Estado
+Actualizado
+Origen
+Prioridad
+Capa
+Unidad
+Media
+Desv. est.
+Mín
+Mediana
+P90
+Máx
+Métrica
+Encontrada
+Distancia 2D (km)
+Distancia 3D (km)
+Pendiente media (°)
+Pendiente máx. (°)
+Peligro medio
+Energía (kWh)
+Nodos expandidos
+Tiempo de cálculo (s)
+Tipo
+Nivel
+Latitud
+Longitud
+Área (km²)
+Método
+Fuente
+Confianza
+Orbitador
+Periodo (min)
+Pasos
+Disponibilidad (%)
+Volumen (MB)
+Inicio (h)
+Fin (h)
+Duración (min)
+Elevación máx. (°)
+Distancia mín. (km)
+Inicio (UTC)
+Fin (UTC)
+Inicio LTST
+Fin LTST
+Parámetro
+Primera vez (h)
+Valor
+Umbral
+Estrategia
+Energía (Wh)
+Neto (Wh)
+Marcha (h)
+Potencia media (W)
+Reserva mantenida
+Fase
+Etiqueta
+Inicio
+Fin
+Tipo
+Distancia a la ruta (m)
+Tiempo (h)
+Evento
+Detalle
+Resultado
+Riesgo
+Eventos
+Factor
+Probabilidad
+Impacto
+Puntuación
+Mitigación
+Archivo
+Formato
+Tamaño (KB)
+SRC
+Unidades
+Válido
+Errores
+SHA-256
+Clase
+Proveedor
+URL
+Adquirido
+Procesado
+Resolución
+Calidad
+Historial
+Limitaciones
+Código
+Idioma
+Nombre en inglés
+RTL
+Claves
+Cobertura (%)
+Biblioteca
+Versión
+OK
+Opcional
+Error
+Ruta
+Existe
+Escribible
+O₂ (L)
+Pendiente máx. / límite
+Sin línea de visión
+Configuración
+RMSE media (m)
+RMSE p95 (m)
+Error final (m)
+σ final (m)
+RMSE de rumbo (°)
+Desviación máx. (m)
+Consistencia (2σ)
+Variable
+Rango EVA
+Fuera del rango (%)
+Fundamento
+Módulo
+Tiempo de carga (ms)
+@riskdetail
+pendiente máx. / límite; peligro medio
+margen de energía al final
+margen de batería
+margen del presupuesto de tiempo EVA
+margen de O₂ al final
+disponibilidad del relé; brecha más larga
+error final de posición 1σ
+nivel ambiental MEDA
+alertas de telemetría del traje
+dosis EVA (modelo)
+L por razón de pendiente (≤0.3, 0.5, 0.7, 0.9) e índice de peligro (≤0.1, 0.2, 0.35, 0.5); el mayor de ambos
+margen ≤0 → 5, ≤10% → 4, ≤25% → 3, ≤40% → 2, si no 1
+mismos intervalos que energía
+disponibilidad (≤5% … 40%) y brecha más larga (≤1, 2, 4, 8 h); el mayor de ambos
+≤5 m → 1 … >60 m → 5
+fracción de muestras fuera de las bandas EVA
+0 alertas → 1, cada alerta +1
+bandas de dosis; eventos de partículas solares no modelados
+DEM SINTÉTICO (terreno de demostración procedural, no datos de Marte)
+@confirm
+Confirmo la eliminación (irreversible)
+@orbit
+Nombre
+Altitud (km)
+Inclinación (°)
+RAAN (°)
+Fase (°)
+Tasa de datos (bit/s)
+Elevación mín. (°)
+@live
+JSON no válido
+ML: P(intransitable)
+Clima MEDA
+Catálogo de objetivos
+Puntuación de Brier
+A la travesía (m)
+Tiempo de entrenamiento (s)
+Magnitud
+Llegada a Marte (UTC)
+Relevante para Marte
+Modelo
+PR-AUC
+Precisión
+Exhaustividad (recall)
+ROC-AUC
+Sol
+F1 (prueba)
+Hora (UTC)
+F1 (validación)
+Pendiente vecina, media
+Pendiente vecina, máx.
+Pendiente media 7×7
+Desv. de pendiente 7×7
+Rugosidad vecina, media
+Rugosidad vecina, máx.
+Rugosidad media 7×7
+Escabrosidad (TRI)
+Relieve local
+|Curvatura|
+Índice de posición (TPI)
+Variabilidad de pendiente
+Dispersión de altura 5×5
+Modelo de transitabilidad (supervisado)
+Un clasificador supervisado predice, para cada celda del DEM, la probabilidad de que NO sea transitable a pie. Solo ve el entorno de la celda (nunca su propia pendiente o rugosidad) y se evalúa en bloques del mapa que no vio al entrenar. Las etiquetas provienen de reglas explícitas sobre el DEM (supervisión débil), no de anotación humana.
+Etiqueta: límite de pendiente (°)
+Etiqueta: límite de rugosidad (m)
+Bloques espaciales por lado
+Épocas de la red neuronal
+Modelos: regresión logística (base), gradient boosting, red neuronal ({nn}).
+Entrenar y evaluar
+Entrenando…
+Modelo entrenado: {m}, F1 en los bloques de prueba = {f}
+Aún no hay modelo entrenado — pulse «Entrenar y evaluar».
+etiquetas
+Entrenado con el DEM SINTÉTICO: su relieve procedural suave facilita la tarea, por lo que estas métricas no se trasladan al relieve real de Marte. Reentrene tras cargar el DEM real de Jezero (módulo 04).
+Modelo seleccionado
+Proporción de celdas intransitables en los bloques de prueba: {p} (un clasificador aleatorio tiene PR-AUC ≈ este valor)
+Comparación de modelos (selección en validación, informe en prueba)
+División: {s}. Filas — entrenamiento {tr_}, validación {va}, prueba {te}.
+transitable
+intransitable
+predicho
+real
+Matriz de confusión (bloques de prueba)
+Importancia por permutación (caída de PR-AUC)
+pérdida de entrenamiento
+pérdida de validación
+Curva de aprendizaje de la red neuronal
+Mapa de probabilidad predicha
+P(intransitable) media
+Celdas clasificadas intransitables
+Coincidencia con las reglas de etiquetado
+Verde = probablemente transitable, rojo = probablemente no. Se usa en la planificación de rutas si el peso ML > 0 (módulo 05).
+Peso ML en el peligro de la ruta
+0 = solo peligro por reglas; 1 = solo probabilidad del modelo; intermedio = mezcla ponderada.
+Entrene el modelo de transitabilidad en el módulo 07 para usarlo en las rutas.
+Clima espacial (DONKI)
+NASA DONKI registra fulguraciones solares (FLR), eventos de partículas energéticas solares (SEP), eyecciones de masa coronal (CME, con pronósticos de llegada WSA-ENLIL que pueden incluir Marte) y tormentas geomagnéticas (GST, solo Tierra). Con los eventos previos a la EVA el módulo deriva una alerta de radiación para la tripulación; alimenta el módulo 20.
+Fuente de datos
+NASA DONKI (en línea)
+JSON de DONKI guardado
+Ejemplo (sintético)
+Desde
+Hasta
+Periodo previo a la EVA (días)
+Fecha de la EVA (UTC)
+Hora de la EVA (UTC)
+Tipos de evento
+Fulguraciones solares
+Partículas energéticas
+Eyecciones de masa coronal
+Tormentas geomagnéticas (Tierra)
+Clave en uso: {k}. Ponga su clave gratuita de api.nasa.gov en .env como NASA_API_KEY (DEMO_KEY tiene límites).
+Obtener de NASA DONKI
+No se pudieron obtener datos de NASA DONKI (nada se muestra como si estuviera cargado)
+Archivo JSON de DONKI
+Respuesta de un endpoint (lista JSON) o un objeto {"FLR": [...], "SEP": [...], "CME": [...], "GST": [...]}.
+Tipo de evento en este archivo
+Ejemplo sintético en formato DONKI — no son datos de NASA. Sirve para ver el módulo sin conexión.
+Obtenga datos de DONKI o cargue un archivo para evaluar el clima espacial.
+obtenido
+Alerta de radiación de la EVA
+eventos en la ventana de {d} días antes de la EVA
+{n} llegada(s) de CME a Marte pronosticada(s) a ±1 día de la EVA (WSA-ENLIL)
+{n} evento(s) de partículas energéticas solares en la ventana
+{n} fulguración(es) clase X en la ventana (dirección a Marte desconocida)
+{n} CME rápida(s) ≥ 1000 km/s en la ventana (dirección a Marte desconocida)
+Sin eventos significativos en la ventana
+Heurística de planificación, no un pronóstico de dosis: DONKI observa el Sol desde el lado de la Tierra, así que los eventos pueden no alcanzar Marte o llegar sin ser observados. Solo los impactos ENLIL que nombran a Marte se consideran dirigidos a Marte.
+Eventos de clima espacial (★ = relevante para Marte)
+Llegada pronosticada a Marte
+No hay eventos en el periodo seleccionado.
+Perseverance: travesía e imágenes
+El recorrido real del rover Perseverance de la NASA es verdad de campo: los lugares que cruzó son transitables para un rover de 1 tonelada, y sus imágenes en bruto muestran lo que verá la tripulación. El módulo encuentra el punto más cercano de la travesía a cada punto de ruta y objetivo científico y muestra las imágenes en bruto de ese sol.
+Fuente de la travesía
+NASA/JPL MMGIS (en línea)
+GeoJSON guardado
+Ejemplo (sintético)
+Distancia «cerca de la travesía» (m)
+Cargar la travesía desde NASA
+No se pudo cargar desde NASA
+GeoJSON de la travesía (M20_traverse.json)
+JSON del feed de imágenes en bruto de este sol
+Ejemplo sintético del formato de travesía cerca del sitio de aterrizaje — no es el recorrido real de Perseverance.
+Cargue la travesía para comparar las rutas con el recorrido del rover.
+Puntos de la travesía
+Soles
+Distancia recorrida
+Dentro del DEM activo
+La travesía queda fuera de la ventana del DEM activo.
+Ruta a menos de {m} m de la travesía
+Máximo acercamiento de la ruta
+Parte de la ruta activa (cada 3.er vértice) que pasa cerca del terreno que Perseverance recorrió realmente.
+Travesía de Perseverance
+Lo que verá el astronauta
+Punto de ruta u objetivo
+Cámaras
+El archivo de travesía no tiene números de sol.
+Cerca de «{p}»: Perseverance pasó a {d} m en el sol {s}. Sus imágenes de ese sol muestran este terreno.
+«{p}» está a {d} km de la travesía (punto más cercano: sol {s}); las imágenes muestran los alrededores, no este lugar exacto.
+Cargar imágenes
+Pulse «Cargar imágenes» (feed de imágenes en bruto de NASA del sol {s}) o cargue un JSON guardado.
+Imágenes en bruto, sol {s}
+No hay imágenes de las cámaras seleccionadas.
+Abrir a tamaño completo
+Este registro no tiene archivo de imagen (ejemplo sintético)
+Las imágenes en bruto no están calibradas ni procesadas. Crédito: NASA/JPL-Caltech (y ASU para Mastcam-Z).
+Navcam
+Mastcam-Z
+Hazcam
+SuperCam RMI
+SHERLOC / WATSON
+SkyCam
+@extra
+3D (deck.gl)
+Escena PyDeck/deck. gl en metros locales sobre la esfera de Marte (sin proyección cartográfica terrestre): muestras del DEM como nube de puntos, rutas y travesía de Perseverance como trayectos 3D. Arrastre para rotar (botón derecho / Ctrl).
+PyDeck no está instalado (pip install pydeck).
+Exportación SIG (GeoPackage, CRS de Marte)
+Instale geopandas y shapely para la exportación SIG (requirements-optional.txt).
+{n} capas ({l}) en {crs} — esfera de Marte 2015, planetocéntrica, longitud este; se abre en QGIS/ArcGIS como datos de Marte. GeoJSON no puede guardar un CRS no terrestre: sus coordenadas son las mismas lon/lat de Marte.
+Falta un paquete necesario

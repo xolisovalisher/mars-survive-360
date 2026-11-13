@@ -1,0 +1,1158 @@
+@app
+Gezegenler Arası Hayatta Kalma Rehberi — Mars Görevi Planlama ve İstihbarat Platformu
+Jezero Krateri
+Görev
+Bölge
+Veri
+Sistem
+Dil
+Görev kontrolü
+Sistem
+çevrimiçi
+Veri kaynağı
+Güncellendi
+Hesaplama
+hata
+Uyarılar
+SENTETİK DEM kullanılıyor
+@groups
+Görev
+Coğrafi
+YZ ve navigasyon
+İletişim ve uzay
+Mürettebat ve kaynaklar
+Veri ve sistem
+@modules
+Görev paneli
+Mars 2B/3B haritası
+Arazi analizi
+DEM veri yönetimi
+Rota planlama
+Tehlike tespiti
+YZ / Bilgisayarlı görü
+Otonom navigasyon
+Navigasyon analizi
+İletişim sistemi
+Röle ve ağ
+SPICE ve yörünge geometrisi
+MEDA ortamı
+Giysi telemetrisi
+Oksijen yönetimi
+Enerji yönetimi
+Görev zaman çizelgesi
+Bilimsel hedefler
+Görev simülasyonu
+Risk değerlendirmesi
+Veri içe aktarma
+Veri kalitesi ve kökeni
+Görev raporları
+Çok dilli sistem
+Ayarlar
+Sistem tanılama
+Bütünleşik görev analizi
+@descriptions
+Görev oluşturun ve seçin, etkin planın hesaplanan durumunu görün.
+NASA Mars Trek altlık haritaları ve bilimsel katmanlarla etkileşimli 2B harita ile gerçek yüksekliklerden 3B arazi görünümü.
+DEM türevleri: eğim, bakı, eğrilik, pürüzlülük, rölyef, değişkenlik ve karmaşıklık; profiller ve kalite kontrolleriyle.
+Jezero DEM’ini (USGS CTX 20 m) veya kendi GeoTIFF dosyanızı yükleyin, inceleyin ve doğrulayın.
+16 komşulu arazi grafiğinde A*, Weighted A* veya Dijkstra ile hesaplanan dört rota stratejisi.
+Dik, pürüzlü, kayalık, krater kenarı, süreksiz ve bilinmeyen arazinin kurala dayalı tespiti.
+Denetimli arazi geçilebilirlik modeli (burada eğitilir ve test edilir), yüzey görüntülerinde bilgisayarlı görü, denetimsiz arazi birimleri ve açıklama asistanı.
+GPS’siz konumlama: tekerlek odometrisi, jiroskop, görsel odometri ve yer işaretleri EKF ile birleştirilir.
+Navigasyon yapılandırmalarının doğruluğu ve belirsizliği Monte Carlo ile karşılaştırılır.
+Telsiz bağlantı bütçesi ve mürettebat ile üs arasında araziye göre görüş hattı.
+Yörünge araçlarıyla temas pencereleri ve sakla-ilet veri akışı.
+Mars saati, mevsim ve Güneş konumu (Mars24); çekirdek dosyalar varsa NASA SPICE ile.
+MEDA türü hava verilerini içe aktarın ve analiz edin: istatistik, anomaliler ve EVA ortam düzeyi.
+Giysi sarf malzemelerinin fiziksel simülasyonu; uyarılar ve anomali tespiti ile.
+EVA oksijen bütçesi, tükenme tahmini ve asgari dönüş rezervi.
+Her rota için gezgin çekiş enerjisi, güç bütçesi ve batarya durumu.
+Görev aşamaları, Gantt şeması ve zaman içinde kaynaklar.
+Rotaya bağlı bilimsel hedef kataloğu.
+Planın normal ve acil durum senaryolarında adım adım yeniden oynatılması.
+Platform sonuçlarından hesaplanan olasılık × etki matrisi.
+GeoTIFF, XML/PDS4, CSV, JSON/GeoJSON ve görüntülerin güvenli yüklenmesi ve doğrulanması.
+Kullanılan her veri kümesinin kökeni, sınıfı ve kalitesi.
+PDF, HTML, CSV, JSON ve Excel biçiminde görev raporu.
+18 dilli merkezi çeviri hizmeti; yedek dil ve sağdan sola yazım desteği.
+Dil, tema, birimler, harita ve yollar.
+Kütüphaneler, modüller, veriler, kaynaklar, testler ve günlükler.
+Bir başlangıç/hedef çifti için tüm modülleri çalıştırır ve önerilen rotayı açıklar.
+@limitations
+Göstergeler arkalarındaki modeller kadar iyidir; sentetik veya simüle girdiler işaretlenmiştir.
+Altlık haritalar düşük çözünürlüklü küresel mozaiklerdir; tarayıcının ölçek araçları Dünya’yı varsaydığından kullanılmaz.
+50 m’lik ızgara kaya bloklarını ve küçük basamakları göstermez; gerçek yerel eğimler daha diktir.
+Yalnızca analiz penceresi yeniden örneklenir; düşey doğruluk kaynak DEM’e bağlıdır.
+Rotalar yalnızca seçilen maliyet modeli ve ızgara için en iyidir; onaylı geçiş planları değildir.
+Eşikler planlama varsayımlarıdır; bir hücreden küçük kayalar bu yöntemle görünmez.
+Sezgisel dedektör eğitilmiş bir model değildir; YOLO sonuçları yalnızca gerçek eğitilmiş ağırlıklarla vardır.
+Algılayıcı verileri simüledir; gerçek patinaj ve arazi etkileri daha büyük olabilir.
+Monte Carlo istatistikleri gerçek bir gezgini değil, simülasyon modelini tanımlar.
+Bağlantı değerleri örnektir; çok yollu yayılım, anten desenleri ve toz fırtınaları basitleştirilmiştir.
+Yörüngeler sentetik iki cisimli dairelerdir, NASA efemerisleri değildir.
+Çekirdek dosyalar yoksa analitik Mars24 algoritması kullanılır (Ls doğruluğu ~0,01°).
+Örnek veri sentetiktir; EVA aralıkları planlama varsayımlarıdır.
+Genel giysi modeli; gerçek bir NASA giysisine bağlı değildir.
+Dünya fizyolojisi Mars’a ölçeklenmiştir; giysili gerçek metabolik maliyet çok değişir.
+Gezgin parametreleri örnektir; ısıl ve gece yükleri basitleştirilmiştir.
+Süreler modele dayanır; operasyonel kısıtlar dahil değildir.
+Yaklaşık koordinatlar NASA Mars Trek’te doğrulanmalıdır.
+Olaylar ve karar kuralları basitleştirilmiş uçuş kuralı örnekleridir.
+Puanlar belgelenmiş eşiklere ve varsayımlara bağlıdır; güvenlik sertifikası değildir.
+Doğrulama bilimsel doğruluğu değil, biçimi ve yapıyı denetler.
+Sınıf etiketleri içe aktarmada verilen bilgi kadar doğrudur.
+Raporlar model sonuçlarını ve sınırlarını tekrarlar; görev onay belgesi değildir.
+Çeviriler YZ desteğiyle hazırlanmıştır ve ana dili konuşanlarca gözden geçirilmelidir.
+Bazı değişiklikler bir sonraki hesaplamadan sonra geçerli olur.
+Denetimler yalnızca bu bilgisayarı kapsar.
+Öneri bir prototip için karar desteğidir, gerçek astronot güvenliği rehberi değildir.
+@ui
+Hesaplanıyor…
+Parametreler
+Yöntem, kaynaklar ve sınırlamalar
+Yöntem
+Kaynaklar
+Sınırlamalar
+Ayrıntılar
+evet
+hayır
+Etkinleştir
+Hedef ekle
+Ara nokta olarak ekle
+Önerilen rotayı kullan
+İşaretleri ve durakları temizle
+Durakları temizle
+Rotaları hesapla
+Görevi kaydet
+Sil
+DEM’i USGS’den indir
+Rapor oluştur
+İncele
+Kaydı yenile
+Sentetik DEM’e dön
+Karşılaştırmayı başlat
+Bütünleşik analizi başlat
+Testleri çalıştır
+Çekirdekleri kaydet
+Ayarları kaydet
+Veri kümesini böl
+K-Means’i eğit
+YOLO’yu eğit
+Durumu güncelle
+Bu DEM’i kullan
+Doğrula ve içe aktar
+@errors
+Hata
+Bu modül başarısız oldu, diğer modüller çalışmaya devam ediyor
+Geçersiz koordinat
+Ad boş olamaz
+Geçersiz GeoJSON
+Görüntü okunamıyor
+Geçersiz giriş
+Raster açılamıyor
+XML güvenli şekilde ayrıştırılamıyor
+DEM seçilen bölgeyi kapsamıyor
+Ağ veya DNS sorunu
+Sunucu hata ile yanıt verdi
+İndirme tamamlanmadı
+Sağlama toplamı uyuşmuyor
+spiceypy kurulu değil
+SPICE çekirdekleri eksik
+Bilinen MEDA sütunu bulunamadı
+CSV okunamıyor
+Geçersiz dosya adı
+Dosya türüne izin verilmiyor
+Dosya boş
+Dosya çok büyük
+Dosya içeriği uzantıyla uyuşmuyor
+@labels
+Üs
+Batarya (Wh)
+Hücre boyutu
+Veri sınıfı
+Açıklama
+2B mesafe
+3B mesafe
+Süre / bütçe (sa)
+Her duraktaki çalışma (dk)
+Yükseklik
+Toplam tırmanış
+Hedef
+Izgara
+Enlem (gezegen merkezli)
+Enlem (gezegen grafik)
+Enlem aralığı
+Boylam (doğu)
+Boylam aralığı
+Toplam iniş
+Pay
+Görev adı
+Görev süresi (sa)
+NoData
+NoData hücreleri
+NoData örnekleri
+O₂ kapasitesi (L)
+Kalite
+Aralık
+Bölge
+Rezerv (%)
+Senaryo
+Görev seçin
+Eğim
+Eğim sınırı (°)
+Şüpheli sıçramalar
+Başlangıç
+Durum
+Durak
+Geçerli veri
+@dashboard
+Hızlı başlangıç
+1. Üstteki veri etiketini kontrol edin: **Sentetik** tanıtım arazisi demektir. Gerçek DEM’i **04 DEM veri yönetimi** bölümünde yükleyin.\n2. **05 Rota planlama** bölümünde başlangıç, hedef ve durakları haritaya tıklayarak belirleyin, ardından dört rotayı hesaplayın.\n3. 06–16 modüllerinde tehlikeleri, oksijen/enerjiyi, navigasyonu ve iletişimi inceleyin.\n4. Puanlı öneri için **27 Bütünleşik görev analizi**ni çalıştırın.\n5. Sonucu **23 Görev raporları** bölümünde dışa aktarın.
+Durum
+Yeni görev
+Görevler
+İniş alanından batı delta cephesine EVA.
+Uyarılar
+Etkin uyarı yok.
+Bilimsel hedefler
+Görev kaydedildi (#{id}).
+Henüz kayıtlı görev yok.
+SENTETİK DEM: tanıtım arazisi, gerçek Mars yüksekliği değil. USGS Jezero DEM’ini 04. modülde yükleyin.
+Etkin rota
+05. modülden
+Mesafe
+Süre
+{b} sa bütçeden
+O₂ rezervi
+Batarya rezervi
+Enerji
+metabolik
+elektrik
+Navigasyon doğruluğu
+EKF, simüle algılayıcılar
+İletişim
+Tehlikeler / hedefler
+tehlikeli nesneler / bilimsel hedefler
+Sentetik DEM kullanılıyor — sonuçlar tanıtım amaçlıdır.
+Rota bulunamadı — noktaları kaydırın veya eğim sınırını gevşetin.
+Plan süresi {h} sa kullanılabilir bütçeyi aşıyor.
+Plan sonunda yalnızca % {p} O₂ kalıyor.
+Bağlantı kapanmıyor (pay {m} dB).
+Plan son güvenli dönüş noktasını aşıyor.
+Önerilen rota: {s} (puan {score}, düşük olan daha iyi).
+Sonraki en iyi: {s2}, {d} daha kötü.
+{km} km, {h} sa, ortalama tehlike {haz}, en büyük eğim {sl}°.
+Her noktadan dönüş mümkün; en küçük iptal payı {m} sa.
+Plan güvenli bütçeyi aşıyor (pay {m} sa): kısaltın veya bir durağı kaldırın.
+Genel risk: {lv}; ana etken: {f}.
+@map
+2B harita
+3B arazi
+Görünür katmanlar
+Haritaya tıklama şunu ayarlar
+Koordinat ara
+Bulundu: {lat}, {lon}
+Nokta DEM alanının dışında
+Arama sonucu
+GeoJSON noktalarını durak olarak içe aktar
+{n} nokta durak olarak içe aktarıldı
+Düşey abartma
+3B çözünürlük (hücre)
+Renklendirme
+3B yüzey DEM yüksekliklerinden (km) yerel doğu/kuzey ızgarasında oluşturulur.
+@terrain
+Katman
+Profil aralığı
+başlangıç ve hedef
+özel noktalar
+İstatistikler
+Histogram
+Yükseklik profili
+DEM kalitesi ve koordinat sistemi
+KS: {crs}; hücre {res} m; enlem gezegen merkezli, boylam doğuya pozitif.
+@dem
+Etkin DEM: {src}
+Geçerli DEM üst verisi
+İndir
+Yerel dosya
+Yükle
+XML / PDS4 etiketi
+Öncelikli kaynak: USGS Astrogeology, Mars 2020 Science Investigation CTX DEM Mosaic (20 m/piksel, tüm Jezero krateri, ~87 MB). HTTP durumu, boyut ve sağlama toplamı denetimli, sürdürülebilir indirme.
+Resmî katalog
+{mb} MB indirildi.
+DEM işlendi: % {v} geçerli hücre.
+İnternet yok mu? Dosyayı tarayıcıda indirip Yerel dosya sekmesini kullanın.
+GeoTIFF yolu
+KS bir Mars koordinat sistemidir.
+KS Mars olarak tanınmadı — kullanmadan önce kontrol edin.
+GeoTIFF DEM
+XML / PDS4 etiketi
+Kök öğe: {t}; PDS4: {p}
+Yüklenmiş etiket yok.
+@route
+Algoritma
+Eğim ağırlığı
+Tehlike ağırlığı
+Enerji ağırlığı
+Başlangıç {s} → hedef {g}; duraklar: {n}
+Etkin strateji
+Hiçbir strateji için rota bulunamadı.
+Profiller
+Rota boyunca eğim: {s}
+geçilebilir yol yok
+başlangıç veya hedef engelli
+@hazards
+Krater kenarı için asgari rölyef (m)
+Asgari nesne boyutu (hücre)
+Tehlikeli nesneler
+güvenli
+dikkat
+yüksek
+geçilemez
+bilinmiyor
+Türe göre nesneler
+Etkin rotadaki tehlike düzeyleri
+Ortalama tehlike indeksi {m}, en fazla {x}
+Tehlikeli nesneler
+@ai
+Tespit
+Arazi birimleri (K-Means)
+YOLO veri kümesi ve eğitim
+Rota asistanı
+Görüntü
+Motor
+YOLO kullanılamıyor (paket: {pkg}, ağırlıklar: {w})
+Güven eşiği
+Yüzey görüntüsü (PNG/JPG)
+Referans etiketler (YOLO .txt, isteğe bağlı)
+Yeni test sahnesi
+Tespit için bir görüntü yükleyin.
+EĞİTİLMİŞ MODEL DEĞİL
+{n} tespit
+Kaya/kraterlerle kaplı görüntü alanı
+Değerlendirme ölçütleri
+Ölçütler verilen referansa göre hesaplanır (sentetik sahne: nesneler bilinir).
+Referans yok — ölçütler hesaplanamaz.
+Birim sayısı (k)
+Öznitelikler
+Siluet puanı
+Benzer arazinin gözetimsiz kümeleri; jeolojik birim değildir.
+Bir YOLO veri kümesi hazırlayın (görüntüler + .txt etiketler), train/val/test olarak bölün ve model eğitin. Eğitim için ultralytics paketi gerekir; YOLO’yu etkinleştirmek için eğitilmiş ağırlıkları (.pt) models/yolo klasörüne koyun.
+Görüntü klasörü
+Etiket klasörü
+Klasör bulunamadı: {d}
+Dönem sayısı
+Önce veri kümesini bölün.
+ultralytics kurulu değil; YOLO eğitimi ve çıkarımı devre dışı.
+{s} rotası: {km} km, yaklaşık {h} sa.
+Ortalama eğim {ms}°, en fazla {xs}°; tırmanış {g} m, iniş {l} m.
+Ortalama tehlike indeksi {m}, en fazla {x}.
+Oksijen: {c} L’nin {o} L’si.
+Enerji: {c} Wh bataryanın {e} Wh’si.
+{n} dik kesim (sınırın > %70’i); ilki {km} km’de.
+Açıklamalar yalnızca yukarıda hesaplanan sayıları kullanır.
+Bu rota hakkında soru sorun
+Serbest yanıtlar için .env dosyasında ANTHROPIC_API_KEY tanımlayın.
+@navigation
+SENTETİK SİMÜLASYON: algılayıcı verileri üretilmiştir; Mars’ta GPS yoktur.
+Odometri gürültüsü
+Tekerlek patinajı
+Jiroskop sapması (°/sa)
+Görsel odometri
+Yer işareti aralığı (m)
+Yer işareti menzili (m)
+Mesafe gürültüsü σ (m)
+Rastgele tohum
+Son hata (EKF)
+Son hata (odometri)
+Son belirsizlik (1σ)
+Yer işareti güncellemeleri
+Odometri kayması
+Gerçek yol
+Ölü hesap
+Yer işaretleri
+2σ elipsi (×10)
+Konum hatası
+Belirsizlik elipsleri görünürlük için ×10 büyütülmüştür.
+Monte Carlo denemeleri
+En doğru yapılandırma: {c}
+Rota boyunca hata artışı
+Konum belirsizliği
+Yön belirsizliği
+Adım
+EKF belirsizliği
+@communication
+Bağlantı bütçesi
+Araziye göre görüş hattı
+Hazır ayar
+Frekans (MHz)
+Verici gücü (W)
+Verici anten kazancı (dBi)
+Alıcı anten kazancı (dBi)
+Mesafe (km)
+Sistem gürültü sıcaklığı (K)
+Veri hızı (bit/s)
+Gerekli Eb/N0 (dB)
+Verici kayıpları (dB)
+Atmosferik kayıp (dB)
+Diğer kayıplar (dB)
+Uygulama kaybı (dB)
+Alınan güç
+Mesafeye göre bağlantı payı
+Mürettebat anten yüksekliği (m)
+Üs anten yüksekliği (m)
+Her N rota noktasında denetle
+Telsiz ufku
+pürüzsüz küre
+Görüş hattı olan rota payı
+Engellenen noktalar
+Üsse en büyük mesafe
+engelli
+görünür
+Rota boyunca üsse görüş hattı
+Arazi + eğrilik
+Telsiz ışını
+Görüş hattı profili (en kötü nokta)
+@relay
+SİMÜLE yörüngeler: iki cisimli dairesel yörüngeler, NASA efemerisleri değil.
+Süre (sa)
+Üretilen veri (kbit/s)
+Tampon (MB)
+Kesinti simüle et
+Kesinti (sa)
+En az bir geçerli yörünge aracı ekleyin.
+Yükseliş (°)
+Yörünge aracının alan üzerindeki yükselişi
+Geçişler
+Erişilebilirlik
+En uzun kesinti
+En büyük kuyruk
+Kaybolan veri
+Kuyruk
+Teslim edilen
+Sakla ve ilet
+Röle ağı
+Mürettebat / gezgin
+Üs
+Dünya (DSN)
+@spice
+SPICE çekirdekleri
+spiceypy kurulu: {v}
+Çekirdek yükle
+Çekirdekler eksik: analitik Mars24 algoritması kullanılıyor.
+Tarih (UTC)
+Saat (UTC)
+EVA için asgari Güneş yüksekliği (°)
+Güneş yüksekliği
+Güneş azimutu
+SPICE: yükseklik {e}°, azimut {a}°, Ls {l}° (Mars24 ile fark: {d}°)
+Değerler Mars24 algoritmasıyla hesaplandı (Allison & McEwen 2000).
+00:00 UTC’den sonraki saatler
+Bir sol boyunca Güneş yüksekliği
+Güneş ≥ {e}° olan gün ışığı pencereleri
+@meda
+Veri kaynağı
+Kayan pencere (örnek)
+Anomali eşiği (z)
+MEDA CSV
+MEDA sütunları içeren bir CSV yükleyin, örneğin:
+SENTETİK örnek: tipik büyüklükler, ölçülmüş veri değil.
+Sütun eşleştirmesi
+Değişkenler
+Örnekler
+Anomaliler
+Ortam düzeyi
+Zaman
+İstatistikler
+EVA ortam kontrolü
+@suit
+Genel bir EVA giysisinin SİMÜLASYONU — gerçek bir NASA giysisine bağlı değil.
+Gezgin senaryosu: astronot hafif etkinlikte modellenir.
+O₂ tankı hacmi (L)
+Tank basıncı (kPa)
+Giysi bataryası (Wh)
+Soğutma suyu (kg)
+Arıza ekle
+O₂ sızıntısı
+Fan arızası
+İletişim kaybı
+Batarya yıpranması (%)
+Güvenlik durumu
+Sonda O₂ tankı
+Sonda batarya
+Uyarılar
+Anomaliler
+Telemetri kanalları
+Eşik uyarısı yok.
+Anomali puanı (Isolation Forest)
+@oxygen
+Kapasite kaynağı
+Kapasite
+Vücut kütlesi (kg)
+Giysi kütlesi (kg)
+Yük (kg)
+Giysi zorlanma katsayısı
+Düz zeminde yürüme hızı (m/s)
+Gezgin senaryosu: araç modeli oksijen tüketmez.
+Kullanılabilir
+Planlanan tüketim
+Kalan
+Ortalama tüketim
+Dayanım
+Asgari dönüş rezervi
+En uzak noktadan dönüş için O₂
+Oksijen tükenme tahmini
+Buradan dönmek için gereken
+Kullanılabilir = kapasite eksi % {r} acil rezerv. Sarı çizgiler = bilimsel duraklar.
+@energy
+Gezgin kütlesi (kg)
+Hız (m/s)
+Yuvarlanma direnci
+Tahrik verimi
+Boşta güç (W)
+Cihaz gücü (W)
+En yüksek motor gücü (W)
+RTG/güneş şarjı (W)
+Pürüzlülük direnç katsayısı
+Enerji
+Şarj
+Net tüketim
+Sonda batarya
+rezerv korundu
+rezervin altında
+Ortalama güç
+Sürüş süresi
+Batarya şarjı
+rezerv
+Rota boyunca batarya: {s}
+Güç
+Eğim
+Rota boyunca güç
+Dört rotanın enerjisi
+@timeline
+EVA başlangıcı (UTC)
+Hazırlık (dk)
+Dinlenme aralığı (sa)
+Dinlenme süresi (dk)
+Toplam süre
+Aşamalar
+Röle geçişleri
+Son güvenli dönüş
+ulaşılmadı
+Görev aşamaları
+İptal payı
+Doz (µSv)
+Zaman içinde kaynaklar
+@science
+Hedef ekle
+Ad
+Tür
+Öncelik
+Hedef eklendi.
+Koordinatları doldurmak için haritaya tıklayın.
+Hedef
+Durak olarak eklendi; rotalar yeniden hesaplanacak.
+Gözlem görevleri: {n}
+@simulation
+Senaryo
+Olay anı (plan payı)
+Zaman adımı (s)
+Tüm senaryoları çalıştır
+O₂ sızıntı katsayısı
+Güç katsayısı
+İletişim kesintisi (dk)
+İletişim kaybı kuralı (dk)
+Sonuç: {o} · risk: {r} · süre {h} sa
+Süre
+plan
+Kullanılan O₂
+Kullanılan enerji
+En büyük navigasyon 2σ
+İlerleme
+Simülasyon zaman çizelgesi
+Olay yok: plan beklendiği gibi işledi.
+Tüm senaryolar
+@risk
+Henüz hesaplanmadı: {m}. Tam değerlendirme için bu modülleri açın.
+Genel risk
+En yüksek puan
+Ana etken
+Olasılık
+Etki
+Risk matrisi
+Her olasılık nasıl hesaplandı
+@ingest
+İzin verilenler: {e}; dosya başına {m} MB’a kadar.
+Dosyalar
+Doğrulamak ve kaydetmek için dosya yükleyin.
+üst veri
+@provenance
+Veri sınıfları
+Sınıfa göre veri kümeleri
+**Gerçek** — resmî NASA/USGS verileri. **Sentetik** — üretilmiş tanıtım verisi. **Simüle** — model çıktısı. **Kullanıcı** — kullanıcının yüklediği.
+@reports
+Görev raporu
+DEM
+Bölümler
+Biçimler
+Rapor hazır: {s} bölüm, {n} dosya.
+Önizleme
+Bir prototip için karar desteği: basitleştirilmiş modeller, gerçek astronot güvenliği rehberi değil.
+@i18n
+Diller
+Metin anahtarları
+En düşük kapsam
+Çeviri kapsamı
+Bir metni tüm dillerde karşılaştır
+Anahtar
+Yedek dil testi
+Dil nasıl eklenir
+1. mars_survive/localization/src/en.txt dosyasını <code>.txt olarak kopyalayın ve değerleri çevirin.\n2. Kodu i18n.py içindeki LANGUAGES listesine ekleyin.\n3. python scripts/build_locales.py ve testleri çalıştırın.
+Çeviriler YZ desteğiyle hazırlandı; ana dili konuşanlarca gözden geçirilmesi önerilir.
+@settings
+Tema
+Mesafe birimi
+Sıcaklık birimi
+Altlık harita
+Harita yakınlaştırma
+Yollar
+DEM dosyası
+YZ model klasörü
+SPICE çekirdek klasörü
+Veri klasörü
+Görev varsayılanları
+Ayarlar kaydedildi.
+Yol bulunamadı: {p}
+Geçerli ayarlar
+Örnek mesafe
+Örnek sıcaklık
+@diagnostics
+Modüller
+Boş disk
+Boş bellek
+Uygulama belleği
+Kütüphaneler
+Veri
+Testler
+Günlükler
+Başarılı
+Başarısız
+Atlandı
+Çalıştırma zamanı
+Testler çok uzun sürdü.
+@integration
+**Zincir:** arazi → tehlikeler → 4 rota → enerji ve O₂ → navigasyon → iletişim → risk → simülasyon → rapor.
+Başarılı adımlar
+Önerilen
+Simülasyon
+Açıklama
+Puan dağılımı (düşük olan daha iyi)
+Puan
+İşlem hattı adımları
+Önerilen rota artık etkin.
+@values
+GERÇEK
+SENTETİK
+SİMÜLE
+KULLANICI
+En kısa
+En az eğim
+En az tehlike
+Dengeli
+A*
+Weighted A*
+Dijkstra
+Astronot EVA
+Gezgin
+İşaret
+Başlangıç
+Hedef
+Durak
+Üs
+Gölgelendirme
+Yükseklik
+Eğim
+Bakı
+Eğrilik
+Pürüzlülük
+Engebelilik indeksi (TRI)
+Yerel rölyef
+Değişkenlik
+Karmaşıklık
+Tehlikeler
+Isıl (THEMIS)
+NoData
+Konum indeksi (TPI)
+yok
+dik yamaç
+pürüzlü yüzey
+kayalık arazi
+krater kenarı
+süreksizlik
+belirsiz arazi
+düşük
+orta
+yüksek
+kritik
+bilinmiyor
+iyi
+sınırda
+kapanmıyor
+uyarı
+kritik
+Yayımlanmış koordinatlar
+Yaklaşık (doğrulayın)
+Kullanıcı girişleri
+iniş alanı
+delta
+magmatik birim
+ova
+krater
+kaya
+yüzlek
+örnekleme alanı
+diğer
+planlandı
+gözlendi
+örneklendi
+atlandı
+planlanıyor
+etkin
+tamamlandı
+iptal edildi
+Arazi
+Enerji / zaman
+Oksijen
+İletişim
+Navigasyon
+Ortam
+Donanım
+Radyasyon
+En az tehlikeli rotayı seçin, eğim payı bırakın, önce keşif yapın.
+Daha büyük rezerv, daha kısa güzergâh, şarj durakları.
+Daha kısa duraklar, daha yakın hedefler, ≥ %25 rezerv.
+Röle pencerelerinde çalışın, röle işaretçisi taşıyın, iletişim kaybı kuralı.
+Her 500 m’de yer işareti ve görsel odometri kontrol noktaları.
+Öğleden sonraki rüzgâr tepelerinden ve toz olaylarından kaçının.
+EVA öncesi kontroller, yedek parçalar, telemetri uyarıları.
+Uzay havasını kontrol edin; güneş parçacığı uyarısında iptal edin.
+tamamlandı
+güvenli iptal ve dönüş
+başarısız
+eksik
+Normal çalışma
+Enerji yetersizliği
+Oksijen yetersizliği
+İletişim kaybı
+Arazi tehlikesi
+Navigasyon kayması
+Acil dönüş
+yeniden konumlama durağı
+tehlikeden sapma
+iletişim kesildi
+acil dönüş
+iptal: oksijen
+iptal: zaman bütçesi
+iptal: enerji
+iptal: iletişim
+sarf malzemesi tükendi
+Başlangıç
+Hareket
+Gözlem
+İletişim
+Dinlenme
+Dönüş
+Acil durum
+Kayalar
+Kraterler
+Kum
+dik yamaçlar
+pürüzlü, bloklu zemin
+sırtlar ve kenarlar
+çukurlar
+düz ovalar
+karışık arazi
+Hava sıcaklığı
+Zemin sıcaklığı
+Basınç
+Rüzgâr hızı
+Rüzgâr yönü
+Toz opaklığı
+UV indeksi
+Sentetik örnek
+CSV yükle
+O₂ tankı basıncı
+Batarya
+CO₂ kısmi basıncı
+Giysi sıcaklığı
+Nem
+Giysi basıncı
+O₂ akışı
+Soğutma suyu
+İletişim
+normal
+dikkat
+EVA’yı iptal et
+Mürettebat → yörünge aracı (UHF)
+Mürettebat → üs (yerel UHF)
+Doğrudan Dünya’ya (X bandı)
+Bağlantı payla kapanıyor; 3 dB payla en yüksek hız ≈ {r} kbit/s.
+Bağlantı az payla kapanıyor; en yüksek hız ≈ {r} kbit/s.
+Bağlantı kapanmıyor; hızı veya mesafeyi azaltın (en fazla ≈ {r} kbit/s).
+Oksijen planı kullanılabilir bütçe içinde.
+Düşük pay: kalan oksijen dönüş rezervine yakın.
+Plan mevcut olandan fazla oksijen tüketiyor.
+litre
+tank (p, V)
+EKF + GO + yer işaretleri
+EKF + yer işaretleri
+EKF + GO
+Yalnızca odometri
+Zaman
+Enerji
+Tehlike
+Eğim
+İletişim
+Navigasyon
+Rota
+Yükseklik profili
+Tehlikeler
+Kaynaklar
+Navigasyon
+İletişim
+Bilimsel hedefler
+Risk
+Öneriler
+Veri kökeni
+Sınırlamalar
+ilkbahar
+yaz
+sonbahar
+kış
+Koyu
+Açık
+iyi
+kullanılabilir
+zayıf
+Sentetik test sahnesi
+Görüntü yükle
+Sezgisel BG (eğitilmemiş)
+YOLO (eğitilmiş ağırlıklar)
+navigasyon (08)
+MEDA (13)
+giysi (14)
+bağlam görüntüleme
+yakın çekim görüntüleme
+aşındırma ve yakın analiz
+örnek karot
+mineraloji spektrumları
+donanım incelemesi
+cihaz kalibrasyonu
+toprak örneği
+ölçümler
+@columns
+ID
+Ad
+Senaryo
+Süre (sa)
+Durum
+Güncellendi
+Köken
+Öncelik
+Katman
+Birim
+Ortalama
+Std. sapma
+En az
+Medyan
+P90
+En çok
+Ölçüt
+Bulundu
+2B mesafe (km)
+3B mesafe (km)
+Ortalama eğim (°)
+En büyük eğim (°)
+Ortalama tehlike
+Enerji (kWh)
+Genişletilen düğüm
+Hesaplama süresi (s)
+Tür
+Düzey
+Enlem
+Boylam
+Alan (km²)
+Yöntem
+Kaynak
+Güven
+Yörünge aracı
+Periyot (dk)
+Geçişler
+Erişilebilirlik (%)
+Hacim (MB)
+Başlangıç (sa)
+Bitiş (sa)
+Süre (dk)
+En büyük yükseliş (°)
+En küçük mesafe (km)
+Başlangıç (UTC)
+Bitiş (UTC)
+LTST başlangıcı
+LTST bitişi
+Parametre
+İlk zaman (sa)
+Değer
+Eşik
+Strateji
+Enerji (Wh)
+Net (Wh)
+Sürüş (sa)
+Ort. güç (W)
+Rezerv korundu
+Aşama
+Etiket
+Başlangıç
+Bitiş
+Tür
+Rotaya mesafe (m)
+Zaman (sa)
+Olay
+Ayrıntı
+Sonuç
+Risk
+Olaylar
+Etken
+Olasılık
+Etki
+Puan
+Azaltma
+Dosya
+Biçim
+Boyut (KB)
+KS
+Birimler
+Geçerli
+Hatalar
+SHA-256
+Sınıf
+Sağlayıcı
+URL
+Edinildi
+İşlendi
+Çözünürlük
+Kalite
+Geçmiş
+Sınırlamalar
+Kod
+Dil
+İngilizce adı
+RTL
+Anahtarlar
+Kapsam (%)
+Kütüphane
+Sürüm
+OK
+İsteğe bağlı
+Hata
+Yol
+Var
+Yazılabilir
+O₂ (L)
+En büyük eğim / sınır
+Görüş hattı yok
+Yapılandırma
+Ortalama RMSE (m)
+RMSE p95 (m)
+Son hata (m)
+Son σ (m)
+Yön RMSE (°)
+En büyük sapma (m)
+Tutarlılık (2σ)
+Değişken
+EVA aralığı
+Aralık dışı (%)
+Dayanak
+Modül
+Yükleme süresi (ms)
+@riskdetail
+maks. eğim / sınır; ortalama tehlike
+görev sonu enerji payı
+batarya payı
+EVA zaman bütçesi payı
+görev sonu O₂ payı
+röle erişilebilirliği; en uzun kesinti
+son 1σ konum hatası
+MEDA çevre seviyesi
+giysi telemetri uyarıları
+EVA dozu (model)
+L eğim oranı (≤0.3, 0.5, 0.7, 0.9) ve tehlike indeksinden (≤0.1, 0.2, 0.35, 0.5); ikisinden büyüğü
+pay ≤0 → 5, ≤10% → 4, ≤25% → 3, ≤40% → 2, aksi halde 1
+enerjiyle aynı aralıklar
+erişilebilirlik (≤5% … 40%) ve en uzun kesinti (≤1, 2, 4, 8 sa); ikisinden büyüğü
+≤5 m → 1 … >60 m → 5
+EVA aralıkları dışındaki örneklerin payı
+0 uyarı → 1, her uyarı +1
+doz aralıkları; güneş parçacık olayları modellenmedi
+SENTETİK DEM (prosedürel demo arazi, Mars verisi değil)
+@confirm
+Silmeyi onaylıyorum (geri alınamaz)
+@orbit
+Ad
+İrtifa (km)
+Eğim (°)
+RAAN (°)
+Faz (°)
+Veri hızı (bit/s)
+Min. yükselim (°)
+@live
+Geçersiz JSON
+ML: P(geçilemez)
+MEDA hava durumu
+Hedef kataloğu
+Brier skoru
+Rotaya uzaklık (m)
+Eğitim süresi (s)
+Büyüklük
+Mars’a varış (UTC)
+Mars ile ilgili
+Model
+PR-AUC
+Kesinlik (precision)
+Duyarlılık (recall)
+ROC-AUC
+Sol
+F1 (test)
+Zaman (UTC)
+F1 (doğrulama)
+Komşu eğim, ortalama
+Komşu eğim, maks.
+Eğim ortalaması 7×7
+Eğim std. sapması 7×7
+Komşu pürüzlülük, ortalama
+Komşu pürüzlülük, maks.
+Pürüzlülük ortalaması 7×7
+Engebelilik (TRI)
+Yerel rölyef
+|Eğrilik|
+Konum indeksi (TPI)
+Eğim değişkenliği
+Yükselti dağılımı 5×5
+Geçilebilirlik modeli (denetimli)
+Denetimli bir sınıflandırıcı, DEM’in her hücresi için yürüyerek GEÇİLEMEME olasılığını tahmin eder. Yalnızca hücrenin çevresini görür (hücrenin kendi eğimini veya pürüzlülüğünü asla görmez) ve eğitimde görmediği harita bloklarında test edilir. Etiketler insan işaretlemesinden değil, DEM üzerindeki açık kurallardan gelir (zayıf denetim).
+Etiket: eğim sınırı (°)
+Etiket: pürüzlülük sınırı (m)
+Kenar başına mekânsal blok
+Sinir ağı epokları
+Modeller: lojistik regresyon (temel), gradyan artırma, sinir ağı ({nn}).
+Eğit ve değerlendir
+Eğitiliyor…
+Model eğitildi: {m}, test bloklarında F1 = {f}
+Henüz eğitilmiş model yok — «Eğit ve değerlendir» düğmesine basın.
+etiketler
+SENTETİK DEM üzerinde eğitildi: pürüzsüz prosedürel arazisi görevi kolaylaştırır, bu skorlar gerçek Mars arazisine aktarılmaz. Gerçek Jezero DEM’i yükledikten sonra yeniden eğitin (modül 04).
+Seçilen model
+Test bloklarında geçilemez hücre oranı: {p} (rastgele bir sınıflandırıcının PR-AUC değeri ≈ bu değerdir)
+Model karşılaştırması (doğrulamada seçilir, testte raporlanır)
+Bölme: {s}. Satırlar — eğitim {tr_}, doğrulama {va}, test {te}.
+geçilebilir
+geçilemez
+tahmin
+gerçek
+Karışıklık matrisi (test blokları)
+Permütasyon önemi (PR-AUC düşüşü)
+eğitim kaybı
+doğrulama kaybı
+Sinir ağının öğrenme eğrisi
+Tahmin edilen olasılık haritası
+Ortalama P(geçilemez)
+Geçilemez sınıflanan hücreler
+Etiket kurallarıyla uyum
+Yeşil = muhtemelen geçilebilir, kırmızı = muhtemelen değil. ML ağırlığı > 0 olduğunda rota planlamada kullanılır (modül 05).
+Rota tehlikesinde ML ağırlığı
+0 = yalnızca kural tabanlı tehlike; 1 = yalnızca model olasılığı; arası = ağırlıklı karışım.
+Rotada kullanmak için geçilebilirlik modelini modül 07’de eğitin.
+Uzay havası (DONKI)
+NASA DONKI güneş patlamalarını (FLR), güneş enerjik parçacık olaylarını (SEP), koronal kütle atımlarını (CME, Mars’ı da içerebilen WSA-ENLIL varış tahminleriyle) ve jeomanyetik fırtınaları (GST, yalnızca Dünya) listeler. EVA öncesi olaylardan modül ekip için bir radyasyon uyarısı çıkarır; bu uyarı modül 20’ye aktarılır.
+Veri kaynağı
+NASA DONKI (çevrim içi)
+Kaydedilmiş DONKI JSON
+Örnek (sentetik)
+Başlangıç
+Bitiş
+EVA öncesi dönem (gün)
+EVA tarihi (UTC)
+EVA saati (UTC)
+Olay türleri
+Güneş patlamaları
+Enerjik parçacıklar
+Koronal kütle atımları
+Jeomanyetik fırtınalar (Dünya)
+Kullanılan anahtar: {k}. api.nasa.gov’dan aldığınız ücretsiz anahtarı .env dosyasına NASA_API_KEY olarak yazın (DEMO_KEY sınırlıdır).
+NASA DONKI’den al
+NASA DONKI verisi alınamadı (yüklenmemiş veri yüklenmiş gibi gösterilmez)
+DONKI JSON dosyası
+Tek bir uç nokta yanıtı (JSON liste) veya {"FLR": [...], "SEP": [...], "CME": [...], "GST": [...]} nesnesi.
+Bu dosyadaki olay türü
+DONKI biçiminde sentetik örnek — NASA verisi değildir. Modülün çevrim dışı çalışmasını görmek içindir.
+Uzay havasını değerlendirmek için DONKI verisi alın veya bir dosya yükleyin.
+alındı
+EVA radyasyon uyarısı
+EVA öncesi {d} günlük penceredeki olaylar
+EVA’ya ±1 gün içinde Mars’a {n} CME varışı öngörülüyor (WSA-ENLIL)
+Pencerede {n} güneş enerjik parçacık olayı
+Pencerede {n} X sınıfı patlama (Mars’a yönü bilinmiyor)
+Pencerede {n} hızlı CME ≥ 1000 km/s (Mars’a yönü bilinmiyor)
+Pencerede önemli olay yok
+Bu bir doz tahmini değil, planlama sezgiselidir: DONKI Güneş’i Dünya tarafından gözlemler; olaylar Mars’ı ıskalayabilir ya da gözlenmeden ulaşabilir. Yalnızca Mars’ı adıyla anan ENLIL etkileri Mars’a yönelik kabul edilir.
+Uzay havası olayları (★ = Mars ile ilgili)
+Mars’a öngörülen varış
+Seçilen dönemde olay yok.
+Perseverance: rota ve görüntüler
+NASA’nın Perseverance gezgininin gerçekte sürdüğü yol saha doğrulamasıdır: geçtiği yerler 1 tonluk bir gezgin için geçilebilirdir ve ham görüntüleri ekibin orada ne göreceğini gösterir. Modül her rota noktası ve bilimsel hedef için rotanın en yakın noktasını bulur ve o solün ham görüntülerini gösterir.
+Rota kaynağı
+NASA/JPL MMGIS (çevrim içi)
+Kaydedilmiş GeoJSON
+Örnek (sentetik)
+«Rotaya yakın» mesafesi (m)
+Rotayı NASA’dan yükle
+NASA’dan yüklenemedi
+Rota GeoJSON (M20_traverse.json)
+Bu sol için ham görüntü akışı JSON
+İniş alanı yakınında rota biçiminin sentetik örneği — Perseverance’ın gerçek yolu değildir.
+Rotaları gezginin yoluyla karşılaştırmak için rotayı yükleyin.
+Rota noktaları
+Sol’ler
+Sürülen mesafe
+Etkin DEM içinde
+Rota etkin DEM penceresinin dışında.
+Rotanın {m} m içinde kalan kısmı
+Rotanın en yakın yaklaşımı
+Etkin rotanın (her 3. nokta) Perseverance’ın gerçekte sürdüğü araziye yakın geçen oranı.
+Perseverance rotası
+Astronot ne görecek
+Rota noktası veya hedef
+Kameralar
+Rota dosyasında sol numarası yok.
+«{p}» yakınında: Perseverance {s}. sol’de {d} m uzaktan geçti. O sol’ün görüntüleri bu araziyi gösterir.
+«{p}» rotadan {d} km uzakta (en yakın nokta: sol {s}); görüntüler tam bu yeri değil, çevresini gösterir.
+Görüntüleri yükle
+«Görüntüleri yükle»ye basın (sol {s} için NASA ham görüntü akışı) veya kaydedilmiş JSON yükleyin.
+Ham görüntüler, sol {s}
+Seçilen kameralardan görüntü yok.
+Tam boyutta aç
+Bu kayıtta görüntü dosyası yok (sentetik örnek)
+Ham görüntüler kalibre edilmemiş ve işlenmemiştir. Kaynak: NASA/JPL-Caltech (Mastcam-Z için ASU da).
+Navcam
+Mastcam-Z
+Hazcam
+SuperCam RMI
+SHERLOC / WATSON
+SkyCam
+@extra
+3B (deck.gl)
+Mars küresi üzerinde yerel metre cinsinden PyDeck/deck. gl sahnesi (Dünya harita izdüşümü yok): DEM örnekleri nokta bulutu, rotalar ve Perseverance rotası 3B yollar olarak. Döndürmek için sürükleyin (sağ tuş / Ctrl).
+PyDeck kurulu değil (pip install pydeck).
+CBS dışa aktarma (GeoPackage, Mars CRS)
+CBS dışa aktarma için geopandas ve shapely kurun (requirements-optional.txt).
+{crs} içinde {n} katman ({l}) — Mars 2015 küresi, gezegen merkezli, doğu boylamı; QGIS/ArcGIS’te Mars verisi olarak açılır. GeoJSON Dünya dışı bir CRS saklayamaz: koordinatları aynı Mars boylam/enlemidir.
+Gerekli bir paket eksik

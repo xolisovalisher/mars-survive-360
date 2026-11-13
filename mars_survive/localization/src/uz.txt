@@ -1,0 +1,1158 @@
+@app
+Sayyoralararo omon qolish qo‘llanmasi — Mars missiyalarini rejalashtirish va tahlil platformasi
+Jezero krateri
+Missiya
+Hudud
+Ma’lumot
+Tizim
+Til
+Missiya boshqaruvi
+Tizim
+ishlamoqda
+Ma’lumot manbasi
+Yangilandi
+Hisoblash
+xato
+Ogohlantirishlar
+SINTETIK DEM ishlatilmoqda
+@groups
+Missiya
+Geofazoviy
+SI va navigatsiya
+Aloqa va kosmos
+Ekipaj va resurslar
+Ma’lumotlar va tizim
+@modules
+Missiya paneli
+Mars 2D/3D xaritasi
+Relyef tahlili
+DEM ma’lumotlarini boshqarish
+Marshrut rejalashtirish
+Xavflarni aniqlash
+SI / Kompyuter ko‘rish
+Avtonom navigatsiya
+Navigatsiya tahlili
+Aloqa tizimi
+Relay va tarmoq
+SPICE va orbital geometriya
+MEDA muhit tahlili
+Skafandr telemetriyasi
+Kislorodni boshqarish
+Energiyani boshqarish
+Missiya vaqt jadvali
+Ilmiy obyektlar
+Missiya simulyatsiyasi
+Xavflarni baholash
+Ma’lumotlarni import qilish
+Ma’lumot sifati va kelib chiqishi
+Missiya hisobotlari
+Ko‘p tilli tizim
+Sozlamalar
+Tizim diagnostikasi
+Integratsiyalashgan missiya tahlili
+@descriptions
+Missiyalarni yarating va tanlang, faol rejaning hisoblangan holatini ko‘ring.
+NASA Mars Trek asosiy xaritalari va ilmiy qatlamlar bilan interaktiv 2D xarita hamda haqiqiy balandliklardan 3D relyef.
+DEM hosilalari: qiyalik, ekspozitsiya, egrilik, notekislik, relyef, o‘zgaruvchanlik va murakkablik, profil va sifat tekshiruvi bilan.
+Jezero DEM (USGS CTX 20 m) yoki o‘z GeoTIFF faylingizni yuklang, tekshiring va baholang.
+16 qo‘shnili relyef grafida A*, Weighted A* yoki Dijkstra bilan hisoblangan to‘rtta marshrut strategiyasi.
+Tik, notekis, toshloq, krater cheti, uzilishli va noma’lum hududlarni qoidalar asosida aniqlash.
+O‘qituvchili relyef o‘tish imkoniyati modeli (shu yerda o‘qitiladi va sinaladi), sirt tasvirlarida kompyuter ko‘rish, nazoratsiz relyef birliklari va izohlovchi yordamchi.
+GPS’siz joylashuvni aniqlash: g‘ildirak odometriyasi, giroskop, vizual odometriya va mo‘ljallar EKF bilan birlashtiriladi.
+Navigatsiya konfiguratsiyalarining aniqligi va noaniqligi Monte-Karlo usulida taqqoslanadi.
+Radioaloqa byudjeti hamda ekipaj va baza orasidagi relyef bo‘yicha ko‘rinish chizig‘i.
+Orbital apparatlar bilan aloqa oynalari va “saqla-va-uzat” ma’lumot oqimi.
+Mars vaqti, fasli va Quyosh holati (Mars24), kernel fayllar bo‘lsa NASA SPICE bilan.
+MEDA ko‘rinishidagi ob-havo ma’lumotlarini import qilish va tahlil: statistika, anomaliyalar, EVA muhit darajasi.
+Skafandr resurslarining fizik simulyatsiyasi, ogohlantirishlar va anomaliyalarni aniqlash bilan.
+Rejalashtirilgan EVA kislorod byudjeti, tugash prognozi va qaytish uchun minimal zaxira.
+Har bir marshrut bo‘yicha rover tortish energiyasi, quvvat byudjeti va batareya holati.
+Missiya bosqichlari, Gantt diagrammasi va vaqt bo‘yicha resurslar.
+Marshrut bilan bog‘langan ilmiy obyektlar katalogi.
+Rejaning oddiy va favqulodda ssenariylardagi bosqichma-bosqich simulyatsiyasi.
+Platforma natijalaridan hisoblangan ehtimollik × ta’sir matritsasi.
+GeoTIFF, XML/PDS4, CSV, JSON/GeoJSON va tasvirlarni xavfsiz yuklash va tekshirish.
+Ishlatilayotgan har bir ma’lumotning kelib chiqishi, sinfi va sifati.
+PDF, HTML, CSV, JSON va Excel formatidagi missiya hisoboti.
+18 tilli markaziy tarjima xizmati, zaxira til va o‘ngdan chapga yozuv qo‘llab-quvvatlanadi.
+Til, mavzu, o‘lchov birliklari, xarita va yo‘llar.
+Kutubxonalar, modullar, ma’lumotlar, resurslar, testlar va loglar.
+Bitta boshlanish/manzil juftligi uchun barcha modullarni ishga tushiradi va tavsiya etilgan marshrutni tushuntiradi.
+@limitations
+Ko‘rsatkichlar ular asosidagi modellar darajasida ishonchli; sintetik yoki simulyatsiya ma’lumotlari belgilangan.
+Asosiy xaritalar past aniqlikdagi global mozaikalar; brauzerning masshtab vositalari Yer uchun mo‘ljallangani sababli ishlatilmaydi.
+50 m to‘r xarsang toshlar va kichik jarliklarni ko‘rsatmaydi; haqiqiy mahalliy qiyaliklar tikroq.
+Faqat tahlil oynasi qayta namunalanadi; vertikal aniqlik manba DEMga bog‘liq.
+Marshrutlar faqat tanlangan narx modeli va to‘r uchun optimal; ular sertifikatlangan harakat rejasi emas.
+Chegaralar rejalashtirish farazlari; katakdan kichik toshlar bu usulda ko‘rinmaydi.
+Evristik detektor o‘qitilgan model emas; YOLO natijalari faqat haqiqiy o‘qitilgan og‘irliklar bilan mavjud.
+Sensor ma’lumotlari simulyatsiya qilingan; haqiqiy sirpanish va relyef ta’siri kattaroq bo‘lishi mumkin.
+Monte-Karlo statistikasi haqiqiy roverni emas, simulyatsiya modelini tavsiflaydi.
+Aloqa qiymatlari namunaviy; ko‘p yo‘lli tarqalish, antenna diagrammasi va chang bo‘ronlari soddalashtirilgan.
+Orbitalar sintetik ikki jismli aylana orbitalar, NASA efemeridlari emas.
+Kernel fayllarsiz analitik Mars24 algoritmi ishlatiladi (Ls aniqligi ~0,01°).
+Namunaviy ma’lumotlar sintetik; EVA chegaralari rejalashtirish farazlari.
+Umumiy skafandr modeli; hech qanday haqiqiy NASA skafandriga ulanmagan.
+Yer fiziologiyasi Marsga moslashtirilgan; skafandrdagi haqiqiy metabolik sarf juda farq qiladi.
+Rover parametrlari namunaviy; issiqlik va tungi yuklamalar soddalashtirilgan.
+Vaqtlar modelga asoslangan; operatsion cheklovlar kiritilmagan.
+Taxminiy koordinatalarni NASA Mars Trek’da tekshirish kerak.
+Hodisalar va qaror qoidalari soddalashtirilgan parvoz qoidalari namunasi.
+Ballar hujjatlashtirilgan chegaralar va farazlarga bog‘liq; ular xavfsizlik sertifikati emas.
+Tekshiruv ilmiy to‘g‘rilikni emas, format va tuzilmani tekshiradi.
+Sinf belgilari import paytida berilgan ma’lumot darajasida aniq.
+Hisobotlar model natijalari va ularning cheklovlarini takrorlaydi; ular missiyani tasdiqlash hujjati emas.
+Tarjimalar SI yordamida tayyorlangan, ona tili egalari tomonidan tekshirilishi kerak.
+Ayrim o‘zgarishlar keyingi hisoblashdan so‘ng kuchga kiradi.
+Tekshiruvlar faqat shu kompyuterni qamraydi.
+Tavsiya prototip uchun qaror qabul qilishga yordam; haqiqiy astronavt xavfsizligi bo‘yicha ko‘rsatma emas.
+@ui
+Hisoblanmoqda…
+Parametrlar
+Usul, manbalar va cheklovlar
+Usul
+Manbalar
+Cheklovlar
+Tafsilotlar
+ha
+yo‘q
+Faollashtirish
+Obyekt qo‘shish
+Oraliq nuqta sifatida qo‘shish
+Tavsiya etilgan marshrutni tanlash
+Belgilar va to‘xtashlarni tozalash
+To‘xtashlarni tozalash
+Marshrutlarni hisoblash
+Missiyani saqlash
+O‘chirish
+DEMni USGS’dan yuklab olish
+Hisobot yaratish
+Tekshirish
+Reyestrni yangilash
+Sintetik DEMga qaytish
+Taqqoslashni boshlash
+Integratsiyalashgan tahlilni boshlash
+Testlarni ishga tushirish
+Kernel fayllarni saqlash
+Sozlamalarni saqlash
+Ma’lumotlar to‘plamini bo‘lish
+K-Means’ni o‘qitish
+YOLO’ni o‘qitish
+Holatni yangilash
+Shu DEMni ishlatish
+Tekshirish va import qilish
+@errors
+Xato
+Bu modul ishlamadi, boshqa modullar ishlashda davom etmoqda
+Noto‘g‘ri koordinata
+Nom bo‘sh bo‘lmasligi kerak
+Noto‘g‘ri GeoJSON
+Tasvirni o‘qib bo‘lmadi
+Noto‘g‘ri kiritma
+Rastrni ochib bo‘lmadi
+XMLni xavfsiz o‘qib bo‘lmadi
+DEM tanlangan hududni qamramaydi
+Tarmoq yoki DNS muammosi
+Server xato bilan javob berdi
+Yuklab olish tugallanmadi
+Nazorat summasi mos kelmadi
+spiceypy o‘rnatilmagan
+SPICE kernel fayllari yo‘q
+Ma’lum MEDA ustunlari topilmadi
+CSV faylni o‘qib bo‘lmadi
+Noto‘g‘ri fayl nomi
+Bu fayl turiga ruxsat yo‘q
+Fayl bo‘sh
+Fayl juda katta
+Fayl mazmuni kengaytmaga mos emas
+@labels
+Baza
+Batareya (Wh)
+Katak o‘lchami
+Ma’lumot sinfi
+Tavsif
+2D masofa
+3D masofa
+Davomiylik / byudjet (soat)
+Har bir to‘xtashdagi ish (daq)
+Balandlik
+Umumiy ko‘tarilish
+Manzil
+To‘r
+Kenglik (planetotsentrik)
+Kenglik (planetografik)
+Kenglik oralig‘i
+Uzunlik (sharqiy)
+Uzunlik oralig‘i
+Umumiy tushish
+Zaxira
+Missiya nomi
+Missiya vaqti (soat)
+NoData
+NoData kataklar
+NoData nuqtalar
+O₂ sig‘imi (L)
+Sifat
+Oraliq
+Hudud
+Zaxira (%)
+Ssenariy
+Missiyani tanlang
+Qiyalik
+Qiyalik chegarasi (°)
+Shubhali sakrashlar
+Boshlanish
+Holat
+To‘xtash
+Yaroqli ma’lumot
+@dashboard
+Tezkor boshlash
+1. Yuqoridagi ma’lumot belgisini tekshiring: **Sintetik** — namunaviy relyef. Haqiqiy DEMni **04 DEM ma’lumotlarini boshqarish** bo‘limida yuklang.\n2. **05 Marshrut rejalashtirish** bo‘limida xaritani bosib boshlanish, manzil va to‘xtashlarni belgilang, so‘ng to‘rtta marshrutni hisoblang.\n3. 06–16 modullarda xavflar, kislorod/energiya, navigatsiya va aloqani ko‘rib chiqing.\n4. Baholangan tavsiya uchun **27 Integratsiyalashgan missiya tahlili**ni ishga tushiring.\n5. Natijani **23 Missiya hisobotlari** bo‘limida eksport qiling.
+Holat
+Yangi missiya
+Missiyalar
+Qo‘nish joyidan g‘arbiy delta frontiga EVA.
+Ogohlantirishlar
+Faol ogohlantirishlar yo‘q.
+Ilmiy obyektlar
+Missiya saqlandi (#{id}).
+Hali saqlangan missiya yo‘q.
+SINTETIK DEM: namunaviy relyef, haqiqiy Mars balandligi emas. USGS Jezero DEMni 04-modulda yuklang.
+Faol marshrut
+05-moduldan
+Masofa
+Davomiylik
+{b} soatlik byudjetdan
+O₂ zaxirasi
+Batareya zaxirasi
+Energiya
+metabolik
+elektr
+Navigatsiya aniqligi
+EKF, simulyatsiya sensorlari
+Aloqa
+Xavflar / obyektlar
+xavfli obyektlar / ilmiy obyektlar
+Sintetik DEM ishlatilmoqda — natijalar namoyish uchun.
+Marshrut topilmadi — nuqtalarni suring yoki qiyalik chegarasini oshiring.
+Reja davomiyligi {h} soat foydalaniladigan byudjetdan oshadi.
+Reja oxirida faqat {p} % O₂ qoladi.
+Aloqa yopilmaydi (zaxira {m} dB).
+Reja oxirgi xavfsiz qaytish nuqtasidan o‘tib ketadi.
+Tavsiya etilgan marshrut: {s} (ball {score}, kamroq — yaxshiroq).
+Keyingi eng yaxshisi: {s2}, {d} ga yomonroq.
+{km} km, {h} soat, o‘rtacha xavf {haz}, maksimal qiyalik {sl}°.
+Har bir nuqtadan qaytish mumkin; eng kichik qaytish zaxirasi {m} soat.
+Reja xavfsiz byudjetdan oshadi (zaxira {m} soat): uni qisqartiring yoki to‘xtashni olib tashlang.
+Umumiy xavf: {lv}; asosiy omil: {f}.
+@map
+2D xarita
+3D relyef
+Ko‘rinadigan qatlamlar
+Xaritani bosish belgilaydi
+Koordinata qidirish
+Topildi: {lat}, {lon}
+Nuqta DEM hududidan tashqarida
+Qidiruv natijasi
+GeoJSON nuqtalarni to‘xtash sifatida import qilish
+{n} ta nuqta to‘xtash sifatida import qilindi
+Vertikal kattalashtirish
+3D aniqlik (kataklar)
+Rang bo‘yicha
+3D sirt DEM balandliklaridan (km) mahalliy sharq/shimol to‘rida qurilgan.
+@terrain
+Qatlam
+Profil oralig‘i
+boshlanish va manzil
+tanlangan nuqtalar
+Statistika
+Gistogramma
+Balandlik profili
+DEM sifati va koordinata tizimi
+KT: {crs}; katak o‘lchami {res} m; kenglik planetotsentrik, uzunlik sharqqa musbat.
+@dem
+Faol DEM: {src}
+Joriy DEM metama’lumotlari
+Yuklab olish
+Mahalliy fayl
+Yuklash
+XML / PDS4 yorlig‘i
+Asosiy manba: USGS Astrogeology, Mars 2020 Science Investigation CTX DEM Mosaic (20 m/piksel, butun Jezero krateri, ~87 MB). HTTP holati, hajm va nazorat summasi tekshiriladigan, davom ettiriladigan yuklab olish.
+Rasmiy katalog
+{mb} MB yuklab olindi.
+DEM qayta ishlandi: {v} % yaroqli kataklar.
+Internet yo‘qmi? Faylni brauzerda yuklab oling va “Mahalliy fayl” bo‘limidan foydalaning.
+GeoTIFF fayl yo‘li
+KT — Mars koordinata tizimi.
+KT Mars tizimi sifatida aniqlanmadi — ishlatishdan oldin tekshiring.
+GeoTIFF DEM
+XML / PDS4 yorlig‘i
+Ildiz element: {t}; PDS4: {p}
+Yorliq yuklanmagan.
+@route
+Algoritm
+Qiyalik vazni
+Xavf vazni
+Energiya vazni
+Boshlanish {s} → manzil {g}; to‘xtashlar: {n}
+Faol strategiya
+Hech bir strategiya uchun marshrut topilmadi.
+Profillar
+Marshrut bo‘ylab qiyalik: {s}
+o‘tib bo‘ladigan yo‘l yo‘q
+boshlanish yoki manzil to‘silgan
+@hazards
+Krater cheti uchun minimal relyef (m)
+Obyektning minimal o‘lchami (katak)
+Xavfli obyektlar
+xavfsiz
+ehtiyot
+yuqori
+o‘tib bo‘lmaydi
+noma’lum
+Turlar bo‘yicha obyektlar
+Faol marshrutdagi xavf darajalari
+O‘rtacha xavf indeksi {m}, maksimal {x}
+Xavfli obyektlar
+@ai
+Aniqlash
+Relyef birliklari (K-Means)
+YOLO ma’lumotlar to‘plami va o‘qitish
+Marshrut yordamchisi
+Tasvir
+Mexanizm
+YOLO mavjud emas (paket: {pkg}, og‘irliklar: {w})
+Ishonch chegarasi
+Sirt tasviri (PNG/JPG)
+Haqiqiy belgilar (YOLO .txt, ixtiyoriy)
+Yangi test sahnasi
+Aniqlash uchun tasvir yuklang.
+O‘QITILGAN MODEL EMAS
+{n} ta topilma
+Toshlar/kraterlar egallagan maydon
+Baholash ko‘rsatkichlari
+Ko‘rsatkichlar berilgan haqiqiy belgilarga nisbatan hisoblanadi (sintetik sahna: obyektlar ma’lum).
+Haqiqiy belgilar yo‘q — ko‘rsatkichlarni hisoblab bo‘lmaydi.
+Birliklar soni (k)
+Belgilar
+Silhouette balli
+O‘xshash relyefning nazoratsiz klasterlari; ular geologik birliklar emas.
+YOLO ma’lumotlar to‘plamini (tasvirlar + .txt belgilar) tayyorlang, train/val/test qismlarga bo‘ling va modelni o‘qiting. O‘qitish uchun ultralytics paketi kerak; YOLO aniqlashni yoqish uchun o‘qitilgan og‘irliklarni (.pt) models/yolo papkasiga joylang.
+Tasvirlar papkasi
+Belgilar papkasi
+Papka topilmadi: {d}
+Epoxalar
+Avval ma’lumotlar to‘plamini bo‘ling.
+ultralytics o‘rnatilmagan; YOLO o‘qitish va aniqlash o‘chirilgan.
+{s} marshruti: {km} km, taxminan {h} soat.
+O‘rtacha qiyalik {ms}°, maksimal {xs}°; ko‘tarilish {g} m, tushish {l} m.
+O‘rtacha xavf indeksi {m}, maksimal {x}.
+Kislorod: {c} L dan {o} L.
+Energiya: {c} Wh batareyadan {e} Wh.
+{n} ta tik qism (chegaraning > 70 %); birinchisi {km} km da.
+Tushuntirishlar faqat yuqoridagi hisoblangan raqamlardan foydalanadi.
+Bu marshrut haqida savol bering
+Erkin javoblar uchun .env faylida ANTHROPIC_API_KEY ni belgilang.
+@navigation
+SINTETIK SIMULYATSIYA: sensor ma’lumotlari generatsiya qilingan; Marsda GPS yo‘q.
+Odometriya shovqini
+G‘ildirak sirpanishi
+Giroskop siljishi (°/soat)
+Vizual odometriya
+Mo‘ljallar oralig‘i (m)
+Mo‘ljal ko‘rinish masofasi (m)
+Masofa shovqini σ (m)
+Tasodifiy urug‘
+Yakuniy xato (EKF)
+Yakuniy xato (odometriya)
+Yakuniy noaniqlik (1σ)
+Mo‘ljal yangilanishlari
+Odometriya dreyfi
+Haqiqiy yo‘l
+Hisob bo‘yicha navigatsiya
+Mo‘ljallar
+2σ ellips (×10)
+Joylashuv xatosi
+Noaniqlik ellipslari ko‘rinish uchun ×10 kattalashtirilgan.
+Monte-Karlo urinishlari
+Eng aniq konfiguratsiya: {c}
+Marshrut bo‘ylab xatoning o‘sishi
+Joylashuv noaniqligi
+Yo‘nalish noaniqligi
+Qadam
+EKF noaniqligi
+@communication
+Aloqa byudjeti
+Relyef bo‘yicha ko‘rinish chizig‘i
+Tayyor sozlama
+Chastota (MGts)
+Uzatish quvvati (Vt)
+Uzatuvchi antenna kuchaytirishi (dBi)
+Qabul qiluvchi antenna kuchaytirishi (dBi)
+Masofa (km)
+Tizim shovqin harorati (K)
+Ma’lumot tezligi (bit/s)
+Talab qilinadigan Eb/N0 (dB)
+Uzatishdagi yo‘qotishlar (dB)
+Atmosfera yo‘qotishi (dB)
+Boshqa yo‘qotishlar (dB)
+Amalga oshirish yo‘qotishi (dB)
+Qabul qilingan quvvat
+Masofaga qarab aloqa zaxirasi
+Ekipaj antennasi balandligi (m)
+Baza antennasi balandligi (m)
+Har N marshrut nuqtasida tekshirish
+Radio ufq
+silliq sfera
+Ko‘rinish chizig‘i bor marshrut qismi
+To‘silgan nuqtalar
+Bazagacha maksimal masofa
+to‘silgan
+ko‘rinadi
+Marshrut bo‘ylab bazaga ko‘rinish chizig‘i
+Relyef + egrilik
+Radio nur
+Ko‘rinish chizig‘i profili (eng yomon nuqta)
+@relay
+SIMULYATSIYA orbitalari: ikki jismli aylana orbitalar, NASA efemeridlari emas.
+Davr (soat)
+Yaratiladigan ma’lumot (kbit/s)
+Bufer (MB)
+Uzilishni simulyatsiya qilish
+Uzilish (soat)
+Kamida bitta to‘g‘ri orbital apparat qo‘shing.
+Balandlik burchagi (°)
+Orbital apparatning joy ustidagi balandlik burchagi
+O‘tishlar
+Mavjudlik
+Eng uzun uzilish
+Maksimal navbat
+Yo‘qolgan ma’lumot
+Navbat
+Yetkazildi
+Saqla va uzat
+Relay tarmog‘i
+Ekipaj / rover
+Baza
+Yer (DSN)
+@spice
+SPICE kernel fayllari
+spiceypy o‘rnatilgan: {v}
+Kernel fayllarni yuklash
+Kernel fayllar yo‘q: analitik Mars24 algoritmi ishlatilmoqda.
+Sana (UTC)
+Vaqt (UTC)
+EVA uchun Quyoshning minimal balandligi (°)
+Quyosh balandligi
+Quyosh azimuti
+SPICE: balandlik {e}°, azimut {a}°, Ls {l}° (Mars24 bilan farq: {d}°)
+Qiymatlar Mars24 algoritmi bilan hisoblangan (Allison & McEwen 2000).
+00:00 UTC dan keyingi soatlar
+Bir sol davomida Quyosh balandligi
+Quyosh ≥ {e}° bo‘lgan kunduzgi oynalar
+@meda
+Ma’lumot manbasi
+Siljuvchi oyna (nuqtalar)
+Anomaliya chegarasi (z)
+MEDA CSV
+MEDA ustunlari bor CSV yuklang, masalan:
+SINTETIK namuna: odatiy kattaliklar, o‘lchangan ma’lumot emas.
+Ustunlar moslashuvi
+O‘zgaruvchilar
+Namunalar
+Anomaliyalar
+Muhit darajasi
+Vaqt
+Statistika
+EVA muhit tekshiruvi
+@suit
+Umumiy EVA skafandrining SIMULYATSIYASI — haqiqiy NASA skafandriga ulanmagan.
+Rover ssenariysi: astronavt yengil faollikda modellashtirilgan.
+O₂ ballon hajmi (L)
+Ballon bosimi (kPa)
+Skafandr batareyasi (Wh)
+Sovutish suvi (kg)
+Nosozliklarni kiritish
+O₂ sizishi
+Ventilyator ishdan chiqishi
+Aloqa uzilishi
+Batareya eskirishi (%)
+Xavfsizlik holati
+Oxirida O₂ ballon
+Oxirida batareya
+Ogohlantirishlar
+Anomaliyalar
+Telemetriya kanallari
+Chegara ogohlantirishlari yo‘q.
+Anomaliya balli (Isolation Forest)
+@oxygen
+Sig‘im manbasi
+Sig‘im
+Tana massasi (kg)
+Skafandr massasi (kg)
+Yuk (kg)
+Skafandr qiyinlik koeffitsiyenti
+Tekis joyda yurish tezligi (m/s)
+Rover ssenariysi: transport modeli kislorod sarflamaydi.
+Foydalaniladigan
+Rejalashtirilgan sarf
+Qoldiq
+O‘rtacha sarf
+Yetarlilik muddati
+Qaytish uchun minimal zaxira
+Eng uzoq nuqtadan qaytish uchun O₂
+Kislorod tugash prognozi
+Shu yerdan qaytish uchun kerak
+Foydalaniladigan = sig‘im minus {r} % favqulodda zaxira. Sariq chiziqlar — ilmiy to‘xtashlar.
+@energy
+Rover massasi (kg)
+Tezlik (m/s)
+Dumalashga qarshilik
+Uzatma FIK
+Kutish quvvati (Vt)
+Asboblar quvvati (Vt)
+Dvigatelning maksimal quvvati (Vt)
+RTG/quyosh zaryadi (Vt)
+Notekislik qarshilik koeffitsiyenti
+Energiya
+Zaryadlash
+Sof sarf
+Oxirida batareya
+zaxira saqlandi
+zaxiradan past
+O‘rtacha quvvat
+Harakat vaqti
+Batareya zaryadi
+zaxira
+Marshrut bo‘ylab batareya: {s}
+Quvvat
+Nishablik
+Marshrut bo‘ylab quvvat
+To‘rtta marshrut energiyasi
+@timeline
+EVA boshlanishi (UTC)
+Tayyorgarlik (daq)
+Dam olish har (soat)
+Dam olish davomiyligi (daq)
+Umumiy vaqt
+Bosqichlar
+Relay o‘tishlari
+Oxirgi xavfsiz qaytish
+yetib borilmaydi
+Missiya bosqichlari
+Qaytish zaxirasi
+Doza (µZv)
+Vaqt bo‘yicha resurslar
+@science
+Obyekt qo‘shish
+Nomi
+Turi
+Ustuvorlik
+Obyekt qo‘shildi.
+Koordinatalarni to‘ldirish uchun xaritani bosing.
+Obyekt
+To‘xtash sifatida qo‘shildi; marshrutlar qayta hisoblanadi.
+Kuzatuv vazifalari: {n}
+@simulation
+Ssenariy
+Hodisa vaqti (rejaning ulushi)
+Vaqt qadami (s)
+Barcha ssenariylarni ishga tushirish
+O₂ sizish koeffitsiyenti
+Quvvat koeffitsiyenti
+Aloqa uzilishi (daq)
+Aloqa yo‘qolish qoidasi (daq)
+Natija: {o} · xavf: {r} · davomiylik {h} soat
+Davomiylik
+reja
+Sarflangan O₂
+Sarflangan energiya
+Navigatsiya maks. 2σ
+Bajarilish
+Simulyatsiya vaqt chizig‘i
+Hodisalar yo‘q: reja kutilganidek bajarildi.
+Barcha ssenariylar
+@risk
+Hali hisoblanmagan: {m}. To‘liq baho uchun shu modullarni oching.
+Umumiy xavf
+Eng yuqori ball
+Asosiy omil
+Ehtimollik
+Ta’sir
+Xavf matritsasi
+Har bir ehtimollik qanday hisoblangan
+@ingest
+Ruxsat etilgan: {e}; har bir fayl {m} MB gacha.
+Fayllar
+Tekshirish va ro‘yxatga olish uchun fayllarni yuklang.
+metama’lumotlar
+@provenance
+Ma’lumot sinflari
+Sinflar bo‘yicha ma’lumotlar
+**Haqiqiy** — rasmiy NASA/USGS ma’lumotlari. **Sintetik** — yaratilgan namunaviy ma’lumot. **Simulyatsiya** — model natijasi. **Foydalanuvchi** — foydalanuvchi yuklagan.
+@reports
+Missiya hisoboti
+DEM
+Bo‘limlar
+Formatlar
+Hisobot tayyor: {s} bo‘lim, {n} fayl.
+Oldindan ko‘rish
+Prototip uchun qaror yordami: soddalashtirilgan modellar, haqiqiy astronavt xavfsizligi bo‘yicha ko‘rsatma emas.
+@i18n
+Tillar
+Matn kalitlari
+Eng past qamrov
+Tarjima qamrovi
+Bitta matnni barcha tillarda taqqoslash
+Kalit
+Zaxira til testi
+Til qanday qo‘shiladi
+1. mars_survive/localization/src/en.txt faylini <code>.txt nomi bilan nusxalang va qiymatlarni tarjima qiling.\n2. Kodni i18n.py dagi LANGUAGES ro‘yxatiga qo‘shing.\n3. python scripts/build_locales.py va testlarni ishga tushiring.
+Tarjimalar SI yordamida tayyorlangan; ona tili egalari tekshiruvi tavsiya etiladi.
+@settings
+Mavzu
+Masofa birligi
+Harorat birligi
+Asosiy xarita
+Xarita masshtabi
+Yo‘llar
+DEM fayli
+SI model papkasi
+SPICE kernel papkasi
+Ma’lumotlar papkasi
+Missiya standart qiymatlari
+Sozlamalar saqlandi.
+Yo‘l topilmadi: {p}
+Joriy sozlamalar
+Masofa namunasi
+Harorat namunasi
+@diagnostics
+Modullar
+Bo‘sh disk
+Bo‘sh xotira
+Ilova xotirasi
+Kutubxonalar
+Ma’lumotlar
+Testlar
+Loglar
+O‘tdi
+Muvaffaqiyatsiz
+O‘tkazib yuborildi
+Ishga tushirilgan vaqt
+Testlar juda uzoq davom etdi.
+@integration
+**Zanjir:** relyef → xavflar → 4 marshrut → energiya va O₂ → navigatsiya → aloqa → xavf → simulyatsiya → hisobot.
+Muvaffaqiyatli qadamlar
+Tavsiya etilgan
+Simulyatsiya
+Tushuntirish
+Ball tarkibi (kamroq — yaxshiroq)
+Ball
+Konveyer qadamlari
+Tavsiya etilgan marshrut endi faol.
+@values
+HAQIQIY
+SINTETIK
+SIMULYATSIYA
+FOYDALANUVCHI
+Eng qisqa
+Eng kam qiyalik
+Eng kam xavf
+Muvozanatli
+A*
+Weighted A*
+Dijkstra
+Astronavt EVA
+Rover
+Belgi
+Boshlanish
+Manzil
+To‘xtash
+Baza
+Soyali relyef
+Balandlik
+Qiyalik
+Ekspozitsiya
+Egrilik
+Notekislik
+Notekislik indeksi (TRI)
+Mahalliy relyef
+O‘zgaruvchanlik
+Murakkablik
+Xavflar
+Issiqlik (THEMIS)
+NoData
+Holat indeksi (TPI)
+yo‘q
+tik qiyalik
+notekis sirt
+toshloq hudud
+krater cheti
+uzilish
+noma’lum hudud
+past
+o‘rta
+yuqori
+kritik
+noma’lum
+yaxshi
+chegarada
+yopilmaydi
+ogohlantirish
+kritik
+E’lon qilingan koordinatalar
+Taxminiy (tekshiring)
+Foydalanuvchi kiritganlari
+qo‘nish joyi
+delta
+magmatik birlik
+tekislik
+krater
+tosh
+yer yuzasiga chiqqan jins
+namuna joyi
+boshqa
+rejalashtirilgan
+kuzatilgan
+namuna olingan
+o‘tkazib yuborilgan
+rejalashtirilmoqda
+faol
+yakunlangan
+to‘xtatilgan
+Relyef
+Energiya / vaqt
+Kislorod
+Aloqa
+Navigatsiya
+Muhit
+Uskunalar
+Radiatsiya
+Eng kam xavfli marshrutni tanlang, qiyalik zaxirasini saqlang, avval razvedka qiling.
+Kattaroq zaxira, qisqaroq yo‘l, zaryadlash to‘xtashlari.
+Qisqaroq to‘xtashlar, yaqinroq obyektlar, ≥ 25 % zaxira saqlang.
+Relay oynalari ichida ishlang, relay mayoq oling, aloqa yo‘qolish qoidasi.
+Har 500 m da mo‘ljal va vizual odometriya nazorat nuqtalari.
+Tushdan keyingi shamol cho‘qqilari va chang hodisalaridan qoching.
+EVA oldi tekshiruvlari, ehtiyot qismlar, telemetriya ogohlantirishlari.
+Kosmik ob-havoni tekshiring; quyosh zarralari ogohlantirishida to‘xtating.
+yakunlandi
+xavfsiz to‘xtatish va qaytish
+muvaffaqiyatsiz
+tugallanmagan
+Oddiy ish rejimi
+Energiya yetishmasligi
+Kislorod yetishmasligi
+Aloqa yo‘qolishi
+Relyef xavfi
+Navigatsiya dreyfi
+Favqulodda qaytish
+qayta joylashuvni aniqlash to‘xtashi
+xavfni aylanib o‘tish
+aloqa yo‘qoldi
+favqulodda qaytish
+to‘xtatish: kislorod
+to‘xtatish: vaqt byudjeti
+to‘xtatish: energiya
+to‘xtatish: aloqa
+resurs tugadi
+Boshlanish
+Harakat
+Kuzatuv
+Aloqa
+Dam olish
+Qaytish
+Favqulodda
+Toshlar
+Kraterlar
+Qum
+tik qiyaliklar
+notekis, toshloq yer
+tizmalar va chekkalar
+botiqlar
+silliq tekisliklar
+aralash relyef
+Havo harorati
+Grunt harorati
+Bosim
+Shamol tezligi
+Shamol yo‘nalishi
+Chang shaffofsizligi
+UB indeksi
+Sintetik namuna
+CSV yuklash
+O₂ ballon bosimi
+Batareya
+CO₂ parsial bosimi
+Skafandr harorati
+Namlik
+Skafandr bosimi
+O₂ oqimi
+Sovutish suvi
+Aloqa
+normal
+ehtiyot
+EVAni to‘xtatish
+Ekipaj → orbital apparat (UHF)
+Ekipaj → baza (mahalliy UHF)
+To‘g‘ridan-to‘g‘ri Yerga (X diapazon)
+Aloqa zaxira bilan yopiladi; 3 dB zaxira bilan maks. tezlik ≈ {r} kbit/s.
+Aloqa kichik zaxira bilan yopiladi; maks. tezlik ≈ {r} kbit/s.
+Aloqa yopilmaydi; tezlik yoki masofani kamaytiring (maks. ≈ {r} kbit/s).
+Kislorod rejasi foydalaniladigan byudjet doirasida.
+Zaxira kam: qolgan kislorod qaytish zaxirasiga yaqin.
+Reja mavjud kisloroddan ko‘proq sarflaydi.
+litr
+ballon (p, V)
+EKF + VO + mo‘ljallar
+EKF + mo‘ljallar
+EKF + VO
+Faqat odometriya
+Vaqt
+Energiya
+Xavf
+Qiyalik
+Aloqa
+Navigatsiya
+Marshrut
+Balandlik profili
+Xavflar
+Resurslar
+Navigatsiya
+Aloqa
+Ilmiy obyektlar
+Xavf
+Tavsiyalar
+Ma’lumotlarning kelib chiqishi
+Cheklovlar
+bahor
+yoz
+kuz
+qish
+Qorong‘i
+Yorug‘
+yaxshi
+yaroqli
+yomon
+Sintetik test sahnasi
+Tasvir yuklash
+Evristik KK (o‘qitilmagan)
+YOLO (o‘qitilgan og‘irliklar)
+navigatsiya (08)
+MEDA (13)
+skafandr (14)
+kontekst suratga olish
+yaqin masofadan suratga olish
+abraziya va yaqin tahlil
+namuna kerni
+mineralogik spektrlar
+uskunani ko‘zdan kechirish
+asbobni kalibrlash
+grunt namunasi
+o‘lchovlar
+@columns
+ID
+Nomi
+Ssenariy
+Davomiylik (soat)
+Holat
+Yangilangan
+Kelib chiqishi
+Ustuvorlik
+Qatlam
+Birlik
+O‘rtacha
+Std
+Min
+Mediana
+P90
+Maks
+Ko‘rsatkich
+Topildi
+2D masofa (km)
+3D masofa (km)
+O‘rtacha qiyalik (°)
+Maks. qiyalik (°)
+O‘rtacha xavf
+Energiya (kVt·soat)
+Ko‘rilgan tugunlar
+Hisoblash vaqti (s)
+Turi
+Daraja
+Kenglik
+Uzunlik
+Maydon (km²)
+Usul
+Manba
+Ishonch
+Orbital apparat
+Davr (daq)
+O‘tishlar
+Mavjudlik (%)
+Hajm (MB)
+Boshlanish (soat)
+Tugash (soat)
+Davomiylik (daq)
+Maks. balandlik (°)
+Min. masofa (km)
+Boshlanish (UTC)
+Tugash (UTC)
+LTST boshlanishi
+LTST tugashi
+Parametr
+Birinchi vaqt (soat)
+Qiymat
+Chegara
+Strategiya
+Energiya (Wh)
+Sof (Wh)
+Harakat (soat)
+O‘rt. quvvat (Vt)
+Zaxira saqlandi
+Bosqich
+Belgi
+Boshlanish
+Tugash
+Turi
+Marshrutgacha masofa (m)
+Vaqt (soat)
+Hodisa
+Tafsilot
+Natija
+Xavf
+Hodisalar
+Omil
+Ehtimollik
+Ta’sir
+Ball
+Kamaytirish choralari
+Fayl
+Format
+Hajm (KB)
+KT
+Birliklar
+Yaroqli
+Xatolar
+SHA-256
+Sinf
+Yetkazib beruvchi
+URL
+Olingan
+Qayta ishlangan
+Aniqlik
+Sifat
+Tarix
+Cheklovlar
+Kod
+Til
+Inglizcha nomi
+RTL
+Kalitlar
+Qamrov (%)
+Kutubxona
+Versiya
+OK
+Ixtiyoriy
+Xato
+Yo‘l
+Mavjud
+Yoziladigan
+O₂ (L)
+Maks. qiyalik / chegara
+Ko‘rinish chizig‘isiz
+Konfiguratsiya
+O‘rtacha RMSE (m)
+RMSE p95 (m)
+Yakuniy xato (m)
+Yakuniy σ (m)
+Yo‘nalish RMSE (°)
+Maks. og‘ish (m)
+Muvofiqlik (2σ)
+O‘zgaruvchi
+EVA chegarasi
+Chegaradan tashqari (%)
+Asos
+Modul
+Yuklash vaqti (ms)
+@riskdetail
+maks. qiyalik / chegara; o‘rtacha xavf
+missiya oxiridagi energiya zaxirasi
+batareya zaxirasi
+EVA vaqt byudjeti zaxirasi
+missiya oxiridagi O₂ zaxirasi
+relay mavjudligi; eng uzun uzilish
+yakuniy 1σ joylashuv xatosi
+MEDA muhit darajasi
+skafandr telemetriya ogohlantirishlari
+EVA dozasi (model)
+L qiyalik nisbati (≤0.3, 0.5, 0.7, 0.9) va xavf indeksidan (≤0.1, 0.2, 0.35, 0.5); ikkalasining kattasi
+zaxira ≤0 → 5, ≤10% → 4, ≤25% → 3, ≤40% → 2, aks holda 1
+energiya bilan bir xil oraliqlar
+mavjudlik (≤5% … 40%) va eng uzun uzilish (≤1, 2, 4, 8 soat); ikkalasining kattasi
+≤5 m → 1 … >60 m → 5
+EVA chegarasidan tashqaridagi namunalar ulushi
+0 ogohlantirish → 1, har biri +1
+doza oraliqlari; quyosh zarrachalari hodisalari modellanmagan
+SINTETIK DEM (protsedurali demo relyef, Mars ma’lumoti emas)
+@confirm
+O‘chirishni tasdiqlayman (qaytarib bo‘lmaydi)
+@orbit
+Nomi
+Balandlik (km)
+Og‘ish (°)
+RAAN (°)
+Faza (°)
+Ma’lumot tezligi (bit/s)
+Min. ko‘tarilish (°)
+@live
+JSON noto‘g‘ri
+ML: P(o‘tib bo‘lmaydi)
+MEDA ob-havo
+Maqsadlar katalogi
+Brier ko‘rsatkichi
+Izgacha (m)
+O‘qitish vaqti (s)
+Kuch
+Marsga yetib kelishi (UTC)
+Marsga tegishli
+Model
+PR-AUC
+Aniqlik (precision)
+To‘liqlik (recall)
+ROC-AUC
+Sol
+F1 (test)
+Vaqt (UTC)
+F1 (validatsiya)
+Qo‘shni qiyalik, o‘rtacha
+Qo‘shni qiyalik, maks.
+Qiyalik o‘rtachasi 7×7
+Qiyalik og‘ishi 7×7
+Qo‘shni g‘adir-budurlik, o‘rtacha
+Qo‘shni g‘adir-budurlik, maks.
+G‘adir-budurlik o‘rtachasi 7×7
+Notekislik (TRI)
+Mahalliy relyef
+|Egrilik|
+Holat indeksi (TPI)
+Qiyalik o‘zgaruvchanligi
+Balandlik tarqoqligi 5×5
+O‘tish imkoniyati modeli (o‘qituvchili)
+O‘qituvchili klassifikator DEM ning har bir katagi uchun piyoda o‘tib BO‘LMASLIK ehtimolini bashorat qiladi. U faqat katakning atrofini ko‘radi (katakning o‘z qiyaligi va g‘adir-budurligini hech qachon ko‘rmaydi) va o‘qitishda ko‘rmagan xarita bloklarida sinaladi. Belgilar odamlar tomonidan emas, aniq DEM qoidalari asosida olingan (kuchsiz nazorat).
+Belgi: qiyalik chegarasi (°)
+Belgi: g‘adir-budurlik chegarasi (m)
+Har tomonda fazoviy bloklar
+Neyron tarmoq davrlari
+Modellar: logistik regressiya (bazaviy), gradiyent bustingi, neyron tarmoq ({nn}).
+O‘qitish va baholash
+O‘qitilmoqda…
+Model o‘qitildi: {m}, test bloklarida F1 = {f}
+Hali o‘qitilgan model yo‘q — «O‘qitish va baholash» tugmasini bosing.
+belgilar
+SINTETIK DEM da o‘qitilgan: uning silliq protsedurali relyefi vazifani osonlashtiradi, shuning uchun bu natijalar haqiqiy Mars relyefiga o‘tmaydi. Haqiqiy Jezero DEM yuklangach qayta o‘qiting (04-modul).
+Tanlangan model
+Test bloklarida o‘tib bo‘lmaydigan kataklar ulushi: {p} (tasodifiy klassifikatorning PR-AUC qiymati taxminan shunga teng)
+Modellarni taqqoslash (validatsiyada tanlangan, testda ko‘rsatilgan)
+Bo‘linish: {s}. Qatorlar — o‘qitish {tr_}, validatsiya {va}, test {te}.
+o‘tsa bo‘ladi
+o‘tib bo‘lmaydi
+bashorat
+haqiqiy
+Chalkashlik matritsasi (test bloklari)
+Permutatsion ahamiyat (PR-AUC pasayishi)
+o‘qitish xatosi
+validatsiya xatosi
+Neyron tarmoqning o‘qish egri chizig‘i
+Bashorat qilingan ehtimollik xaritasi
+O‘rtacha P(o‘tib bo‘lmaydi)
+O‘tib bo‘lmaydigan deb topilgan kataklar
+Belgi qoidalari bilan mos kelish
+Yashil — ehtimol o‘tsa bo‘ladi, qizil — ehtimol yo‘q. ML vazni > 0 bo‘lganda marshrut rejalashtirishda ishlatiladi (05-modul).
+Marshrut xavfida ML vazni
+0 — faqat qoidaga asoslangan xavf; 1 — faqat model ehtimolligi; oraliqda — vaznli aralashma.
+Marshrutda foydalanish uchun 07-modulda o‘tish imkoniyati modelini o‘qiting.
+Kosmik ob-havo (DONKI)
+NASA DONKI quyosh chaqnashlari (FLR), quyosh energetik zarrachalari hodisalari (SEP), toj massasi otilishlari (CME, Marsni ham o‘z ichiga olishi mumkin bo‘lgan WSA-ENLIL yetib kelish prognozlari bilan) va geomagnit bo‘ronlarni (GST, faqat Yer) ro‘yxatga oladi. EVA dan oldingi hodisalar asosida modul ekipaj uchun radiatsiya belgisini chiqaradi; u 20-modulga uzatiladi.
+Ma’lumot manbasi
+NASA DONKI (onlayn)
+Saqlangan DONKI JSON
+Namuna (sintetik)
+Dan
+Gacha
+EVA dan oldingi davr (kun)
+EVA sanasi (UTC)
+EVA vaqti (UTC)
+Hodisa turlari
+Quyosh chaqnashlari
+Energetik zarrachalar
+Toj massasi otilishlari
+Geomagnit bo‘ronlar (Yer)
+Ishlatilayotgan kalit: {k}. api.nasa.gov dan bepul kalitingizni .env fayliga NASA_API_KEY sifatida yozing (DEMO_KEY cheklangan).
+NASA DONKI dan olish
+NASA DONKI dan ma’lumot olinmadi (yuklanmagan narsa yuklangandek ko‘rsatilmaydi)
+DONKI JSON fayli
+Bitta endpoint javobi (JSON ro‘yxat) yoki {"FLR": [...], "SEP": [...], "CME": [...], "GST": [...]} obyekti.
+Bu fayldagi hodisa turi
+DONKI formatidagi sintetik namuna — NASA ma’lumoti emas. Modul oflayn qanday ishlashini ko‘rish uchun.
+Kosmik ob-havoni baholash uchun DONKI ma’lumotini oling yoki fayl yuklang.
+olingan
+EVA radiatsiya belgisi
+EVA dan oldingi {d} kunlik oynadagi hodisalar
+EVA ga ±1 kun ichida Marsga {n} ta CME yetib kelishi prognoz qilingan (WSA-ENLIL)
+Oynada {n} ta quyosh energetik zarrachalari hodisasi
+Oynada {n} ta X sinf chaqnash (Marsga yo‘nalishi noma’lum)
+Oynada {n} ta tez CME ≥ 1000 km/s (Marsga yo‘nalishi noma’lum)
+Oynada muhim hodisalar yo‘q
+Bu doza prognozi emas, rejalashtirish evristikasi: DONKI Quyoshning Yer tomonidan kuzatadi, shuning uchun hodisalar Marsga yetmasligi yoki kuzatilmasdan yetib kelishi mumkin. Faqat Marsni nomlaydigan ENLIL ta’sirlari Marsga yo‘nalgan deb hisoblanadi.
+Kosmik ob-havo hodisalari (★ — Marsga tegishli)
+Marsga yetib kelish prognozi
+Tanlangan davrda hodisalar yo‘q.
+Perseverance: iz va tasvirlar
+NASA Perseverance roveri haqiqatda yurgan yo‘l — ishonchli dalil: u o‘tgan joylar 1 tonnalik rover uchun o‘tsa bo‘ladigan ekani ma’lum, uning xom tasvirlari esa ekipaj u yerda nimani ko‘rishini ko‘rsatadi. Modul har bir marshrut nuqtasi va ilmiy maqsad uchun izning eng yaqin nuqtasini topadi va shu solning xom tasvirlarini ko‘rsatadi.
+Iz manbasi
+NASA/JPL MMGIS (onlayn)
+Saqlangan GeoJSON
+Namuna (sintetik)
+«Izga yaqin» masofasi (m)
+Izni NASA dan yuklash
+NASA dan yuklab bo‘lmadi
+Iz GeoJSON fayli (M20_traverse.json)
+Shu sol uchun xom tasvirlar lentasi JSON
+Qo‘nish joyi yaqinidagi iz formatining sintetik namunasi — Perseverance ning haqiqiy yo‘li emas.
+Marshrutlarni rover yo‘li bilan solishtirish uchun izni yuklang.
+Iz nuqtalari
+Sollar
+Bosib o‘tilgan masofa
+Faol DEM ichida
+Iz faol DEM oynasidan tashqarida.
+Marshrutning izdan {m} m ichidagi qismi
+Marshrutning izga eng yaqin masofasi
+Faol marshrutning (har 3-nuqta) Perseverance haqiqatda yurgan joyga yaqin o‘tadigan ulushi.
+Perseverance izi
+Astronavt nimani ko‘radi
+Marshrut nuqtasi yoki maqsad
+Kameralar
+Iz faylida sol raqamlari yo‘q.
+«{p}» yaqinida: Perseverance {s}-solda {d} m masofadan o‘tgan. Shu soldagi tasvirlar aynan shu relyefni ko‘rsatadi.
+«{p}» izdan {d} km uzoqda (eng yaqin nuqta: {s}-sol); tasvirlar aynan shu joyni emas, yaqin atrofni ko‘rsatadi.
+Tasvirlarni yuklash
+«Tasvirlarni yuklash» tugmasini bosing ({s}-sol uchun NASA xom tasvirlar lentasi) yoki saqlangan JSON ni yuklang.
+Xom tasvirlar, {s}-sol
+Tanlangan kameralardan tasvir yo‘q.
+To‘liq o‘lchamda ochish
+Bu yozuvda tasvir fayli yo‘q (sintetik namuna)
+Xom tasvirlar kalibrlanmagan va qayta ishlanmagan. Muallif: NASA/JPL-Caltech (Mastcam-Z uchun ASU ham).
+Navcam
+Mastcam-Z
+Hazcam
+SuperCam RMI
+SHERLOC / WATSON
+SkyCam
+@extra
+3D (deck.gl)
+Mars sferasidagi mahalliy metrlarda PyDeck/deck. gl sahnasi (Yer xarita proyeksiyasisiz): DEM nuqtalari bulut ko‘rinishida, marshrutlar va Perseverance izi 3D chiziqlar. Aylantirish uchun suring (o‘ng tugma / Ctrl).
+PyDeck o‘rnatilmagan (pip install pydeck).
+GIS eksport (GeoPackage, Mars CRS)
+GIS eksport uchun geopandas va shapely ni o‘rnating (requirements-optional.txt).
+{n} ta qatlam ({l}), {crs} da — Mars 2015 sferasi, planetotsentrik, sharqiy uzunlik; QGIS/ArcGIS da Mars ma’lumoti sifatida ochiladi. GeoJSON Yerdan boshqa CRS ni saqlay olmaydi: undagi koordinatalar xuddi shu Mars uzunlik/kenglik.
+Kerakli paket o‘rnatilmagan
