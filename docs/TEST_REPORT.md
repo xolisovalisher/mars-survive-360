@@ -3,7 +3,7 @@
 Generated from `docs/test_results.json`, which `scripts/run_tests.py` writes from pytest's JUnit XML. A failed or
 errored test is never counted as passed. To re-run on your machine: `python scripts/run_tests.py`.
 
-* Run: 2026-11-13 16:19 UTC · mode **full** · duration 69.0 s · Python 3.13.18 on Linux
+* Run: 2026-11-13 16:23 UTC · mode **full** · duration 69.7 s · Python 3.13.18 on Linux
 * Libraries: streamlit 1.67.0, numpy 2.5.3, pandas 3.0.5, scikit-learn 1.9.1, torch 2.15.0, shapely 2.2.0, geopandas 1.2.0, astropy 8.0.2, pydeck 0.9.3, fastapi 0.162.5
 * **Total: 174 tests — 174 passed, 0 failed, 0 errors, 0 skipped**
 

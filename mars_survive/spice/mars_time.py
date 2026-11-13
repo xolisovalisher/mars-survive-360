@@ -17,12 +17,15 @@ TT_MINUS_UTC = 69.184  # s, valid since 2017-01-01 (32.184 + 37 leap seconds)
 def tt_minus_utc_astropy(dt: datetime) -> float | None:
     """TT − UTC from astropy's bundled IERS leap-second table (no network access); None if astropy is absent."""
     try:
+        import warnings
         from astropy.time import Time
         from astropy.utils import iers
         iers.conf.auto_download = False
         iers.conf.auto_max_age = None
-        t = Time(dt.astimezone(timezone.utc).replace(tzinfo=None) if dt.tzinfo else dt, scale="utc")
-        return float((t.tt.jd1 - t.utc.jd1 + t.tt.jd2 - t.utc.jd2) * 86400.0)
+        with warnings.catch_warnings():        # ERFA "dubious year" for dates past the table's validity: the
+            warnings.simplefilter("ignore")    # last known TT−UTC is still the right value (no new leap seconds)
+            t = Time(dt.astimezone(timezone.utc).replace(tzinfo=None) if dt.tzinfo else dt, scale="utc")
+            return float((t.tt.jd1 - t.utc.jd1 + t.tt.jd2 - t.utc.jd2) * 86400.0)
     except Exception:  # noqa: BLE001
         return None
 
