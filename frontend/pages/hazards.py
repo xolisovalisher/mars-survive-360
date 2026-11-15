@@ -40,7 +40,7 @@ def render(ctx):
                                              f"#{o['id']} {tr('hzt.' + o['type'])} · {tr('hz.' + o['level'])}", fg="#fff", size=16))
         maps.mission_map(ctx, layer_names=("hillshade", "hazard"), show={"hillshade", "hazard"},
                          routes={ss.strategy: r} if r else {}, active=ss.strategy, extra=extra, height=500, key="hz_map")
-        st.caption("🟨 " + tr("hz.caution") + " · 🟧 " + tr("hz.high") + " · 🟥 " + tr("hz.no-go") + " · 🟪 " + tr("hz.unknown"))
+        st.caption(tr("hz.caution") + " · 🟧 " + tr("hz.high") + " · 🟥 " + tr("hz.no-go") + " · 🟪 " + tr("hz.unknown"))
     with right:
         types = pd.Series([o["type"] for o in H.objects]).value_counts()
         fig = go.Figure(go.Bar(x=[tr("hzt." + t) for t in types.index], y=types.values, marker_color="#e4572e"))

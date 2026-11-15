@@ -18,7 +18,7 @@ def render(ctx):
     ups = st.file_uploader(tr("ing.files"), accept_multiple_files=True,
                            type=[e.lstrip(".") for e in C.ALLOWED_UPLOAD_EXT])
     results = ss.setdefault("ingest_results", [])
-    if ups and st.button("🔎 " + tr("btn.validate_import"), type="primary"):
+    if ups and st.button(tr("btn.validate_import"), type="primary"):
         results.clear()
         for u in ups:
             data = u.getvalue()

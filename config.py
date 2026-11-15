@@ -11,7 +11,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 APP_NAME = "MARS SURVIVE 360"
 APP_FULL_NAME = "Interplanetary Survival Guide — Martian Mission Planning & Intelligence Platform"
-VERSION = "1.2.0"
+VERSION = "1.3.0"
+
+# Browser build (Pyodide/stlite, one .html file): no subprocesses, no outside network from a shared
+# page, no Leaflet tiles. Set MS360_BROWSER=1 to try the browser behaviour in a normal Python.
+import sys as _sys
+BROWSER = _sys.platform == "emscripten" or os.environ.get("MS360_BROWSER") == "1"
 
 
 def _load_dotenv(path: Path) -> None:
@@ -88,6 +93,11 @@ CROP_HALF_DEG = 0.18
 CTX_DTM_URL = ("https://planetarymaps.usgs.gov/mosaic/mars2020_trn/CTX/"
                "ScienceInvestigationMaps_JPL/M20_JezeroCrater_CTXDEM_20m.tif")
 CTX_DTM_XML_URL = CTX_DTM_URL[:-4] + ".xml"
+# same USGS file on the USGS Astrogeology AWS bucket (used if planetarymaps.usgs.gov is slow or down)
+CTX_DTM_MIRROR_URL = ("https://asc-pds-services.s3.us-west-2.amazonaws.com/mosaic/mars2020_trn/CTX/"
+                      "ScienceInvestigationMaps_JPL/M20_JezeroCrater_CTXDEM_20m.tif")
+# first start: fetch the real USGS DEM automatically (set MS360_AUTO_REAL_DEM=0 to stay offline)
+AUTO_REAL_DEM = os.environ.get("MS360_AUTO_REAL_DEM", "1") != "0"
 CTX_DTM_CATALOG = "https://astrogeology.usgs.gov/search/map/mars_2020_science_investigation_ctx_dem_mosaic"
 THEMIS_DAY_URL = "https://planetarymaps.usgs.gov/mosaic/Mars_MO_THEMIS-IR-Day_mosaic_global_100m_v12.tif"
 M20_TRAVERSE = "https://mars.nasa.gov/mmgis-maps/M20/Layers/json/M20_traverse.json"

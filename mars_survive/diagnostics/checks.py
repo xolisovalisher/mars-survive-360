@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib
+import importlib.util
 import json
 import platform
 import shutil
@@ -14,6 +15,8 @@ LIBS = ["streamlit", "folium", "streamlit_folium", "plotly", "numpy", "scipy", "
         "networkx", "cv2", "PIL", "fpdf", "openpyxl", "spiceypy", "defusedxml", "fastapi", "pydantic", "requests",
         "psutil", "uharfbuzz", "joblib", "pydeck", "shapely", "astropy", "torch", "geopandas", "ultralytics"]
 OPTIONAL = {"spiceypy", "uharfbuzz", "ultralytics", "torch", "geopandas", "astropy", "fastapi", "shapely"}
+if C.BROWSER:  # the browser build draws maps with deck.gl and has no OS process information
+    OPTIONAL |= {"folium", "streamlit_folium", "psutil"}
 MODULES = ["dem", "terrain.analysis", "hazards.detect", "routing.planner", "routing.eva", "ai.vision", "ai.terrain_units",
            "navigation.ekf", "navigation.metrics", "communication.link", "relay.orbits", "spice.kernels",
            "spice.mars_time", "meda.environment", "telemetry.suit", "oxygen.manager", "energy.model",
@@ -29,7 +32,7 @@ def python_info() -> dict:
 
 def libraries() -> list[dict]:
     out = []
-    for name in LIBS + ["ultralytics", "torch"]:
+    for name in dict.fromkeys(LIBS):
         try:
             m = importlib.import_module(name)
             out.append({"library": name, "version": getattr(m, "__version__", "ok"), "ok": True,
@@ -40,11 +43,19 @@ def libraries() -> list[dict]:
     return out
 
 
-def modules_health() -> list[dict]:
+def modules_health(quick: bool = False) -> list[dict]:
+    """Import every platform module and time it. quick=True only checks that each module file is
+    present (no import) — used for the header badge in the browser build, where importing all 34
+    modules at start-up would add seconds before the first page shows."""
     out = []
     for m in MODULES:
         t0 = time.perf_counter()
         try:
+            if quick:
+                if importlib.util.find_spec(f"mars_survive.{m}") is None:
+                    raise ModuleNotFoundError(m)
+                out.append({"module": m, "ok": True, "ms": None, "error": ""})
+                continue
             importlib.import_module(f"mars_survive.{m}")
             out.append({"module": m, "ok": True, "ms": round((time.perf_counter() - t0) * 1000, 1), "error": ""})
         except Exception as e:  # noqa: BLE001

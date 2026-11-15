@@ -26,8 +26,8 @@ def render(ctx):
     c[2].metric(tr("diag.disk_free"), f"{res['disk_free_gb']} GB")
     c[3].metric(tr("diag.ram_free"), f"{res.get('ram_available_gb', '?')} GB")
     c[4].metric(tr("diag.rss"), f"{res.get('process_rss_mb', '?')} MB")
-    t1, t2, t3, t4, t5 = st.tabs(["📦 " + tr("diag.libs"), "🧩 " + tr("diag.modules"), "🗂 " + tr("diag.data"),
-                                  "🧪 " + tr("diag.tests"), "📜 " + tr("diag.logs")])
+    t1, t2, t3, t4, t5 = st.tabs([tr("diag.libs"), tr("diag.modules"), tr("diag.data"),
+                                  tr("diag.tests"), tr("diag.logs")])
     with t1:
         lb = pd.DataFrame(checks.libraries())
         lb["ok"] = lb["ok"].map(lambda v: "✓" if v else "✗")
@@ -53,7 +53,9 @@ def render(ctx):
             c[1].metric(tr("diag.failed"), last.get("failed", 0))
             c[2].metric(tr("diag.skipped"), last.get("skipped", 0))
             c[3].metric(tr("diag.when"), last.get("when", "")[:16])
-        if st.button("▶️ " + tr("btn.run_tests"), type="primary"):
+        if C.BROWSER:
+            st.info(tr("browser.no_tests"))
+        elif st.button(tr("btn.run_tests"), type="primary"):
             with st.spinner(tr("ui.computing")):
                 try:
                     p = subprocess.run([sys.executable, str(C.ROOT / "scripts" / "run_tests.py"), "--quick"], cwd=C.ROOT,

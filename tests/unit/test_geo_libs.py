@@ -58,3 +58,13 @@ def test_pydeck_scene(engine):
     assert deck is not None and len(deck.layers) == 2
     pts = deck.layers[0].data
     assert len(pts) > 1000 and all(len(p["p"]) == 3 for p in pts[:10])
+
+
+def test_module_health_all_ok_both_modes():
+    """Regression (v1.2.1): the header badge showed 'System 0/34' because a local import
+    shadowed the importlib module inside modules_health()."""
+    from mars_survive.diagnostics.checks import modules_health
+    for quick in (False, True):
+        res = modules_health(quick=quick)
+        bad = [m for m in res if not m["ok"]]
+        assert not bad, (quick, bad[:3])

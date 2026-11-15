@@ -35,7 +35,7 @@ def render(ctx):
             st.caption(tr("sw.key_hint", k="DEMO_KEY" if D.api_key() == "DEMO_KEY" else "NASA_API_KEY ✓"))
     payloads, dc, meta = {}, None, ""
     if src == "live":
-        if st.button("🛰️ " + tr("sw.fetch"), type="primary"):
+        if st.button(tr("sw.fetch"), type="primary"):
             got, errs = {}, []
             with st.spinner(tr("ui.computing")):
                 for k in kinds:

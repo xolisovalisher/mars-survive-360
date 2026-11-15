@@ -31,15 +31,11 @@ def render(ctx):
     tr, ss = ctx.tr, st.session_state
     ui.header("dashboard", tr, [ctx.g.data_class])
     if not ctx.g.is_real:
-        st.warning("⚠️ " + tr("msg.synthetic_dem"))
-
-    with st.expander("🚀 " + tr("dash.quickstart"), expanded=not ss.get("_qs_seen")):
-        ss._qs_seen = True
-        st.markdown(tr("dash.quickstart_text"))
+        st.warning(tr("msg.synthetic_dem"))
 
     # ---------------- mission management
-    tab_status, tab_new, tab_list = st.tabs(["📊 " + tr("dash.status"), "➕ " + tr("dash.new_mission"),
-                                             "🗃️ " + tr("dash.missions")])
+    tab_status, tab_new, tab_list = st.tabs([tr("dash.status"), tr("dash.new_mission"),
+                                             tr("dash.missions")])
     with tab_new:
         with st.form("new_mission"):
             c1, c2 = st.columns(2)
@@ -55,7 +51,7 @@ def render(ctx):
             res = c6.slider(tr("lbl.reserve_pct"), 0, 50, int(ctx.mp.reserve_frac * 100), 5)
             sl = c7.slider(tr("lbl.slope_limit"), 5, 35, int(ctx.mp.slope_limit_deg))
             st.text_input(tr("lbl.region"), tr("region.jezero"), disabled=True)
-            if st.form_submit_button("💾 " + tr("btn.create_mission"), type="primary"):
+            if st.form_submit_button(tr("btn.create_mission"), type="primary"):
                 mp = MissionParams.from_dict({**ctx.mp.to_dict(), "name": name.strip() or ctx.mp.name,
                                               "scenario": scen, "budget_h": dur, "o2_capacity_l": o2,
                                               "reserve_frac": res / 100, "slope_limit_deg": float(sl)})
@@ -77,7 +73,7 @@ def render(ctx):
             c1, c2, c3 = st.columns([2, 1, 1])
             sel = c1.selectbox(tr("lbl.select_mission"), [m["id"] for m in ms],
                                format_func=lambda i: next(f"#{m['id']} {m['name']}" for m in ms if m["id"] == i))
-            if c2.button("📂 " + tr("btn.activate"), width="stretch"):
+            if c2.button(tr("btn.activate"), width="stretch"):
                 m = next(x for x in ms if x["id"] == sel)
                 ss.mp, ss.mission_id = MissionParams.from_dict(m["params"]), sel
                 storage.update_mission(sel, status="active")
@@ -127,7 +123,7 @@ def render(ctx):
             maps.mission_map(ctx, routes={ss.strategy: r} if r else {}, active=ss.strategy, targets=tgts,
                              height=430, key="dash_map")
         with right:
-            ui.section("🚨 " + tr("dash.alerts"))
+            ui.section(tr("dash.alerts"))
             alerts = list(k["alerts"])
             if not ctx.g.is_real:
                 alerts.insert(0, ("alert.synthetic", {}))
@@ -142,7 +138,7 @@ def render(ctx):
                     st.success(tr("expl.turnback_ok", m=f"{ss.turnback['min_margin_h']:.2f}"))
                 else:
                     st.error(tr("expl.turnback_bad", m=f"{ss.turnback['min_margin_h']:.2f}"))
-            ui.section("🔬 " + tr("dash.targets"))
+            ui.section(tr("dash.targets"))
             ui.df_show(ui.tr_cols(pd.DataFrame([{"name": t["name"], "origin": tr("origin." + t["origin"]),
                                                   "priority": t["priority"]} for t in tgts]), tr), height=180)
         if prof:

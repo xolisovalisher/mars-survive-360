@@ -1,3 +1,4 @@
+import os
 import sys
 from pathlib import Path
 
@@ -5,6 +6,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+os.environ.setdefault("MS360_AUTO_REAL_DEM", "0")   # tests never touch the network for the DEM
 
 
 @pytest.fixture(scope="session")

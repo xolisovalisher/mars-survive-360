@@ -23,13 +23,13 @@ def render(ctx):
     have = all(k["present"] for k in st_k)
     c1, c2 = st.columns([3, 2])
     with c1:
-        ui.section("🧩 " + tr("spice.kernels"))
+        ui.section(tr("spice.kernels"))
         ui.df_show(ui.tr_cols(pd.DataFrame([{"type": k["kind"], "file": k["file"], "exists": "✓" if k["present"] else "✗",
                                   "description": k["purpose"], "url": k["url"]} for k in st_k]), tr).rename(columns={"description": tr("lbl.description")}))
         st.caption(tr("spice.spiceypy", v=tr("ui.yes") if K.available() else tr("ui.no")))
     with c2:
         ups = st.file_uploader(tr("spice.upload"), type=["tls", "tpc", "bsp", "tf", "ti", "tsc", "bc"], accept_multiple_files=True)
-        if ups and st.button("⬆️ " + tr("btn.save_kernels")):
+        if ups and st.button(tr("btn.save_kernels")):
             for u in ups:
                 name = safe_name(u.name)
                 kind = {".tls": "lsk", ".tpc": "pck", ".bsp": "spk", ".tf": "fk", ".ti": "ik", ".tsc": "sclk", ".bc": "ck"}[

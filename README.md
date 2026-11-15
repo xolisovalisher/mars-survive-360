@@ -13,15 +13,25 @@ exportable mission report — in **18 languages** (switcher in the top-right cor
 ## What makes it different
 * **Survival, not just a map.** Every route answers *"can the crew get back alive?"*: O₂ and energy along the route,
   the **survival envelope** (time out + fastest return) and the **last safe turn-back point**.
-* **Honest data labels.** Every module shows **Real / Synthetic / Simulated / User Supplied**. Until the real USGS
-  Jezero DEM is downloaded the app shows a **SYNTHETIC DEM** badge on every page; DEM values are never altered and
-  presented as Mars data.
+* **Real Mars terrain from the first start.** On its first start the app fetches the USGS Mars 2020 CTX DEM of
+  Jezero crater (20 m, Calef et al. 2021) by HTTP range reads and builds the 50 m analysis grid (< 1 MB, cached).
+  If the USGS server cannot be reached, the labelled demo relief is used and the header says so.
+* **Honest data labels.** Every module shows **Real / Synthetic / Simulated / User Supplied**; DEM values are never
+  altered and presented as Mars data.
 * **Supervised ML in the planner.** A traversability model (logistic regression vs gradient boosting vs PyTorch
   network) is trained and tested on spatially held-out map blocks in module 07; its probability map enters the
   route cost. Labels come from DEM rules — stated openly in the model card.
 * **NASA live data where the crew needs it:** DONKI space weather → EVA radiation flag → risk matrix;
   Perseverance's real traverse and raw images → "what the astronaut will see" at each route point.
 * **27 working modules on one engine** — the same functions serve the UI, the REST API and the tests.
+
+## Interface — one map-centred workspace
+* **Mission Planner** (home): mission setup on the left, the **map in the centre** (routes, hazard zones, science
+  points, AI traversability, Perseverance traverse as toggles), route analysis on the right — distance, time,
+  elevation gain/loss, O₂, turn-back margin, hazard alerts, terrain profile, the AI recommendation with its reasons,
+  mission summary and PDF/GeoJSON export.
+* **Data Layers · Route Analysis · Mission Summary**: the 27 modules as connected tools on the same mission state;
+  settings, languages and the self-check sit behind the gear icon. Old links (`?page=route`) still work.
 
 ## Quick start
 **Windows 10/11:** install Python 3.10–3.13 (python.org, tick *Add to PATH*), then double-click

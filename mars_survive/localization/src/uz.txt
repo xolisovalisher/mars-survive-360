@@ -1178,3 +1178,94 @@ Perseverance qo‘nish joyi
 Curiosity qo‘nish joyi (Gale)
 Fayl topilmadi
 Sariq ramka ichida: yuklangan DEM ning soyali relyefi (tahlil hududi) — krater miqyosidagi tafsilot.
+
+@browser
+Brauzer versiyasi: butun ilova brauzeringiz ichida ishlaydi (WebAssembly da Python); hech narsa serverga yuborilmaydi.
+184 ta avtomatik test kompyuter versiyasida ishga tushiriladi (python scripts/run_tests.py); brauzer versiyasi oxirgi test hisobotini ko‘rsatadi.
+Brauzer versiyasi 87 MB lik USGS faylini o‘zi yuklab ololmaydi. Yuqoridagi manzilni oching, GeoTIFF ni kompyuteringizga saqlang va «Yuklash» yorlig‘i orqali qo‘shing.
+Ilovaga joylangan NASA Viking rangli mozaikasi ishlatiladi; Mars Trek plitkalari boshqa saytda, brauzer versiyasi unga murojaat qilmaydi.
+Natijalar, missiyalar va o‘qitilgan modellar faqat shu brauzer oynasi qayta yuklanguncha saqlanadi.
+
+@workspace
+Mars ekspeditsiyalarini rejalashtirish platformasi
+Missiya rejasi
+Ma’lumot qatlamlari
+Marshrut tahlili
+Missiya xulosasi
+Tizim
+Relyef, xavflar, ilmiy nishonlar va xarita ortidagi ma’lumot manbalari.
+Rejalashtirilgan yurish uchun marshrutlar, SI qarori, xavf, hayot ta’minoti va aloqa.
+Missiya holati, vaqt jadvali va hisobotlar.
+Sozlamalar, tillar va o‘z-o‘zini tekshirish.
+Xaritaga qaytish
+Haqiqiy Mars relyefi
+USGS CTX DEM · Jezero · 20 m
+Namunaviy relyef
+Haqiqiy DEM hali yuklanmagan
+Haqiqiy Mars relyefi yuklanmoqda (Jezero kraterining USGS CTX DEM’i) — faqat birinchi ishga tushirishda, taxminan 20–60 s…
+Missiya sozlamalari
+Mars ekspeditsiyangizni sozlang.
+Missiya turi
+Astronavt yurishi (EVA)
+Rover harakati
+Boshlang‘ich nuqta (A)
+Manzil (B)
+Xaritada tanlangan nuqta
+Xaritaga bosish belgilaydi
+Boshlanish A
+Manzil B
+EVA vaqti (soat)
+Qiyalik chegarasi (°)
+Atrof-muhit va ilmiy ma’lumotlarni ustiga qo‘ying.
+Topografiya (soya relyef)
+Balandlik
+Qiyalik
+Xavfli hududlar
+Ilmiy nuqtalar
+SI o‘tuvchanlik xaritasi
+Perseverance yo‘li
+Marshrut yaratish
+Marshrutlar
+Xavfli hududlar
+Nuqtalar
+Balandlik: {s} · Asos xarita: NASA Mars Trek · Koordinatalar: planetosentrik, °E
+SI tanlovi
+xavf
+ball
+Xaritada ko‘rsatish
+Tanlangan marshrutning asosiy ko‘rsatkichlari.
+Marshrut masofasi
+3D, relyef bo‘ylab
+Yurish vaqti
+{b} soatlik budjetning {p} %
+Balandlikka ko‘tarilish
+jami ko‘tarilish
+Balandlikdan tushish
+jami tushish
+Oxirida qolgan O₂
+Oxirida qolgan batareya
+Qaytish zaxirasi
+har bir nuqtadan qaytish mumkin
+oxirgi xavfsiz qaytish nuqtasidan o‘tadi
+Xavf ogohlantirishlari
+Bu marshrut uchun ogohlantirish yo‘q.
+Namunaviy relyef ishlatilmoqda: raqamlar usulni ko‘rsatadi, haqiqiy Jezero qiymatlarini emas.
+{n} ta marshrut nuqtasi {lim}° chegarasining 80 % idan tik (maks. {m}°).
+Marshrutning {p} % yuqori xavfli kataklardan o‘tadi.
+Xavflar reyestri: {f} — {lv}.
+tik
+Relyef profili
+Missiya tahlili
+SI qarori
+4 ta nomzod marshrutning tushuntiriladigan bahosi (vaqt, energiya, xavf, qiyalik, aloqa, navigatsiya). Qaror qabul qilishga yordam, parvoz qoidasi emas.
+Tavsiya etilgan marshrutni tanlash: {s}
+Marshrut
+Eng yaqin ilmiy nishon
+Umumiy xavf
+Balandlik ma’lumoti
+Missiya brifingi va eksport
+Marshrut, tahlil, xavflar va ilmiy nishonlar bo‘yicha ulashsa bo‘ladigan hisobot.
+PDF hisobot tayyorlash
+PDF yuklab olish
+Bog‘langan vositalar
+Xaritadagi istalgan narsa uchun batafsil modulni oching — o‘sha missiya, o‘sha ma’lumotlar.

@@ -31,16 +31,16 @@ def render(ctx):
         click = c8.radio(tr("map.click_mode"), ["start", "goal", "stop", "base"], horizontal=True,
                          format_func=lambda m: tr("click." + m))
         from mars_survive.ai import traversability as TV
-        if TV.MODEL_PATH.exists():
-            mp.ml_blend = st.slider("🧠 " + tr("ml.blend"), 0.0, 1.0, float(mp.ml_blend), 0.05, help=tr("ml.blend_help"))
+        if TV.MODEL_PATH.exists() and ctx.eng.ml_prob() is not None:
+            mp.ml_blend = st.slider(tr("ml.blend"), 0.0, 1.0, float(mp.ml_blend), 0.05, help=tr("ml.blend_help"))
         else:
             mp.ml_blend = 0.0
-            st.caption("🧠 " + tr("ml.blend_none"))
+            st.caption(tr("ml.blend_none"))
         st.caption(tr("route.points", s=f"{ss.start[0]:.4f}, {ss.start[1]:.4f}", g=f"{ss.goal[0]:.4f}, {ss.goal[1]:.4f}",
                       n=len(ss.stops)))
     b1, b2, b3 = st.columns([1, 1, 3])
-    force = b1.button("▶️ " + tr("btn.compute_routes"), type="primary", width="stretch")
-    if b2.button("🧹 " + tr("btn.clear_stops"), width="stretch"):
+    force = b1.button(tr("btn.compute_routes"), type="primary", width="stretch")
+    if b2.button(tr("btn.clear_stops"), width="stretch"):
         ss.stops = []
         st.rerun()
     routes = ui.run_safely(tr, state.ensure_routes, ctx, force)
@@ -88,7 +88,7 @@ def render(ctx):
         tt["metric"] = ui.tr_vals(tt["metric"], tr, "col.")
         ui.df_show(ui.tr_cols(tt.astype(str), tr))
     if found:
-        t1, t2 = st.tabs(["📈 " + tr("route.profiles"), "🏔️ " + tr("map.tab3d")])
+        t1, t2 = st.tabs([tr("route.profiles"), tr("map.tab3d")])
         with t1:
             fig = go.Figure()
             for k, r in found.items():
@@ -105,11 +105,11 @@ def render(ctx):
         with t2:
             ui.plotly(V.surface_3d(ctx.g, found, max_cells=140, exaggeration=3.0), key="route3d")
         c1, c2 = st.columns(2)
-        c1.download_button("⬇️ GeoJSON", json.dumps(V.route_geojson(found)), "routes.geojson", "application/geo+json")
+        c1.download_button("GeoJSON", json.dumps(V.route_geojson(found)), "routes.geojson", "application/geo+json")
         r = found.get(ss.strategy) or next(iter(found.values()))
         pts = pd.DataFrame({"lat": r.lat, "lon": r.lon, "elev_m": r.elev, "dist3d_m": r.dist3d_m, "slope_deg": r.slope_deg,
                             "hazard": r.hazard})
-        c2.download_button("⬇️ CSV", pts.to_csv(index=False).encode(), f"route_{ss.strategy}.csv", "text/csv")
+        c2.download_button("CSV", pts.to_csv(index=False).encode(), f"route_{ss.strategy}.csv", "text/csv")
     ui.footer("route", tr,
               "A*: f = g + h, h = straight-line distance (admissible); Weighted A*: h·ε; Dijkstra: h = 0\n"
               "edge = 3-D length × factor(strategy) on a 16-neighbour grid; slope > limit, no-go and unknown cells removed\n"

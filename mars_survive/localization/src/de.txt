@@ -1178,3 +1178,94 @@ Landeplatz von Perseverance
 Landeplatz von Curiosity (Gale)
 Datei nicht gefunden
 Im gelben Rahmen: Schummerung des geladenen DEM (Analysefenster) — Details im Kratermaßstab.
+
+@browser
+Browser-Ausgabe: Die gesamte App läuft in Ihrem Browser (Python in WebAssembly); nichts wird an einen Server gesendet.
+Die 184 automatischen Tests laufen in der Desktop-Version (python scripts/run_tests.py); die Browser-Ausgabe zeigt den letzten Testbericht.
+Die Browser-Ausgabe kann die 87-MB-Datei der USGS nicht selbst herunterladen. Öffnen Sie die Adresse oben, speichern Sie das GeoTIFF auf Ihrem Computer und fügen Sie es im Reiter „Hochladen“ hinzu.
+Das mitgelieferte NASA-Viking-Farbmosaik wird verwendet; die Mars-Trek-Kacheln liegen auf einer anderen Website, die die Browser-Ausgabe nicht aufruft.
+Ergebnisse, Missionen und trainierte Modelle bleiben nur erhalten, bis dieser Browser-Tab neu geladen wird.
+
+@workspace
+Planungsplattform für Mars-Expeditionen
+Missionsplaner
+Datenebenen
+Routenanalyse
+Missionsübersicht
+System
+Gelände, Gefahren, Wissenschaftsziele und die Datenquellen hinter der Karte.
+Routen, KI-Entscheidung, Risiko, Lebenserhaltung und Kommunikation für den geplanten Ausstieg.
+Missionsstatus, Zeitplan und Berichte.
+Einstellungen, Sprachen und Selbsttest.
+Zurück zur Karte
+Echtes Mars-Gelände
+USGS CTX DEM · Jezero · 20 m
+Demo-Gelände
+Echtes DEM noch nicht geladen
+Echtes Mars-Gelände wird geladen (USGS CTX DEM des Jezero-Kraters) — nur beim ersten Start, etwa 20–60 s…
+Missionseinrichtung
+Konfigurieren Sie Ihre Mars-Expedition.
+Missionstyp
+Astronauten-Ausstieg (EVA)
+Rover-Fahrt
+Startpunkt (A)
+Ziel (B)
+Auf der Karte gewählter Punkt
+Ein Klick auf die Karte setzt
+Start A
+Ziel B
+EVA-Budget (h)
+Hangneigungsgrenze (°)
+Umwelt- und Wissenschaftsdaten einblenden.
+Topografie (Schummerung)
+Höhe
+Hangneigung
+Gefahrenzonen
+Wissenschaftspunkte
+KI-Befahrbarkeit
+Perseverance-Fahrtroute
+Route erstellen
+Routen
+Gefahrenzonen
+Punkte
+Höhen: {s} · Basiskarte: NASA Mars Trek · Koordinaten: planetozentrisch, °O
+KI-Wahl
+Gefahr
+Bewertung
+Auf Karte zeigen
+Kennzahlen der gewählten Route.
+Routenlänge
+3D, entlang des Geländes
+Fahrzeit
+{p} % des {b}-h-Budgets
+Höhengewinn
+gesamter Anstieg
+Höhenverlust
+gesamter Abstieg
+O₂ am Ende
+Akku am Ende
+Rückkehrreserve
+Rückkehr von jedem Punkt möglich
+überschreitet den letzten sicheren Umkehrpunkt
+Gefahrenwarnungen
+Keine Warnungen für diese Route.
+Demo-Gelände aktiv: Die Zahlen zeigen die Methode, nicht echte Jezero-Werte.
+{n} Routenpunkte sind steiler als 80 % der Grenze von {lim}° (max. {m}°).
+{p} % der Route verlaufen durch Zellen mit hoher Gefahr.
+Risikoregister: {f} — {lv}.
+steil
+Geländeprofil
+Missionserkenntnisse
+KI-Entscheidung
+Nachvollziehbare Bewertung von 4 Routenkandidaten (Zeit, Energie, Gefahr, Neigung, Kommunikation, Navigation). Entscheidungshilfe, keine Flugregel.
+Empfohlene Route übernehmen: {s}
+Route
+Nächstes Wissenschaftsziel
+Gesamtrisiko
+Höhendaten
+Missionsbriefing und Export
+Ein teilbarer Bericht zu Route, Analyse, Risiken und Wissenschaftszielen.
+PDF-Bericht erstellen
+PDF herunterladen
+Verbundene Werkzeuge
+Öffnen Sie das Detailmodul zu allem auf der Karte — gleiche Mission, gleiche Daten.

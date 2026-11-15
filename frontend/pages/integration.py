@@ -19,7 +19,7 @@ def render(ctx):
              for i, k in enumerate(pipeline.DEFAULT_WEIGHTS)}
         st.caption(tr("route.points", s=f"{ss.start[0]:.4f}, {ss.start[1]:.4f}", g=f"{ss.goal[0]:.4f}, {ss.goal[1]:.4f}", n=0))
     key = (ss.start, ss.goal, tuple(w.items()), mp.slope_limit_deg, mp.scenario, mp.budget_h, mp.o2_capacity_l)
-    if st.button("🧠 " + tr("btn.run_pipeline"), type="primary") or ss.get("pipeline_key") != key:
+    if st.button(tr("btn.run_pipeline"), type="primary") or ss.get("pipeline_key") != key:
         out = ui.run_safely(tr, pipeline.run, ctx.eng, ss.start, ss.goal, mp, w, ss.base)
         if out:
             ss.pipeline, ss.pipeline_key = out, key
@@ -40,7 +40,7 @@ def render(ctx):
     if out["recommended"] is None:
         st.error(tr("route.none_found"))
         return
-    ui.section("🧾 " + tr("int.explanation"))
+    ui.section(tr("int.explanation"))
     for k, kw in out["explanation"]:
         if "s" in kw:
             kw = {**kw, "s": tr("strat." + kw["s"])}
@@ -71,7 +71,7 @@ def render(ctx):
         ui.df_show(ui.tr_cols(out["risk"].assign(factor=out["risk"].factor.map(lambda f: tr("rf." + f)),
                                                  level=out["risk"].level.map(lambda l: tr("lv." + l)))[
             ["factor", "value", "likelihood", "impact", "score", "level"]], tr))
-    if st.button("✅ " + tr("btn.adopt_route")):
+    if st.button(tr("btn.adopt_route")):
         ss.strategy = out["recommended"]
         st.success(tr("int.adopted"))
     ui.export_buttons(tr, "integrated_decision", tb, {"recommended": out["recommended"], "weights": out["weights"],

@@ -12,7 +12,7 @@ from mars_survive.provenance.registry import CLASSES, all_datasets, register_bui
 def render(ctx):
     tr = ctx.tr
     ui.header("provenance", tr, ["Real", "Synthetic", "Simulated", "User Supplied"])
-    if st.button("🔄 " + tr("btn.refresh_registry")):
+    if st.button(tr("btn.refresh_registry")):
         register_builtin(ctx.g)
     ds = all_datasets()
     if not ds:

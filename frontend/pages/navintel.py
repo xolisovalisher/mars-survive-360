@@ -27,7 +27,7 @@ def render(ctx):
         spacing = c3.slider(tr("nav.lm_spacing"), 50, 1000, 150, 25)
     configs = {"ekf_vo_lm": dict(vo_enabled=True, sp=spacing), "ekf_lm": dict(vo_enabled=False, sp=spacing),
                "ekf_vo": dict(vo_enabled=True, sp=0), "odometry": dict(vo_enabled=False, sp=0)}
-    if st.button("▶️ " + tr("btn.run_compare"), type="primary") or ss.get("ni_key") != (n_mc, slip, spacing, ss.get("routes_key")):
+    if st.button(tr("btn.run_compare"), type="primary") or ss.get("ni_key") != (n_mc, slip, spacing, ss.get("routes_key")):
         rows, curves = [], {}
         prog = st.progress(0.0)
         for j, (name, cfg) in enumerate(configs.items()):

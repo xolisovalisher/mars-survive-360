@@ -5,6 +5,8 @@ import html
 
 import streamlit as st
 
+import config as C
+
 from frontend.components import maps, state, ui
 from mars_survive.common import ModuleError
 from mars_survive.mapping import globe as G
@@ -22,9 +24,13 @@ def render(ctx, routes, surface_fn):
     trek_key = str(G.TREK_CACHE.stat().st_mtime) if G.TREK_CACHE.exists() else "none"
     with ui.params(tr, expanded=False):
         c1, c2, c3 = st.columns([2, 1, 2])
-        prefer_trek = c1.toggle(tr("globe.prefer_trek"), value=True, help=tr("globe.prefer_trek_help"))
+        if C.BROWSER:
+            prefer_trek = False
+            c1.caption(tr("browser.no_trek"))
+        else:
+            prefer_trek = c1.toggle(tr("globe.prefer_trek"), value=True, help=tr("globe.prefer_trek_help"))
         show_grid = c2.toggle(tr("globe.grid"), value=True)
-        if c3.button("🛰️ " + tr("globe.fetch_trek"), width="stretch"):
+        if not C.BROWSER and c3.button(tr("globe.fetch_trek"), width="stretch"):
             bar = st.progress(0.0, text=tr("globe.fetching"))
             try:
                 G.fetch_trek_texture(progress=lambda f: bar.progress(min(1.0, f), text=tr("globe.fetching")))
@@ -69,7 +75,7 @@ def render(ctx, routes, surface_fn):
                         f"{abs(s.lat):.4f}°{'N' if s.lat >= 0 else 'S'}, {s.lon:.4f}°E<br>"
                         f"<span style='opacity:.7'>{html.escape(s.source)}</span></small>", unsafe_allow_html=True)
         if sel:
-            st.button("🌍 " + tr("globe.back"), width="stretch", on_click=_reset)
+            st.button(tr("globe.back"), width="stretch", on_click=_reset)
     new = picked or (choice if choice != "—" else None)
     if new != sel and (picked or choice != "—"):
         ss.globe_site = new
@@ -83,7 +89,7 @@ def render(ctx, routes, surface_fn):
     if not sel:
         return
     site = focus
-    ui.section("🔭 " + tr("globe.to_crater", s=labels[site.key]))
+    ui.section(tr("globe.to_crater", s=labels[site.key]))
     if not site.has_dem:
         st.info(tr("globe.no_dem", s=labels[site.key]))
         return

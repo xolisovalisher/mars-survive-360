@@ -14,7 +14,7 @@ from mars_survive.communication.link import (PRESETS, LinkParams, link_budget, m
 def render(ctx):
     tr, ss = ctx.tr, st.session_state
     ui.header("comm", tr, [ctx.g.data_class, "Simulated"])
-    t1, t2 = st.tabs(["📶 " + tr("comm.budget"), "⛰️ " + tr("comm.los")])
+    t1, t2 = st.tabs([tr("comm.budget"), tr("comm.los")])
     with t1:
         with ui.params(tr):
             pre = st.selectbox(tr("comm.preset"), list(PRESETS), format_func=lambda k: tr("comm.preset." + k))

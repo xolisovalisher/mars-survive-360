@@ -39,7 +39,7 @@ def render(ctx):
         c = st.columns(2)
         bh = c[0].number_input(tr("lbl.duration_h"), 1.0, 200.0, float(s.default_budget_h), 0.5)
         sl = c[1].number_input(tr("lbl.slope_limit"), 5.0, 35.0, float(s.default_slope_limit), 1.0)
-        if st.form_submit_button("💾 " + tr("btn.save_settings"), type="primary"):
+        if st.form_submit_button(tr("btn.save_settings"), type="primary"):
             errs = [p for p in (dem,) if p and not Path(p).exists()]
             new = store.Settings(language=lang, theme=theme, distance_unit=du, temperature_unit=tu, map_basemap=bm, map_zoom=zm,
                                  dem_path=dem, ai_model_path=ai, spice_dir=sp, data_dir=dd, default_budget_h=bh,

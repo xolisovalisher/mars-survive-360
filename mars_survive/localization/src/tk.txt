@@ -1178,3 +1178,94 @@ Perseverance gonuş ýeri
 Curiosity gonuş ýeri (Geýl)
 Faýl tapylmady
 Sary çarçuwanyň içinde: ýüklenen DEM-iň kölegeli relýefi (derňew meýdany) — krater möçberindäki jikme-jiklik.
+
+@browser
+Brauzer görnüşi: tutuş programma brauzeriňiziň içinde işleýär (WebAssembly-de Python); serwere hiç zat iberilmeýär.
+184 awtomatik synag kompýuter görnüşinde işledilýär (python scripts/run_tests.py); brauzer görnüşi soňky synag hasabatyny görkezýär.
+Brauzer görnüşi 87 MB USGS faýlyny özi ýükläp bilmeýär. Ýokardaky salgyny açyň, GeoTIFF-i kompýuteriňize ýazdyryň we «Ýüklemek» bölüminde goşuň.
+Programma goşulan NASA Viking reňkli mozaikasy ulanylýar; Mars Trek plitkalary başga saýtda, brauzer görnüşi oňa ýüz tutmaýar.
+Netijeler, missiýalar we öwredilen modeller diňe şu brauzer goýmasy täzeden ýüklenýänçä saklanýar.
+
+@workspace
+Mars ekspedisiýalaryny meýilleşdirmek platformasy
+Missiýa meýilnamasy
+Maglumat gatlaklary
+Ugur seljermesi
+Missiýanyň jemi
+Ulgam
+Relýef, howplar, ylmy nyşanalar we kartanyň maglumat çeşmeleri.
+Meýilleşdirilen çykyş üçin ugurlar, EA karary, töwekgelçilik, ýaşaýşy üpjün etmek we aragatnaşyk.
+Missiýanyň ýagdaýy, wagt tertibi we hasabatlar.
+Sazlamalar, diller we öz-özüňi barlamak.
+Karta gaýdyp barmak
+Marsyň hakyky relýefi
+USGS CTX DEM · Ýezero · 20 m
+Demo relýef
+Hakyky DEM entek ýüklenmedi
+Marsyň hakyky relýefi ýüklenýär (Ýezero krateriniň USGS CTX DEM-i) — diňe ilkinji gezek, takmynan 20–60 s…
+Missiýany sazlamak
+Mars ekspedisiýaňyzy sazlaň.
+Missiýanyň görnüşi
+Astronawtyň çykyşy (EVA)
+Roweriň ýörüşi
+Başlangyç nokat (A)
+Barmaly ýer (B)
+Kartada saýlanan nokat
+Karta basmak şuny kesgitleýär
+Başlangyç A
+Maksat B
+EVA wagty (sag)
+Ýapgytlyk çägi (°)
+Daşky gurşaw we ylmy maglumatlary üstünde görkeziň.
+Topografiýa (kölegeli relýef)
+Belentlik
+Ýapgytlyk
+Howply zolaklar
+Ylmy nokatlar
+EA geçip bolujylyk
+Perseverance ýoly
+Ugur döret
+Ugurlar
+Howply zolaklar
+Nokatlar
+Belentlik: {s} · Esasy karta: NASA Mars Trek · Koordinatlar: planetosentrik, °G.u.
+EA saýlawy
+howp
+bal
+Kartada görkez
+Saýlanan ugruň esasy görkezijileri.
+Ugruň uzynlygy
+3D, relýef boýunça
+Ýol wagty
+{b} sag býujetiň {p} %
+Belentlige galmak
+jemi galyş
+Belentlikden düşmek
+jemi düşüş
+Ahyrynda galan O₂
+Ahyrynda galan batareýa
+Yzyna dolanmak ätiýaçlygy
+islendik nokatdan yzyna dolanyp bolýar
+iň soňky howpsuz dolanyş nokadyndan geçýär
+Howp duýduryşlary
+Bu ugur üçin duýduryş ýok.
+Demo relýef ulanylýar: sanlar usuly görkezýär, Ýezeronyň hakyky bahalaryny däl.
+{n} ugur nokady {lim}° çäginiň 80 %-inden dik (iň köp {m}°).
+Ugruň {p} %-i ýokary howply öýjüklerden geçýär.
+Töwekgelçilik sanawy: {f} — {lv}.
+dik
+Relýef profili
+Missiýa boýunça netijeler
+EA karary
+4 dalaşgär ugruň düşündirilýän bahalandyrylyşy (wagt, energiýa, howp, ýapgytlyk, aragatnaşyk, nawigasiýa). Karar bermäge kömek, uçuş düzgüni däl.
+Maslahat berlen ugry kabul et: {s}
+Ugur
+Iň ýakyn ylmy nyşana
+Umumy töwekgelçilik
+Belentlik maglumatlary
+Missiýa brifingi we eksport
+Ugur, seljerme, töwekgelçilikler we ylmy nyşanalar barada paýlaşyp bolýan hasabat.
+PDF hasabat taýýarla
+PDF ýükle
+Baglanyşykly gurallar
+Kartadaky islendik zat üçin jikme-jik moduly açyň — şol missiýa, şol maglumatlar.

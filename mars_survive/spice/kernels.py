@@ -97,11 +97,13 @@ def utc_to_et(dt: datetime) -> float:
 def sun_geometry(dt: datetime, lat: float, lon_east: float) -> dict:
     """Solar elevation/azimuth at a Mars surface site from SPICE (needs LSK+PCK+SPK)."""
     import numpy as np
-    import spiceypy as sp
     st = {s["kind"]: s["present"] for s in status()}
     missing = [k for k, v in st.items() if not v]
     if missing:
         raise ModuleError("err.kernels_missing", ",".join(missing))
+    if not available():
+        raise ModuleError("err.spiceypy_missing", "pip install spiceypy")
+    import spiceypy as sp
     load_all()
     et = utc_to_et(dt)
     radii = sp.bodvrd("MARS", "RADII", 3)[1]

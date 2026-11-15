@@ -48,7 +48,7 @@ def render(ctx):
         ui.plotly(fig, key="ter_hist")
         if st_["mean"] is None:
             st.error(tr("lbl.nodata"))
-    ui.section("📈 " + tr("ter.profile"))
+    ui.section(tr("ter.profile"))
     p = ui.run_safely(tr, profile, ctx.g, la1, lo1, la2, lo2, 300)
     if p:
         fig = go.Figure()
@@ -66,7 +66,7 @@ def render(ctx):
         df = pd.DataFrame({"dist_km": p["dist_m"] / 1000, "lat": p["lat"], "lon": p["lon"], "elev_m": p["elev"],
                            "slope_deg": p["slope_deg"]})
         ui.export_buttons(tr, "terrain_profile", df)
-    ui.section("🧪 " + tr("ter.quality"))
+    ui.section(tr("ter.quality"))
     q = quality_report(ctx.g.z)
     c = st.columns(5)
     c[0].metric(tr("lbl.valid"), f"{q['valid_fraction'] * 100:.1f} %")

@@ -26,6 +26,17 @@ def available() -> bool:
         return False
 
 
+def gpkg_available() -> bool:
+    """GeoPackage writing needs a file engine (pyogrio or fiona); the browser build has neither."""
+    for eng in ("pyogrio", "fiona"):
+        try:
+            __import__(eng)
+            return True
+        except ImportError:
+            continue
+    return False
+
+
 def _crs():
     from pyproj import CRS
     try:

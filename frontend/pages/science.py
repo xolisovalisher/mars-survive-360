@@ -11,7 +11,7 @@ from mars_survive.science import catalog as cat
 def render(ctx):
     tr = ctx.tr
     ui.header("science", tr, ["Real", "User Supplied", "Synthetic"])
-    t1, t2 = st.tabs(["🎯 " + tr("sci.tab_catalog"), "🛞 " + tr("pv.tab")])
+    t1, t2 = st.tabs([tr("sci.tab_catalog"), tr("pv.tab")])
     with t1:
         _catalog(ctx)
     with t2:
@@ -46,7 +46,7 @@ def _catalog(ctx):
             kind = st.selectbox(tr("sci.kind"), cat.KINDS, format_func=lambda k: tr("kind." + k))
             prio = st.slider(tr("sci.priority"), 1, 5, 3)
             desc = st.text_area(tr("lbl.description"), max_chars=1000)
-            if st.form_submit_button("➕ " + tr("btn.add_target"), type="primary"):
+            if st.form_submit_button(tr("btn.add_target"), type="primary"):
                 try:
                     cat.add(name, lat, lon, kind, desc, prio)
                     st.success(tr("sci.added"))
@@ -75,7 +75,7 @@ def _catalog(ctx):
     if c2.button(tr("btn.update_status")):
         cat.set_status(sel, stt)
         st.rerun()
-    if c3.button("📍 " + tr("btn.add_waypoint"), width="stretch"):
+    if c3.button(tr("btn.add_waypoint"), width="stretch"):
         p = (t["lat"], t["lon"])
         if ctx.g.valid(*ctx.g.rowcol(*p)):
             ss.stops = ss.stops + [p]
@@ -83,7 +83,7 @@ def _catalog(ctx):
         else:
             st.error(tr("map.outside"))
     sure = c4.checkbox(tr("ui.confirm_delete"), key=f"conf_del_{sel}", disabled=t["origin"] != "user")
-    if c4.button("🗑 " + tr("btn.delete"), width="stretch", disabled=t["origin"] != "user" or not sure):
+    if c4.button(tr("btn.delete"), width="stretch", disabled=t["origin"] != "user" or not sure):
         cat.delete(sel)
         st.rerun()
     st.markdown("**" + tr("sci.tasks", n=t["name"]) + "**")

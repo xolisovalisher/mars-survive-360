@@ -1,5 +1,5 @@
 # MARS SURVIVE 360 — runtime (Python 3.10–3.13). Versions tested: see docs/TEST_REPORT.md
-streamlit>=1.40
+streamlit>=1.50          # header navigation, keyed containers, segmented control
 streamlit-folium>=0.22
 folium>=0.17
 plotly>=5.22

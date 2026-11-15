@@ -14,18 +14,34 @@ import streamlit as st
 from mars_survive.common import DataClass, safe_call
 
 MODULES = [
-    # (number, id, icon, group)
-    (1, "dashboard", "🛰️", "mission"), (2, "map", "🗺️", "geo"), (3, "terrain", "⛰️", "geo"),
-    (4, "dem", "🗂️", "geo"), (5, "route", "🧭", "geo"), (6, "hazards", "⚠️", "geo"),
-    (7, "ai", "🤖", "intel"), (8, "autonav", "🚙", "intel"), (9, "navintel", "🎯", "intel"),
-    (10, "comm", "📡", "space"), (11, "relay", "🛰", "space"), (12, "spice", "☀️", "space"),
-    (13, "meda", "🌡️", "crew"), (14, "suit", "🧑‍🚀", "crew"), (15, "oxygen", "🫁", "crew"),
-    (16, "energy", "🔋", "crew"), (17, "timeline", "🕒", "mission"), (18, "science", "🔬", "crew"),
-    (19, "simulation", "🎛️", "mission"), (20, "risk", "🧯", "mission"), (21, "ingest", "📥", "data"),
-    (22, "provenance", "🧾", "data"), (23, "reports", "📄", "mission"), (24, "i18n", "🌐", "data"),
-    (25, "settings", "⚙️", "data"), (26, "diagnostics", "🩺", "data"), (27, "integration", "🧠", "mission"),
+    # (number, id, icon, group) - Material Symbols, no decorative emoji
+    (1, "dashboard", ":material/dashboard:", "mission"), (2, "map", ":material/map:", "geo"),
+    (3, "terrain", ":material/terrain:", "geo"), (4, "dem", ":material/dataset:", "geo"),
+    (5, "route", ":material/route:", "geo"), (6, "hazards", ":material/warning:", "geo"),
+    (7, "ai", ":material/psychology:", "intel"), (8, "autonav", ":material/navigation:", "intel"),
+    (9, "navintel", ":material/my_location:", "intel"), (10, "comm", ":material/cell_tower:", "space"),
+    (11, "relay", ":material/satellite_alt:", "space"), (12, "spice", ":material/wb_sunny:", "space"),
+    (13, "meda", ":material/thermostat:", "crew"), (14, "suit", ":material/person:", "crew"),
+    (15, "oxygen", ":material/air:", "crew"), (16, "energy", ":material/battery_charging_full:", "crew"),
+    (17, "timeline", ":material/schedule:", "mission"), (18, "science", ":material/science:", "crew"),
+    (19, "simulation", ":material/tune:", "mission"), (20, "risk", ":material/crisis_alert:", "mission"),
+    (21, "ingest", ":material/upload_file:", "data"), (22, "provenance", ":material/fact_check:", "data"),
+    (23, "reports", ":material/description:", "mission"), (24, "i18n", ":material/translate:", "data"),
+    (25, "settings", ":material/settings:", "data"), (26, "diagnostics", ":material/monitor_heart:", "data"),
+    (27, "integration", ":material/hub:", "mission"),
 ]
 GROUPS = ["mission", "geo", "intel", "space", "crew", "data"]
+ICON = {m[1]: m[2] for m in MODULES}
+# One map-centred workspace + three tool workspaces. Every one of the 27 modules lives in exactly one place.
+WORKSPACES = [
+    ("planner", ":material/route:", []),
+    ("layers", ":material/layers:", ["map", "terrain", "dem", "hazards", "science", "meda", "ingest", "provenance"]),
+    ("analysis", ":material/monitoring:", ["route", "ai", "integration", "risk", "simulation", "oxygen", "energy", "suit",
+                                          "autonav", "navintel", "comm", "relay", "spice"]),
+    ("summary", ":material/summarize:", ["dashboard", "timeline", "reports"]),
+]
+SYSTEM_TOOLS = ["settings", "i18n", "diagnostics"]
+WS_OF = {m: ws for ws, _, mods in WORKSPACES for m in mods} | {m: "system" for m in SYSTEM_TOOLS}
 NUM = {m[1]: m[0] for m in MODULES}
 
 PLOTLY_LAYOUT = dict(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(18,24,38,.6)",
@@ -48,7 +64,7 @@ def header(mid: str, tr, data_classes: list | None = None):
 
 
 def footer(mid: str, tr, method: str, sources: list[str]):
-    with st.expander("ℹ️ " + tr("ui.method_sources_limits"), expanded=False):
+    with st.expander(tr("ui.method_sources_limits"), icon=":material/info:", expanded=False):
         c1, c2 = st.columns(2)
         c1.markdown(f"**{tr('ui.method')}**")
         c1.code(method, language=None)
@@ -85,14 +101,14 @@ def run_safely(tr, fn, *a, **kw):
 def export_buttons(tr, name: str, df: pd.DataFrame | None = None, obj: dict | None = None, key: str = ""):
     cols = st.columns(4)
     if df is not None and not df.empty:
-        cols[0].download_button("⬇️ CSV", df.to_csv(index=False).encode("utf-8-sig"), f"{name}.csv", "text/csv",
+        cols[0].download_button("CSV", df.to_csv(index=False).encode("utf-8-sig"), f"{name}.csv", "text/csv",
                                 key=f"csv_{name}_{key}")
         buf = io.BytesIO()
         df.to_excel(buf, index=False)
-        cols[1].download_button("⬇️ Excel", buf.getvalue(), f"{name}.xlsx",
+        cols[1].download_button("Excel", buf.getvalue(), f"{name}.xlsx",
                                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", key=f"x_{name}_{key}")
     if obj is not None:
-        cols[2].download_button("⬇️ JSON", json.dumps(obj, ensure_ascii=False, indent=2, default=_jd).encode(),
+        cols[2].download_button("JSON", json.dumps(obj, ensure_ascii=False, indent=2, default=_jd).encode(),
                                 f"{name}.json", "application/json", key=f"j_{name}_{key}")
 
 
@@ -106,7 +122,7 @@ def _jd(o):
 
 @contextmanager
 def params(tr, expanded=True):
-    with st.expander("🎛️ " + tr("ui.parameters"), expanded=expanded):
+    with st.expander(tr("ui.parameters"), expanded=expanded):
         yield
 
 
@@ -158,3 +174,15 @@ def tr_cols(df: pd.DataFrame, tr, prefix="col.") -> pd.DataFrame:
 
 def tr_vals(series: pd.Series, tr, prefix: str) -> pd.Series:
     return series.map(lambda v: tr(prefix + str(v)) if tr(prefix + str(v)) != prefix + str(v) else v)
+
+
+@st.cache_data(show_spinner=False)
+def logo_b64() -> str:
+    """Small Mars globe rendered from the NASA/USGS Viking colour mosaic (assets/mars/logo.png)."""
+    import base64
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[2] / "assets" / "mars" / "logo.png"
+    try:
+        return base64.b64encode(p.read_bytes()).decode()
+    except OSError:
+        return ""

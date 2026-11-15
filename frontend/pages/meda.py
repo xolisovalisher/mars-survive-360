@@ -16,7 +16,7 @@ UNITS = {"air_temp_c": "°C", "ground_temp_c": "°C", "pressure_pa": "Pa", "wind
 def render(ctx):
     tr = ctx.tr
     ui.header("meda", tr, ["Real", "Synthetic", "User Supplied"])
-    t1, t2 = st.tabs(["🌡️ " + tr("meda.tab"), "☀️ " + tr("sw.tab")])
+    t1, t2 = st.tabs([tr("meda.tab"), tr("sw.tab")])
     with t1:
         _render_meda(ctx)
     with t2:

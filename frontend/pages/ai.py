@@ -21,8 +21,8 @@ def render(ctx):
     tr, ss = ctx.tr, st.session_state
     ui.header("ai", tr)
     ys = vision.yolo_status()
-    t0, t1, t2, t3, t4 = st.tabs(["🧠 " + tr("ml.tab"), "🔎 " + tr("ai.detect"), "🧩 " + tr("ai.units"),
-                                  "🏋️ " + tr("ai.yolo_train"), "💬 " + tr("ai.assistant")])
+    t0, t1, t2, t3, t4 = st.tabs([tr("ml.tab"), tr("ai.detect"), tr("ai.units"),
+                                  tr("ai.yolo_train"), tr("ai.assistant")])
     with t0:
         from frontend.components import ml_tab
         ml_tab.render(ctx)
@@ -33,7 +33,7 @@ def render(ctx):
             engines = ["heuristic_cv"] + (["yolo"] if ys["ready"] else [])
             eng = c2.selectbox(tr("ai.engine"), engines, format_func=lambda e: tr("ai.eng." + e))
             if not ys["ready"]:
-                c2.caption("⛔ " + tr("ai.yolo_unavailable", pkg=tr("ui.yes") if ys["package"] else tr("ui.no"),
+                c2.caption(tr("ai.yolo_unavailable", pkg=tr("ui.yes") if ys["package"] else tr("ui.no"),
                                       w=len(ys["weights"])))
             conf = c3.slider(tr("ai.conf"), 0.05, 0.95, 0.25, 0.05)
             up = st.file_uploader(tr("ai.upload_img"), type=["png", "jpg", "jpeg"]) if src == "upload" else None
@@ -41,7 +41,7 @@ def render(ctx):
         img, gts, dc = None, None, "Synthetic"
         if src == "synthetic":
             img, gts = vision.synthetic_test_image(seed=int(ss.get("ai_seed", 0)))
-            if st.button("🎲 " + tr("ai.new_scene")):
+            if st.button(tr("ai.new_scene")):
                 ss.ai_seed = int(ss.get("ai_seed", 0)) + 1
                 st.rerun()
         elif up is not None:
@@ -91,7 +91,7 @@ def render(ctx):
         k = c1.slider(tr("ai.k"), 3, 8, 5)
         feats = c2.multiselect(tr("ai.features"), ["slope", "roughness", "tpi", "relief", "curvature"],
                                default=["slope", "roughness", "tpi"], format_func=lambda n: tr("layer." + n))
-        if st.button("🧠 " + tr("btn.train_kmeans"), type="primary") or "units" not in ss or ss.get("units_k") != (k, tuple(feats)):
+        if st.button(tr("btn.train_kmeans"), type="primary") or "units" not in ss or ss.get("units_k") != (k, tuple(feats)):
             T = ctx.eng.T
             fe = {f: getattr(T, f) for f in feats if f != "tpi"} | ({"tpi": T.tpi} if "tpi" in feats else {})
             if ctx.g.thermal is not None:
@@ -106,10 +106,9 @@ def render(ctx):
             url = V.png_url(V.classes_rgba(lab, pal, 0.6))
             m = V.base_map(ctx.g, {tr("layer.hillshade"): (maps.overlay_png(state._dem_key(), "hillshade", ctx.mp.slope_limit_deg), True),
                                    tr("ai.units"): (url, True)})
-            from streamlit_folium import st_folium
             c1, c2 = st.columns([3, 2])
             with c1:
-                st_folium(V.finish(m), height=430, use_container_width=True, returned_objects=[], key="units_map")
+                maps.render_map(V.finish(m), height=430, key="units_map", tr=tr)
             with c2:
                 df = pd.DataFrame(info)
                 df["name"] = df["name"].map(lambda n: tr("unit." + n))
@@ -128,7 +127,7 @@ def render(ctx):
         r_tr = c3.slider("train", 0.5, 0.9, 0.7, 0.05)
         r_va = c4.slider("val", 0.05, 0.4, 0.2, 0.05)
         c5.metric("test", f"{max(0.0, 1 - r_tr - r_va):.2f}")
-        if st.button("✂️ " + tr("btn.split_dataset")):
+        if st.button(tr("btn.split_dataset")):
             from pathlib import Path
             if not Path(img_dir).is_dir():
                 st.error(tr("ai.dir_missing", d=img_dir))
@@ -138,7 +137,7 @@ def render(ctx):
                 if out:
                     st.success(str(out))
         ep = st.number_input(tr("ai.epochs"), 1, 500, 50)
-        if st.button("🏋️ " + tr("btn.train_yolo"), disabled=not ys["package"]):
+        if st.button(tr("btn.train_yolo"), disabled=not ys["package"]):
             yaml = C.DATA / "processed" / "yolo_dataset" / "data.yaml"
             if not yaml.exists():
                 st.error(tr("ai.need_split"))

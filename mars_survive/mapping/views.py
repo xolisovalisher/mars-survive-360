@@ -53,6 +53,8 @@ ROUTE_COLORS = {"shortest": "#4cc9f0", "lowest_slope": "#b5179e", "lowest_hazard
 
 
 def div_marker(text, bg="#ffd166", fg="#111", size=24):
+    if C.BROWSER:
+        return (text, bg, fg, size)
     import folium
     return folium.DivIcon(icon_size=(size, size), icon_anchor=(size // 2, size // 2),
                           html=f'<div style="background:{bg};color:{fg};border-radius:50%;width:{size}px;height:{size}px;'
@@ -62,9 +64,11 @@ def div_marker(text, bg="#ffd166", fg="#111", size=24):
 
 def base_map(grid, layers: dict[str, tuple[str, bool]] | None = None, zoom: int = 11, center=None,
              basemap: str | None = None, height_hint: int = 600):
-    """layers: name -> (png data url, show). Returns folium.Map."""
+    """layers: name -> (png data url, show). Returns folium.Map (desktop) or DeckMap (browser build)."""
+    if C.BROWSER:
+        from .deckmap import base_map as deck_base
+        return deck_base(grid, layers, center)
     import folium
-    from folium.plugins import MousePosition
     lat, lon = center or grid.center
     m = folium.Map(location=[lat, lon], zoom_start=zoom, tiles=None, crs="EPSG4326", control_scale=False,
                    max_zoom=16, min_zoom=5, prefer_canvas=True)
@@ -79,17 +83,22 @@ def base_map(grid, layers: dict[str, tuple[str, bool]] | None = None, zoom: int 
     b = grid.bounds
     for name, (url, show) in (layers or {}).items():
         folium.raster_layers.ImageOverlay(url, bounds=b, name=name, show=show).add_to(m)
-    MousePosition(position="bottomleft", prefix="lat/lon (planetocentric, °E):", separator=" , ", num_digits=5).add_to(m)
+    # (no MousePosition plugin: it is fetched from a GitHub CDN path, and if that one script fails to load the
+    #  whole Leaflet map stays blank. Coordinates are shown in the app panels instead.)
     return m
 
 
 def add_route(m, lat, lon, color="#ffd166", weight=4, tooltip=""):
+    if C.BROWSER:
+        return m.route(lat, lon, color, weight, tooltip)
     import folium
     folium.PolyLine(list(zip(np.asarray(lat).tolist(), np.asarray(lon).tolist())), color=color, weight=weight,
                     opacity=0.95, tooltip=tooltip).add_to(m)
 
 
 def finish(m):
+    if C.BROWSER:
+        return m
     import folium
     folium.LayerControl(collapsed=True, position="topright").add_to(m)
     return m

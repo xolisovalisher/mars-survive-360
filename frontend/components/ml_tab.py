@@ -23,7 +23,7 @@ def render(ctx):
         blocks = c3.slider(tr("ml.blocks"), 4, 8, 5)
         epochs = c4.slider(tr("ml.epochs"), 5, 60, 25, 5, disabled=not TV.torch_available())
         st.caption(tr("ml.engine", nn=("PyTorch " + _torch_ver()) if TV.torch_available() else "scikit-learn MLP"))
-    if st.button("🏋️ " + tr("ml.train"), type="primary"):
+    if st.button(tr("ml.train"), type="primary"):
         bar = st.progress(0.0, text=tr("ml.training"))
         nb = max(1, blocks * blocks // 5)
         cfg = TV.TrainConfig(blocks=blocks, n_val_blocks=nb, n_test_blocks=nb, mlp_epochs=epochs)
@@ -88,10 +88,9 @@ def render(ctx):
     if pm is not None:
         m = V.base_map(ctx.g, {tr("layer.hillshade"): (maps.overlay_png(state._dem_key(), "hillshade", ctx.mp.slope_limit_deg), True),
                                tr("layer.ml"): (V.png_url(V.to_rgba(pm, "RdYlGn_r", 0, 1, alpha=0.6)), True)})
-        from streamlit_folium import st_folium
         c1, c2 = st.columns([3, 2])
         with c1:
-            st_folium(V.finish(m), height=420, use_container_width=True, returned_objects=[], key="ml_map")
+            maps.render_map(V.finish(m), height=420, key="ml_map", tr=tr)
         with c2:
             rule_lab = TV.labels(ctx.g, ctx.eng.T, TV.LabelRule(**_rule(card)))
             v = np.isfinite(ctx.g.z)

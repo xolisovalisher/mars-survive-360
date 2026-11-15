@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.0 — 2026-11-14
+* **One interface:** the sidebar list of 27 modules is replaced by a header with four workspaces — Mission Planner,
+  Data Layers, Route Analysis, Mission Summary. The Mission Planner is map-centred: setup → map → route analysis,
+  hazard alerts, terrain profile, AI mission insights, summary and export, with "connected tools" that open the
+  detailed modules on the same mission. Decorative emoji removed (Material icons), Streamlit's animated running
+  pictograms replaced by a thin progress line, new Mars-globe logo rendered from the NASA Viking mosaic.
+* **Real DEM by default:** first start fetches the USGS Mars 2020 CTX DEM of Jezero (range reads, mirror and full
+  download fall-backs) instead of showing the synthetic relief; failures are recorded and shown, never hidden.
+* **Fixes:** Folium maps no longer depend on the MousePosition plugin from a GitHub CDN path (if it failed to load,
+  every map stayed blank); an unreadable saved ML model (scikit-learn version change) no longer breaks the
+  route page; Streamlit ≥ 1.50 required.
+* 82 new interface strings in 18 languages; tests 185 → 195 (workspaces, navigation, planner in 5 languages,
+  real-DEM bootstrap).
+
 ## 1.2.0 — 2026-11-14
 * **3-D Mars globe (module 02, first tab):** rotatable/zoomable sphere with real NASA imagery — USGS/NASA Viking colour
   mosaic bundled (public domain, works offline, checked against known albedo features); optional sharper NASA Mars

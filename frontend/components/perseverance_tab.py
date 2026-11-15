@@ -17,7 +17,7 @@ CLASS_KEY = {"Real": "real", "User Supplied": "user", "Synthetic": "synthetic"}
 def _load_traverse(tr, src):
     ss = st.session_state
     if src == "live":
-        if st.button("🛰️ " + tr("pv.fetch"), type="primary"):
+        if st.button(tr("pv.fetch"), type="primary"):
             try:
                 with st.spinner(tr("ui.computing")):
                     c = P.fetch_traverse()
@@ -90,7 +90,7 @@ def render(ctx):
             rows.append({"name": name, "lat": p[0], "lon": p[1], "dist_to_traverse_m": round(n["distance_m"]), "sol": n["sol"]})
         near_df = pd.DataFrame(rows)
         ui.df_show(ui.tr_cols(near_df[["name", "dist_to_traverse_m", "sol"]], tr), height=260)
-    ui.section("👀 " + tr("pv.see_title"))
+    ui.section(tr("pv.see_title"))
     names = [n for n, _ in pts]
     c1, c2, c3 = st.columns([2, 2, 1])
     pick = c1.selectbox(tr("pv.point"), names, key="pv_pick")
@@ -109,7 +109,7 @@ def render(ctx):
     if cls == "synthetic":
         payload, img_cls = P.example_raw(), "Synthetic"
     else:
-        if c3.button("🖼️ " + tr("pv.load_images"), key="pv_img"):
+        if c3.button(tr("pv.load_images"), key="pv_img"):
             try:
                 with st.spinner(tr("ui.computing")):
                     ss[f"pv_raw_{sol}"] = P.fetch_raw_images(sol)

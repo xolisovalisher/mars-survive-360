@@ -16,7 +16,7 @@ def render(ctx):
         secs = st.multiselect(tr("rep.sections"), RB.SECTIONS[1:], default=RB.SECTIONS[1:],
                               format_func=lambda s: tr("rep.s." + s))
         fmts = st.multiselect(tr("rep.formats"), ["pdf", "html", "csv", "json", "xlsx"], default=["pdf", "html", "csv", "json", "xlsx"])
-    if st.button("📄 " + tr("btn.generate_report"), type="primary") or "report" not in ss or ss.get("report_lang") != ctx.lang:
+    if st.button(tr("btn.generate_report"), type="primary") or "report" not in ss or ss.get("report_lang") != ctx.lang:
         rep = ui.run_safely(tr, RB.build, ctx, ["mission"] + secs)
         if rep:
             files = {}
@@ -35,7 +35,7 @@ def render(ctx):
         cols = st.columns(len(files))
         for c, (f, b) in zip(cols, files.items()):
             sz = f"{len(b) / 1024:.0f} KB" if len(b) >= 1024 else f"{len(b)} B"
-            c.download_button(f"⬇️ {f.upper()} ({sz})", b, f"mars_survive_report_{ctx.lang}.{f}", mime[f],
+            c.download_button(f"{f.upper()} ({sz})", b, f"mars_survive_report_{ctx.lang}.{f}", mime[f],
                               width="stretch", key=f"rep_{f}")
     _gis(ctx)
     if files:
@@ -52,7 +52,7 @@ def _gis(ctx):
     from mars_survive.reporting import gis
     from mars_survive.science import catalog as cat
     tr, ss = ctx.tr, st.session_state
-    ui.section("🗺️ " + tr("rep.gis"))
+    ui.section(tr("rep.gis"))
     if not gis.available():
         st.caption(tr("rep.gis_missing"))
         return
@@ -64,11 +64,11 @@ def _gis(ctx):
         return
     st.caption(tr("rep.gis_note", crs=gis.MARS_CRS, n=len(layers), l=", ".join(layers)))
     c1, c2 = st.columns(2)
-    gp = ui.run_safely(tr, gis.to_geopackage, layers)
+    gp = ui.run_safely(tr, gis.to_geopackage, layers) if gis.gpkg_available() else None
     if gp:
-        c1.download_button("⬇️ GeoPackage (.gpkg)", gp, "mars_survive_mission.gpkg", "application/geopackage+sqlite3",
+        c1.download_button("GeoPackage (.gpkg)", gp, "mars_survive_mission.gpkg", "application/geopackage+sqlite3",
                            width="stretch", key="rep_gpkg")
     gj = ui.run_safely(tr, gis.to_geojson, layers)
     if gj:
-        c2.download_button("⬇️ GeoJSON", gj, "mars_survive_mission.geojson", "application/geo+json",
+        c2.download_button("GeoJSON", gj, "mars_survive_mission.geojson", "application/geo+json",
                            width="stretch", key="rep_gjson")

@@ -1178,3 +1178,94 @@ Perseverance iniş alanı
 Curiosity iniş alanı (Gale)
 Dosya bulunamadı
 Sarı çerçevenin içinde: yüklenen DEM’in gölgeli rölyefi (analiz penceresi) — krater ölçeğinde ayrıntı.
+
+@browser
+Tarayıcı sürümü: uygulamanın tamamı tarayıcınızın içinde çalışır (WebAssembly'de Python); hiçbir şey sunucuya gönderilmez.
+184 otomatik test masaüstü sürümünde çalıştırılır (python scripts/run_tests.py); tarayıcı sürümü son test raporunu gösterir.
+Tarayıcı sürümü 87 MB'lık USGS dosyasını kendisi indiremez. Yukarıdaki adresi açın, GeoTIFF'i bilgisayarınıza kaydedin ve «Yükle» sekmesinden ekleyin.
+Pakete dahil NASA Viking renkli mozaiği kullanılır; Mars Trek döşemeleri tarayıcı sürümünün bağlanmadığı başka bir sitededir.
+Sonuçlar, görevler ve eğitilmiş modeller yalnızca bu tarayıcı sekmesi yeniden yüklenene kadar saklanır.
+
+@workspace
+Mars keşif seferi planlama platformu
+Görev Planlayıcı
+Veri Katmanları
+Rota Analizi
+Görev Özeti
+Sistem
+Arazi, tehlikeler, bilimsel hedefler ve haritanın veri kaynakları.
+Planlanan yürüyüş için rotalar, YZ kararı, risk, yaşam desteği ve iletişim.
+Görev durumu, zaman çizelgesi ve raporlar.
+Ayarlar, diller ve öz denetim.
+Haritaya dön
+Gerçek Mars arazisi
+USGS CTX DEM · Jezero · 20 m
+Demo arazi
+Gerçek DEM henüz yüklenmedi
+Gerçek Mars arazisi yükleniyor (Jezero kraterinin USGS CTX DEM’i) — yalnızca ilk açılışta, yaklaşık 20–60 sn…
+Görev ayarları
+Mars keşif seferinizi yapılandırın.
+Görev türü
+Astronot yürüyüşü (EVA)
+Gezgin araç sürüşü
+Başlangıç noktası (A)
+Varış noktası (B)
+Haritada seçilen nokta
+Haritaya tıklama şunu belirler
+Başlangıç A
+Varış B
+EVA süresi (sa)
+Eğim sınırı (°)
+Çevresel ve bilimsel verileri üst üste getirin.
+Topografya (gölgeli rölyef)
+Yükselti
+Eğim
+Tehlike bölgeleri
+Bilimsel noktalar
+YZ geçilebilirlik
+Perseverance güzergâhı
+Rota oluştur
+Rotalar
+Tehlike bölgeleri
+Noktalar
+Yükselti: {s} · Altlık: NASA Mars Trek · Koordinatlar: gezegen merkezli, °D
+YZ seçimi
+tehlike
+puan
+Haritada göster
+Seçilen rotanın temel göstergeleri.
+Rota uzunluğu
+3B, arazi boyunca
+Yol süresi
+{b} sa bütçenin % {p}’i
+Yükselti kazancı
+toplam tırmanış
+Yükselti kaybı
+toplam iniş
+Sonda kalan O₂
+Sonda kalan batarya
+Dönüş payı
+her noktadan dönüş mümkün
+son güvenli dönüş noktasını aşıyor
+Tehlike uyarıları
+Bu rota için uyarı yok.
+Demo arazi kullanılıyor: sayılar yöntemi gösterir, gerçek Jezero değerlerini değil.
+{n} rota noktası {lim}° sınırının %80’inden dik (en çok {m}°).
+Rotanın % {p}’i yüksek tehlikeli hücrelerden geçiyor.
+Risk kaydı: {f} — {lv}.
+dik
+Arazi profili
+Görev değerlendirmesi
+YZ kararı
+4 aday rotanın açıklanabilir puanlaması (süre, enerji, tehlike, eğim, iletişim, seyrüsefer). Karar desteğidir, uçuş kuralı değildir.
+Önerilen rotayı kullan: {s}
+Rota
+En yakın bilimsel hedef
+Genel risk
+Yükselti verisi
+Görev brifingi ve dışa aktarma
+Rota, analiz, riskler ve bilimsel hedefler hakkında paylaşılabilir rapor.
+PDF rapor oluştur
+PDF indir
+Bağlı araçlar
+Haritadaki her şey için ayrıntılı modülü açın — aynı görev, aynı veriler.

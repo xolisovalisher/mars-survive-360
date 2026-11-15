@@ -17,8 +17,8 @@ def render(ctx):
     tr, ss = ctx.tr, st.session_state
     ui.header("map", tr, [ctx.g.data_class, "Real"])
     routes = state.ensure_routes(ctx)
-    tgl, t2d, t3d, tdk = st.tabs(["🌍 " + tr("map.tab_globe"), "🗺️ " + tr("map.tab2d"), "🏔️ " + tr("map.tab3d"),
-                                  "🛰️ " + tr("map.tab_deck")])
+    tgl, t2d, t3d, tdk = st.tabs([tr("map.tab_globe"), tr("map.tab2d"), tr("map.tab3d"),
+                                  tr("map.tab_deck")])
     with tgl:
         from frontend.components import globe_tab
         globe_tab.render(ctx, routes, ui_surface)
@@ -48,7 +48,8 @@ def render(ctx):
                 m.add_child(maps._marker(p, "•", "#00e5ff", f"{tr('click.marker')} {i}", size=16))
 
         out = maps.mission_map(ctx, layer_names=ALL_LAYERS, show=set(show) or {"hillshade"}, routes=routes,
-                               active=ss.strategy, targets=tg, extra=extra, height=560, key="map2d", clickable=True)
+                               active=ss.strategy, targets=tg, extra=extra, height=560, key="map2d", clickable=True,
+                               picker=False)
         p = maps.clicked(out, "map2d")
         if p:
             if not ctx.g.inside(*ctx.g.rowcol(*p)):
@@ -78,13 +79,13 @@ def render(ctx):
             c[4].metric(tr("lbl.slope"), f"{sl:.1f}°" if sl == sl else "—", tr("hz." + ["safe", "caution", "high", "no-go", "unknown"][lv]),
                         delta_color="off")
         c1, c2, c3 = st.columns(3)
-        if c1.button("🧹 " + tr("btn.clear_marks")):
+        if c1.button(tr("btn.clear_marks")):
             ss.user_marks, ss.stops = [], []
             st.rerun()
         gj = V.route_geojson(routes)
         gj["features"] += V.points_geojson([{"lat": t["lat"], "lon": t["lon"], "name": t["name"], "origin": t["origin"]}
                                             for t in tg])["features"]
-        c2.download_button("⬇️ GeoJSON", json.dumps(gj), "mars_survive_map.geojson", "application/geo+json")
+        c2.download_button("GeoJSON", json.dumps(gj), "mars_survive_map.geojson", "application/geo+json")
         up = c3.file_uploader(tr("map.import_geojson"), type=["geojson", "json"], key="gj_up")
         if up is not None and ss.get("_gj_name") != up.name:
             try:

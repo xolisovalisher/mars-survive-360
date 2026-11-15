@@ -1178,3 +1178,94 @@ Nơi hạ cánh của Perseverance
 Nơi hạ cánh của Curiosity (Gale)
 Không tìm thấy tệp
 Trong khung vàng: địa hình bóng đổ của DEM đã nạp (vùng phân tích) — chi tiết ở quy mô miệng hố.
+
+@browser
+Phiên bản trình duyệt: toàn bộ ứng dụng chạy trong trình duyệt của bạn (Python trên WebAssembly); không có gì được gửi lên máy chủ.
+184 bài kiểm thử tự động chạy trong phiên bản máy tính (python scripts/run_tests.py); phiên bản trình duyệt hiển thị báo cáo kiểm thử gần nhất.
+Phiên bản trình duyệt không thể tự tải tệp USGS 87 MB. Hãy mở địa chỉ ở trên, lưu tệp GeoTIFF vào máy tính, rồi thêm nó ở thẻ «Tải lên».
+Sử dụng bản ghép màu NASA Viking có sẵn; các ô bản đồ Mars Trek nằm trên một trang web khác mà phiên bản trình duyệt không truy cập.
+Kết quả, nhiệm vụ và mô hình đã huấn luyện chỉ được giữ đến khi tải lại thẻ trình duyệt này.
+
+@workspace
+Nền tảng lập kế hoạch thám hiểm sao Hỏa
+Lập kế hoạch nhiệm vụ
+Lớp dữ liệu
+Phân tích lộ trình
+Tóm tắt nhiệm vụ
+Hệ thống
+Địa hình, mối nguy, mục tiêu khoa học và nguồn dữ liệu của bản đồ.
+Lộ trình, quyết định AI, rủi ro, hỗ trợ sự sống và liên lạc cho chuyến đi bộ đã lập.
+Trạng thái nhiệm vụ, dòng thời gian và báo cáo.
+Cài đặt, ngôn ngữ và tự kiểm tra.
+Quay lại bản đồ
+Địa hình sao Hỏa thực
+USGS CTX DEM · Jezero · 20 m
+Địa hình minh họa
+Chưa tải DEM thực
+Đang tải địa hình sao Hỏa thực (USGS CTX DEM của hố Jezero) — chỉ ở lần khởi động đầu, khoảng 20–60 giây…
+Thiết lập nhiệm vụ
+Cấu hình chuyến thám hiểm sao Hỏa của bạn.
+Loại nhiệm vụ
+Phi hành gia đi bộ (EVA)
+Hành trình rover
+Điểm xuất phát (A)
+Điểm đến (B)
+Điểm chọn trên bản đồ
+Nhấp bản đồ để đặt
+Xuất phát A
+Điểm đến B
+Thời gian EVA (giờ)
+Giới hạn độ dốc (°)
+Chồng lớp dữ liệu môi trường và khoa học.
+Địa hình (bóng đổ)
+Độ cao
+Độ dốc
+Vùng nguy hiểm
+Điểm khoa học
+Khả năng di chuyển (AI)
+Lộ trình Perseverance
+Tạo lộ trình
+Lộ trình
+Vùng nguy hiểm
+Điểm
+Độ cao: {s} · Bản đồ nền: NASA Mars Trek · Tọa độ: tâm hành tinh, °Đ
+AI chọn
+nguy hiểm
+điểm số
+Hiển thị trên bản đồ
+Chỉ số chính của lộ trình đã chọn.
+Quãng đường
+3D, theo địa hình
+Thời gian di chuyển
+{p} % ngân sách {b} giờ
+Độ cao tăng
+tổng leo lên
+Độ cao giảm
+tổng đi xuống
+O₂ còn lại cuối hành trình
+Pin còn lại cuối hành trình
+Biên độ quay về
+có thể quay về từ mọi điểm
+vượt qua điểm quay về an toàn cuối cùng
+Cảnh báo nguy hiểm
+Không có cảnh báo cho lộ trình này.
+Đang dùng địa hình minh họa: các con số thể hiện phương pháp, không phải giá trị thực của Jezero.
+{n} điểm của lộ trình dốc hơn 80 % giới hạn {lim}° (tối đa {m}°).
+{p} % lộ trình đi qua ô nguy hiểm cao.
+Sổ rủi ro: {f} — {lv}.
+dốc
+Mặt cắt địa hình
+Nhận định nhiệm vụ
+Quyết định AI
+Chấm điểm có giải thích cho 4 lộ trình (thời gian, năng lượng, nguy hiểm, độ dốc, liên lạc, định vị). Hỗ trợ quyết định, không phải quy tắc bay.
+Dùng lộ trình đề xuất: {s}
+Lộ trình
+Mục tiêu khoa học gần nhất
+Rủi ro tổng thể
+Dữ liệu độ cao
+Tóm tắt nhiệm vụ và xuất dữ liệu
+Báo cáo có thể chia sẻ về lộ trình, phân tích, rủi ro và mục tiêu.
+Tạo báo cáo PDF
+Tải PDF
+Công cụ liên kết
+Mở mô-đun chi tiết cho mọi thứ trên bản đồ — cùng nhiệm vụ, cùng dữ liệu.

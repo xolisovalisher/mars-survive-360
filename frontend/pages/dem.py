@@ -40,13 +40,15 @@ def render(ctx):
         if g.meta.get("dem_info"):
             st.json(g.meta["dem_info"])
 
-    t1, t2, t3, t4 = st.tabs(["🌐 " + tr("dem.download"), "📁 " + tr("dem.local"), "⬆️ " + tr("dem.upload"),
-                              "🏷️ " + tr("dem.label")])
+    t1, t2, t3, t4 = st.tabs([tr("dem.download"), tr("dem.local"), tr("dem.upload"),
+                              tr("dem.label")])
     with t1:
         st.markdown(tr("dem.download_text"))
         st.code(C.CTX_DTM_URL)
         st.caption(tr("dem.catalog") + ": " + C.CTX_DTM_CATALOG)
-        if st.button("⬇️ " + tr("btn.download_dem"), type="primary"):
+        if C.BROWSER:
+            st.info(tr("browser.no_dem_download"))
+        elif st.button(tr("btn.download_dem"), type="primary"):
             dest = C.DATA_RAW / "M20_JezeroCrater_CTXDEM_20m.tif"
             bar = st.progress(0.0, text=tr("ui.computing"))
 
@@ -70,19 +72,19 @@ def render(ctx):
     with t2:
         path = st.text_input(tr("dem.local_path"), value=ss.settings.dem_path or str(C.DATA_RAW / "M20_JezeroCrater_CTXDEM_20m.tif"))
         c1, c2 = st.columns(2)
-        if c1.button("🔍 " + tr("btn.inspect")):
+        if c1.button(tr("btn.inspect")):
             info = ui.run_safely(tr, loader.inspect_geotiff, path)
             if info:
                 st.json(info)
                 (st.success if info["crs_is_mars"] else st.warning)(tr("dem.crs_ok") if info["crs_is_mars"] else tr("dem.crs_warn"))
-        if c2.button("✅ " + tr("btn.use_dem"), type="primary"):
+        if c2.button(tr("btn.use_dem"), type="primary"):
             meta = ui.run_safely(tr, _use_dem, ctx, path, DataClass.REAL)
             if meta:
                 st.rerun()
     with t3:
         up = st.file_uploader(tr("dem.upload_tif"), type=["tif", "tiff"])
         cls = st.radio(tr("lbl.data_class"), ["user", "real"], format_func=lambda x: tr("dc." + x), horizontal=True)
-        if up is not None and st.button("✅ " + tr("btn.use_dem")):
+        if up is not None and st.button(tr("btn.use_dem")):
             try:
                 info = validate(up.name, up.getvalue())
                 dest = C.DATA_UPLOADS / safe_name(up.name)
@@ -93,7 +95,7 @@ def render(ctx):
                     st.rerun()
             except ModuleError as e:
                 st.error(f"{tr(e.key)} — {e.detail}")
-        if loader.PROCESSED_NPZ.exists() and st.button("↩️ " + tr("btn.revert_synthetic")):
+        if loader.PROCESSED_NPZ.exists() and st.button(tr("btn.revert_synthetic")):
             loader.PROCESSED_NPZ.rename(loader.PROCESSED_NPZ.with_suffix(".npz.bak"))
             state.reset_engine()
             st.rerun()

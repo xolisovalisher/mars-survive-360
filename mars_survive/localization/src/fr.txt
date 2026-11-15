@@ -1178,3 +1178,94 @@ Site d’atterrissage de Perseverance
 Site d’atterrissage de Curiosity (Gale)
 Fichier introuvable
 Dans le cadre jaune : relief ombré du MNT chargé (zone d’analyse) — le détail à l’échelle du cratère.
+
+@browser
+Édition navigateur : toute l’application s’exécute dans votre navigateur (Python en WebAssembly) ; rien n’est envoyé à un serveur.
+Les 184 tests automatiques s’exécutent dans la version de bureau (python scripts/run_tests.py) ; l’édition navigateur affiche le dernier rapport de tests.
+L’édition navigateur ne peut pas télécharger elle-même le fichier USGS de 87 Mo. Ouvrez l’adresse ci-dessus, enregistrez le GeoTIFF sur votre ordinateur, puis ajoutez-le dans l’onglet « Téléverser ».
+La mosaïque couleur NASA Viking intégrée est utilisée ; les tuiles Mars Trek se trouvent sur un autre site que l’édition navigateur ne contacte pas.
+Les résultats, missions et modèles entraînés ne sont conservés que jusqu’au rechargement de cet onglet.
+
+@workspace
+Plateforme de planification d’expéditions martiennes
+Planificateur de mission
+Couches de données
+Analyse d’itinéraire
+Synthèse de mission
+Système
+Relief, dangers, cibles scientifiques et sources de données de la carte.
+Itinéraires, décision de l’IA, risques, support vie et communications pour la sortie prévue.
+État de la mission, chronologie et rapports.
+Paramètres, langues et autodiagnostic.
+Retour à la carte
+Relief martien réel
+USGS CTX DEM · Jezero · 20 m
+Relief de démonstration
+MNT réel pas encore chargé
+Chargement du relief martien réel (USGS CTX DEM du cratère Jezero) — au premier démarrage seulement, environ 20–60 s…
+Configuration de la mission
+Configurez votre expédition sur Mars.
+Type de mission
+Sortie d’astronaute (EVA)
+Trajet du rover
+Point de départ (A)
+Destination (B)
+Point choisi sur la carte
+Un clic sur la carte définit
+Départ A
+Destination B
+Durée de sortie (h)
+Pente maximale (°)
+Superposez des données environnementales et scientifiques.
+Topographie (ombrage)
+Altitude
+Pente
+Zones dangereuses
+Points scientifiques
+Praticabilité (IA)
+Trajet de Perseverance
+Générer l’itinéraire
+Itinéraires
+Zones dangereuses
+Points
+Altitudes : {s} · Fond : NASA Mars Trek · Coordonnées : planétocentriques, °E
+Choix de l’IA
+danger
+score
+Afficher sur la carte
+Indicateurs clés de l’itinéraire choisi.
+Distance
+3D, le long du relief
+Durée du trajet
+{p} % du budget de {b} h
+Dénivelé positif
+montée totale
+Dénivelé négatif
+descente totale
+O₂ restant à la fin
+Batterie restante à la fin
+Marge de retour
+retour possible depuis chaque point
+dépasse le dernier point de retour sûr
+Alertes de danger
+Aucune alerte pour cet itinéraire.
+Relief de démonstration : les chiffres illustrent la méthode, pas les valeurs réelles de Jezero.
+{n} points de l’itinéraire dépassent 80 % de la limite de {lim}° (max {m}°).
+{p} % de l’itinéraire traverse des cellules à danger élevé.
+Registre des risques : {f} — {lv}.
+raide
+Profil du terrain
+Analyse de mission
+Décision de l’IA
+Notation explicable de 4 itinéraires candidats (temps, énergie, danger, pente, communication, navigation). Aide à la décision, pas une règle de vol.
+Adopter l’itinéraire recommandé : {s}
+Itinéraire
+Cible scientifique la plus proche
+Risque global
+Données d’altitude
+Briefing de mission et export
+Un rapport partageable sur l’itinéraire, l’analyse, les risques et les cibles.
+Générer le rapport PDF
+Télécharger le PDF
+Outils associés
+Ouvrez le module détaillé de tout élément de la carte — même mission, mêmes données.

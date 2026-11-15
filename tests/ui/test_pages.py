@@ -56,13 +56,55 @@ def test_language_switch_changes_ui():
     assert "Missiya" in texts and texts != title_en
 
 
-def test_sidebar_navigation():
-    at = _run("dashboard", "en")
-    btn = [b for b in at.sidebar.button if "05" in b.label]
-    assert btn, "route button missing in sidebar"
-    btn[0].click().run()
-    _assert_clean(at, "nav->route")
-    assert "05" in " ".join(m.value for m in at.markdown)
+def test_every_module_has_one_workspace():
+    from frontend.components.ui import SYSTEM_TOOLS, WORKSPACES, WS_OF
+    placed = [m for _, _, mods in WORKSPACES for m in mods] + list(SYSTEM_TOOLS)
+    assert sorted(placed) == sorted(PAGE_IDS) and len(placed) == len(set(placed)) == 27
+    assert set(WS_OF) == set(PAGE_IDS)
+
+
+def _run_ws(ws="planner", lang="en"):
+    at = AppTest.from_file(APP, default_timeout=300)
+    at.query_params["ws"] = ws
+    at.query_params["lang"] = lang
+    at.run()
+    return at
+
+
+@pytest.mark.parametrize("lang", ["en", "uz", "ru", "ar", "zh"])
+def test_mission_planner_renders(lang):
+    at = _run_ws("planner", lang)
+    _assert_clean(at, f"planner/{lang}")
+    html = " ".join(m.value for m in at.markdown)
+    assert "ms-kpi" in html and "ms-legend" in html          # route analysis cards + map legend
+    assert at.get("plotly_chart"), "terrain profile missing"
+
+
+def test_header_navigation_and_tool_rail():
+    at = _run_ws("planner", "en")
+    at.button(key="wsnav_analysis").click().run()
+    _assert_clean(at, "nav->analysis")
+    assert at.session_state["ws"] == "analysis"
+    at.button(key="tool_risk").click().run()
+    _assert_clean(at, "tool->risk")
+    assert at.session_state["page"] == "risk"
+    assert "20" in " ".join(m.value for m in at.markdown)
+    at.button(key="tool_back").click().run()
+    assert at.session_state["ws"] == "planner"
+
+
+def test_planner_generate_and_open_connected_tool():
+    at = _run_ws("planner", "en")
+    at.button(key="pl_generate").click().run()
+    _assert_clean(at, "planner/generate")
+    at.button(key="pl_tool_hazards").click().run()
+    _assert_clean(at, "planner->hazards")
+    assert at.session_state["ws"] == "layers" and at.session_state["page"] == "hazards"
+
+
+def test_old_page_links_still_work():
+    at = _run("oxygen", "en")
+    assert at.session_state["ws"] == "analysis" and at.session_state["page"] == "oxygen"
 
 
 def test_integration_button_produces_recommendation():

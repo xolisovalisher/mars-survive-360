@@ -1178,3 +1178,94 @@ Sito di atterraggio di Perseverance
 Sito di atterraggio di Curiosity (Gale)
 File non trovato
 Nella cornice gialla: rilievo ombreggiato del DEM caricato (finestra di analisi) — dettaglio alla scala del cratere.
+
+@browser
+Edizione browser: l’intera app funziona nel tuo browser (Python in WebAssembly); nulla viene inviato a un server.
+I 184 test automatici si eseguono nella versione desktop (python scripts/run_tests.py); l’edizione browser mostra l’ultimo rapporto dei test.
+L’edizione browser non può scaricare da sola il file USGS da 87 MB. Apri l’indirizzo sopra, salva il GeoTIFF sul computer e aggiungilo nella scheda «Carica».
+Si usa il mosaico a colori NASA Viking incluso; le tessere di Mars Trek si trovano su un altro sito che l’edizione browser non contatta.
+Risultati, missioni e modelli addestrati restano salvati solo finché questa scheda del browser non viene ricaricata.
+
+@workspace
+Piattaforma di pianificazione delle spedizioni su Marte
+Pianificatore di missione
+Livelli di dati
+Analisi del percorso
+Riepilogo della missione
+Sistema
+Rilievo, pericoli, obiettivi scientifici e fonti di dati della mappa.
+Percorsi, decisione dell’IA, rischio, supporto vitale e comunicazioni per l’uscita pianificata.
+Stato della missione, cronologia e rapporti.
+Impostazioni, lingue e autodiagnosi.
+Torna alla mappa
+Rilievo reale di Marte
+USGS CTX DEM · Jezero · 20 m
+Rilievo dimostrativo
+DEM reale non ancora caricato
+Caricamento del rilievo reale di Marte (USGS CTX DEM del cratere Jezero) — solo al primo avvio, circa 20–60 s…
+Configurazione della missione
+Configura la tua spedizione su Marte.
+Tipo di missione
+Uscita dell’astronauta (EVA)
+Traversata del rover
+Punto di partenza (A)
+Destinazione (B)
+Punto scelto sulla mappa
+Un clic sulla mappa imposta
+Partenza A
+Destinazione B
+Durata EVA (h)
+Limite di pendenza (°)
+Sovrapponi dati ambientali e scientifici.
+Topografia (ombreggiatura)
+Quota
+Pendenza
+Zone di pericolo
+Punti scientifici
+Percorribilità (IA)
+Tragitto di Perseverance
+Genera percorso
+Percorsi
+Zone di pericolo
+Punti
+Quote: {s} · Mappa di base: NASA Mars Trek · Coordinate: planetocentriche, °E
+Scelta dell’IA
+pericolo
+punteggio
+Mostra sulla mappa
+Indicatori chiave del percorso selezionato.
+Lunghezza del percorso
+3D, lungo il terreno
+Tempo di percorrenza
+{p} % del budget di {b} h
+Dislivello in salita
+salita totale
+Dislivello in discesa
+discesa totale
+O₂ rimasto alla fine
+Batteria rimasta alla fine
+Margine di rientro
+rientro possibile da ogni punto
+supera l’ultimo punto di rientro sicuro
+Avvisi di pericolo
+Nessun avviso per questo percorso.
+Rilievo dimostrativo in uso: i numeri mostrano il metodo, non valori reali di Jezero.
+{n} punti del percorso superano l’80 % del limite di {lim}° (max {m}°).
+Il {p} % del percorso attraversa celle ad alto pericolo.
+Registro dei rischi: {f} — {lv}.
+ripido
+Profilo del terreno
+Valutazioni della missione
+Decisione dell’IA
+Punteggio spiegabile di 4 percorsi candidati (tempo, energia, pericolo, pendenza, comunicazione, navigazione). Supporto alla decisione, non una regola di volo.
+Usa il percorso consigliato: {s}
+Percorso
+Obiettivo scientifico più vicino
+Rischio complessivo
+Dati di quota
+Briefing della missione ed esportazione
+Un rapporto condivisibile su percorso, analisi, rischi e obiettivi.
+Crea rapporto PDF
+Scarica PDF
+Strumenti collegati
+Apri il modulo dettagliato di qualsiasi elemento della mappa: stessa missione, stessi dati.

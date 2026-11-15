@@ -30,6 +30,18 @@ def _engine(key: str) -> Engine:
     return Engine(g)
 
 
+@st.cache_resource(show_spinner=False)
+def _real_dem_once() -> dict:
+    """First start only: fetch the real USGS Jezero DEM (see mars_survive.dem.bootstrap)."""
+    from mars_survive.dem.bootstrap import ensure_real_dem
+    return ensure_real_dem()
+
+
+def real_dem_status() -> dict:
+    from mars_survive.dem.bootstrap import status
+    return status()
+
+
 def engine() -> Engine:
     return _engine(_dem_key())
 
@@ -68,9 +80,14 @@ def init() -> Ctx:
     if "lang" not in ss:
         ss.lang = ss.settings.language
     if "page" not in ss:
-        ss.page = "dashboard"
+        ss.page = "map"
+    if "ws" not in ss:
+        ss.ws = "planner"
     if "mp" not in ss:
         ss.mp = MissionParams(budget_h=ss.settings.default_budget_h, slope_limit_deg=ss.settings.default_slope_limit)
+    if not PROCESSED_NPZ.exists() and not C.BROWSER and C.AUTO_REAL_DEM:
+        with st.spinner(Translator(ss.lang)("ws.dem_loading")):
+            ss._dem_boot = _real_dem_once()
     eng = engine()
     g = eng.g
     if "start" not in ss:
